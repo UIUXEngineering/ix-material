@@ -114,6 +114,29 @@
     }
   }
 
+  .layout-resources {
+    h4-link {
+      display: block;
+      margin-left: 0 !important;
+
+      .docs-header-link {
+        margin-top: 15px;
+        margin-bottom: 0 !important;
+
+        a {
+          //margin-left: -20px !important;
+          margin-right: 25px;
+        }
+      }
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+
   //@include component-category-list-theme($theme);
   //@include component-list-theme($theme);
   //@include component-viewer-sidenav-theme($theme);
