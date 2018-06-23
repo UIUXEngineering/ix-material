@@ -6,7 +6,7 @@
 //@import './app/pages/component-sidenav/component-sidenav-theme';
 //@import './app/pages/component-viewer/component-viewer-theme';
 //@import './app/pages/guide-list/guide-list-theme';
-@import './app/views/homepage/homepage-theme';
+@import 'app/pages/homepage/homepage-theme';
 @import './app/shared/util-components/doc-viewer/example-demo-viewer/example-demo-viewer-theme';
 //@import './app/shared/footer/footer-theme';
 @import './app/components/navbar/navbar-theme';
@@ -18,8 +18,8 @@
 @import './app/shared/doc-components/api-container/api-viewer/api-title/api-title.theme';
 @import './app/shared/doc-components/caution/caution.component.theme';
 @import './app/shared/util-components/table-of-contents/table-of-contents-theme';
-@import './app/views/icons/custom/search-icons/search-icons.component.theme';
-@import 'app/views/themes/demos/theme-overview/themes-overview.component.theme';
+@import 'app/pages/icons/custom/search-icons/search-icons.component.theme';
+@import 'app/pages/themes/demos/theme-overview/themes-overview.component.theme';
 
 // Styles for the docs app that are based on the current theme.
 @mixin material-app-theme($theme) {

@@ -1,47 +1,46 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './views/homepage';
-import { ThemesModule } from './views/themes/themes.module';
+import { HomepageComponent } from './pages/homepage';
 
 export const APP_ROUTES: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full', data: {} },
   {
     path: 'cdk',
-    loadChildren: './views/cdk/cdk.module#CdkModule',
+    loadChildren: './pages/cdk/cdk.module#CdkModule',
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'material',
-    loadChildren: './views/components/components.module#ComponentsModule',
+    loadChildren: './pages/components/components.module#ComponentsModule',
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'guides',
-    loadChildren: './views/guides/guides.module#GuidesModule',
+    loadChildren: './pages/guides/guides.module#GuidesModule',
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'icons',
-    loadChildren: './views/icons/icons.module#IconsModule',
+    loadChildren: './pages/icons/icons.module#IconsModule',
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'poc',
-    loadChildren: './views/poc/poc.module#PocModule',
+    loadChildren: './pages/poc/poc.module#PocModule',
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'themes',
-    loadChildren: './views/themes/themes.module#ThemesModule',
+    loadChildren: './pages/themes/themes.module#ThemesModule',
     data: <any>{
       preload: true,
     },

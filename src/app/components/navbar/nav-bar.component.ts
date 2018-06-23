@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CDK, COMPONENTS, GIT_REPO, GUIDES, ICONS, POC, PROJECTS, THEMES } from '../../../configs/constants';
 import { VersionService } from '../../services/version/version';
-import { ThemePickerModule } from '../../views/homepage/theme-picker/theme-picker.component';
-import { VersionPickerModule } from '../../views/homepage/version-picker/index';
+import { ThemePickerModule } from '../../pages/homepage/theme-picker/theme-picker.component';
+import { VersionPickerModule } from '../../pages/homepage/version-picker/index';
 
 const SECTIONS_KEYS = Object.keys(PROJECTS);
 

@@ -1,7 +1,7 @@
 import { TabItem } from '../app/shared/util-components/tab-group/tab-item';
-import { MenuApiComponent } from '../app/views/components/Layout/menu/menu-api/menu-api.component';
-import { MenuExampleComponent } from '../app/views/components/Layout/menu/menu-example/menu-example.component';
-import { MenuOverviewComponent } from '../app/views/components/Layout/menu/menu-overview/menu-overview.component';
+import { MenuApiComponent } from '../app/pages/components/Layout/menu/menu-api/menu-api.component';
+import { MenuExampleComponent } from '../app/pages/components/Layout/menu/menu-example/menu-example.component';
+import { MenuOverviewComponent } from '../app/pages/components/Layout/menu/menu-overview/menu-overview.component';
 import { IDataItem, IRoute } from '../models/routes';
 import {
   CDK,

@@ -14,7 +14,7 @@ import { PROGRAMMATIC_PRELOAD_STRATEGY_PROVIDER } from './services/programmatic-
 import { ProgrammaticPreloadingStrategy } from './services/programmatic-preload/progrommatic-preloading-strategy';
 import { ROUTE_PROVIDER } from './services/route/route.service';
 import { VersionService } from './services/version/version';
-import { HomepageModule } from './views/homepage/homepage.module';
+import { HomepageModule } from './pages/homepage/homepage.module';
 
 @NgModule({
   declarations: [AppComponent],
