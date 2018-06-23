@@ -1,0 +1,439 @@
+<guide-container [data]="data">
+  <p>
+    Standard components to make writing documentation in HTML easier.
+  </p>
+  <p>
+    Components designed specifically for documentation are located in
+    <code-bash-inline [code]="'./src/app/shared/doc-components'"></code-bash-inline>
+  </p>
+
+  <!--Containers-->
+  <h3-title text="Containers"></h3-title>
+  <div class="pad-left-20">
+    <p>
+      Containers are the base wrapper components in any documentation view. They provide pre-formatted titles and
+      footers such as links for see more, unit tests, version, etc. The data for these components is derived from
+      <code-bash-inline [code]="'./src/configs/nav-items.ts'"></code-bash-inline>
+    </p>
+    <p>
+      Containers also generate the right sidenav menu based on
+      <code-html-inline [code]="'h2, h3, h4'"></code-html-inline>
+      tags in the documentation.
+    </p>
+
+    <h4-link [anchor]="'Container-Components'">Container Components</h4-link>
+    <table mat-table [dataSource]="dataSourceComponents" class="component-table mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Component Column -->
+      <ng-container matColumnDef="component">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <code-html-inline [code]="element.component"></code-html-inline>
+        </td>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-left-5 pad-right-5">{{element.type}}</div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <h4-link [anchor]="'properties-of-wrapper-components'">
+      Properties of Wrapper Components
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceWrapperProperties" class="component-table mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-ts-block [code]="element.name"></code-ts-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+    <h4-link [anchor]="'properties-of-markdown-component'">
+      Properties of Markdown Component
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceMarkdownComponent" class="component-table mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-ts-block [code]="element.name"></code-ts-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyMarkdownColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+    <div class="push-top-20">
+      <caution>The 'file' property in the data config needs to be set to the path of the markdown file. See Examples in
+        ./src/configs/nav-items.ts
+      </caution>
+    </div>
+  </div>
+
+  <!--Header-->
+  <h3-title text="Headers - h2, h3, h4"></h3-title>
+  <div class="pad-left-20">
+    <p>
+      Headers are used both for styling content, as well the right
+      sidenav menu queries the <code-html-inline code="h2, h3, h4"></code-html-inline> in
+      the DOM to create the anchor links and menu links.
+    </p>
+
+    <h4-title [text]="'List of headers'"></h4-title>
+    <table mat-table [dataSource]="dataSourceHeaderComponents" class="component-table mat-elevation-z8">
+      <!-- Component Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-html-block [code]="element.component"></code-html-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+
+    <p class="push-top-40">You have two types of headers to choose depending on your needs: A Title Header and a Link Header.</p>
+
+    <h4-title [text]="'Title Headers'"></h4-title>
+    <p>
+      Title headers are the simplest in that you enter text and the text generates both the title and anchor link.
+      For example, this title code:
+    </p>
+    <div class="push-left-20">
+      <p>
+        <code-html-block [code]="sampleTitleHeader"></code-html-block>
+      </p>
+      <p>Generates this title:</p>
+      <p>
+        <h4-title [text]="'Sample Title'"></h4-title>
+      </p>
+      <p>
+        Look for this title in the right sidenav.
+      </p>
+    </div>
+
+    <h4-link [anchor]="'properties-title-headers'">
+      Properties of Title Headers
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceTitleHeader" class="component-table mat-elevation-z8">
+      <!-- Component Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-ts-block [code]="element.name"></code-ts-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+    <h4-title [text]="'Link Headers'"></h4-title>
+    <p>
+      Link headers allow for more complex markup in the title because the anchore tag is
+      not auto-generated by the content of the Link Header like Title Header. The differnece,
+      though, requires you to input the anchor tag manually. For example, this title code:
+    </p>
+    <div class="push-left-20">
+      <p>
+        <code-html-block [code]="sampleLinkHeader"></code-html-block>
+      </p>
+      <p>Generates this title:</p>
+      <p>
+        <h4-link [anchor]="'sample-link-header'"><i>Sample Link Header</i></h4-link>
+      </p>
+      <p>
+        Look for this title in the right sidenav.
+      </p>
+    </div>
+
+    <h4-link [anchor]="'properties-link-headers'">
+      Properties of Link Headers
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceLinkHeader" class="component-table mat-elevation-z8">
+      <!-- Component Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-ts-block [code]="element.name"></code-ts-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+  </div>
+
+  <!-- Link Component-->
+  <h3-title text="Link Component"></h3-title>
+  <div class="pad-left-20">
+    <p>
+      <code-html-block code="<a-link>Angular Material</a-link>"></code-html-block>
+    </p>
+    <p>
+      Adds an HTML link themed with a _blank target.
+    </p>
+
+    <!--Properties-->
+    <h4-link [anchor]="'properties-of-a-link'">
+      Properties of
+      <code-html-inline code="<a-link>"></code-html-inline>
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceALink" class="component-table mat-elevation-z8">
+      <!-- Component Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-ts-block [code]="element.name"></code-ts-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+    <h4-link [anchor]="'sample-of-a-link'">
+      Sample of
+      <code-html-inline code="<a-link>"></code-html-inline>
+    </h4-link>
+
+    <p>
+      <a-link [href]="'https://material.io/'">Angular Material</a-link>
+    </p>
+    <p>
+      <code-html-block [code]="sampleALink"></code-html-block>
+    </p>
+  </div>
+
+  <!--Caution-->
+  <h3-title text="Caution Component"></h3-title>
+  <div class="pad-left-20">
+    <p>
+      <code-html-block code="<caution>This is a Caution Component</caution>"></code-html-block>
+    </p>
+    <p>
+      Adds an HTML link themed with a _blank target.
+    </p>
+
+    <h4-link [anchor]="'sample-of-a-link'">
+      Sample of
+      <code-html-inline code="<caution>"></code-html-inline>
+    </h4-link>
+
+    <caution>This is a caution block.</caution>
+    <p>
+      <code-html-block [code]="sampleCaution"></code-html-block>
+    </p>
+  </div>
+
+  <!--Code-->
+  <h3-title text="Syntax Highlighting Components"></h3-title>
+  <div class="pad-left-20">
+    <p>
+      All syntax highlighting components highlight a specific programming language and format as inline or block.
+    </p>
+    <p>
+      This example --
+      <code-html-inline [code]="syntaxHighLightExample"></code-html-inline>
+      -- is inline.
+    </p>
+    <p>
+      This example is a block:
+      <code-ts-block [code]="syntaxHighlightBlockExample"></code-ts-block>
+    </p>
+
+
+    <h4-link [anchor]="'syntax-highlight-components'">
+      Syntax Highlighting Components List
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceSyntaxHighlight" class="component-table mat-elevation-z8">
+
+      <!-- Component Column -->
+      <ng-container matColumnDef="component">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <code-html-inline [code]="element.component"></code-html-inline>
+        </td>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-left-5 pad-right-5">{{element.type}}</div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!--Properties-->
+    <h4-link [anchor]="'properties-of-a-code'">
+      Properties of Syntax Highlight Components
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceCode" class="component-table mat-elevation-z8">
+      <!-- Component Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-ts-block [code]="element.name"></code-ts-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+    <p class="push-top-30">
+      For the import components you have a couple of extra attributes:
+    </p>
+    <p>
+      <code-html-block [code]="sampleCodeImportInline"></code-html-block>
+    </p>
+    <p>
+      which renders as:
+    </p>
+    <p>
+      <code-import-inline _import="hasValue" _from="@uiux/cdk/object"></code-import-inline>
+    </p>
+    <p>
+      And the block version:
+    </p>
+    <p>
+      <code-html-block [code]="sampleCodeImportBlock"></code-html-block>
+    </p>
+    <p>
+      which renders as:
+    </p>
+    <p>
+      <code-import-block _import="hasValue" _from="@uiux/cdk/object"></code-import-block>
+    </p>
+    <!--Properties-->
+    <h4-link [anchor]="'properties-of-a-code-import'">
+      Properties of Syntax Highlight Import
+    </h4-link>
+    <table mat-table [dataSource]="dataSourceCodeImport" class="component-table mat-elevation-z8">
+      <!-- Component Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Component</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="pad-right-20">
+            <code-ts-block [code]="element.name"></code-ts-block>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedPropertyColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedPropertyColumns;"></tr>
+    </table>
+
+  </div>
+
+</guide-container>

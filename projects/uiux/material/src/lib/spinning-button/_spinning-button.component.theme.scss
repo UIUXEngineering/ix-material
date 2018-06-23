@@ -1,0 +1,22 @@
+
+@mixin sp-spinning-button-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  .sp-spinning-button {
+
+    span {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    &.mat-primary, &.mat-accent, &.mat-warn {
+      .mat-spinner svg circle {
+        stroke: #ffffff;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '../theme.palette';
+
+$background-image-width: 100%;
+$background-image-height: 656px;;
+
+@mixin background-image-wrapper() {
+  position: absolute;
+  width: 100%;
+  height: $background-image-height;
+  top: 0;
+  left: 0;
+  background: $background-main-color;
+  overflow: hidden;
+}
+
+@mixin background-image-wrapper-full-view() {
+  @include background-image-wrapper();
+  height: 100%;
+}
+
+@mixin background-image-url($url) {
+  position: absolute;
+  width: 100%;
+  height: $background-image-height;
+  background: $background-main-color url($url) no-repeat 50% top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
+@mixin background-image-url-full-view($url) {
+  @include background-image-url($url);
+  height: 100%;
+}

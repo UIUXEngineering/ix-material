@@ -1,0 +1,7 @@
+.guides-sidenav-button {
+  background-color: transparent !important;
+  .docs-component-viewer-sidenav-item-selected,
+  &:hover {
+    background-color: transparent !important;
+  }
+}

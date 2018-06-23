@@ -1,0 +1,45 @@
+<!-- TODO: figure out if the <nav> should go inside of a <header> element. -->
+<nav class="docs-navbar-header">
+  <a mat-button class="docs-button" routerLink="/" aria-label="Angular Material">
+    <mat-icon class="docs-angular-logo" svgIcon="uiux-logo"></mat-icon>
+    <span>UI Utilities</span>
+  </a>
+  <a mat-button class="docs-navbar-hide-small docs-button"
+     *ngFor="let key of sectionKeys"
+     [routerLink]="key.route">{{sections[key.name]}}</a>
+  <div class="flex-spacer"></div>
+  <!-- TODO(tinayuangao): Uncomment this when we are ready for v6
+    <app-version-picker></app-version-picker>
+  -->
+  <div class="pad-left-15 pad-right-15">{{ version }}</div>
+  <app-theme-picker></app-theme-picker>
+  <a mat-button class="docs-button docs-navbar-hide-small" href="{{gitRepoBase}}"
+     target="_blank"
+     aria-label="GitHub Repository">
+    <!--<img class="docs-angular-logo"-->
+         <!--src="../../../assets/img/homepage/github-circle-white-transparent.svg"-->
+         <!--alt="angular">-->
+    <!--GitHub-->
+    <img class="docs-angular-logo"
+         src="../../../assets/img/homepage/github-circle-white-transparent.svg"
+         alt="angular">
+    GitHub
+  </a>
+  <a mat-icon-button
+     class="docs-button docs-navbar-show-small"
+     href="https://github.com/angular/material2"
+     target="_blank"
+     aria-label="GitHub Repository">
+    <!--<img class="docs-angular-logo"-->
+         <!--src="../../../assets/img/homepage/github-circle-white-transparent.svg"-->
+         <!--alt="angular">-->
+    <img class="docs-angular-logo"
+         src="../../../assets/img/homepage/github-circle-white-transparent.svg"
+         alt="angular">
+  </a>
+</nav>
+<nav class="docs-navbar docs-navbar-show-small">
+  <a mat-button class="docs-navbar-link"
+    *ngFor="let key of sectionKeys"
+    [routerLink]="key.route">{{sections[key.name]}}</a>
+</nav>

@@ -1,0 +1,37 @@
+.search-icons {
+
+  .search-form {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-form-field {
+      width: 350px;
+    }
+
+
+  }
+  .icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    .icon-box {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 120px;
+      height: 120px;
+
+      .icon {
+        padding-bottom: 20px;
+      }
+
+      .name {
+        text-align: center;
+      }
+    }
+  }
+}

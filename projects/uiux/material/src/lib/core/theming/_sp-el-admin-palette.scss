@@ -1,0 +1,196 @@
+/*
+To generate palette, see http://mcg.mbitson.com/
+ */
+@import 'palette.opacity';
+
+$sp-el-admin-primary: (
+        50 : #e0eff7,
+        100 : #b3d7ea,
+        200 : #80bcdd,
+        300 : #4da1cf,
+        400 : #268cc4,
+        500 : #0078ba,
+        600 : #0070b3,
+        700 : #0065ab,
+        800 : #005ba3,
+        900 : #004894,
+        A100 : #bfdaff,
+        A200 : #8cbcff,
+        A400 : #599eff,
+        A700 : #408fff,
+        contrast: (
+                50: $black-87-opacity,
+                100: $black-87-opacity,
+                200: $black-87-opacity,
+                300: $black-87-opacity,
+                400: white,
+                500: white,
+                600: $white-87-opacity,
+                700: $white-87-opacity,
+                800: $white-87-opacity,
+                900: $white-87-opacity,
+                A100: $black-87-opacity,
+                A200: $black-87-opacity,
+                A400: white,
+                A700: $white-87-opacity,
+        )
+);
+
+$sp-el-admin-accent: (
+        50 : #fdede7,
+        100 : #fbd2c3,
+        200 : #f9b59b,
+        300 : #f69772,
+        400 : #f48054,
+        500 : #f26a36,
+        600 : #f06230,
+        700 : #ee5729,
+        800 : #ec4d22,
+        900 : #e83c16,
+        A100 : #ffffff,
+        A200 : #ffe9e5,
+        A400 : #ffbeb3,
+        A700 : #ffa899,
+        contrast: (
+                50: $black-87-opacity,
+                100: $black-87-opacity,
+                200: $black-87-opacity,
+                300: $black-87-opacity,
+                400: $black-87-opacity,
+                500: $black-87-opacity,
+                600: $black-87-opacity,
+                700: $black-87-opacity,
+                800: white,
+                900: white,
+                A100: $black-87-opacity,
+                A200: $black-87-opacity,
+                A400: $black-87-opacity,
+                A700: black,
+        )
+);
+
+$sp-el-admin-warn: (
+        50 : #fde7e8,
+        100 : #fac3c5,
+        200 : #f79b9f,
+        300 : #f47378,
+        400 : #f1555b,
+        500 : #ef373e,
+        600 : #ed3138,
+        700 : #eb2a30,
+        800 : #e82328,
+        900 : #e4161b,
+        A100 : #ffffff,
+        A200 : #ffe1e2,
+        A400 : #ffaeb0,
+        A700 : #ff9597,
+        contrast: (
+                50: $black-87-opacity,
+                100: $black-87-opacity,
+                200: $black-87-opacity,
+                300: $black-87-opacity,
+                400: $black-87-opacity,
+                500: white,
+                600: white,
+                700: white,
+                800: $white-87-opacity,
+                900: $white-87-opacity,
+                A100: $black-87-opacity,
+                A200: white,
+                A400: white,
+                A700: white,
+        )
+);
+
+$sp-el-admin-command-primary: (
+        50 : #f6fafc,
+        100 : #eaf2f9,
+        200 : #dceaf5,
+        300 : #cde1f0,
+        400 : #c3daed,
+        500 : #b8d4ea,
+        600 : #b1cfe7,
+        700 : #a8c9e4,
+        800 : #a0c3e1,
+        900 : #91b9db,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #f3f9ff,
+        contrast: (
+                50: $black-87-opacity,
+                100: $black-87-opacity,
+                200: $black-87-opacity,
+                300: $black-87-opacity,
+                400: white,
+                500: white,
+                600: $white-87-opacity,
+                700: $white-87-opacity,
+                800: $white-87-opacity,
+                900: $white-87-opacity,
+                A100: $black-87-opacity,
+                A200: $black-87-opacity,
+                A400: white,
+                A700: $white-87-opacity,
+        )
+);
+
+$earth: #0076be;
+$sun: #f7921e;
+$citrus: #f26a36;
+$slate: #39607a;
+$concrete: #5e6367;
+$lily: #8d54a2;
+$tomato: #ef373e;
+$leaf: #69b342;
+$darkLeaf: #719346;
+$gravel: #9cbccd;
+$daisy: #ffe600;
+$black: #231f20;
+$border: lighten($concrete, 45%);
+$background: #f1f1f2;
+$shadow: #bbbdbf;
+$transparent: transparent;
+$odd-row: lighten($concrete, 55%);
+$even-row: lighten($concrete, 59%);
+$widget-bg: lighten($concrete, 60%);
+$row-onhover: lighten($concrete, 50%);
+
+$uiux-1: #425b6e;
+$uiux-2: rgba(#000000, 0.9);
+$uiux-3: rgba(38, 58, 77, 0.9);
+
+// Custom Colors that are not in a theme architecture
+$custom-colors: (
+        custom: (
+                uiux-1: $uiux-1,
+
+                // transparent background for overlay dark theme
+                uiux-2: $uiux-2,
+
+                // transparent background for overlay dark theme
+                // same hue as command panel with shade
+                uiux-3: $uiux-3,
+
+                earth: $earth,
+                sun: $sun,
+                citrus: $citrus,
+                slate: $slate,
+                concrete: $concrete,
+                lily: $lily,
+                tomato: $tomato,
+                leaf: $leaf,
+                darkLeaf: $darkLeaf,
+                gravel: $gravel,
+                daisy: $daisy,
+                black: $black,
+                border: $border,
+                background: $background,
+                shadow: $shadow,
+                transparent: $transparent,
+                odd-row: $odd-row,
+                even-row: $even-row,
+                widget-bg: $widget-bg,
+                row-onhover: $row-onhover,
+        )
+);

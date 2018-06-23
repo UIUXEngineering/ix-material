@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side"
+               opened
+               [fixedTopGap]="fixedTopGap"
+               [fixedInViewport]="true">
+    <div class="pad-20 sidenav-menu">
+      <div [spShow]="showNav">
+        <!--header-->
+        <mat-expansion-panel *ngFor="let key of items"
+                             [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{key.name}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <!--content-->
+          <div>
+            <a class="sidenav-button docs-button"
+               *ngFor="let child of key.children"
+               routerLinkActive="docs-component-viewer-sidenav-item-selected"
+               [routerLink]="child.route"><span class="pad-left-20">{{child.name}}</span></a>
+          </div>
+
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="pad-top-20 pad-left-40 pad-right-20 pad-bottom-20">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

@@ -1,0 +1,9 @@
+<div *ngIf="items.length">
+  <h4-title [text]="'See Also:'"></h4-title>
+  <ul class="see-also-items">
+    <li *ngFor="let item of items">
+      <a class="link-primary" [routerLink]="item.route">{{item.name}}</a>
+    </li>
+  </ul>
+</div>
+

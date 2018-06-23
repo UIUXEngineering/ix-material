@@ -1,0 +1,13 @@
+
+@mixin sp-search-autocomplete-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  .search-autocomplete-btn {
+    background-color: if($is-dark, rgba(white, 0.15), rgba(black, 0.1));
+  }
+}

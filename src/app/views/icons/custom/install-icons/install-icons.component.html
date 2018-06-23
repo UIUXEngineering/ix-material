@@ -1,0 +1,122 @@
+<guide-container [data]="data">
+  <p class="indent">
+    Custom SVG icons are contained in their own project. Install the project as you would any other module.
+  </p>
+  <p class="indent">
+    <caution>It is recommended not to save the icons module in installing as the module is quite large, and can slow
+      down your CI builds.
+    </caution>
+  </p>
+
+  <h3-title [text]="'Install CLI'"></h3-title>
+  <p class="indent">
+    For development convenience, a CLI is created to concat svg icons into one file, namespacing them so it's easy
+    to add to your project. Install the CLI globally:
+  </p>
+  <p class="indent">
+    <code-bash-block [code]="'npm install -g @uiux/cli'"></code-bash-block>
+  </p>
+  <p class="indent">
+    Install the icons project locally:
+  </p>
+  <p class="indent">
+    <code-bash-block [code]="'npm install @uiux/icons'"></code-bash-block>
+  </p>
+
+  <h3-title [text]="'Sample Icon Config'"></h3-title>
+  <p class="indent">
+    Place a config file named
+    <code-bash-inline [code]="'.sp-cli.json'"></code-bash-inline>
+    in
+    the root directory of your project. The CLI will read this config to concat your custom icons.
+  </p>
+  <p class="indent">
+    <code-json-block [code]="sampleConfig"></code-json-block>
+  </p>
+
+  <h3-title [text]="'Config Schema'"></h3-title>
+  <div class="indent schema">
+    <ul>
+      <li>
+          <strong>svg</strong> ( <code-bash-inline code="object"></code-bash-inline> ): svg config for cli processing.
+
+          <ul>
+            <li>
+              <strong>tsReference</strong> ( <code-bash-inline code="string"></code-bash-inline> ):
+              TS file referencing final output of concatenated svg file. Used for Material loading
+              so you don't have make many changes in your project if changing the name of the assets
+              file or version.
+            </li>
+            <li>
+              <strong>sets</strong> ( <code-bash-inline code="array"></code-bash-inline> ):
+              Contains configs to create multiple concatenated svg files ( if you wanted multiple files).
+
+              <ul>
+                <li>
+                  <strong>version</strong> ( <code-bash-inline code="string"></code-bash-inline> ):
+                  Adds version of output file. For example the 'v2' in <code-bash-inline code="icon-set-v2.svg"></code-bash-inline>
+                </li>
+                <li>
+                  <strong>outDir</strong> ( <code-bash-inline code="string"></code-bash-inline> ):
+                  Location to save concatenated svg file. For example <code-bash-inline code="./src/assets/svg/icon-set-v2.svg"></code-bash-inline>
+                </li>
+                <li>
+                  <strong>setName</strong> ( <code-bash-inline code="string"></code-bash-inline> ):
+                  Location to save concatenated svg file. For example the 'icon-set' in <code-bash-inline code="./src/assets/svg/icon-set-v2.svg"></code-bash-inline>
+                </li>
+                <li>
+                  <strong>srcFiles</strong> ( <code-bash-inline code="object"></code-bash-inline> ):
+                  Source svg file paths and names. Each key of this object is the path to a base directory to svg files.
+
+                  <ul>
+                    <li>
+                      <strong>key of object [path to an svg directory]</strong> ( <code-bash-inline code="object"></code-bash-inline> ):
+                      Each key of this object is the path to a base directory to svg files.
+
+                      <ul>
+                        <li>
+                          <strong>key of object: [svg file name]</strong> ( <code-bash-inline code="object"></code-bash-inline> ):
+                          <ul>
+                            <li>
+                              <strong>id</strong> ( <code-bash-inline code="string"></code-bash-inline> ):
+                              Angular Material Reference name of svg file.
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3-title text="Creating SVG concatenated file"></h3-title>
+  <div class="indent">
+    In the command line, run the svg command for the cli.
+  </div>
+  <div class="indent">
+    <code-bash-block code="sp svg"></code-bash-block>
+  </div>
+
+  <h3-title text="Consume with Angular Material"></h3-title>
+  <div class="indent">
+    Add to TS Class.
+  </div>
+  <div class="indent">
+    <code-ts-block [code]="materialSvg"></code-ts-block>
+  </div>
+  <div class="indent">
+    Add to HTML.
+  </div>
+  <div class="indent">
+    <code-html-block [code]="materialSvgHtml"></code-html-block>
+  </div>
+  <div class="indent">
+    "iconList:logo" references icon file in config:
+    <code-json-block [code]="svgFileConfig"></code-json-block>
+  </div>
+</guide-container>

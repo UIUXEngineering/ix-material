@@ -1,0 +1,83 @@
+<guide-container [data]="data">
+  <p class="indent scroll-horizontal">
+    The base of the CDK directory is located in
+    <code-bash-block [code]="'./projects/uiux/cdk'"></code-bash-block>
+  </p>
+  <p class="indent">
+    <project-architecture></project-architecture>
+  </p>
+  <p class="indent">
+    Specifically for this CDK, it is built to be consumed the same as the <angular-cdk></angular-cdk>. For
+    more information on architecture see
+    <a-link [href]="seconaryEnpoints">Secondary Endpoints</a-link> in the
+    <ng-packagr></ng-packagr> repo.
+  </p>
+  <p>
+    The best way to add to the project is to copy a directory and rename files for your own code.
+  </p>
+  <p class="indent">
+    Here are the important steps to add to the CDK.
+  </p>
+
+  <h4-title [text]="'1. Copy Starter Folder'"></h4-title>
+  <p class="indent">
+    The starter folder is located in
+    <code-bash-inline [code]="'./projects/uiux/cdk/starter'"></code-bash-inline>.
+  </p>
+  <p class="indent">
+    Copy and rename to your directory name. Do not change the
+    <code-bash-inline [code]="'index.ts'"></code-bash-inline> and
+    <code-bash-inline [code]="'package.json'"></code-bash-inline> files. They
+    remain identical for all CDK directories and are used by the cli to build
+    each package as an exposed directory.
+  </p>
+
+  <h4-title [text]="'2. Add code to src'"></h4-title>
+  <p class="indent">
+    Add code to the <code-bash-inline [code]="'src'"></code-bash-inline> directory.
+    The code may be anything -- Angular services, stand-alone functions, classes. Anything.
+  </p>
+
+  <h4-title [text]="'3. add exports to public_api'"></h4-title>
+  <p class="indent">
+    The <code-bash-inline [code]="'public_api.ts'"></code-bash-inline> file
+    is a barrel file to link all your exports. It is this file that exposes
+    your code as an API to the outside world.
+  </p>
+  <p class="indent">
+    Now your function, class, what ever will be consumable just like the <angular-cdk></angular-cdk>.
+    Import a sub-module like this:
+    <code-ts-block [code]="starterImport"></code-ts-block>
+    Then use your code as you normally would as it's exported - function, class, Angular service, etc.
+  </p>
+
+  <h4-title [text]="'4. Unit Tests'"></h4-title>
+  <p class="indent">
+    To run Unit Tests:
+
+    <code-bash-block [code]="'yarn test.cdk'"></code-bash-block>
+    Note, building is not required for testing.
+  </p>
+
+  <h4-title [text]="'5. Lint'"></h4-title>
+  <p class="indent">
+    To run prettier and lint:
+
+    <code-bash-block [code]="'yarn lint.cdk'"></code-bash-block>
+  </p>
+
+  <h4-title [text]="'6. Building'"></h4-title>
+  <p class="indent">
+    Building is required to run demo's in the Doc app, and to distribute
+    via NPM. To build, run:
+
+    <code-bash-block [code]="'yarn build.cdk'"></code-bash-block>
+  </p>
+
+  <h4-title [text]="'6. Document'"></h4-title>
+  <p class="indent">
+    See <see-doc-components></see-doc-components>.
+  </p>
+
+
+</guide-container>

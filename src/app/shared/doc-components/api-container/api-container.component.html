@@ -1,0 +1,14 @@
+<div class="docs-viewer-content">
+  <api-viewer [data]="data"
+              [containerCssClass]="containerCssClass"
+              (contentLoaded)="onContentLoaded()">
+    <ng-content></ng-content>
+  </api-viewer>
+  <table-of-contents #toc
+                     *ngIf="showToc"
+                     headerSelectors="h2,.docs-api-h3,.docs-api-h4"
+                     [scrollContainer]="'.mat-sidenav-content'"
+                     [data]="data"
+                     [contentContainer]="'.docs-api-viewer-cmp-content'"
+  ></table-of-contents>
+</div>

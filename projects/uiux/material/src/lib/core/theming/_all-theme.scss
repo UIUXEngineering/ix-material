@@ -1,0 +1,30 @@
+// Import all the theming functionality.
+
+@import '../../slide-in/slide-in.component.theme';
+@import '../../search-autocomplete/src/search-autocomplete.component.theme';
+@import '../../spinning-button/spinning-button.component.theme';
+@import '../../menu/src/menu-theme';
+@import '../../show/show.directive.theme';
+@import './utilities/utilities';
+@import './utilities/text';
+
+@mixin sp-core($config: null) {
+
+  @if $config == null {
+    $config: mat-typography-config();
+  }
+
+  @include sp-menu-typography($config);
+}
+
+
+// Create a theme.
+@mixin sp-material-theme($theme) {
+  @include uiux-text-utilities();
+  @include sp-utilities();
+  @include sp-slide-in-component-theme($theme);
+  @include sp-search-autocomplete-component-theme($theme);
+  @include sp-show-directive-theme($theme);
+  @include sp-spinning-button-component-theme($theme);
+  @include sp-menu-theme($theme);
+}

@@ -1,0 +1,5 @@
+@import '../core/mixins/show-hide';
+
+@mixin sp-show-directive-theme($theme) {
+    @include animate-show();
+}

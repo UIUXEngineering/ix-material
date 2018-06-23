@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'pad';
+@import 'pull';
+@import 'push';
+@import 'size';
+
+@mixin sp-utilities() {
+  @include uiux-padding-utilities();
+  @include uiux-pulling-utilities();
+  @include uiux-pushing-utilities();
+  @include uiux-size-utilities();
+}

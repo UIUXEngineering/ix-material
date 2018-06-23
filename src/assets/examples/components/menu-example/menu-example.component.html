@@ -1,0 +1,23 @@
+<button mat-raised-button color="primary"
+        [sp-menu-trigger-for]="exampleMenu">Menu</button>
+
+<sp-menu #exampleMenu="SPMenu"
+          yPosition="below"
+          [overlapTrigger]="false"
+          [spDisableClose]="true"
+          [spMenuModelID]="'exampleMenu'"
+          (click)="$event.stopPropagation();">
+  <div class="example-form-container">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite food" value="Sushi">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Leave a comment"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="onSubmit($event)">Submit</button>
+    </form>
+  </div>
+</sp-menu>

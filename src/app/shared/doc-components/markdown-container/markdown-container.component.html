@@ -1,0 +1,17 @@
+<div class="docs-viewer-content">
+  <div class="docs-api-content  docs-markdown-viewer-cmp-content">
+    <guide-title [title]="data.name" [link]="'markdown-title'"></guide-title>
+    <div class="push-top-20 push-bottom-20">
+      <markdown-viewer [data]="data"
+                       [containerCssClass]="containerCssClass"
+                       (contentLoaded)="onContentLoaded()">
+      </markdown-viewer>
+    </div>
+  </div>
+
+  <table-of-contents #tocOverviewViewer
+                     headerSelectors="h2,h3,h4"
+                     [scrollContainer]="'.mat-sidenav-content'"
+                     [data]="data"
+                     [contentContainer]="'.docs-overview-viewer-cmp-content'"></table-of-contents>
+</div>

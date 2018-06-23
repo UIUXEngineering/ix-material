@@ -1,0 +1,21 @@
+<div class="sp-slide-in-container">
+  <div class="sp-slide-in-banner-container" fxLayout="row" fxLayoutAlign="start end">
+    <div class="sp-slide-in-banner-spacer"></div>
+    <div class="sp-slide-in-banner-trigger-container" fxLayout="column">
+      <div class="sp-slide-in-banner-trigger" fxLayout="row" fxLayoutAlign="center center" (click)="toggle()">
+        <span>
+          <mat-icon>{{options.iconName}}</mat-icon>
+        </span>
+        <span>
+          {{config.tabVerbiage}}
+        </span>
+      </div>
+      <div fxFlex="1 1 auto"></div>
+    </div>
+  </div>
+  <div class="sp-slide-in-body-container" [ngStyle]="{'height': options.bodyContainerHeight}">
+    <div class="sp-slide-in-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

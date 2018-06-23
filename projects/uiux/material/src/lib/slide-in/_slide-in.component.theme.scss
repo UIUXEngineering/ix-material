@@ -1,0 +1,37 @@
+@mixin sp-slide-in-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $is-dark: map-get($theme, is-dark);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .sp-slide-in {
+
+    .sp-slide-in-container {
+
+      .sp-slide-in-banner-container {
+
+        .sp-slide-in-banner-spacer {
+          background-color: mat-color($background, background);
+        }
+
+        .sp-slide-in-banner-trigger-container {
+          background-color: mat-color($background, background);
+
+          .sp-slide-in-banner-trigger {
+            color: mat-color($primary);
+          }
+        }
+      }
+
+      .sp-slide-in-body-container {
+        background-color: mat-color($background, background);
+      }
+    }
+  }
+}
+
+@mixin uiux-slide-in-typography($config) {
+
+}

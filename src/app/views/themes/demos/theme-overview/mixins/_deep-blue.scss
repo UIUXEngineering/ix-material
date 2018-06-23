@@ -1,0 +1,120 @@
+
+@mixin deep-blue-palette($palette) {
+  $contrast: map-get($palette, contrast);
+  $background: map-get($palette, background);
+
+  .deep-blue-50 {
+    background-color: map-get($palette, 50);
+  }
+
+  @for $i from 1 through 9 {
+    .deep-blue-#{$i * 100} {
+      background-color: map-get($palette, ($i * 100));
+    }
+  }
+
+  .deep-blue-A100 {
+    background-color: map-get($palette, A100);
+  }
+
+  .deep-blue-A200 {
+    background-color: map-get($palette, A200);
+  }
+
+  .deep-blue-A300 {
+    background-color: map-get($palette, A300);
+  }
+
+  .deep-blue-A400 {
+    background-color: map-get($palette, A400);
+  }
+
+  .deep-blue-A700 {
+    background-color: map-get($palette, A700);
+  }
+
+  .deep-blue-contrast-50 {
+    background-color: map-get($contrast, 50);
+  }
+
+  @for $i from 1 through 9 {
+    .deep-blue-contrast-#{$i * 100} {
+      background-color: map-get($contrast, ($i * 100));
+    }
+  }
+
+  .deep-blue-contrast-A100 {
+    background-color: map-get($contrast, A100);
+  }
+
+  .deep-blue-contrast-A200 {
+    background-color: map-get($contrast, A200);
+  }
+
+  .deep-blue-contrast-A300 {
+    background-color: map-get($contrast, A300);
+  }
+
+  .deep-blue-contrast-A400 {
+    background-color: map-get($contrast, A400);
+  }
+
+  .deep-blue-contrast-A700 {
+    background-color: map-get($contrast, A700);
+  }
+
+  .deep-blue-default {
+    background-color: map-get($palette, default);
+  }
+
+  .deep-blue-lighter {
+    background-color: map-get($palette, lighter);
+  }
+
+  .deep-blue-darker {
+    background-color: map-get($palette, darker);
+  }
+
+  .deep-blue-default-contrast {
+    background-color: map-get($palette, default-contrast);
+  }
+
+  .deep-blue-lighter-contrast {
+    background-color: map-get($palette, lighter-contrast);
+  }
+
+  .deep-blue-darker-contrast {
+    background-color: map-get($palette, darker-contrast);
+  }
+
+  .deep-blue-50-contrast {
+    background-color: map-get($palette, 50-contrast);
+  }
+
+  @for $i from 1 through 9 {
+    .deep-blue-#{$i * 100}-contrast {
+      background-color: map-get($palette, #{$i * 100}-contrast);
+    }
+  }
+
+  .deep-blue-A100-contrast {
+    background-color: map-get($palette, A100-contrast);
+  }
+
+  .deep-blue-A200-contrast {
+    background-color: map-get($palette, A200-contrast);
+  }
+
+  .deep-blue-A300-contrast {
+    background-color: map-get($palette, A300-contrast);
+  }
+
+  .deep-blue-A400-contrast {
+    background-color: map-get($palette, A400-contrast);
+  }
+
+  .deep-blue-A700-contrast {
+    background-color: map-get($palette, A700-contrast);
+  }
+
+}

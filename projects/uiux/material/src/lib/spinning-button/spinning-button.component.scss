@@ -1,0 +1,18 @@
+.sp-spinning-button {
+  cursor: default;
+
+  .sp-spinning-outer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    .mat-spinner {
+      position: relative;
+      top: 10px;
+      //left: 35px;
+
+      display: table;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,422 @@
+@import '../../../node_modules/@angular/material/theming';
+@import '../cutom-palettes';
+
+// Assign theme to variable
+// for ease of editing
+$mat-linear-out-slow-in-timing-function: cubic-bezier(0, 0, 0.2, 0.1) !default;
+$mat-fast-out-slow-in-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$mat-fast-out-linear-in-timing-function: cubic-bezier(0.4, 0, 1, 1) !default;
+
+$ease-in-out-curve-function: cubic-bezier(0.35, 0, 0.25, 1) !default;
+
+$swift-ease-out-duration: 400ms !default;
+$swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function !default;
+
+$swift-ease-in-duration: 300ms !default;
+$swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !default;
+
+$swift-ease-in-out-duration: 500ms !default;
+$swift-ease-in-out-timing-function: $ease-in-out-curve-function !default;
+$swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function !default;
+
+$swift-linear-duration: 80ms !default;
+$swift-linear-timing-function: linear !default;
+$swift-linear: all $swift-linear-duration $swift-linear-timing-function !default;
+
+@mixin theme-override-classes($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  // Apply theme for this app
+  .mat-drawer-container {
+    background: mat-color($background, background);
+  }
+
+  .app-view-top {
+    padding-top: 85px !important;
+  }
+
+  .alert-background {
+    background-color: mat-color($warn);
+    line-height: 1.5;
+  }
+
+  .alert {
+    &.success {
+      background-color: mat-color($primary);
+    }
+
+    &.error {
+      background-color: mat-color($warn);
+    }
+  }
+
+  .input-error {
+    color: mat-color($warn);
+  }
+
+  .color-primary {
+    color: mat-color($primary, 500);
+  }
+
+  .color-accent {
+    color: mat-color($accent, 500);
+  }
+
+  .color-warn {
+    color: mat-color($warn, 500);
+  }
+
+  .background-primary {
+    background-color: mat-color($primary, 500);
+  }
+
+  .border-primary {
+    border: 1px solid mat-color($primary, 500);
+  }
+
+  .border-faded {
+    border: 1px solid mat-color($primary, 200);
+  }
+
+  .enabled-opacity {
+    opacity: 1 !important;
+  }
+
+  .disabled-opacity {
+    opacity: 0;
+    transition: opacity 300ms $swift-ease-out-timing-function;
+  }
+
+  .xi-mini-fab-small {
+    &.mat-mini-fab {
+      width: 26px;
+      height: 26px;
+      color: white;
+
+      .mat-button-wrapper {
+        padding: 0 0;
+        display: block;
+        line-height: 0px;
+      }
+    }
+  }
+
+  .app-card-footer-progress-bar-container {
+    height: 2px;
+  }
+
+  .app-mini-fab-button {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  @if $is-dark {
+
+    $dark-palette: $deep-mat-blue;
+
+    $app-303030: mat-color($dark-palette, 900);
+    $app-424242-lighter: mat-color($dark-palette, 700);
+    $app-424242: mat-color($dark-palette, 800);
+    $app-616161: mat-color($dark-palette, 600);
+    $app-616161-lighter: mat-color($dark-palette, 400);
+    $app-border-color: rgba($app-616161-lighter, 0.8);
+
+    .mat-drawer-container {
+      background: mat-color($background, background);
+
+      .mat-drawer {
+        background-color: $app-424242;
+      }
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: rgba(mat-color($dark-palette, 100), 0.6)
+    }
+
+    .action-primary-btn {
+      &.mat-button, &.mat-raised-button, &.mat-mini-fab {
+        //color: mat-color($primary, default);
+        color: white !important;
+        background-color: mat-color($primary, default) !important;
+      }
+      &.mat-button[disabled], &.mat-raised-button[disabled], &.mat-mini-fab[disabled] {
+        color: mat-color($dark-palette, 100) !important;
+        background-color: mat-color($dark-palette, 400) !important;
+      }
+    }
+
+    .action-accent-btn {
+      &.mat-button, &.mat-raised-button, &.mat-mini-fab {
+        color: white;
+        background-color: mat-color($accent, 700);
+      }
+      &.mat-button[disabled], &.mat-raised-button[disabled], &.mat-mini-fab[disabled] {
+        color: mat-color($dark-palette, 100);
+        background-color: mat-color($dark-palette, 400);
+      }
+    }
+
+    .action-warn-btn {
+      &.mat-button {
+        //color: white;
+        background-color: mat-color($warn, 700);
+      }
+      &.mat-button[disabled] {
+        color: mat-color($dark-palette, 100);
+        background-color: mat-color($dark-palette, 400);
+      }
+    }
+
+    .mat-card-accent {
+      background-color: mat-color($accent, 700);
+
+      .mat-card-title {
+        color: white;
+      }
+    }
+
+    .mat-card, .mat-dialog-container {
+      background: $app-424242 !important;
+      .mat-card-title {
+        color: mat-color($primary, default);
+      }
+    }
+
+    .mat-dialog-container {
+      border: 1px solid $app-border-color;
+    }
+
+    .mat-autocomplete-panel {
+      border: 1px solid $app-border-color;
+      background: $app-424242;
+    }
+
+    .mat-select-panel {
+      border: 1px solid $app-border-color;
+      .mat-select-content {
+        background: $app-424242;
+      }
+    }
+
+    .mat-expansion-panel {
+      border: 1px solid $app-border-color;
+      background: $app-616161;
+    }
+
+    .mat-expansion-panel-header {
+      background:  $app-616161;
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $app-616161-lighter;
+    }
+
+    .mat-menu-panel {
+      border: solid 1px $app-border-color;
+      background: $app-424242-lighter;
+    }
+
+    .mat-stepper-horizontal, .mat-stepper-vertical {
+      background: $app-424242;
+    }
+
+    .mixer-sidenav-context-container {
+      // TODO background-color
+      //background-color: $background-color;
+      border-top-color: mat-color($background, background);
+      border-right-color: mat-color($background, background);
+    }
+
+    .mixer-sidenav-container {
+      // TODO background-color
+      //background-color: $background-color;
+      border-top-color: mat-color($background, background);
+      border-right-color: mat-color($background, background);
+
+      ul {
+
+        li {
+          border-color: rgba(mat-color($foreground, secondary-text), 1);
+          border-bottom: 1px solid rgba(mat-color($foreground, secondary-text), .3);
+          color: mat-color($foreground, secondary-text);
+
+          //&.mixer-sidenav-item-selected {
+          //  font-weight: 600;
+          //}
+
+          > a {
+            color: #ffffff;
+
+            &.is-selected,
+            &:hover,
+            &:focus {
+              // TODO background-color
+              //background: $navbar-item-selected;
+              color: mat-color($primary);
+            }
+
+            &.mixer-sidenav-item-selected {
+              color: mat-color($primary);
+              // TODO background-color
+              //background-color: $navbar-item-selected;
+            }
+          }
+        }
+      }
+
+      .mixer-sidenav-action {
+        border-top-color: rgba(mat-color($foreground, secondary-text), .06);
+      }
+    }
+
+    .app-chat-header {
+      // TODO background-color
+      //background-color: if($is-dark, mat-color($mat-blue-gray, 900), mat-color($mat-blue-gray, 100));
+
+      .app-chat-header-text-title {
+        color: mat-color($primary);
+      }
+    }
+
+    // chat message input field
+    .message-input {
+      // TODO background-color
+      //background-color: if($is-dark, mat-color($mat-blue-gray, 900), mat-color($mat-blue-gray, 100));
+    }
+  }
+
+}
+
+@mixin transition-all-swift-ease-in-out() {
+  -webkit-transform: $swift-ease-in-out;
+  transition: $swift-ease-in-out;
+}
+
+@mixin app-error() {
+  .app-error-wrapper {
+    position: relative;
+    opacity: 0;
+    top: -20px;
+
+    transition: opacity 100ms $swift-ease-out-timing-function,
+    top 300ms $swift-ease-out-timing-function;
+
+    &.app-error {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  .mat-error {
+    font-size: 75%;
+  }
+}
+
+@mixin button-small() {
+  .mat-button {
+    min-width: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@mixin button-faded-dark($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: mat-color($accent, 500);
+
+    //:hover {
+    //  color: mat-color($primary);
+    //}
+
+    &.app-button-faded-dark {
+      color: #ababab;
+      background-color: #1d1d1d;
+      :hover .mat-button-wrapper {
+        color: mat-color($primary);
+        display: inline-block;
+        //width: 84px;
+        //border: 1px solid white;
+        text-align: center;
+      }
+    }
+
+    .btn-text {
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
+
+@mixin menu-theme($theme) {
+
+  background: $background-color-2;
+
+  .mat-card {
+    background: $background-color-2;
+  }
+}
+
+@mixin slide-el() {
+  @keyframes slide-in {
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @-webkit-keyframes slide-in {
+    100% {
+      -webkit-transform: translateX(0%);
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @-webkit-keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @-webkit-keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(100%);
+    }
+  }
+}

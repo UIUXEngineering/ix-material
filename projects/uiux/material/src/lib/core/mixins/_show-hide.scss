@@ -1,0 +1,76 @@
+@import '../style/variables';
+
+
+@mixin animation-show-properties() {
+  0%   { opacity: 0; }
+  99.9% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@mixin animation-hide-properties() {
+  0% {
+    //-webkit-transform: rotate(360deg);
+    opacity: 1;
+  }
+  99.9% {
+    //-webkit-transform: rotate(0deg);
+    opacity: 0;
+  }
+  100% { opacity: 0; }
+}
+
+@mixin animation-show-prefixes() {
+  @-webkit-keyframes show {
+    @include animation-show-properties();
+  }
+  @-moz-keyframes show {
+    @include animation-show-properties();
+  }
+  @-o-keyframes show {
+    @include animation-show-properties();
+  }
+  @keyframes show {
+    @include animation-show-properties();
+  }
+}
+
+@mixin animation-hide-prefixes() {
+  @-webkit-keyframes hide {
+    @include animation-hide-properties();
+  }
+  @-moz-keyframes hide {
+    @include animation-hide-properties();
+  }
+  @-o-keyframes hide {
+    @include animation-hide-properties();
+  }
+  @keyframes hide {
+    @include animation-hide-properties();
+  }
+}
+
+@mixin animate-show() {
+
+  @include animation-show-prefixes();
+  @include animation-hide-prefixes();
+
+  .sp-hide-initial {
+    opacity: 0;
+  }
+
+  .sp-show {
+    -webkit-animation: show 500ms $swift-ease-out-timing-function;
+    -moz-animation: show 500ms $swift-ease-out-timing-function;
+    -o-animation: show 500ms $swift-ease-out-timing-function;
+    animation: show 500ms $swift-ease-out-timing-function;
+    opacity: 1;
+  }
+
+  .sp-hide {
+    -webkit-animation: hide 500ms $swift-ease-out-timing-function;
+    -moz-animation: hide 500ms $swift-ease-out-timing-function;
+    -o-animation: hide 500ms $swift-ease-out-timing-function;
+    animation: hide 500ms $swift-ease-out-timing-function;
+    opacity: 0;
+  }
+}

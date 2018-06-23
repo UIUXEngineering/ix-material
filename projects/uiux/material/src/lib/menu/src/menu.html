@@ -1,0 +1,16 @@
+<ng-template>
+  <div
+    class="sp-menu-panel"
+    [ngClass]="_classList"
+    (keydown)="_handleKeydown($event)"
+    (click)="spCloseHandler()"
+    [@transformMenu]="_panelAnimationState"
+    (@transformMenu.start)="_isAnimating = true"
+    (@transformMenu.done)="_onAnimationDone($event)"
+    tabindex="-1"
+    role="menu">
+    <div class="sp-menu-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-template>

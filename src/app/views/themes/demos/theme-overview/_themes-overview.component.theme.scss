@@ -1,0 +1,58 @@
+@import '../../../../../styles/cutom-palettes';
+@import 'mixins/primary';
+@import 'mixins/accent';
+@import 'mixins/warn';
+@import 'mixins/deep-blue';
+
+@mixin themes-theme($theme) {
+  $is-dark-theme: map-get($theme, is-dark);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  $swatch-dim: 32px;
+
+  .theme-overview {
+    //background-color: black;
+  }
+
+  h3 {
+    white-space: nowrap;
+  }
+
+  a {
+    //display: block;
+    //margin-bottom: 20px;
+  }
+
+  .swatch {
+    white-space: nowrap;
+
+    .swatch-label {
+      display: inline-block;
+      width: 140px;
+      white-space: nowrap;
+    }
+
+    .swatch-palette {
+      display: inline-block;
+      width: $swatch-dim;
+      height: $swatch-dim;
+    }
+
+    .theme-background {
+      background-color: map-get($background, background);
+    }
+  }
+
+  @include primary-palette($primary);
+  @include accent-palette($accent);
+  @include warn-palette($warn);
+  //@include deep-blue-palette($deep-blue);
+
+
+}
+
+

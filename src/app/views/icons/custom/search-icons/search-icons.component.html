@@ -1,0 +1,22 @@
+<div class="search-form">
+  <form [formGroup]="searchFormGroup" >
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search" formControlName="search">
+    </mat-form-field>
+  </form>
+</div>
+<div class="icon-grid">
+  <div *ngFor="let icon of icons" >
+    <div class="icon-box">
+      <div class="icon">
+        <mat-icon svgIcon="iconList:{{icon.icon}}"></mat-icon>
+      </div>
+
+      <div class="name">
+        {{icon.name}}
+      </div>
+    </div>
+  </div>
+</div>
+

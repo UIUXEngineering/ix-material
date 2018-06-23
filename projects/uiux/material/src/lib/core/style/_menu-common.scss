@@ -1,0 +1,59 @@
+@import './variables';
+@import './elevation';
+@import './list-common';
+@import './vendor-prefixes';
+
+/** The mixins below are shared between sp-menu and mat-select */
+
+// menu width must be a multiple of 56px
+$sp-menu-overlay-min-width: 112px !default;   // 56 * 2
+$sp-menu-overlay-max-width: 280px !default;   // 56 * 5
+
+$sp-menu-item-height: 48px !default;
+$sp-menu-side-padding: 16px !default;
+$sp-menu-icon-margin: 16px !default;
+
+
+@mixin sp-menu-base($default-elevation) {
+  @include mat-overridable-elevation($default-elevation);
+
+  min-width: $sp-menu-overlay-min-width;
+  max-width: $sp-menu-overlay-max-width;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;   // for momentum scroll on mobile
+}
+
+@mixin sp-menu-item-base() {
+  @include mat-truncate-line();
+
+  // Needs to be a block for the ellipsis to work.
+  display: block;
+  line-height: $sp-menu-item-height;
+  height: $sp-menu-item-height;
+  padding: 0 $sp-menu-side-padding;
+
+  text-align: left;
+  text-decoration: none;   // necessary to reset anchor tags
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  [dir='rtl'] & {
+    text-align: right;
+  }
+
+  .mat-icon {
+    margin-right: $sp-menu-icon-margin;
+    vertical-align: middle;
+
+    svg {
+      vertical-align: top;
+    }
+
+    [dir='rtl'] & {
+      margin-left: $sp-menu-icon-margin;
+      margin-right: 0;
+    }
+  }
+}
