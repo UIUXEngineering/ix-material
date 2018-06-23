@@ -1,6 +1,6 @@
 export const NAVBAR_MENU_BREAKPOINT = '(max-width: 1100px)';
 export const APP_NAME = 'UI Utilities For Angular';
-export const GIT_REPO = 'https://github.com/UIUXEngineering/ix-material';
+export const GIT_REPO = 'https://github.com/UIUXEngineering/ix-utilities';
 export const GIT_REPO_PROJECTS_BASE = `${GIT_REPO}/blob/master/projects/uiux`;
 // export const GIT_REPO_PROJECTS_BASE = `${GIT_REPO}/projects/uiux`;
 export const CDK_EXAMPLE_BASE_URL = 'assets/examples/cdk';
