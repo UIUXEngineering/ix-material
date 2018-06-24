@@ -15,6 +15,7 @@ import { AllPropsHaveValueComponent } from './object/all-props-have-value/all-pr
 import { AllPropsHaveValueInComponent } from './object/all-props-have-value-in/all-props-have-value-in.component';
 import { CloneComponent } from './object/clone/clone.component';
 import { CreateObjectWithPathComponent } from './object/create-object-with-path/create-object-with-path.component';
+import { FindPropertiesComponent } from './object/find-properties/find-properties.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -32,6 +33,7 @@ import { CreateObjectWithPathComponent } from './object/create-object-with-path/
     AllPropsHaveValueInComponent,
     CloneComponent,
     CreateObjectWithPathComponent,
+    FindPropertiesComponent,
   ],
 })
 export class CdkModule {}

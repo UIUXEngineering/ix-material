@@ -11,6 +11,7 @@ import { AllPropsHaveValueInComponent } from './object/all-props-have-value-in/a
 import { AllPropsHaveValueComponent } from './object/all-props-have-value/all-props-have-value.component';
 import { CloneComponent } from './object/clone/clone.component';
 import { CreateObjectWithPathComponent } from './object/create-object-with-path/create-object-with-path.component';
+import { FindPropertiesComponent } from './object/find-properties/find-properties.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -62,6 +63,10 @@ const routes: Routes = [
       {
         path: 'object/createObjectWithPath',
         component: CreateObjectWithPathComponent,
+      },
+      {
+        path: 'object/findProperties',
+        component: FindPropertiesComponent,
       },
       {
         path: 'object/hasValueIn',

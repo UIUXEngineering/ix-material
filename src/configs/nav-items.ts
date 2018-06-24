@@ -136,6 +136,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, createObjectWithPath, all props are defined`,
       },
+      findProperties: <IDataItem>{
+        route: `/${CDK}/object/findProperties`,
+        name: 'findProperties',
+        desc: 'Create and object by submitting a path inside of an object.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/find-properties.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, findProperties, all props are defined`,
+      },
       hasValue: <IDataItem>{
         route: `/${CDK}/object/hasValue`,
         name: 'hasValue',
