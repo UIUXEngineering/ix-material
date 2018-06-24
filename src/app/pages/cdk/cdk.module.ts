@@ -10,6 +10,7 @@ import { HasValueComponent } from './object/has-value/has-value.component';
 import { AllPropsAreDefinedComponent } from './object/all-props-are-defined/all-props-are-defined.component';
 import { AllPropsAreDefinedInComponent } from './object/all-props-are-defined-in/all-props-are-defined-in.component';
 import { AllPropsAreTruthyComponent } from './object/all-props-are-truthy/all-props-are-truthy.component';
+import { AllPropsAreTruthyInComponent } from './object/all-props-are-truthy-in/all-props-are-truthy-in.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -22,6 +23,7 @@ import { AllPropsAreTruthyComponent } from './object/all-props-are-truthy/all-pr
     AllPropsAreDefinedComponent,
     AllPropsAreDefinedInComponent,
     AllPropsAreTruthyComponent,
+    AllPropsAreTruthyInComponent,
   ],
 })
 export class CdkModule {}
