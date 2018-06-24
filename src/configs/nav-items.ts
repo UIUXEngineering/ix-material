@@ -114,6 +114,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, allPropsHaveValueIn, all props are defined`,
       },
+      clone: <IDataItem>{
+        route: `/${CDK}/object/clone`,
+        name: 'clone',
+        desc: 'Clone an object.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/clone.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, clone, all props are defined`,
+      },
       hasValue: <IDataItem>{
         route: `/${CDK}/object/hasValue`,
         name: 'hasValue',

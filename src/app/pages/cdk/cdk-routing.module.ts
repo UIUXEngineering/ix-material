@@ -9,6 +9,7 @@ import { AllPropsAreTruthyInComponent } from './object/all-props-are-truthy-in/a
 import { AllPropsAreTruthyComponent } from './object/all-props-are-truthy/all-props-are-truthy.component';
 import { AllPropsHaveValueInComponent } from './object/all-props-have-value-in/all-props-have-value-in.component';
 import { AllPropsHaveValueComponent } from './object/all-props-have-value/all-props-have-value.component';
+import { CloneComponent } from './object/clone/clone.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path: 'object/allPropsHaveValueIn',
         component: AllPropsHaveValueInComponent,
+      },
+      {
+        path: 'object/clone',
+        component: CloneComponent,
       },
       {
         path: 'object/hasValueIn',
