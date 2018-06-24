@@ -16,7 +16,7 @@ import { hasValue } from '@uiux/cdk/object';
 import { default as _uniqBy } from 'lodash-es/uniqBy';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
-import { APP_NAME, CDK, COMPONENTS, ICON, POC } from '../../../configs/constants';
+import { APP_NAME, CDK, COMPONENTS, GUIDES, ICON, ICONS, POC, THEMES } from '../../../configs/constants';
 import { ROUTES } from '../../../configs/nav-items';
 import { svgAssets } from '../../../environments/svgIconAssets';
 import { IDataItem } from '../../../models/routes';
@@ -61,12 +61,12 @@ export class HomepageComponent implements OnInit, OnDestroy {
   filteredAPIs: IDataItem[] = [];
   icon = ICON;
 
-  seeGuides: string;
+  seeGuides = `${GUIDES}/getting-started/install`;
   seeCdk = `${CDK}/guides/cdk-overview`;
   seePoc = `${POC}/guides/poc-overview`;
   seeMaterial = `${COMPONENTS}/guides/mat-overview`;
-  seeThemes: string;
-  seeIcons: string;
+  seeThemes = `${THEMES}/demos/overview`;
+  seeIcons = `${ICONS}/custom/search`;
 
   constructor(
     public _componentPageTitle: ComponentPageTitle,

@@ -79,37 +79,51 @@
         </mat-card>
 
         <mat-card class="gradient-deep-orange">
-          <div class="card" >
-            <mat-icon>{{icon.CUSTOM}}</mat-icon>
-            <div class="card-title">Icons</div>
-            <div class="card-content">
-              Custom drawn icons.
+          <mat-card-content>
+            <div class="card" >
+              <mat-icon>{{icon.CUSTOM}}</mat-icon>
+              <div class="card-title">Icons</div>
+              <div class="card-content">
+                Custom drawn icons.
+              </div>
             </div>
-          </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button [routerLink]="seeIcons">See Icons</a>
+          </mat-card-actions>
 
         </mat-card>
 
         <mat-card class="gradient-brown">
-          <div class="card" >
-            <mat-icon>{{icon.THEMES}}</mat-icon>
-            <div class="card-title">Theme Helper</div>
-            <div class="card-content">
-              A place to see how your component looks
-              in standard themes.
+          <mat-card-content>
+            <div class="card" >
+              <mat-icon>{{icon.THEMES}}</mat-icon>
+              <div class="card-title">Theme Helper</div>
+              <div class="card-content">
+                A place to see how your component looks
+                in standard themes.
+              </div>
             </div>
-          </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button [routerLink]="seeThemes">See Theme Comparison</a>
+          </mat-card-actions>
 
         </mat-card>
 
         <mat-card class="gradient-deep-purple">
-          <div class="card" >
-            <mat-icon>{{icon.GUIDE}}</mat-icon>
-            <div class="card-title">Guides</div>
-            <div class="card-content">
-              Guides and references.
+          <mat-card-content>
+            <div class="card" >
+              <mat-icon>{{icon.GUIDE}}</mat-icon>
+              <div class="card-title">Guides</div>
+              <div class="card-content">
+                Guides and references.
+              </div>
             </div>
-          </div>
-
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button [routerLink]="seeGuides">See Guides</a>
+          </mat-card-actions>
         </mat-card>
       </div>
     </div>
