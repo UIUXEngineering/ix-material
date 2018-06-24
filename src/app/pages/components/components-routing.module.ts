@@ -11,11 +11,11 @@ const routes: Routes = [
     component: ComponentsComponent,
     children: [
       {
-        path: 'guide/mat-overview',
+        path: 'guides/mat-overview',
         component: CmpOverviewComponent,
       },
       {
-        path: 'guide/adding-components',
+        path: 'guides/adding-components',
         component: AddingComponentsComponent,
       },
       {

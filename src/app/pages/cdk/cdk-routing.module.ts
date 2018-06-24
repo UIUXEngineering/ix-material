@@ -12,11 +12,11 @@ const routes: Routes = [
     component: CdkComponent,
     children: [
       {
-        path: 'guide/cdk-overview',
+        path: 'guides/cdk-overview',
         component: CdkOverviewComponent,
       },
       {
-        path: 'guide/adding-to-cdk',
+        path: 'guides/adding-to-cdk',
         component: AddingToCdkComponent,
       },
       {

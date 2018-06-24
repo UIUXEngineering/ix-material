@@ -62,9 +62,9 @@ export class HomepageComponent implements OnInit, OnDestroy {
   icon = ICON;
 
   seeGuides: string;
-  seeCdk = `${CDK}/guide/cdk-overview`;
+  seeCdk = `${CDK}/guides/cdk-overview`;
   seePoc = `${POC}/guides/poc-overview`;
-  seeMaterial = `${COMPONENTS}/guide/mat-overview`;
+  seeMaterial = `${COMPONENTS}/guides/mat-overview`;
   seeThemes: string;
   seeIcons: string;
 

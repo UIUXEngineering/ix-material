@@ -12,5 +12,5 @@ import { IDataItem } from '../../../../../models/routes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CdkOverviewComponent {
-  data: IDataItem = ROUTES.cdk.guide['cdk-overview'];
+  data: IDataItem = ROUTES.cdk.guides['cdk-overview'];
 }

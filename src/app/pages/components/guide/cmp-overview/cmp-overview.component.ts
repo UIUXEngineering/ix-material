@@ -10,5 +10,5 @@ import { IDataItem } from '../../../../../models/routes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CmpOverviewComponent {
-  data: IDataItem = ROUTES.material.guide['mat-overview'];
+  data: IDataItem = ROUTES.material.guides['mat-overview'];
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { clone, propsHaveValue } from '@uiux/cdk/object';
 import { StoreSubject } from '@uiux/cdk/store';
 import { default as _forIn } from 'lodash-es/forIn';
+import { default as _get } from 'lodash-es/get';
 import { Subscription } from 'rxjs/Subscription';
 import { ROUTES } from '../../../configs/nav-items';
 import { IDataItem } from '../../../models/routes';
@@ -124,7 +125,13 @@ export class ApiRefService {
         const payload: ICurrentRouteAction = <any>{};
 
         if (r.doc) {
-          payload.currentRouteData = ROUTES[r.category][r.base][r.doc];
+          const _currentRouteData = _get(ROUTES, [r.category, r.base, r.doc]);
+          if (_currentRouteData) {
+            payload.currentRouteData = ROUTES[r.category][r.base][r.doc];
+          } else {
+            this._router.navigate(['/']);
+          }
+
         }
 
         payload.route = r;

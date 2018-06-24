@@ -18,10 +18,10 @@ export const ROUTES: IRoute = {
   // project
   cdk: {
     // section
-    guide: {
+    guides: {
       // dataItem
       ['cdk-overview']: <IDataItem>{
-        route: `/${CDK}/guide/cdk-overview`,
+        route: `/${CDK}/guides/cdk-overview`,
         name: 'CDK Overview',
         desc: 'Overview of cdk.',
         base: '',
@@ -34,7 +34,7 @@ export const ROUTES: IRoute = {
 
       // dataItem
       ['adding-to-cdk']: <IDataItem>{
-        route: `/${CDK}/guide/adding-to-cdk`,
+        route: `/${CDK}/guides/adding-to-cdk`,
         name: 'Adding To CDK',
         desc: 'Adding To CDK.',
         base: '',
@@ -76,10 +76,10 @@ export const ROUTES: IRoute = {
   // project
   material: {
     // section
-    guide: {
+    guides: {
       // dataItem
       ['mat-overview']: <IDataItem>{
-        route: `/${COMPONENTS}/guide/mat-overview`,
+        route: `/${COMPONENTS}/guides/mat-overview`,
         name: 'Components Overview',
         desc: 'Overview of components.',
         base: '',
@@ -90,7 +90,7 @@ export const ROUTES: IRoute = {
         search: `${COMPONENTS}, material, overview`,
       },
       ['adding-components']: <IDataItem>{
-        route: `/${COMPONENTS}/guide/adding-components`,
+        route: `/${COMPONENTS}/guides/adding-components`,
         name: 'Adding Components',
         desc: 'Adding Components.',
         base: '',

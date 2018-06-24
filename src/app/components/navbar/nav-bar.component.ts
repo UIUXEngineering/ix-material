@@ -35,10 +35,10 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
       switch ( i ) {
         case CDK:
-          nav.route = `${i}/guide/cdk-overview`;
+          nav.route = `${i}/guides/cdk-overview`;
           break;
         case COMPONENTS:
-          nav.route = `${i}/guide/mat-overview`;
+          nav.route = `${i}/guides/mat-overview`;
           break;
         case GUIDES:
           nav.route = `${i}/getting-started/install`;
