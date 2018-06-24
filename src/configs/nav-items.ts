@@ -103,6 +103,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, allPropsHaveValue, all props are defined`,
       },
+      allPropsHaveValueIn: <IDataItem>{
+        route: `/${CDK}/object/allPropsHaveValueIn`,
+        name: 'allPropsHaveValueIn',
+        desc: 'Determines if all properties on an object haveValue in a path.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/all-props-have-value-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, allPropsHaveValueIn, all props are defined`,
+      },
       hasValue: <IDataItem>{
         route: `/${CDK}/object/hasValue`,
         name: 'hasValue',
