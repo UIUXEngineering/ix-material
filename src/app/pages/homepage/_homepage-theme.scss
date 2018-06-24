@@ -1,3 +1,5 @@
+@import '../../../styles/mixins/gradients';
+
 @mixin home-page-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
@@ -26,5 +28,44 @@
     .docs-homepage-row {
       color: mat-color($foreground, secondary-text);
     }
+
+    .card-grid {
+      .mat-icon {
+        color: white;
+      }
+
+      .card-title,
+      .card-content,
+      a {
+        color: white;
+      }
+
+      $begin-gradient: 400;
+      $end-gradient: 900;
+      $angle: 135;
+      .gradient-teal {
+        @include background-gradient(mat-color($mat-teal, $begin-gradient), mat-color($mat-teal, $end-gradient), $angle)
+      }
+      .gradient-yellow {
+        @include background-gradient(mat-color($mat-yellow, $begin-gradient), mat-color($mat-yellow, $end-gradient), $angle)
+      }
+      .gradient-deep-purple {
+        @include background-gradient(mat-color($mat-deep-purple, $begin-gradient), mat-color($mat-deep-purple, $end-gradient), $angle)
+      }
+      .gradient-blue-gray {
+        @include background-gradient(mat-color($mat-blue-gray, $begin-gradient), mat-color($mat-blue-gray, $end-gradient), $angle)
+      }
+      .gradient-deep-orange {
+        @include background-gradient(mat-color($mat-deep-orange, $begin-gradient), mat-color($mat-deep-orange, $end-gradient), $angle)
+      }
+      .gradient-brown {
+        @include background-gradient(mat-color($mat-brown, $begin-gradient), mat-color($mat-brown, $end-gradient), $angle)
+      }
+      .gradient-pink {
+        @include background-gradient(mat-color($mat-pink, $begin-gradient), mat-color($mat-pink, $end-gradient), $angle)
+      }
+
+    }
+
   }
 }

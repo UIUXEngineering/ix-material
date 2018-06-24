@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -23,6 +23,7 @@ import { SvgViewerModule } from './svg-viewer/svg-viewer.component';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatCardModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,

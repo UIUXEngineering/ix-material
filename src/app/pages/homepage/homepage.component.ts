@@ -9,12 +9,16 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { hasValue } from '@uiux/cdk/object';
 import { default as _uniqBy } from 'lodash-es/uniqBy';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
-import { APP_NAME } from '../../../configs/constants';
+import { APP_NAME, ICON } from '../../../configs/constants';
+import { ROUTES } from '../../../configs/nav-items';
+import { svgAssets } from '../../../environments/svgIconAssets';
 import { IDataItem } from '../../../models/routes';
 import { fadeAnimation } from '../../animations';
 import { ApiRefService, IRouteStore } from '../../services/api-ref/api-ref.service';
@@ -55,14 +59,21 @@ export class HomepageComponent implements OnInit, OnDestroy {
   displayedColumns = ['icon', 'name', 'desc', 'version'];
   apis: IDataItem[] = [];
   filteredAPIs: IDataItem[] = [];
+  icon = ICON;
 
   constructor(
     public _componentPageTitle: ComponentPageTitle,
     public _api: ApiRefService,
     private _router: Router,
     private _model: HomePageModel,
-    private _cd: ChangeDetectorRef
+    private _cd: ChangeDetectorRef,
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
   ) {
+    iconRegistry.addSvgIconSetInNamespace(
+      'iconList',
+      sanitizer.bypassSecurityTrustResourceUrl(svgAssets.ICON_SET)
+    );
     this.searchFormGroup = this.buildFormGroup();
   }
 

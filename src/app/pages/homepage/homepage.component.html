@@ -1,69 +1,148 @@
 <div class="homepage">
-  <header class="docs-header-background">
-    <div class="docs-header-section">
-      <div class="docs-header-headline">
-        <h1 class="mat-h1">{{ _componentPageTitle.title }}</h1>
-        <h2>Utilities and components for Angular and Angular Material</h2>
+  <div class="scroll-container">
+    <header class="docs-header-background" >
+      <div class="docs-header-section">
+        <div class="docs-header-headline">
+          <h1 class="mat-h1">{{ _componentPageTitle.title }}</h1>
+          <h2>Utilities and components for Angular and Angular Material</h2>
+        </div>
+        <div class="docs-header-start">
+          <a mat-raised-button class="docs-button" routerLink="/guides/getting-started/install">Get started</a>
+        </div>
       </div>
-      <div class="docs-header-start">
-        <a mat-raised-button class="docs-button" routerLink="/guides/getting-started/install">Get started</a>
+    </header>
+
+    <div class="docs-homepage-promo docs-search">
+      <div class="notification">This documentation is currently a work in progress and updated daily.</div>
+      <div class="docs-homepage-row docs-homepage-search-row">
+        <form [formGroup]="searchFormGroup" (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-form-field" appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput type="text" formControlName="search"/>
+            <button type="submit" mat-button matSuffix mat-icon-button aria-label="Clear">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+
       </div>
     </div>
-  </header>
 
-  <div class="docs-homepage-promo docs-search">
-    <div class="notification">This documentation is currently a work in progress and updated daily.</div>
-    <div class="docs-homepage-row">
-      <form [formGroup]="searchFormGroup" (ngSubmit)="onSubmit()">
-        <mat-form-field class="example-form-field" appearance="outline">
-          <mat-label>Search</mat-label>
-          <input matInput type="text" formControlName="search"/>
-          <button type="submit" mat-button  matSuffix mat-icon-button aria-label="Clear" >
-            <mat-icon>search</mat-icon>
-          </button>
-        </mat-form-field>
-      </form>
+    <div class="docs-homepage-promo" *ngIf="!filteredAPIs.length">
+      <div class="card-grid">
+        <mat-card class="gradient-teal">
+          <mat-card-content>
+            <div class="card" >
+              <mat-icon>{{icon.CDK}}</mat-icon>
+              <div class="card-title">CDK</div>
+              <div class="card-content">
+                Utility functions, classes, services to solve common problems.
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button>LIKE</a>
+            <a mat-button>SHARE</a>
+          </mat-card-actions>
 
+        </mat-card>
+
+        <mat-card class="gradient-yellow">
+          <div class="card" >
+            <mat-icon>{{icon.MATERIAL}}</mat-icon>
+            <div class="card-title">Material</div>
+            <div class="card-content">
+              Composite components based on Angular Material.
+            </div>
+          </div>
+
+        </mat-card>
+
+        <mat-card class="gradient-blue-gray">
+          <div class="card" >
+            <mat-icon [svgIcon]="icon.POC"></mat-icon>
+            <div class="card-title">PoC</div>
+            <div class="card-content">
+              Demo Proof of Concepts.
+            </div>
+          </div>
+
+        </mat-card>
+
+        <mat-card class="gradient-deep-orange">
+          <div class="card" >
+            <mat-icon>{{icon.CUSTOM}}</mat-icon>
+            <div class="card-title">Icons</div>
+            <div class="card-content">
+              Custom drawn icons.
+            </div>
+          </div>
+
+        </mat-card>
+
+        <mat-card class="gradient-brown">
+          <div class="card" >
+            <mat-icon>{{icon.THEMES}}</mat-icon>
+            <div class="card-title">Theme Helper</div>
+            <div class="card-content">
+              A place to see how your component looks
+              in standard themes.
+            </div>
+          </div>
+
+        </mat-card>
+
+        <mat-card class="gradient-deep-purple">
+          <div class="card" >
+            <mat-icon>{{icon.GUIDE}}</mat-icon>
+            <div class="card-title">Guides</div>
+            <div class="card-content">
+              Guides and references.
+            </div>
+          </div>
+
+        </mat-card>
+      </div>
     </div>
-  </div>
 
-  <div class="docs-homepage-promo docs-search-results">
-    <div class="docs-homepage-row table-container ">
-      <mat-table #table [dataSource]="filteredAPIs">
+    <div class="docs-homepage-promo docs-search-results" *ngIf="filteredAPIs.length">
+      <div class="docs-homepage-row table-container ">
+        <mat-table #table [dataSource]="filteredAPIs">
 
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="icon">
-          <mat-header-cell *matHeaderCellDef class="icon-cell"> Type </mat-header-cell>
-          <mat-cell *matCellDef="let element" class="icon-cell">
-            <mat-icon *ngIf="!iconIsSvg(element.icon)">{{element.icon}}</mat-icon>
-            <mat-icon *ngIf="iconIsSvg(element.icon)" [svgIcon]="element.icon"></mat-icon>
-          </mat-cell>
-        </ng-container>
+          <!-- Position Column -->
+          <ng-container matColumnDef="icon">
+            <mat-header-cell *matHeaderCellDef class="icon-cell"> Type</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="icon-cell">
+              <mat-icon *ngIf="!iconIsSvg(element.icon)">{{element.icon}}</mat-icon>
+              <mat-icon *ngIf="iconIsSvg(element.icon)" [svgIcon]="element.icon"></mat-icon>
+            </mat-cell>
+          </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <mat-header-cell *matHeaderCellDef class=""> Name </mat-header-cell>
-          <mat-cell *matCellDef="let element" class="icon-cell"> {{element.name}} </mat-cell>
-        </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef class=""> Name</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="icon-cell"> {{element.name}}</mat-cell>
+          </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="desc">
-          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.desc}} </mat-cell>
-        </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="desc">
+            <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.desc}}</mat-cell>
+          </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="version">
-          <mat-header-cell *matHeaderCellDef> Version </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.version}} </mat-cell>
-        </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="version">
+            <mat-header-cell *matHeaderCellDef> Version</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.version}}</mat-cell>
+          </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectRow(row)"></mat-row>
-      </mat-table>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectRow(row)"></mat-row>
+        </mat-table>
+      </div>
     </div>
   </div>
 </div>
