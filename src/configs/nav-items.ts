@@ -48,6 +48,17 @@ export const ROUTES: IRoute = {
     // section
     object: {
       // dataItem
+      allPropsAreDefined: <IDataItem>{
+        route: `/${CDK}/object/allPropsAreDefined`,
+        name: 'allPropsAreDefined',
+        desc: 'Determines if all properties on an object are defined.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/all-props-are-defined.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, allPropsAreDefined, all props are defined`,
+      },
       hasValue: <IDataItem>{
         route: `/${CDK}/object/hasValue`,
         name: 'hasValue',

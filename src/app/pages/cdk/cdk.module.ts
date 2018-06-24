@@ -7,6 +7,7 @@ import { AddingToCdkComponent } from './guide/adding-to-cdk/adding-to-cdk.compon
 import { CdkOverviewComponent } from './guide/cdk-overview/cdk-overview.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
+import { AllPropsAreDefinedComponent } from './object/all-props-are-defined/all-props-are-defined.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -16,6 +17,7 @@ import { HasValueComponent } from './object/has-value/has-value.component';
     CdkOverviewComponent,
     HasValueInComponent,
     AddingToCdkComponent,
+    AllPropsAreDefinedComponent,
   ],
 })
 export class CdkModule {}

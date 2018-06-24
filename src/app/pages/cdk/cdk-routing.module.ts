@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CdkComponent } from './cdk.component';
 import { AddingToCdkComponent } from './guide/adding-to-cdk/adding-to-cdk.component';
 import { CdkOverviewComponent } from './guide/cdk-overview/cdk-overview.component';
+import { AllPropsAreDefinedComponent } from './object/all-props-are-defined/all-props-are-defined.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'object/hasValue',
         component: HasValueComponent,
+      },
+      {
+        path: 'object/allPropsAreDefined',
+        component: AllPropsAreDefinedComponent,
       },
       {
         path: 'object/hasValueIn',
