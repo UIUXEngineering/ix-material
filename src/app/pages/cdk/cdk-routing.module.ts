@@ -5,6 +5,7 @@ import { AddingToCdkComponent } from './guide/adding-to-cdk/adding-to-cdk.compon
 import { CdkOverviewComponent } from './guide/cdk-overview/cdk-overview.component';
 import { AllPropsAreDefinedInComponent } from './object/all-props-are-defined-in/all-props-are-defined-in.component';
 import { AllPropsAreDefinedComponent } from './object/all-props-are-defined/all-props-are-defined.component';
+import { AllPropsAreTruthyComponent } from './object/all-props-are-truthy/all-props-are-truthy.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'object/allPropsAreDefinedIn',
         component: AllPropsAreDefinedInComponent,
+      },
+      {
+        path: 'object/allPropsAreTruthy',
+        component: AllPropsAreTruthyComponent,
       },
       {
         path: 'object/hasValueIn',

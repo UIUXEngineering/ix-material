@@ -70,6 +70,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, allPropsAreDefinedIn, all props are defined`,
       },
+      allPropsAreTruthy: <IDataItem>{
+        route: `/${CDK}/object/allPropsAreTruthy`,
+        name: 'allPropsAreTruthy',
+        desc: 'Determines if all properties on an object are truthy.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/all-props-are-truthy-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, allPropsAreDefinedIn, all props are defined`,
+      },
       hasValue: <IDataItem>{
         route: `/${CDK}/object/hasValue`,
         name: 'hasValue',
