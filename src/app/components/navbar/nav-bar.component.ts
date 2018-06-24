@@ -4,12 +4,10 @@ import { MatButtonModule, MatIconModule, MatIconRegistry, MatMenuModule } from '
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CDK, COMPONENTS, GIT_REPO, GUIDES, ICONS, POC, PROJECTS, THEMES } from '../../../configs/constants';
-import { VersionService } from '../../services/version/version';
+import { CDK, COMPONENTS, GIT_REPO, GUIDES, ICONS, POC, PROJECTS, sectionOrder, THEMES } from '../../../configs/constants';
 import { ThemePickerModule } from '../../pages/homepage/theme-picker/theme-picker.component';
 import { VersionPickerModule } from '../../pages/homepage/version-picker/index';
-
-const SECTIONS_KEYS = Object.keys(PROJECTS);
+import { VersionService } from '../../services/version/version';
 
 @Component({
              selector: 'app-navbar',
@@ -28,7 +26,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   }
 
   get sectionKeys() {
-    return SECTIONS_KEYS.reduce(( acc: any, i: any ) => {
+    return sectionOrder.reduce(( acc: any, i: any ) => {
       const nav: any = {
         name: i,
       };
