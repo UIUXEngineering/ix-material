@@ -7,6 +7,7 @@ import { AllPropsAreDefinedInComponent } from './object/all-props-are-defined-in
 import { AllPropsAreDefinedComponent } from './object/all-props-are-defined/all-props-are-defined.component';
 import { AllPropsAreTruthyInComponent } from './object/all-props-are-truthy-in/all-props-are-truthy-in.component';
 import { AllPropsAreTruthyComponent } from './object/all-props-are-truthy/all-props-are-truthy.component';
+import { AllPropsHaveValueComponent } from './object/all-props-have-value/all-props-have-value.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: 'object/allPropsAreTruthyIn',
         component: AllPropsAreTruthyInComponent,
+      },
+      {
+        path: 'object/allPropsHaveValue',
+        component: AllPropsHaveValueComponent,
       },
       {
         path: 'object/hasValueIn',

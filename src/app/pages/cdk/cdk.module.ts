@@ -11,6 +11,7 @@ import { AllPropsAreDefinedComponent } from './object/all-props-are-defined/all-
 import { AllPropsAreDefinedInComponent } from './object/all-props-are-defined-in/all-props-are-defined-in.component';
 import { AllPropsAreTruthyComponent } from './object/all-props-are-truthy/all-props-are-truthy.component';
 import { AllPropsAreTruthyInComponent } from './object/all-props-are-truthy-in/all-props-are-truthy-in.component';
+import { AllPropsHaveValueComponent } from './object/all-props-have-value/all-props-have-value.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -24,6 +25,7 @@ import { AllPropsAreTruthyInComponent } from './object/all-props-are-truthy-in/a
     AllPropsAreDefinedInComponent,
     AllPropsAreTruthyComponent,
     AllPropsAreTruthyInComponent,
+    AllPropsHaveValueComponent,
   ],
 })
 export class CdkModule {}
