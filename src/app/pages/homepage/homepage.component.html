@@ -41,32 +41,41 @@
             </div>
           </mat-card-content>
           <mat-card-actions>
-            <a mat-button>LIKE</a>
-            <a mat-button>SHARE</a>
+            <a mat-button [routerLink]="seeCdk">See CDK</a>
           </mat-card-actions>
 
         </mat-card>
 
         <mat-card class="gradient-yellow">
-          <div class="card" >
-            <mat-icon>{{icon.MATERIAL}}</mat-icon>
-            <div class="card-title">Material</div>
-            <div class="card-content">
-              Composite components based on Angular Material.
+          <mat-card-content>
+            <div class="card" >
+              <mat-icon>{{icon.MATERIAL}}</mat-icon>
+              <div class="card-title">Material</div>
+              <div class="card-content">
+                Composite components based on Angular Material.
+              </div>
             </div>
-          </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button [routerLink]="seeMaterial">See Components</a>
+          </mat-card-actions>
 
         </mat-card>
 
         <mat-card class="gradient-blue-gray">
-          <div class="card" >
-            <mat-icon [svgIcon]="icon.POC"></mat-icon>
-            <div class="card-title">PoC</div>
-            <div class="card-content">
-              Demo Proof of Concepts.
+          <mat-card-content>
+            <div class="card" >
+              <mat-icon [svgIcon]="icon.POC"></mat-icon>
+              <div class="card-title">PoC</div>
+              <div class="card-content">
+                Demo Proof of Concepts.
+                <div>&nbsp;</div>
+              </div>
             </div>
-          </div>
-
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-button [routerLink]="seePoc">See PoC</a>
+          </mat-card-actions>
         </mat-card>
 
         <mat-card class="gradient-deep-orange">
