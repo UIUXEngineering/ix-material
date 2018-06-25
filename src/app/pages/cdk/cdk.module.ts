@@ -20,6 +20,7 @@ import { FindPropertyDataComponent } from './object/find-property-data/find-prop
 import { FindPropsWithValueComponent } from './object/find-props-with-value/find-props-with-value.component';
 import { GetInComponent } from './object/get-in/get-in.component';
 import { HasValueEqualComponent } from './object/has-value-equal/has-value-equal.component';
+import { HasValueNotEqualComponent } from './object/has-value-not-equal/has-value-not-equal.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -42,6 +43,7 @@ import { HasValueEqualComponent } from './object/has-value-equal/has-value-equal
     FindPropsWithValueComponent,
     GetInComponent,
     HasValueEqualComponent,
+    HasValueNotEqualComponent,
   ],
 })
 export class CdkModule {}

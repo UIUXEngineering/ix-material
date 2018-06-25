@@ -213,6 +213,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, hasValueIn`,
       },
+      hasValueNotEqual: <IDataItem>{
+        route: `/${CDK}/object/hasValueNotEqual`,
+        name: 'hasValueNotEqual',
+        base: '',
+        desc: 'Determines if two objects are not equal by hasValue check.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/has-value-not-equal.spec.ts`,
+        seeAlso: ['hasValue'],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, hasValueNotEqual`,
+      },
     },
   },
 
