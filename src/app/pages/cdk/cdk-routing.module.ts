@@ -15,6 +15,7 @@ import { FindPropertiesComponent } from './object/find-properties/find-propertie
 import { FindPropertyDataComponent } from './object/find-property-data/find-property-data.component';
 import { FindPropsWithValueComponent } from './object/find-props-with-value/find-props-with-value.component';
 import { GetInComponent } from './object/get-in/get-in.component';
+import { HasValueEqualComponent } from './object/has-value-equal/has-value-equal.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -82,6 +83,10 @@ const routes: Routes = [
       {
         path: 'object/hasValue',
         component: HasValueComponent,
+      },
+      {
+        path: 'object/hasValueEqual',
+        component: HasValueEqualComponent,
       },
       {
         path: 'object/hasValueIn',
