@@ -158,6 +158,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, findPropertyData, all props are defined`,
       },
+      findPropsWithValue: <IDataItem>{
+        route: `/${CDK}/object/findPropsWithValue`,
+        name: 'findPropsWithValue',
+        desc: 'Find property that matches search string, return value of that property.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/find-props-with-value.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, findPropsWithValue, all props are defined`,
+      },
       hasValue: <IDataItem>{
         route: `/${CDK}/object/hasValue`,
         name: 'hasValue',

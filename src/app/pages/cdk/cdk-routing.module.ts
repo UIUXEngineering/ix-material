@@ -13,6 +13,7 @@ import { CloneComponent } from './object/clone/clone.component';
 import { CreateObjectWithPathComponent } from './object/create-object-with-path/create-object-with-path.component';
 import { FindPropertiesComponent } from './object/find-properties/find-properties.component';
 import { FindPropertyDataComponent } from './object/find-property-data/find-property-data.component';
+import { FindPropsWithValueComponent } from './object/find-props-with-value/find-props-with-value.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path: 'object/findPropertyData',
         component: FindPropertyDataComponent,
+      },
+      {
+        path: 'object/findPropsWithValue',
+        component: FindPropsWithValueComponent,
       },
       {
         path: 'object/hasValueIn',
