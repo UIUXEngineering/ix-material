@@ -1,18 +1,9 @@
-import { TabItem } from '../app/shared/util-components/tab-group/tab-item';
 import { MenuApiComponent } from '../app/pages/components/Layout/menu/menu-api/menu-api.component';
 import { MenuExampleComponent } from '../app/pages/components/Layout/menu/menu-example/menu-example.component';
 import { MenuOverviewComponent } from '../app/pages/components/Layout/menu/menu-overview/menu-overview.component';
+import { TabItem } from '../app/shared/util-components/tab-group/tab-item';
 import { IDataItem, IRoute } from '../models/routes';
-import {
-  CDK,
-  COMPONENTS,
-  GIT_REPO_PROJECTS_BASE,
-  GUIDES,
-  ICON,
-  ICONS,
-  POC,
-  THEMES,
-} from './constants';
+import { CDK, COMPONENTS, GIT_REPO_PROJECTS_BASE, GUIDES, ICON, ICONS, POC, THEMES } from './constants';
 
 export const ROUTES: IRoute = {
   // project
@@ -20,7 +11,7 @@ export const ROUTES: IRoute = {
     // section
     guides: {
       // dataItem
-      ['cdk-overview']: <IDataItem>{
+      [ 'cdk-overview' ]: <IDataItem>{
         route: `/${CDK}/guides/cdk-overview`,
         name: 'CDK Overview',
         desc: 'Overview of cdk.',
@@ -33,7 +24,7 @@ export const ROUTES: IRoute = {
       },
 
       // dataItem
-      ['adding-to-cdk']: <IDataItem>{
+      [ 'adding-to-cdk' ]: <IDataItem>{
         route: `/${CDK}/guides/adding-to-cdk`,
         name: 'Adding To CDK',
         desc: 'Adding To CDK.',
@@ -208,7 +199,7 @@ export const ROUTES: IRoute = {
         base: '',
         desc: 'Determines if a scalar value is not undefined, null, or empty in a nested object.',
         githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/has-value-in.spec.ts`,
-        seeAlso: ['hasValue'],
+        seeAlso: [ 'hasValue' ],
         version: '6.0',
         icon: ICON.CDK,
         search: `${CDK}, object, hasValueIn`,
@@ -219,10 +210,21 @@ export const ROUTES: IRoute = {
         base: '',
         desc: 'Determines if two objects are not equal by hasValue check.',
         githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/has-value-not-equal.spec.ts`,
-        seeAlso: ['hasValue'],
+        seeAlso: [ 'hasValue' ],
         version: '6.0',
         icon: ICON.CDK,
         search: `${CDK}, object, hasValueNotEqual`,
+      },
+      hasValueNotEqualIn: <IDataItem>{
+        route: `/${CDK}/object/hasValueNotEqualIn`,
+        name: 'hasValueNotEqualIn',
+        base: '',
+        desc: 'Determines if two objects are not equal by hasValue in a path.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/has-value-not-equal-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, hasValueNotEqualIn`,
       },
     },
   },
@@ -232,7 +234,7 @@ export const ROUTES: IRoute = {
     // section
     guides: {
       // dataItem
-      ['mat-overview']: <IDataItem>{
+      [ 'mat-overview' ]: <IDataItem>{
         route: `/${COMPONENTS}/guides/mat-overview`,
         name: 'Components Overview',
         desc: 'Overview of components.',
@@ -243,7 +245,7 @@ export const ROUTES: IRoute = {
         icon: ICON.MATERIAL,
         search: `${COMPONENTS}, material, overview`,
       },
-      ['adding-components']: <IDataItem>{
+      [ 'adding-components' ]: <IDataItem>{
         route: `/${COMPONENTS}/guides/adding-components`,
         name: 'Adding Components',
         desc: 'Adding Components.',
@@ -264,7 +266,7 @@ export const ROUTES: IRoute = {
         desc: 'Shows html content in a pop-over',
         base: '',
         githubSpec: `${GIT_REPO_PROJECTS_BASE}/${COMPONENTS}/src/lib/menu/src/menu.spec.ts`,
-        seeAlso: ['hasValue'],
+        seeAlso: [ 'hasValue' ],
         version: '6.0',
         icon: ICON.MATERIAL,
         search: `${COMPONENTS}, menu`,
@@ -438,7 +440,7 @@ export const ROUTES: IRoute = {
         search: `${ICONS}, icon, icons, install`,
       },
       // dataItem
-      ['install-svg-icons']: <IDataItem>{
+      [ 'install-svg-icons' ]: <IDataItem>{
         route: `/${ICONS}/custom/install-svg-icons`,
         name: 'Install SVG Icons',
         desc: 'Install custom icons.',
@@ -450,7 +452,7 @@ export const ROUTES: IRoute = {
         search: `${ICONS}, icon, icons, install`,
       },
       // dataItem
-      ['add-to-platform']: <IDataItem>{
+      [ 'add-to-platform' ]: <IDataItem>{
         route: `/${ICONS}/custom/add-to-platform`,
         name: 'Add Icon To Platform',
         desc: 'How to add an icon to the platform.',
@@ -469,7 +471,7 @@ export const ROUTES: IRoute = {
     // section
     guides: {
       // dataItem
-      ['poc-overview']: <IDataItem>{
+      [ 'poc-overview' ]: <IDataItem>{
         route: `/${POC}/guides/poc-overview`,
         name: 'Proof of Concepts',
         desc: 'Adding a Proof of Concept.',
@@ -484,7 +486,7 @@ export const ROUTES: IRoute = {
     // section
     demos: {
       // dataItem
-      ['sample-poc']: <IDataItem>{
+      [ 'sample-poc' ]: <IDataItem>{
         route: `/${POC}/demos/sample-poc`,
         name: 'Sample PoC',
         desc: 'Sample PoC.',
