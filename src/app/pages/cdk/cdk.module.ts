@@ -24,6 +24,7 @@ import { HasValueNotEqualComponent } from './object/has-value-not-equal/has-valu
 import { HasValueNotEqualInComponent } from './object/has-value-not-equal-in/has-value-not-equal-in.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
+import { InvokeIfInComponent } from './object/invoke-if-in/invoke-if-in.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -50,6 +51,7 @@ import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config
     HasValueNotEqualInComponent,
     InvokeIfElseInComponent,
     InvokeIfElseInConfigComponent,
+    InvokeIfInComponent,
   ],
 })
 export class CdkModule {}

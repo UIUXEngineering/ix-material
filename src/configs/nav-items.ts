@@ -248,6 +248,17 @@ export const ROUTES: IRoute = {
                icon: ICON.CDK,
                search: `${CDK}, object, invokeIfElseInConfig`,
              },
+      invokeIfIn: <IDataItem>{
+               route: `/${CDK}/object/invokeIfIn`,
+               name: 'invokeIfIn',
+               base: '',
+               desc: 'Invoke function if in path.',
+               githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/invoke-if-in.spec.ts`,
+               seeAlso: [],
+               version: '6.0',
+               icon: ICON.CDK,
+               search: `${CDK}, object, invokeIfIn`,
+             },
     },
   },
 
