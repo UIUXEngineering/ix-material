@@ -226,6 +226,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, hasValueNotEqualIn`,
       },
+      invokeIfElseIn: <IDataItem>{
+        route: `/${CDK}/object/invokeIfElseIn`,
+        name: 'invokeIfElseIn',
+        base: '',
+        desc: 'Invoke a function nested in a path of an object.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/invoke-if-else-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, invokeIfElseIn`,
+      },
     },
   },
 

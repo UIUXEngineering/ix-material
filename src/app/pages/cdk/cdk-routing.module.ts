@@ -20,6 +20,7 @@ import { HasValueInComponent } from './object/has-value-in/has-value-in.componen
 import { HasValueNotEqualInComponent } from './object/has-value-not-equal-in/has-value-not-equal-in.component';
 import { HasValueNotEqualComponent } from './object/has-value-not-equal/has-value-not-equal.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
+import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
 
 const routes: Routes = [
   {
@@ -101,6 +102,10 @@ const routes: Routes = [
       {
         path: 'object/hasValueNotEqualIn',
         component: HasValueNotEqualInComponent,
+      },
+      {
+        path: 'object/invokeIfElseIn',
+        component: InvokeIfElseInComponent,
       },
     ],
   },
