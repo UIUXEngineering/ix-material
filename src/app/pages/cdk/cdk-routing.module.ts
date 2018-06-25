@@ -14,6 +14,7 @@ import { CreateObjectWithPathComponent } from './object/create-object-with-path/
 import { FindPropertiesComponent } from './object/find-properties/find-properties.component';
 import { FindPropertyDataComponent } from './object/find-property-data/find-property-data.component';
 import { FindPropsWithValueComponent } from './object/find-props-with-value/find-props-with-value.component';
+import { GetInComponent } from './object/get-in/get-in.component';
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueComponent } from './object/has-value/has-value.component';
 
@@ -29,10 +30,6 @@ const routes: Routes = [
       {
         path: 'guides/adding-to-cdk',
         component: AddingToCdkComponent,
-      },
-      {
-        path: 'object/hasValue',
-        component: HasValueComponent,
       },
       {
         path: 'object/allPropsAreDefined',
@@ -77,6 +74,14 @@ const routes: Routes = [
       {
         path: 'object/findPropsWithValue',
         component: FindPropsWithValueComponent,
+      },
+      {
+        path: 'object/getIn',
+        component: GetInComponent,
+      },
+      {
+        path: 'object/hasValue',
+        component: HasValueComponent,
       },
       {
         path: 'object/hasValueIn',

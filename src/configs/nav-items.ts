@@ -169,6 +169,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, findPropsWithValue, all props are defined`,
       },
+      getIn: <IDataItem>{
+        route: `/${CDK}/object/getIn`,
+        name: 'getIn',
+        desc: 'Get a value deeply embedded in an object via dot path.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/get-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, getIn, all props are defined`,
+      },
       hasValue: <IDataItem>{
         route: `/${CDK}/object/hasValue`,
         name: 'hasValue',

@@ -18,6 +18,7 @@ import { CreateObjectWithPathComponent } from './object/create-object-with-path/
 import { FindPropertiesComponent } from './object/find-properties/find-properties.component';
 import { FindPropertyDataComponent } from './object/find-property-data/find-property-data.component';
 import { FindPropsWithValueComponent } from './object/find-props-with-value/find-props-with-value.component';
+import { GetInComponent } from './object/get-in/get-in.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -38,6 +39,7 @@ import { FindPropsWithValueComponent } from './object/find-props-with-value/find
     FindPropertiesComponent,
     FindPropertyDataComponent,
     FindPropsWithValueComponent,
+    GetInComponent,
   ],
 })
 export class CdkModule {}
