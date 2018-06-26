@@ -23,6 +23,7 @@ import { HasValueComponent } from './object/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
 import { InvokeIfInComponent } from './object/invoke-if-in/invoke-if-in.component';
+import { InvokeInComponent } from './object/invoke-in/invoke-in.component';
 
 const routes: Routes = [
   {
@@ -116,6 +117,10 @@ const routes: Routes = [
       {
         path: 'object/invokeIfIn',
         component: InvokeIfInComponent,
+      },
+      {
+        path: 'object/invokeIn',
+        component: InvokeInComponent,
       },
     ],
   },
