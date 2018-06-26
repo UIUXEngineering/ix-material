@@ -303,6 +303,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, isIn`,
       },
+      isMatch: <IDataItem>{
+        route: `/${CDK}/object/isMatch`,
+        name: 'isMatch',
+        base: '',
+        desc: 'Recursively searches an object to find an object that matches a search object.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/is-match.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, isMatch`,
+      },
 
     },
   },

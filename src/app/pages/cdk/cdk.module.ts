@@ -29,6 +29,7 @@ import { InvokeInComponent } from './object/invoke-in/invoke-in.component';
 import { IsDefinedComponent } from './object/is-defined/is-defined.component';
 import { IsDefinedInComponent } from './object/is-defined-in/is-defined-in.component';
 import { IsInComponent } from './object/is-in/is-in.component';
+import { IsMatchComponent } from './object/is-match/is-match.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -60,6 +61,7 @@ import { IsInComponent } from './object/is-in/is-in.component';
     IsDefinedComponent,
     IsDefinedInComponent,
     IsInComponent,
+    IsMatchComponent,
   ],
 })
 export class CdkModule {}
