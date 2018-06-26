@@ -26,6 +26,7 @@ import { InvokeIfInComponent } from './object/invoke-if-in/invoke-if-in.componen
 import { InvokeInComponent } from './object/invoke-in/invoke-in.component';
 import { IsDefinedInComponent } from './object/is-defined-in/is-defined-in.component';
 import { IsDefinedComponent } from './object/is-defined/is-defined.component';
+import { IsInComponent } from './object/is-in/is-in.component';
 
 const routes: Routes = [
   {
@@ -131,6 +132,14 @@ const routes: Routes = [
       {
         path: 'object/isDefinedIn',
         component: IsDefinedInComponent,
+      },
+      {
+        path: 'object/isDefinedIn',
+        component: IsDefinedInComponent,
+      },
+      {
+        path: 'object/isIn',
+        component: IsInComponent,
       },
     ],
   },

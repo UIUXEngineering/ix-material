@@ -292,6 +292,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, isDefinedIn`,
       },
+      isIn: <IDataItem>{
+        route: `/${CDK}/object/isIn`,
+        name: 'isIn',
+        base: '',
+        desc: 'Determines if a property exists in a path.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/is-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, isIn`,
+      },
 
     },
   },
