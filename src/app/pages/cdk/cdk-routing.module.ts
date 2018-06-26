@@ -24,6 +24,7 @@ import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
 import { InvokeIfInComponent } from './object/invoke-if-in/invoke-if-in.component';
 import { InvokeInComponent } from './object/invoke-in/invoke-in.component';
+import { IsDefinedComponent } from './object/is-defined/is-defined.component';
 
 const routes: Routes = [
   {
@@ -121,6 +122,10 @@ const routes: Routes = [
       {
         path: 'object/invokeIn',
         component: InvokeInComponent,
+      },
+      {
+        path: 'object/isDefined',
+        component: IsDefinedComponent,
       },
     ],
   },
