@@ -314,7 +314,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, isMatch`,
       },
-
+      isScalar: <IDataItem>{
+        route: `/${CDK}/object/isScalar`,
+        name: 'isScalar',
+        base: '',
+        desc: 'Determines if a value is a scalar value.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/is-scalar.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, isScalar`,
+      },
     },
   },
 

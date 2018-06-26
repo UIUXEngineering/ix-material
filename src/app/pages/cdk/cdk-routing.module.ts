@@ -28,6 +28,7 @@ import { IsDefinedInComponent } from './object/is-defined-in/is-defined-in.compo
 import { IsDefinedComponent } from './object/is-defined/is-defined.component';
 import { IsInComponent } from './object/is-in/is-in.component';
 import { IsMatchComponent } from './object/is-match/is-match.component';
+import { IsScalarComponent } from './object/is-scalar/is-scalar.component';
 
 const routes: Routes = [
   {
@@ -145,6 +146,10 @@ const routes: Routes = [
       {
         path: 'object/isMatch',
         component: IsMatchComponent,
+      },
+      {
+        path: 'object/isScalar',
+        component: IsScalarComponent,
       },
     ],
   },
