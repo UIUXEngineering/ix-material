@@ -27,6 +27,7 @@ import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config
 import { InvokeIfInComponent } from './object/invoke-if-in/invoke-if-in.component';
 import { InvokeInComponent } from './object/invoke-in/invoke-in.component';
 import { IsDefinedComponent } from './object/is-defined/is-defined.component';
+import { IsDefinedInComponent } from './object/is-defined-in/is-defined-in.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -56,6 +57,7 @@ import { IsDefinedComponent } from './object/is-defined/is-defined.component';
     InvokeIfInComponent,
     InvokeInComponent,
     IsDefinedComponent,
+    IsDefinedInComponent,
   ],
 })
 export class CdkModule {}

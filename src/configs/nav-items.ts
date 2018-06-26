@@ -281,6 +281,18 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, isDefined`,
       },
+      isDefinedIn: <IDataItem>{
+        route: `/${CDK}/object/isDefinedIn`,
+        name: 'isDefinedIn',
+        base: '',
+        desc: 'Determines if a nested property is not undefined or null.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/is-defined-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, isDefinedIn`,
+      },
+
     },
   },
 
