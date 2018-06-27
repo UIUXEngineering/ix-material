@@ -31,6 +31,7 @@ import { IsDefinedInComponent } from './object/is-defined-in/is-defined-in.compo
 import { IsInComponent } from './object/is-in/is-in.component';
 import { IsMatchComponent } from './object/is-match/is-match.component';
 import { IsScalarComponent } from './value/is-scalar/is-scalar.component';
+import { IsTruthyInComponent } from './object/is-truthy-in/is-truthy-in.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -64,6 +65,7 @@ import { IsScalarComponent } from './value/is-scalar/is-scalar.component';
     IsInComponent,
     IsMatchComponent,
     IsScalarComponent,
+    IsTruthyInComponent,
   ],
 })
 export class CdkModule {}

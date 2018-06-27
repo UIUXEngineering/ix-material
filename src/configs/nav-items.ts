@@ -270,6 +270,17 @@ export const ROUTES: IRoute = {
         icon: ICON.CDK,
         search: `${CDK}, object, isMatch`,
       },
+      isTruthyIn: <IDataItem>{
+        route: `/${CDK}/object/isTruthyIn`,
+        name: 'isTruthyIn',
+        base: '',
+        desc: 'Determine if a value isTruthy in a path of an object.',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/is-truthy-in.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, object, isTruthyIn`,
+      },
     },
     // section
     value: {

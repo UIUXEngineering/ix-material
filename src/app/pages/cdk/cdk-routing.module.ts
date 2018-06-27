@@ -19,6 +19,7 @@ import { HasValueEqualComponent } from './object/has-value-equal/has-value-equal
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueNotEqualInComponent } from './object/has-value-not-equal-in/has-value-not-equal-in.component';
 import { HasValueNotEqualComponent } from './object/has-value-not-equal/has-value-not-equal.component';
+import { IsTruthyInComponent } from './object/is-truthy-in/is-truthy-in.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
@@ -130,6 +131,10 @@ const routes: Routes = [
       {
         path: 'object/isMatch',
         component: IsMatchComponent,
+      },
+      {
+        path: 'object/isTruthyIn',
+        component: IsTruthyInComponent,
       },
 
       // value
