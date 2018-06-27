@@ -6,7 +6,7 @@ import { getIn } from './get-in';
 import { hasValue } from './has-value';
 import { default as _isMatch } from 'lodash-es/isMatch';
 import { default as _isObject } from 'lodash-es/isObject';
-import { isScalar } from './is-scalar';
+import { isScalar } from '@uiux/cdk/value';
 
 export function isMatch(src, mapCompare): boolean {
   let _isMatchTest = _isObject(src) && _isObject(mapCompare);

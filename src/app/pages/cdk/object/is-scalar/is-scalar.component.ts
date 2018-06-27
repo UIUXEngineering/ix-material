@@ -11,7 +11,7 @@ import { IDataItem } from '../../../../../models/routes';
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
 export class IsScalarComponent implements OnInit {
-  data: IDataItem = ROUTES.cdk.object.isScalar;
+  data: IDataItem = ROUTES.cdk.value.isScalar;
 
   constructor() {
   }

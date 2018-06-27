@@ -34,8 +34,8 @@ import {
   createObjectWithPath,
   hasValue,
   hasValueIn,
-  isScalar,
 } from '@uiux/cdk/object';
+import { isScalar } from '@uiux/cdk/value';
 import { toJSPipe } from '@uiux/cdk/rxjs';
 
 export interface IndexedTableConfig {

@@ -148,7 +148,7 @@ const routes: Routes = [
         component: IsMatchComponent,
       },
       {
-        path: 'object/isScalar',
+        path: 'value/isScalar',
         component: IsScalarComponent,
       },
     ],
