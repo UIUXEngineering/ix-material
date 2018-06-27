@@ -6,7 +6,7 @@
 import { createIndexDict } from './create-indexed-dict';
 import { IIndexedItem, IIndexedItemDict, IIndexedTableItem } from './interfaces';
 import { createTableItem } from './create-table-item';
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 
 describe('createTableItem', () => {
   it('should create item', () => {

@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { Observable } from 'rxjs/Observable';
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 
 export function hasValuePipe<T>(): any {
   return (source: Observable<T>): Observable<T> => {

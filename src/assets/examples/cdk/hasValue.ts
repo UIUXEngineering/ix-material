@@ -1,4 +1,4 @@
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 
 const _null = null;
 console.log(hasValue(_null)); // false

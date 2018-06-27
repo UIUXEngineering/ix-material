@@ -4,7 +4,7 @@
  */
 
 import { allPropsHaveValue } from './all-props-have-value';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 
 describe('propsHaveValue', () => {
   beforeEach(() => {});

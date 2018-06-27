@@ -11,7 +11,6 @@ export * from './src/find-properties';
 export * from './src/find-property-data';
 export * from './src/find-props-with-value';
 export * from './src/get-in';
-export * from './src/has-value';
 export * from './src/has-value-equal';
 export * from './src/has-value-equal-in';
 export * from './src/has-value-not-equal';

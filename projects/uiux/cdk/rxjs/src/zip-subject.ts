@@ -10,10 +10,9 @@ import {
   allPropsAreDefined,
   allPropsHaveValue,
   clone,
-  hasValue,
   keySplitterIntoImmutablePath,
 } from '@uiux/cdk/object';
-import { isScalar } from '@uiux/cdk/value';
+import { hasValue, isScalar } from '@uiux/cdk/value';
 import { Observable } from 'rxjs/Observable';
 import { take } from 'rxjs/operators/take';
 import { fromJS } from 'immutable';

@@ -5,7 +5,7 @@
 
 import { default as _isPlainObject } from 'lodash-es/isPlainObject';
 import { default as _forIn } from 'lodash-es/forIn';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 import { clone } from './clone';
 
 export function valuesWithKey(obj: any, key: string): any[] {

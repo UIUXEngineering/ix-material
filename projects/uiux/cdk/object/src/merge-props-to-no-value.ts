@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { propsWithNoValue } from './props-with-no-value';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 
 export function mergePropsToNoValue(target: any, source: any, exclude?: string[]): any {
   const e: string[] = exclude ? exclude : [];

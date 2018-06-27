@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 import { getIn } from './get-in';
 
 /**

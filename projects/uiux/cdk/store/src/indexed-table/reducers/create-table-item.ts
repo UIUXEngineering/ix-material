@@ -12,7 +12,7 @@ import {
 import { default as uniq } from 'lodash-es/uniq';
 import { default as concat } from 'lodash-es/concat';
 import { getDataType } from './data-type';
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 
 export function createTableItem(table: IHashTable, item: IIndexedItem): IIndexedTableItem {
   let _newTableItem: IIndexedTableItem = <IIndexedTableItem>{};

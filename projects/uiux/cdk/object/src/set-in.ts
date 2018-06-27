@@ -4,7 +4,7 @@
  */
 
 import { default as set } from 'lodash-es/set';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 
 /**
  * Sets the nested key to the provided value, creating objects for any

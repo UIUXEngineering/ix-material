@@ -5,7 +5,7 @@
 
 import { isIn } from './is-in';
 import { getIn } from './get-in';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 import { isTruthy } from './is-truthy';
 
 /**

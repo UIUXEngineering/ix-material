@@ -38,6 +38,17 @@ export const ROUTES: IRoute = {
     },
     // section
     value: {
+      hasValue: <IDataItem>{
+        route: `/${CDK}/value/hasValue`,
+        name: 'hasValue',
+        desc: 'Determines if a scalar value is not undefined, null, or empty.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/value/src/has-value.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, value, hasValue`,
+      },
       isScalar: <IDataItem>{
         route: `/${CDK}/value/isScalar`,
         name: 'isScalar',
@@ -184,17 +195,6 @@ export const ROUTES: IRoute = {
         version: '6.0',
         icon: ICON.CDK,
         search: `${CDK}, object, getIn, all props are defined`,
-      },
-      hasValue: <IDataItem>{
-        route: `/${CDK}/object/hasValue`,
-        name: 'hasValue',
-        desc: 'Determines if a scalar value is not undefined, null, or empty.',
-        base: '',
-        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/has-value.spec.ts`,
-        seeAlso: [],
-        version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, object, hasValue`,
       },
       hasValueEqual: <IDataItem>{
         route: `/${CDK}/object/hasValueEqual`,

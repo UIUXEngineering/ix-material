@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { default as isString } from 'lodash-es/isString';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 import { default as get } from 'lodash-es/get';
 
 export function propsContainsString(data: any, q: string, props: string[]): boolean {

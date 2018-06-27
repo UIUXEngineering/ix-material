@@ -8,7 +8,7 @@ import { default as isPlainObject } from 'lodash-es/isPlainObject';
 import { default as isFunction } from 'lodash-es/isFunction';
 import { default as isString } from 'lodash-es/isString';
 import { default as get } from 'lodash-es/get';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 
 export function allPropsHaveValue(
   object: any,

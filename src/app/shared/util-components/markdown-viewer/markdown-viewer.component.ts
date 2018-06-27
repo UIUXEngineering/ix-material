@@ -14,7 +14,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { CheckContentLoaded, Content, ContentLoadedService } from '@uiux/cdk/dom';
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 import { MarkdownService } from 'ngx-markdown';
 import { Subscription } from 'rxjs';
 import { IDataItem } from '../../../../models/routes';

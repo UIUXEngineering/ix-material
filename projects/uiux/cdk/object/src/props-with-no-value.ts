@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 
 export function propsWithNoValue(obj: any): any {
   const keys: string[] = Object.keys(obj);

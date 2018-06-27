@@ -92,10 +92,6 @@ const routes: Routes = [
         component: GetInComponent,
       },
       {
-        path: 'object/hasValue',
-        component: HasValueComponent,
-      },
-      {
         path: 'object/hasValueEqual',
         component: HasValueEqualComponent,
       },
@@ -150,6 +146,10 @@ const routes: Routes = [
       {
         path: 'value/isScalar',
         component: IsScalarComponent,
+      },
+      {
+        path: 'value/hasValue',
+        component: HasValueComponent,
       },
     ],
   },

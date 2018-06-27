@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 import { default as isDate } from 'lodash-es/isDate';
 
 export function toString(value: any, defaultValue?: any): any {

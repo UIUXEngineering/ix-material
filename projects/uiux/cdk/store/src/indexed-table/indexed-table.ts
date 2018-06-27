@@ -32,10 +32,9 @@ import { CON, DATA_TYPE } from './constants';
 import {
   allPropsHaveValue,
   createObjectWithPath,
-  hasValue,
   hasValueIn,
 } from '@uiux/cdk/object';
-import { isScalar } from '@uiux/cdk/value';
+import { isScalar, hasValue } from '@uiux/cdk/value';
 import { toJSPipe } from '@uiux/cdk/rxjs';
 
 export interface IndexedTableConfig {

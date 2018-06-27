@@ -65,7 +65,7 @@ export class HasValueComponent implements OnInit {
     },
   ];
 
-  data: IDataItem = ROUTES.cdk.object.hasValue;
+  data: IDataItem = ROUTES.cdk.value.hasValue;
 
   constructor() {}
 

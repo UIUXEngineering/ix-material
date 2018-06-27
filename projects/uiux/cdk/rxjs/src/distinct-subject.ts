@@ -7,7 +7,8 @@ import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { ObjectUnsubscribedError } from 'rxjs';
-import { get, hasValue } from '@uiux/cdk/object';
+import { get } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 import { default as _isEqual } from 'lodash-es/isEqual';
 
 export class DistinctSubject<T> extends Subject<T> {

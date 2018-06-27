@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 import { default as get } from 'lodash-es/get';
 /**
  * Invokes the function nested at the provided path of keys, if it exists,

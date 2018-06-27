@@ -7,7 +7,8 @@ import { IndexedTable } from './indexed-table';
 import { IIndexedItem, IIndexedTableItem } from './reducers/interfaces';
 import { createTableItem } from './reducers/create-table-item';
 import { createIndexItem } from './reducers/create-indexed-item';
-import { clone, hasValue } from '@uiux/cdk/object';
+import { clone } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 
 describe('IndexedTable', () => {
   it('should should notify parent and child when value changes', () => {

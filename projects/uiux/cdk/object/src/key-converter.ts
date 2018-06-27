@@ -5,7 +5,7 @@
 
 import { default as isArray } from 'lodash-es/isArray';
 import { default as map } from 'lodash-es/map';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 import { isArrayInteger } from '@uiux/cdk/number';
 
 export function isArraySyntax(key: string): boolean {

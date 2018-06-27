@@ -7,7 +7,7 @@ import { default as isObject } from 'lodash-es/isObject';
 import { default as isFunction } from 'lodash-es/isFunction';
 import { default as isArray } from 'lodash-es/isArray';
 import { default as map } from 'lodash-es/map';
-import { hasValue } from './has-value';
+import { hasValue } from '@uiux/cdk/value';
 import { IFindPropertiesResult } from './interfaces';
 
 export function findProperties(node: any, _searchParam: any, path: string = ''): any[] {

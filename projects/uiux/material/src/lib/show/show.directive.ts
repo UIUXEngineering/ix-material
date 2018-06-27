@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering Corporation All Rights Reserved.
  */
 import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 
 // tslint:disable-next-line
 @Directive({

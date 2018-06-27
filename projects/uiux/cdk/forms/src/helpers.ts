@@ -4,7 +4,7 @@
  */
 
 import { IFormConfig, IFormValue, IValidationError, IFormGroupConfig } from './interfaces';
-import { hasValue } from '@uiux/cdk/object';
+import { hasValue } from '@uiux/cdk/value';
 import { AbstractControl, Validators } from '@angular/forms';
 
 export function buildConfig(_formConfig: IFormConfig): IFormConfig {
