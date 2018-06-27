@@ -8,7 +8,7 @@ import { default as isEmpty } from 'lodash-es/isEmpty';
 import { default as isString } from 'lodash-es/isString';
 import { default as isNumber } from 'lodash-es/isNumber';
 import { default as trim } from 'lodash-es/trim';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from './has-value';
 
 export function isTruthy(value: any): boolean {
   if (hasValue(value)) {

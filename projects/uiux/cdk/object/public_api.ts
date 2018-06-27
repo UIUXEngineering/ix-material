@@ -26,7 +26,6 @@ export * from './src/is-in';
 export * from './src/is-defined-in';
 export * from './src/is-match';
 export * from './src/is-truthy-in';
-export * from './src/is-truthy';
 export * from './src/merge-no-array';
 export * from './src/merge-props-to-no-value';
 export * from './src/prop-has-value-in-all-paths';

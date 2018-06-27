@@ -7,7 +7,7 @@
 
 import { findPropsWithValue } from './find-props-with-value';
 import { propsHaveValue } from './props-have-value';
-import { isTruthy } from './is-truthy';
+import { isTruthy } from '@uiux/cdk/value';
 
 describe('findProperties', () => {
   let target: any;
