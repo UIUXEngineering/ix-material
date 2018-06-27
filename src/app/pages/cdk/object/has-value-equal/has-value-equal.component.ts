@@ -11,7 +11,7 @@ import { IDataItem } from '../../../../../models/routes';
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
 export class HasValueEqualComponent implements OnInit {
-  data: IDataItem = ROUTES.cdk.object.hasValueEqual;
+  data: IDataItem = ROUTES.cdk.value.hasValueEqual;
   constructor() {
   }
 

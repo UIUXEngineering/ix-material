@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from './has-value';
 
 export function hasValueEqual(targetValue: any, srcValue): boolean {
   if (hasValue(srcValue)) {

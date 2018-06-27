@@ -92,10 +92,6 @@ const routes: Routes = [
         component: GetInComponent,
       },
       {
-        path: 'object/hasValueEqual',
-        component: HasValueEqualComponent,
-      },
-      {
         path: 'object/hasValueIn',
         component: HasValueInComponent,
       },
@@ -148,6 +144,10 @@ const routes: Routes = [
       {
         path: 'value/hasValue',
         component: HasValueComponent,
+      },
+      {
+        path: 'value/hasValueEqual',
+        component: HasValueEqualComponent,
       },
       {
         path: 'value/isDefined',
