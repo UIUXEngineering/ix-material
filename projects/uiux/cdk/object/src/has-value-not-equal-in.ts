@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { getIn } from './get-in';
-import { hasValueNotEqual } from './has-value-not-equal';
+import { hasValueNotEqual } from '../../value/src/has-value-not-equal';
 
 export function hasValueNotEqualIn(
   targetValue: any,

@@ -12,7 +12,6 @@ export * from './src/find-property-data';
 export * from './src/find-props-with-value';
 export * from './src/get-in';
 export * from './src/has-value-equal-in';
-export * from './src/has-value-not-equal';
 export * from './src/has-value-not-equal-in';
 export * from './src/has-value-in';
 export * from './src/interfaces';

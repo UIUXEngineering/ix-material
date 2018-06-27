@@ -11,7 +11,7 @@ import { IDataItem } from '../../../../../models/routes';
       changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HasValueNotEqualComponent implements OnInit {
-  data: IDataItem = ROUTES.cdk.object.hasValueNotEqual;
+  data: IDataItem = ROUTES.cdk.value.hasValueNotEqual;
   constructor() { }
 
   ngOnInit() {
