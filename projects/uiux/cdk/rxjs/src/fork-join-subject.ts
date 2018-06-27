@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { Subscriber } from 'rxjs/Subscriber';
-import { allPropsHaveValue, mergeNoArray } from '@uiux/cdk/object';
+import { allPropsHaveValue, merge } from '@uiux/cdk/object';
 
 export class ForkJoinSubject<T> extends Subject<T> {
   private _isPublished = false;
@@ -48,12 +48,12 @@ export class ForkJoinSubject<T> extends Subject<T> {
   }
 
   mergeValue(value: any): void {
-    this._structure = mergeNoArray(this._structure, value);
+    this._structure = merge(this._structure, value);
     this._next(this._structure);
   }
 
   next(value: T): void {
-    this._structure = mergeNoArray(this._structure, value);
+    this._structure = merge(this._structure, value);
     this._next(this._structure);
   }
 

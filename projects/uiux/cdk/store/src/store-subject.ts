@@ -8,7 +8,7 @@ import { Action } from './action';
 import { IReducerConfig, IReducers, IStoreConfig, ITransformConfig } from './interfaces';
 import { default as reduce } from 'lodash-es/reduce';
 import { TransformSubject } from './transform-subject';
-import { getIn, invokeIfIn, mergeNoArray } from '@uiux/cdk/object';
+import { getIn, invokeIfIn, merge } from '@uiux/cdk/object';
 import { hasValue } from '@uiux/cdk/value';
 
 /**
@@ -61,7 +61,7 @@ export class StoreSubject<S, A = any, T = any> extends HashStore<S> {
   }
 
   update(_data: any): void {
-    this.next(mergeNoArray(this.getValue(), _data));
+    this.next(merge(this.getValue(), _data));
   }
 
   createAction(_type: string, _payload?: any): any {

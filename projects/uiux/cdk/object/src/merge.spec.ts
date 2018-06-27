@@ -3,9 +3,9 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { mergeNoArray } from './merge-no-array';
+import { merge } from './merge';
 
-describe('mergeNoArray', () => {
+describe('merge', () => {
   beforeEach(() => {});
 
   afterEach(() => {});
@@ -23,7 +23,7 @@ describe('mergeNoArray', () => {
       baz: ['four', 'five', 'six'],
     };
 
-    const result: any = mergeNoArray(target, source);
+    const result: any = merge(target, source);
 
     expect(result.baz).toEqual(source.baz);
   });
@@ -51,7 +51,7 @@ describe('mergeNoArray', () => {
       },
     };
 
-    const result: any = mergeNoArray(target, source);
+    const result: any = merge(target, source);
 
     expect(result.foo).toBeTruthy();
     expect(result.bar).toBeTruthy();
@@ -75,8 +75,8 @@ describe('mergeNoArray', () => {
       bar: true,
     };
 
-    expect(mergeNoArray(obj1, obj2).foo).toBeTruthy();
-    expect(mergeNoArray(obj1, obj2).bar).toBeTruthy();
+    expect(merge(obj1, obj2).foo).toBeTruthy();
+    expect(merge(obj1, obj2).bar).toBeTruthy();
   });
 
   it('should update boolean false', () => {
@@ -90,8 +90,8 @@ describe('mergeNoArray', () => {
       bar: false,
     };
 
-    expect(mergeNoArray(obj1, obj2).foo).toBeFalsy();
-    expect(mergeNoArray(obj1, obj2).bar).toBeFalsy();
+    expect(merge(obj1, obj2).foo).toBeFalsy();
+    expect(merge(obj1, obj2).bar).toBeFalsy();
   });
 
   it('should update partial boolean', () => {
@@ -103,7 +103,7 @@ describe('mergeNoArray', () => {
       foo: false,
     };
 
-    expect(mergeNoArray(obj1, obj2).foo).toBeFalsy();
-    expect(mergeNoArray(obj1, obj2).bar).toBeUndefined();
+    expect(merge(obj1, obj2).foo).toBeFalsy();
+    expect(merge(obj1, obj2).bar).toBeUndefined();
   });
 });

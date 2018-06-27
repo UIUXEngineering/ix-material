@@ -25,7 +25,7 @@ export interface IFindPropsWithValueResult {
  *
  * @param path
  */
-export function findPropsWithValue(node: any | any[], _searchMap: any, path: string = ''): any[] {
+export function findPropsWithValue(node: any | any[], _searchMap: any, path: string = ''): IFindPropsWithValueResult[] {
   let result: any[] = [];
 
   /**

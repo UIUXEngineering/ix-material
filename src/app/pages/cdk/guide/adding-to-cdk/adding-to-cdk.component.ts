@@ -11,7 +11,7 @@ import { IDataItem } from '../../../../../models/routes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddingToCdkComponent {
-  data: IDataItem = ROUTES.cdk.guide['adding-to-cdk'];
+  data: IDataItem = ROUTES.cdk.guides['adding-to-cdk'];
 
   seconaryEnpoints = 'https://github.com/dherges/' +
   'ng-packagr/blob/master/' +

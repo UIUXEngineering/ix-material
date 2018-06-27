@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { ObjectUnsubscribedError } from 'rxjs';
-import { mergeNoArray } from '@uiux/cdk/object';
+import { merge } from '@uiux/cdk/object';
 
 export class BehaviorStoreSubject<T> extends Subject<T> {
   constructor(private _value: T) {
@@ -42,7 +42,7 @@ export class BehaviorStoreSubject<T> extends Subject<T> {
   }
 
   mergeValue(value: T): void {
-    this._value = mergeNoArray(this._value, value);
+    this._value = merge(this._value, value);
   }
 
   publishStore(): void {
