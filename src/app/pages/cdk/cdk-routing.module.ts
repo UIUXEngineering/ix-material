@@ -20,6 +20,9 @@ import { HasValueInComponent } from './object/has-value-in/has-value-in.componen
 import { HasValueNotEqualInComponent } from './object/has-value-not-equal-in/has-value-not-equal-in.component';
 import { HasValueNotEqualComponent } from './object/has-value-not-equal/has-value-not-equal.component';
 import { IsTruthyInComponent } from './object/is-truthy-in/is-truthy-in.component';
+import { IsArraySyntaxComponent } from './object/key-converter/is-array-syntax/is-array-syntax.component';
+import { KeySplitterIntoImmutablePathComponent } from './object/key-converter/key-splitter-into-immutable-path/key-splitter-into-immutable-path.component';
+import { SplitKeysIntoDotNotationComponent } from './object/key-converter/split-keys-into-dot-notation/split-keys-into-dot-notation.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
@@ -135,6 +138,18 @@ const routes: Routes = [
       {
         path: 'object/isTruthyIn',
         component: IsTruthyInComponent,
+      },
+      {
+        path: 'object/splitKeysIntoDotNotation',
+        component: SplitKeysIntoDotNotationComponent,
+      },
+      {
+        path: 'object/isArraySyntax',
+        component: IsArraySyntaxComponent,
+      },
+      {
+        path: 'object/keySplitterIntoImmutablePath',
+        component: KeySplitterIntoImmutablePathComponent,
       },
 
       // value

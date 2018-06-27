@@ -32,6 +32,9 @@ import { IsInComponent } from './object/is-in/is-in.component';
 import { IsMatchComponent } from './object/is-match/is-match.component';
 import { IsScalarComponent } from './value/is-scalar/is-scalar.component';
 import { IsTruthyInComponent } from './object/is-truthy-in/is-truthy-in.component';
+import { SplitKeysIntoDotNotationComponent } from './object/key-converter/split-keys-into-dot-notation/split-keys-into-dot-notation.component';
+import { IsArraySyntaxComponent } from './object/key-converter/is-array-syntax/is-array-syntax.component';
+import { KeySplitterIntoImmutablePathComponent } from './object/key-converter/key-splitter-into-immutable-path/key-splitter-into-immutable-path.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -66,6 +69,9 @@ import { IsTruthyInComponent } from './object/is-truthy-in/is-truthy-in.componen
     IsMatchComponent,
     IsScalarComponent,
     IsTruthyInComponent,
+    SplitKeysIntoDotNotationComponent,
+    IsArraySyntaxComponent,
+    KeySplitterIntoImmutablePathComponent,
   ],
 })
 export class CdkModule {}
