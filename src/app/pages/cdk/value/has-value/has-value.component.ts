@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ROUTES } from '../../../../../configs/nav-items';
 import { IDataItem } from '../../../../../models/routes';
-import { fadeAnimation } from '../../../../animations';
+import { fadeAnimation } from '../../../../animations/index';
 
 @Component({
   selector: 'app-has-value',

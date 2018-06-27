@@ -19,7 +19,7 @@ import { HasValueEqualComponent } from './object/has-value-equal/has-value-equal
 import { HasValueInComponent } from './object/has-value-in/has-value-in.component';
 import { HasValueNotEqualInComponent } from './object/has-value-not-equal-in/has-value-not-equal-in.component';
 import { HasValueNotEqualComponent } from './object/has-value-not-equal/has-value-not-equal.component';
-import { HasValueComponent } from './object/has-value/has-value.component';
+import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
 import { InvokeIfInComponent } from './object/invoke-if-in/invoke-if-in.component';
@@ -28,7 +28,7 @@ import { IsDefinedInComponent } from './object/is-defined-in/is-defined-in.compo
 import { IsDefinedComponent } from './object/is-defined/is-defined.component';
 import { IsInComponent } from './object/is-in/is-in.component';
 import { IsMatchComponent } from './object/is-match/is-match.component';
-import { IsScalarComponent } from './object/is-scalar/is-scalar.component';
+import { IsScalarComponent } from './value/is-scalar/is-scalar.component';
 
 const routes: Routes = [
   {
