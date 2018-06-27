@@ -124,10 +124,6 @@ const routes: Routes = [
         component: InvokeInComponent,
       },
       {
-        path: 'object/isDefined',
-        component: IsDefinedComponent,
-      },
-      {
         path: 'object/isDefinedIn',
         component: IsDefinedInComponent,
       },
@@ -143,6 +139,8 @@ const routes: Routes = [
         path: 'object/isMatch',
         component: IsMatchComponent,
       },
+
+      // value
       {
         path: 'value/isScalar',
         component: IsScalarComponent,
@@ -150,6 +148,10 @@ const routes: Routes = [
       {
         path: 'value/hasValue',
         component: HasValueComponent,
+      },
+      {
+        path: 'value/isDefined',
+        component: IsDefinedComponent,
       },
     ],
   },

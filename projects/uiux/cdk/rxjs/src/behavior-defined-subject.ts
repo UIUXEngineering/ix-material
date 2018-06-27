@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { Subscriber } from 'rxjs/Subscriber';
-import { isDefined } from '@uiux/cdk/object';
+import { isDefined } from '@uiux/cdk/value';
 
 export class BehaviorDefinedSubject<T> extends Subject<T> {
   private _value: T;

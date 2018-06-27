@@ -23,7 +23,6 @@ export * from './src/invoke-if-in';
 export * from './src/invoke-if-else-in';
 export * from './src/invoke-if-else-in-config';
 export * from './src/is-in';
-export * from './src/is-defined';
 export * from './src/is-defined-in';
 export * from './src/is-match';
 export * from './src/is-truthy-in';

@@ -11,7 +11,7 @@ import { IDataItem } from '../../../../../models/routes';
       changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IsDefinedComponent implements OnInit {
-  data: IDataItem = ROUTES.cdk.object.isDefined;
+  data: IDataItem = ROUTES.cdk.value.isDefined;
   constructor() { }
 
   ngOnInit() {
