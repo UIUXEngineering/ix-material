@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'title-example',
@@ -8,5 +8,5 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TitleExampleComponent {
-  /* noop */
+  @Input('example') example: string;
 }

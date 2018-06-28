@@ -42,6 +42,7 @@ import { DocMaterialGithubComponent } from './doc-components/common-links/doc-ma
 import { MaterialDesignComponent } from './doc-components/common-links/material-design.component';
 import { NgPackagrComponent } from './doc-components/common-links/ng-packagr.component';
 import { SeeDocComponentsComponent } from './doc-components/doc-links/see-doc-components.component';
+import { SeeInstallIconsComponent } from './doc-components/doc-links/see-install-icons.component';
 import { GuideTitleComponent } from './doc-components/guide-container/guide-title/guide-title.component';
 import { GuideViewerComponent } from './doc-components/guide-container/guide-viewer/guide-viewer.component';
 import { H2LinkComponent } from './doc-components/h2/h2-link.component';
@@ -200,6 +201,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     AngularIoComponent,
     AngularPackageFormatComponent,
     AngularCdkComponent,
+    SeeInstallIconsComponent,
   ],
 
   // pipes, directives, compoments, modules
@@ -299,6 +301,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     AngularIoComponent,
     AngularPackageFormatComponent,
     AngularCdkComponent,
+    SeeInstallIconsComponent,
   ],
   providers: [CopierService, HighlightService],
 })

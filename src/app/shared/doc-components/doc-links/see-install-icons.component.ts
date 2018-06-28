@@ -4,7 +4,7 @@ import { ROUTES } from '../../../../configs/nav-items';
 
 @Component({
   // tslint:disable-next-line
-  selector: 'see-doc-components',
+  selector: 'see-install-icons',
   template: `<a class="link-primary" [routerLink]="link">Doc Components</a>`,
   encapsulation: ViewEncapsulation.None,
 })
