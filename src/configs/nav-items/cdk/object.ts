@@ -1,3 +1,4 @@
+import { propHasValueInAllPaths } from '../../../../projects/uiux/cdk/object/src/prop-has-value-in-all-paths';
 import { IDataItem } from '../../../models/routes';
 import { CDK, GIT_REPO_PROJECTS_BASE, ICON } from '../../constants';
 
@@ -299,5 +300,16 @@ export const object: { [ key: string ]: IDataItem } = {
     version: '6.0',
     icon: ICON.CDK,
     search: `${CDK}, object, mergePropsIfNoValue`,
+  },
+  propHasValueInAllPaths: <IDataItem>{
+    route: `/${CDK}/object/propHasValueInAllPaths`,
+    name: 'propHasValueInAllPaths',
+    base: '',
+    desc: 'In an object that has nested objects with the exact same interface, determine if a property in each nested object has a value.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/prop-has-value-in-all-paths.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, propHasValueInAllPaths`,
   },
 };

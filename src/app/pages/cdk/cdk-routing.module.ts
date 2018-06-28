@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { propHasValueInAllPaths } from '../../../../projects/uiux/cdk/object/src/prop-has-value-in-all-paths';
 import { CdkComponent } from './cdk.component';
 import { AddingToCdkComponent } from './guide/adding-to-cdk/adding-to-cdk.component';
 import { CdkOverviewComponent } from './guide/cdk-overview/cdk-overview.component';
@@ -25,6 +26,7 @@ import { KeySplitterIntoImmutablePathComponent } from './object/key-converter/ke
 import { SplitKeysIntoDotNotationComponent } from './object/key-converter/split-keys-into-dot-notation/split-keys-into-dot-notation.component';
 import { MergePropsIfNoValueComponent } from './object/merge-props-if-no-value/merge-props-if-no-value.component';
 import { MergeComponent } from './object/merge/merge.component';
+import { PropHasValueInAllPathsComponent } from './object/prop-has-value-in-all-paths/prop-has-value-in-all-paths.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
@@ -160,6 +162,10 @@ const routes: Routes = [
       {
         path: 'object/mergePropsIfNoValue',
         component: MergePropsIfNoValueComponent,
+      },
+      {
+        path: 'object/propHasValueInAllPaths',
+        component: PropHasValueInAllPathsComponent,
       },
 
       // value

@@ -37,6 +37,7 @@ import { IsArraySyntaxComponent } from './object/key-converter/is-array-syntax/i
 import { KeySplitterIntoImmutablePathComponent } from './object/key-converter/key-splitter-into-immutable-path/key-splitter-into-immutable-path.component';
 import { MergeComponent } from './object/merge/merge.component';
 import { MergePropsIfNoValueComponent } from './object/merge-props-if-no-value/merge-props-if-no-value.component';
+import { PropHasValueInAllPathsComponent } from './object/prop-has-value-in-all-paths/prop-has-value-in-all-paths.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -76,6 +77,7 @@ import { MergePropsIfNoValueComponent } from './object/merge-props-if-no-value/m
     KeySplitterIntoImmutablePathComponent,
     MergeComponent,
     MergePropsIfNoValueComponent,
+    PropHasValueInAllPathsComponent,
   ],
 })
 export class CdkModule {}
