@@ -312,4 +312,15 @@ export const object: { [ key: string ]: IDataItem } = {
     icon: ICON.CDK,
     search: `${CDK}, object, propHasValueInAllPaths`,
   },
+  propTruthyInAllPaths: <IDataItem>{
+    route: `/${CDK}/object/propTruthyInAllPaths`,
+    name: 'propTruthyInAllPaths',
+    base: '',
+    desc: 'In an object that has nested objects with the exact same interface, determine if a property in each nested object is truthy.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/prop-truthy-in-all-paths.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, propTruthyInAllPaths`,
+  },
 };

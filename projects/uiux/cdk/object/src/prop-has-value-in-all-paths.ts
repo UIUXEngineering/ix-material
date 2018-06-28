@@ -11,7 +11,7 @@ import { allPropsHaveValue } from './all-props-have-value';
 /**
  * Return truthy of all common properties in different paths.
  * @param object
- * @param basePath is a path to an object
+ * @param basePath is a path to an object and may be a path such as 'a.b.c[0]' etc.
  * @param keyOrPath can by a property key, or path to property key
  * @returns boolean
  */

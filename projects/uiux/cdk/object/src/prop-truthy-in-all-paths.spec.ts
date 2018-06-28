@@ -28,6 +28,7 @@ describe('propTruthyInAllPaths', () => {
       },
     };
 
+    // basePath may be a path such as 'a.b.c[0]' etc.
     expect(propTruthyInAllPaths(o, 'controls', 'dirty')).toBe(false);
   });
 
@@ -53,6 +54,7 @@ describe('propTruthyInAllPaths', () => {
       },
     };
 
+    // basePath may be a path such as 'a.b.c[0]' etc.
     expect(propTruthyInAllPaths(o, 'controls', 'dirty')).toBe(true);
   });
 
@@ -78,6 +80,7 @@ describe('propTruthyInAllPaths', () => {
       },
     };
 
+    // basePath may be a path such as 'a.b.c[0]' etc.
     expect(propTruthyInAllPaths(o, 'controls', 'dirty')).toBe(false);
   });
 });
