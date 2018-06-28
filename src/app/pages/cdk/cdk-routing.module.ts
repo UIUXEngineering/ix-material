@@ -23,6 +23,7 @@ import { IsTruthyInComponent } from './object/is-truthy-in/is-truthy-in.componen
 import { IsArraySyntaxComponent } from './object/key-converter/is-array-syntax/is-array-syntax.component';
 import { KeySplitterIntoImmutablePathComponent } from './object/key-converter/key-splitter-into-immutable-path/key-splitter-into-immutable-path.component';
 import { SplitKeysIntoDotNotationComponent } from './object/key-converter/split-keys-into-dot-notation/split-keys-into-dot-notation.component';
+import { MergePropsIfNoValueComponent } from './object/merge-props-if-no-value/merge-props-if-no-value.component';
 import { MergeComponent } from './object/merge/merge.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
@@ -155,6 +156,10 @@ const routes: Routes = [
       {
         path: 'object/merge',
         component: MergeComponent,
+      },
+      {
+        path: 'object/mergePropsIfNoValue',
+        component: MergePropsIfNoValueComponent,
       },
 
       // value

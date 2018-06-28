@@ -3,10 +3,10 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { mergePropsToNoValue } from './merge-props-to-no-value';
+import { mergePropsIfNoValue } from './merge-props-if-no-value';
 
-describe('mergePropsToNoValue', () => {
-  it('should mergePropsToNoValue if source has value', () => {
+describe('mergePropsIfNoValue', () => {
+  it('should mergePropsIfNoValue if source has value', () => {
     const t: any = {
       a: 'foo',
       b: ['foo'],
@@ -29,28 +29,28 @@ describe('mergePropsToNoValue', () => {
       updatedAt: 2,
     };
 
-    const r: any = mergePropsToNoValue(t, s);
+    const r: any = mergePropsIfNoValue(t, s);
 
-    expect(r).toEqual({
-      d: 'newD',
-      e: 'newE',
-    });
+    expect(r).toEqual(jasmine.objectContaining({
+                                                 d: 'newD',
+                                                 e: 'newE',
+                                               }));
   });
 
-  it('should not mergePropsToNoValue if source has no value', () => {
+  it('should not mergePropsIfNoValue if source has no value', () => {
     const t: any = {
       a: 'foo',
       b: ['foo'],
       c: false,
       d: null,
       e: '',
-      g: null,
+      g: null, // no value
       createdAt: 1,
       updatedAt: 2,
     };
 
     const s: any = {
-      a: 'foo',
+      a: 'bar',
       b: ['foo'],
       c: false,
       d: 'newD',
@@ -60,11 +60,11 @@ describe('mergePropsToNoValue', () => {
       updatedAt: 2,
     };
 
-    const r: any = mergePropsToNoValue(t, s);
+    const r: any = mergePropsIfNoValue(t, s);
 
-    expect(r).toEqual({
+    expect(r).toEqual(jasmine.objectContaining({
       d: 'newD',
       e: 'newE',
-    });
+    }));
   });
 });

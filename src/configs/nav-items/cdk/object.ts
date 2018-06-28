@@ -289,4 +289,15 @@ export const object: { [ key: string ]: IDataItem } = {
     icon: ICON.CDK,
     search: `${CDK}, object, merge`,
   },
-}
+  mergePropsIfNoValue: <IDataItem>{
+    route: `/${CDK}/object/mergePropsIfNoValue`,
+    name: 'mergePropsIfNoValue',
+    base: '',
+    desc: 'Merge properties of a source object to a target object only if the target properties have no value.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/merge-props-if-no-value.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, mergePropsIfNoValue`,
+  },
+};

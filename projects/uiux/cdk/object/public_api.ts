@@ -25,7 +25,7 @@ export * from './src/is-defined-in';
 export * from './src/is-match';
 export * from './src/is-truthy-in';
 export * from './src/merge';
-export * from './src/merge-props-to-no-value';
+export * from './src/merge-props-if-no-value';
 export * from './src/prop-has-value-in-all-paths';
 export * from './src/prop-truthy-in-all-paths';
 export * from './src/props-are-truthy'; // no path to property

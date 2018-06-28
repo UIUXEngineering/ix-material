@@ -36,6 +36,7 @@ import { SplitKeysIntoDotNotationComponent } from './object/key-converter/split-
 import { IsArraySyntaxComponent } from './object/key-converter/is-array-syntax/is-array-syntax.component';
 import { KeySplitterIntoImmutablePathComponent } from './object/key-converter/key-splitter-into-immutable-path/key-splitter-into-immutable-path.component';
 import { MergeComponent } from './object/merge/merge.component';
+import { MergePropsIfNoValueComponent } from './object/merge-props-if-no-value/merge-props-if-no-value.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -74,6 +75,7 @@ import { MergeComponent } from './object/merge/merge.component';
     IsArraySyntaxComponent,
     KeySplitterIntoImmutablePathComponent,
     MergeComponent,
+    MergePropsIfNoValueComponent,
   ],
 })
 export class CdkModule {}
