@@ -29,6 +29,7 @@ import { MergeComponent } from './object/merge/merge.component';
 import { PropHasValueInAllPathsComponent } from './object/prop-has-value-in-all-paths/prop-has-value-in-all-paths.component';
 import { PropTruthyInAllPathsComponent } from './object/prop-truthy-in-all-paths/prop-truthy-in-all-paths.component';
 import { PropsAreEqualComponent } from './object/props-are-equal/props-are-equal.component';
+import { PropsAreTruthyComponent } from './object/props-are-truthy/props-are-truthy.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
@@ -176,6 +177,10 @@ const routes: Routes = [
       {
         path: 'object/propsAreEqual',
         component: PropsAreEqualComponent,
+      },
+      {
+        path: 'object/propsAreTruthy',
+        component: PropsAreTruthyComponent,
       },
 
       // value

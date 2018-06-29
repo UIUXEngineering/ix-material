@@ -40,6 +40,7 @@ import { MergePropsIfNoValueComponent } from './object/merge-props-if-no-value/m
 import { PropHasValueInAllPathsComponent } from './object/prop-has-value-in-all-paths/prop-has-value-in-all-paths.component';
 import { PropTruthyInAllPathsComponent } from './object/prop-truthy-in-all-paths/prop-truthy-in-all-paths.component';
 import { PropsAreEqualComponent } from './object/props-are-equal/props-are-equal.component';
+import { PropsAreTruthyComponent } from './object/props-are-truthy/props-are-truthy.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -82,6 +83,7 @@ import { PropsAreEqualComponent } from './object/props-are-equal/props-are-equal
     PropHasValueInAllPathsComponent,
     PropTruthyInAllPathsComponent,
     PropsAreEqualComponent,
+    PropsAreTruthyComponent,
   ],
 })
 export class CdkModule {}
