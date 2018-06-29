@@ -44,6 +44,7 @@ import { PropsAreTruthyComponent } from './object/props-are-truthy/props-are-tru
 import { PropsContainsStringComponent } from './object/props-contains-string/props-contains-string.component';
 import { PropsHaveValueComponent } from './object/props-have-value/props-have-value.component';
 import { PropsWithNoValueComponent } from './object/props-with-no-value/props-with-no-value.component';
+import { SetInComponent } from './object/set-in/set-in.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -90,6 +91,7 @@ import { PropsWithNoValueComponent } from './object/props-with-no-value/props-wi
     PropsContainsStringComponent,
     PropsHaveValueComponent,
     PropsWithNoValueComponent,
+    SetInComponent,
   ],
 })
 export class CdkModule {}

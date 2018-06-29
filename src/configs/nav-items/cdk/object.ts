@@ -378,4 +378,18 @@ export const object: { [ key: string ]: IDataItem } = {
     icon: ICON.CDK,
     search: `${CDK}, object, propsWithNoValue`,
   },
+  setIn: <IDataItem>{
+    route: `/${CDK}/object/setIn`,
+    name: 'setIn',
+    base: '',
+    desc: 'Sets the nested key to the provided value, ' +
+      'creating objects for any non-existent properties, ' +
+      'and returns the supplied object. Keys may be ' +
+      'supplied an array, or a dot-delimited string of properties.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/set-in.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, setIn`,
+  },
 };
