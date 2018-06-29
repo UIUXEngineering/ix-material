@@ -29,11 +29,7 @@ import { getItemPath } from './reducers/get-item-prop';
 import { fromJS } from 'immutable';
 import { ImmutableHashSubject } from './immutable-hash-subject';
 import { CON, DATA_TYPE } from './constants';
-import {
-  allPropsHaveValue,
-  createObjectWithPath,
-  hasValueIn,
-} from '@uiux/cdk/object';
+import { allPropsHaveValue, createObjectWithPath, hasValueIn } from '@uiux/cdk/object';
 import { isScalar, hasValue } from '@uiux/cdk/value';
 import { toJSPipe } from '@uiux/cdk/rxjs';
 

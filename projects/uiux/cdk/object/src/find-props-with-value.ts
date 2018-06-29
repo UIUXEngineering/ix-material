@@ -3,7 +3,6 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { default as isArray } from 'lodash-es/isArray';
 import { default as isObject } from 'lodash-es/isObject';
 import { isMatch } from './is-match';
 
@@ -25,13 +24,17 @@ export interface IFindPropsWithValueResult {
  *
  * @param path
  */
-export function findPropsWithValue(node: any | any[], _searchMap: any, path: string = ''): IFindPropsWithValueResult[] {
+export function findPropsWithValue(
+  node: any | any[],
+  _searchMap: any,
+  path: string = ''
+): IFindPropsWithValueResult[] {
   let result: any[] = [];
 
   /**
    * If node is array, iterate over every object
    */
-  if (isArray(node)) {
+  if (Array.isArray(node)) {
     node.map((item: any, index: number) => {
       result = result.concat(findPropsWithValue(item, _searchMap, path + '[' + index + ']'));
     });
@@ -61,7 +64,7 @@ export function findPropsWithValue(node: any | any[], _searchMap: any, path: str
           // concat . in path if recursion
           tempPath = path.length ? '.' + _prop : _prop;
 
-          if (isObject(node[_prop]) || isArray(node[_prop])) {
+          if (isObject(node[_prop]) || Array.isArray(node[_prop])) {
             result = result.concat(findPropsWithValue(node[_prop], _searchMap, path + tempPath));
           }
           // else {

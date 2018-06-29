@@ -8,7 +8,7 @@ import { default as isArray } from 'lodash-es/isArray';
 import { default as isBoolean } from 'lodash-es/isBoolean';
 import { clone } from './clone';
 
-export function merge( target: any, source: any): any {
+export function merge(target: any, source: any): any {
   return mergeWith(clone(target), clone(source), mergeCustomizer);
 }
 

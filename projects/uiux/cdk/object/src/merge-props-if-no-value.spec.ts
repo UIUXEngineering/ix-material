@@ -31,10 +31,12 @@ describe('mergePropsIfNoValue', () => {
 
     const r: any = mergePropsIfNoValue(t, s);
 
-    expect(r).toEqual(jasmine.objectContaining({
-                                                 d: 'newD',
-                                                 e: 'newE',
-                                               }));
+    expect(r).toEqual(
+      jasmine.objectContaining({
+        d: 'newD',
+        e: 'newE',
+      })
+    );
   });
 
   it('should not mergePropsIfNoValue if source has no value', () => {
@@ -62,9 +64,11 @@ describe('mergePropsIfNoValue', () => {
 
     const r: any = mergePropsIfNoValue(t, s);
 
-    expect(r).toEqual(jasmine.objectContaining({
-      d: 'newD',
-      e: 'newE',
-    }));
+    expect(r).toEqual(
+      jasmine.objectContaining({
+        d: 'newD',
+        e: 'newE',
+      })
+    );
   });
 });
