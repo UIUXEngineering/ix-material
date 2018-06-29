@@ -403,4 +403,15 @@ export const object: { [ key: string ]: IDataItem } = {
     icon: ICON.CDK,
     search: `${CDK}, object, setInIfSrc`,
   },
+  setInIfSrcWithConfig: <IDataItem>{
+           route: `/${CDK}/object/setInIfSrcWithConfig`,
+           name: 'setInIfSrcWithConfig',
+           base: '',
+           desc: 'Use setInIfSrc with config object instead of arguments.',
+           githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/set-in-if-src-with-config.spec.ts`,
+           seeAlso: [],
+           version: '6.0',
+           icon: ICON.CDK,
+           search: `${CDK}, object, setInIfSrcWithConfig`,
+         },
 };

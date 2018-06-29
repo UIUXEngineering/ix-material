@@ -46,6 +46,7 @@ import { PropsHaveValueComponent } from './object/props-have-value/props-have-va
 import { PropsWithNoValueComponent } from './object/props-with-no-value/props-with-no-value.component';
 import { SetInComponent } from './object/set-in/set-in.component';
 import { SetInIfSrcComponent } from './object/set-in-if-src/set-in-if-src.component';
+import { SetInIfSrcWithConfigComponent } from './object/set-in-if-src-with-config/set-in-if-src-with-config.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -94,6 +95,7 @@ import { SetInIfSrcComponent } from './object/set-in-if-src/set-in-if-src.compon
     PropsWithNoValueComponent,
     SetInComponent,
     SetInIfSrcComponent,
+    SetInIfSrcWithConfigComponent,
   ],
 })
 export class CdkModule {}

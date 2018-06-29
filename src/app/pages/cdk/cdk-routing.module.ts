@@ -33,6 +33,7 @@ import { PropsAreTruthyComponent } from './object/props-are-truthy/props-are-tru
 import { PropsContainsStringComponent } from './object/props-contains-string/props-contains-string.component';
 import { PropsHaveValueComponent } from './object/props-have-value/props-have-value.component';
 import { PropsWithNoValueComponent } from './object/props-with-no-value/props-with-no-value.component';
+import { SetInIfSrcWithConfigComponent } from './object/set-in-if-src-with-config/set-in-if-src-with-config.component';
 import { SetInIfSrcComponent } from './object/set-in-if-src/set-in-if-src.component';
 import { SetInComponent } from './object/set-in/set-in.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
@@ -206,6 +207,10 @@ const routes: Routes = [
       {
         path: 'object/setInIfSrc',
         component: SetInIfSrcComponent,
+      },
+      {
+        path: 'object/setInIfSrcWithConfig',
+        component: SetInIfSrcWithConfigComponent,
       },
 
       // value
