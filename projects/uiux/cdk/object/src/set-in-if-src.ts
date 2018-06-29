@@ -8,7 +8,7 @@ import { hasValue } from '@uiux/cdk/value';
 import { ternaryIn } from './ternary-in';
 
 /**
- * Sets the nested key to the provided value if the property exists.
+ * Sets the nested key to the provided value only if the property exists.
  *
  * If you have for example:
  * if (target && target.prop && target.prop.prop2 {

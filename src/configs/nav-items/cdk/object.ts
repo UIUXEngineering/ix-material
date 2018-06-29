@@ -392,4 +392,15 @@ export const object: { [ key: string ]: IDataItem } = {
     icon: ICON.CDK,
     search: `${CDK}, object, setIn`,
   },
+  setInIfSrc: <IDataItem>{
+    route: `/${CDK}/object/setInIfSrc`,
+    name: 'setInIfSrc',
+    base: '',
+    desc: 'Sets the nested key to the provided value only if the property exists.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/set-in-if-src.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, setInIfSrc`,
+  },
 };
