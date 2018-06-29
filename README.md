@@ -62,6 +62,19 @@ _I have tried to automate this process with a script, but my two-factor authenti
 2. Build projects by runing `yarn build.projects`.
 3. In the `dist/` path, cd into each project's directory containing it's `package.json` file, 
 and run `npm publish`. Do not do this for the Icon's directory.
+
+    ```bash
+    cd ./dist/@uiux/cdk
+    npm publish
+    
+    cd ./dist/@uiux/material
+    npm publish
+    
+    cd ./projects/uiux/icons
+    npm publish
+    
+    ```
+
 4. CD into `projects/uiux/icons` directory, and run `npm publish`.
 
 
