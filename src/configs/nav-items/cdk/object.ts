@@ -323,4 +323,15 @@ export const object: { [ key: string ]: IDataItem } = {
     icon: ICON.CDK,
     search: `${CDK}, object, propTruthyInAllPaths`,
   },
+  propsAreEqual: <IDataItem>{
+    route: `/${CDK}/object/propsAreEqual`,
+    name: 'propsAreEqual',
+    base: '',
+    desc: 'Evaulates if properties in a source and target object are equal based on a mapping object.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/props-are-equal.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, propsAreEqual`,
+  },
 };
