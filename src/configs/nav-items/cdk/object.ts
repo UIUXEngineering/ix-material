@@ -356,4 +356,15 @@ export const object: { [ key: string ]: IDataItem } = {
     icon: ICON.CDK,
     search: `${CDK}, object, propsContainsString`,
   },
+  propsHaveValue: <IDataItem>{
+    route: `/${CDK}/object/propsHaveValue`,
+    name: 'propsHaveValue',
+    base: '',
+    desc: 'Determines if values of given properties of an object hasValue.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/props-have-value.spec.ts`,
+    seeAlso: ['hasValue'],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, propsHaveValue`,
+  },
 };

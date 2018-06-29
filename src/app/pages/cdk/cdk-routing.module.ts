@@ -31,6 +31,7 @@ import { PropTruthyInAllPathsComponent } from './object/prop-truthy-in-all-paths
 import { PropsAreEqualComponent } from './object/props-are-equal/props-are-equal.component';
 import { PropsAreTruthyComponent } from './object/props-are-truthy/props-are-truthy.component';
 import { PropsContainsStringComponent } from './object/props-contains-string/props-contains-string.component';
+import { PropsHaveValueComponent } from './object/props-have-value/props-have-value.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
 import { InvokeIfElseInComponent } from './object/invoke-if-else-in/invoke-if-else-in.component';
@@ -186,6 +187,10 @@ const routes: Routes = [
       {
         path: 'object/propsContainsString',
         component: PropsContainsStringComponent,
+      },
+      {
+        path: 'object/propsHaveValue',
+        component: PropsHaveValueComponent,
       },
 
       // value
