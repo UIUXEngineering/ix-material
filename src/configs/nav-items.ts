@@ -194,6 +194,39 @@ export const ROUTES: IRoute = {
         version: '6.0',
       },
     },
+    upgrade: {
+      angular: <IDataItem>{
+        // Do No Use: this is auto configured.
+        base: '',
+
+        // Required: shows description in search results
+        desc: 'Upgrade Angular.',
+
+        // Required if using markdown: file to load in documentation
+        file: 'assets/guides/upgrade/angular.md',
+
+        // Do Not Use: guides don't have unit tests.
+        githubSpec: '',
+
+        // Required: icon name used in search results
+        icon: ICON.GUIDE,
+
+        // Required: Name of Guide will become right menu header link
+        name: 'Upgrade Angular',
+
+        // Required: Route to doc
+        route: `/${GUIDES}/upgrade/angular`,
+
+        // Required: search filters
+        search: `${GUIDES}, upgrade, angular`,
+
+        // Optional
+        seeAlso: [],
+
+        // Not Required, only used for components and cdk
+        version: '6.0',
+      },
+    },
     'adding-docs-to-this-site': {
       markdown: <IDataItem>{
         // No Not Edit

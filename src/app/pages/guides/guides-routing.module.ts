@@ -6,6 +6,7 @@ import { GuideMarkdownComponent } from './adding-docs-to-this-site/guide-markdow
 import { FirebaseComponent } from './getting-started/firebase/firebase.component';
 import { InstallComponent } from './getting-started/install/install.component';
 import { GuidesComponent } from './guides.component';
+import { AngularComponent } from './upgrade/angular/angular.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
         // end route matches route in `src/configs/nav-items.ts`
         path: 'adding-docs-to-this-site/markdown',
         component: GuideMarkdownComponent,
+      },
+      {
+        path: 'upgrade/angular',
+        component: AngularComponent,
       },
     ],
   },
