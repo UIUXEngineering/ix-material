@@ -6,7 +6,7 @@
   </api-viewer>
   <table-of-contents #toc
                      *ngIf="showToc"
-                     headerSelectors="h2,.docs-api-h3,.docs-api-h4"
+                     headerSelectors="h2, h3, h4"
                      [scrollContainer]="'.mat-sidenav-content'"
                      [data]="data"
                      [contentContainer]="'.docs-api-viewer-cmp-content'"

@@ -194,6 +194,20 @@ export const ROUTES: IRoute = {
         version: '6.0',
       },
     },
+    install: {
+      'angular-material': {
+        base: '',
+        desc: 'Install Angular Material.',
+        file: 'assets/guides/install/angular-material/ANGULAR_MATERIAL.md',
+        githubSpec: '',
+        icon: ICON.GUIDE,
+        name: 'Install Angular Material ',
+        route: `/${GUIDES}/install/angular-material`,
+        search: `${GUIDES}, install, angular-material`,
+        seeAlso: [],
+        version: '6.0',
+      },
+    },
     upgrade: {
       angular: <IDataItem>{
         // Do No Use: this is auto configured.

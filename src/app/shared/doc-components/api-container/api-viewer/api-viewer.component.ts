@@ -58,8 +58,10 @@ export class ApiViewerComponent implements AfterViewChecked, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._contentChecker.destroy();
-    this._contentChecker = null;
+    if (this._contentChecker && this._contentChecker.destroy) {
+      // this._contentChecker.destroy();
+      // this._contentChecker = null;
+    }
   }
 
   private _checkNgContentLoaded(): void {

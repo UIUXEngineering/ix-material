@@ -46,8 +46,8 @@ export class CheckContentLoaded {
     //
     return new Observable((observer: Observer<any>) => {
       const config: IPollForValueConfig = {
-        delay: 0,
-        interval: 150,
+        delay: 500,
+        interval: 500,
         timeout: 2000,
 
         // Observable to repetitively query

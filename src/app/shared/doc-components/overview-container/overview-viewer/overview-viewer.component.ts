@@ -41,8 +41,8 @@ export class OverviewViewerComponent implements AfterViewChecked, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._contentChecker.destroy();
-    this._contentChecker = null;
+    // this._contentChecker.destroy();
+    // this._contentChecker = null;
   }
 
   private _checkNgContentLoaded(): void {

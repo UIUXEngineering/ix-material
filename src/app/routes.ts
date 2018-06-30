@@ -45,5 +45,5 @@ export const APP_ROUTES: Routes = [
       preload: true,
     },
   },
-  { path: '**', redirectTo: '' },
+  // { path: '**', redirectTo: '' },
 ];

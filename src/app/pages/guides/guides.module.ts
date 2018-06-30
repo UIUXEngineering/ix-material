@@ -10,6 +10,7 @@ import { GuidesRoutingModule } from './guides-routing.module';
 import { GuidesComponent } from './guides.component';
 import { FirebaseComponent } from './getting-started/firebase/firebase.component';
 import { AngularComponent } from './upgrade/angular/angular.component';
+import { AngularMaterialComponent } from './install/angular-material/angular-material.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, GuidesRoutingModule],
@@ -21,6 +22,7 @@ import { AngularComponent } from './upgrade/angular/angular.component';
     InstallComponent,
     FirebaseComponent,
     AngularComponent,
+    AngularMaterialComponent,
   ],
 })
 export class GuidesModule {}
