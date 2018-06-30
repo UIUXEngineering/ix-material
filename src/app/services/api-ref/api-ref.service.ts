@@ -125,7 +125,10 @@ export class ApiRefService {
         const payload: ICurrentRouteAction = <any>{};
 
         if (r.doc) {
-          const _currentRouteData = _get(ROUTES, [r.category, r.base, r.doc]);
+
+          // r.doc may contain an anchor tag such as foo#bar
+          // remove anchor tag
+          const _currentRouteData = _get(ROUTES, [r.category, r.base, r.doc.split('#')[0]]);
           if (_currentRouteData) {
             payload.currentRouteData = ROUTES[r.category][r.base][r.doc];
           } else {
