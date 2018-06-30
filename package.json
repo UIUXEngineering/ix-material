@@ -20,7 +20,7 @@
     "lint.cdk": "gulp lint.cdk",
     "lint.mat": "gulp lint.mat",
     "serve.prod": "ng serve --prod --configuration production",
-    "serve.dist": "lite-server --config=server-config-dist",
+    "serve.prod": "lite-server --config=server-config-dist",
     "test.cdk": "gulp test.cdk",
     "test.mat": "gulp test.mat",
     "bump": "gulp bump",
