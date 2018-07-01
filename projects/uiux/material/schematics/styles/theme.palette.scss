@@ -1,0 +1,13 @@
+@import 'cutom-palettes';
+// Define an alternate dark theme.
+$ix-dark-primary: mat-palette($mat-pink);
+$ix-dark-accent:  mat-palette($mat-light-blue, A200, A100, A400);
+$ix-dark-warn:    mat-palette($mat-yellow);
+$ix-dark-theme:   mat-dark-theme($ix-dark-primary, $ix-dark-accent, $ix-dark-warn);
+
+$background-main-color: map-get($ix-deep-blue, 900);
+$background-color-1: map-get($ix-deep-blue, 375);
+$background-color-2: map-get($ix-deep-blue, 425);
+$background-color-3: map-get($ix-deep-blue, 450);
+
+//$dark-theme: replace-background-color($dark-theme, $background-main-color);

@@ -1,0 +1,113 @@
+<guide-container [data]="data">
+
+  <p class="indent p">
+    TODO: Create schematic for this process.
+  </p>
+
+  <p class="indent p">
+    This is a step-by-step guide to creating an angular material starter app using the latest
+    versions of Angular, Material, and supporting technologies.
+  </p>
+
+
+  <!-- STOP HERE -->
+  <h4-title [text]="'1. Add or Update Angular CLI'"></h4-title>
+
+  <div class="indent">
+
+    <p>
+      Make sure you have the latest version of the
+      <angular-cli></angular-cli>
+      .
+    </p>
+    <p>
+      To add
+      <angular-cli></angular-cli>
+      .
+
+      <code-bash-block [code]="cliNpm"></code-bash-block>
+      <code-bash-block [code]="cliYarn"></code-bash-block>
+
+      To upgrade
+      <angular-cli></angular-cli>
+      .
+
+      <code-bash-block [code]="cliNpm"></code-bash-block>
+      <code-bash-block [code]="cliYarnUpgrade"></code-bash-block>
+    </p>
+  </div>
+
+  <h4-title [text]="'2. Name Your App'"></h4-title>
+
+  <div class="indent p">
+    <form [formGroup]="appForm">
+      <mat-form-field appearance="outline" [style.min-width]="'300px'">
+        <mat-label>App Name</mat-label>
+        <input matInput placeholder="my-app-name" formControlName="appName">
+        <mat-hint>kebab case: my-app-name</mat-hint>
+      </mat-form-field>
+    </form>
+
+  </div>
+
+  <h4-title [text]="'3. Create your project'"></h4-title>
+
+  <p class="indent p">
+    <code-bash-block [code]="createProject"></code-bash-block>
+  </p>
+
+  <div class="indent p">
+    Change directories into your project to finish setting up:
+    <p>
+      <code-bash-block [code]="cdIntoProject"></code-bash-block>
+    </p>
+  </div>
+
+  <h4-title [text]="'4. Install @uiux/material'"></h4-title>
+
+  <div class="indent p">
+    <code-bash-block [code]="installYarn"></code-bash-block>
+  </div>
+
+  <div class="indent p">
+    Run install script to copy configurations and install
+    standard project packages.
+    <code-bash-block [code]="installScript"></code-bash-block>
+  </div>
+
+
+  <h4-title [text]="'5. Update Styles Config'"></h4-title>
+
+  <div class="indent p">
+    in the <code-bash-inline [code]="'./angular.json'"></code-bash-inline> file,
+    change the “styles” config of your <code-bash-inline [code]="projectName"></code-bash-inline>
+    project to:
+
+    <code-json-block [code]="stylesConfig"></code-json-block>
+  </div>
+
+  <h4-title [text]="'6. Fix Material Schematic Issue'"></h4-title>
+
+  <div class="indent p">
+    There is an issue with mal-formed <code-bash-inline [code]="'collection.json'"></code-bash-inline>
+    file in the <angular-material></angular-material> module.
+    See <a-link [href]="materialIssue">GitHub Issue</a-link> for more info.
+  </div>
+
+  <div class="indent p">
+    Replace <code-bash-inline [code]="collectionJson"></code-bash-inline> with:
+    <code-json-block [code]="replaceJson"></code-json-block>
+  </div>
+
+  <h4-title [text]="'7. Install Schematic'"></h4-title>
+
+  <div class="indent p">
+    <code-bash-block [code]="installSchematic"></code-bash-block>
+  </div>
+
+  <h4-title [text]="'8. Update Package Scripts'"></h4-title>
+  <div class="indent p">
+    <code-json-block [code]="pkgScripts"></code-json-block>
+  </div>
+
+</guide-container>

@@ -43,6 +43,7 @@ import { MaterialDesignComponent } from './doc-components/common-links/material-
 import { NgPackagrComponent } from './doc-components/common-links/ng-packagr.component';
 import { SeeDocComponentsComponent } from './doc-components/doc-links/see-doc-components.component';
 import { SeeInstallIconsComponent } from './doc-components/doc-links/see-install-icons.component';
+import { SeeInstallSvgIconsComponent } from './doc-components/doc-links/see-install-svg-icons.component';
 import { GuideTitleComponent } from './doc-components/guide-container/guide-title/guide-title.component';
 import { GuideViewerComponent } from './doc-components/guide-container/guide-viewer/guide-viewer.component';
 import { H2LinkComponent } from './doc-components/h2/h2-link.component';
@@ -202,6 +203,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     AngularPackageFormatComponent,
     AngularCdkComponent,
     SeeInstallIconsComponent,
+    SeeInstallSvgIconsComponent,
   ],
 
   // pipes, directives, compoments, modules
@@ -283,7 +285,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     CodeImportInlineComponent,
     CodeJsonBlockComponent,
     CodeJsonInlineComponent,
-    CodeScssInlineComponent,
+    CodeScssBlockComponent,
     CodeScssInlineComponent,
     CodeTsInlineComponent,
     CodeTsBlockComponent,
@@ -302,6 +304,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     AngularPackageFormatComponent,
     AngularCdkComponent,
     SeeInstallIconsComponent,
+    SeeInstallSvgIconsComponent,
   ],
   providers: [CopierService, HighlightService],
 })

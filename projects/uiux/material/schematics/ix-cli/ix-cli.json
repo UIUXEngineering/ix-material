@@ -1,0 +1,35 @@
+{
+  "copy": {
+    "sets": [
+      {
+        "id": "firebase",
+        "outDir": "../my-project-firebase/public",
+        "srcFiles": {
+          "./dist": [
+            "**/*"
+          ]
+        }
+      }
+    ]
+  },
+  "svg": {
+    "tsReference": "src/environments/svgIconAssets.ts",
+    "sets": [
+      {
+        "setName": "home-icon-set",
+        "version": "v0",
+        "outDir": "src/assets/svg",
+        "srcFiles": {
+          "design/icons": {
+            "spout-logo-24x24.svg": {
+              "id": "spoutLogo"
+            },
+            "spout-icon-24x24.svg": {
+              "id": "spoutIcon"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+
+/*
+
+  Media Query classes set by _state logic
+  src/app/app-web-worker/web-worker/stores/mediaQueries/store.ts
+*/
+
+$lt-mat-padding: 20px;
+$gt-sm-padding: 60px;
+
+@mixin horiz-padding($horiz-paddng) {
+  padding-left: $horiz-paddng !important;
+  padding-right: $horiz-paddng !important;
+}
+
+// USED
+
+.view-lt-md { // 20px
+  @include horiz-padding($lt-mat-padding);
+}
+
+// gtsm
+.view-gt-sm { // 60px
+  @include horiz-padding($gt-sm-padding);
+}
+
+.gt-sm-horiz-padding {
+  @include horiz-padding($gt-sm-padding);
+}
+
+// sm
+.lt-sm-horiz-padding {
+  @include horiz-padding($lt-mat-padding);
+}
+
+// NOT USED
+
+// xs
+.view-xs {
+  @include horiz-padding($lt-mat-padding);
+}
+
+.xs-horiz-padding {
+  @include horiz-padding($lt-mat-padding);
+}
+
+// gtxs
+.view-gt-xs {
+  @include horiz-padding($lt-mat-padding);
+}
+
+// sm
+.view-sm {
+  @include horiz-padding($lt-mat-padding);
+}
+
+.gtsm-padding-right {
+  padding-right: $gt-sm-padding;
+}
+
+
+
+// md
+.view-md {
+
+}
+
+// gtmd
+.view-gt-md {
+
+}
+
+// lg
+.view-lg {
+
+}
+
+// gtlg
+.view-gt-lg {
+
+}
+
+// xl
+.view-xl {
+
+}

@@ -7,7 +7,7 @@ import { GuideMarkdownComponent } from './adding-docs-to-this-site/guide-markdow
 import { FirebaseComponent } from './getting-started/firebase/firebase.component';
 import { InstallComponent } from './getting-started/install/install.component';
 import { GuidesComponent } from './guides.component';
-import { AngularMaterialComponent } from './install/angular-material/angular-material.component';
+import { CreateMaterialAppComponent } from './create/create-material-app/create-material-app.component';
 import { AngularComponent } from './upgrade/angular/angular.component';
 
 const routes: Routes = [
@@ -43,8 +43,8 @@ const routes: Routes = [
         component: AngularComponent,
       },
       {
-        path: 'install/angular-material',
-        component: AngularMaterialComponent,
+        path: 'create/material-app',
+        component: CreateMaterialAppComponent,
       },
     ],
   },

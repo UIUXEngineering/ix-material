@@ -194,16 +194,16 @@ export const ROUTES: IRoute = {
         version: '6.0',
       },
     },
-    install: {
-      'angular-material': {
+    create: {
+      'material-app': {
         base: '',
-        desc: 'Install Angular Material.',
-        file: 'assets/guides/install/angular-material/ANGULAR_MATERIAL.md',
+        desc: 'Create and Angular Material App.',
+        file: `assets/${GUIDES}/create/material-app/MATERIAL_APP.md`,
         githubSpec: '',
         icon: ICON.GUIDE,
-        name: 'Install Angular Material ',
-        route: `/${GUIDES}/install/angular-material`,
-        search: `${GUIDES}, install, angular-material`,
+        name: 'Angular Material App ',
+        route: `/${GUIDES}/create/material-app`,
+        search: `${GUIDES}, create, material-app`,
         seeAlso: [],
         version: '6.0',
       },

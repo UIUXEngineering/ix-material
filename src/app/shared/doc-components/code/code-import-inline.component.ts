@@ -5,7 +5,7 @@ import {
   Component,
   ElementRef,
   Input,
-  OnChanges,
+  OnChanges, Renderer2,
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
@@ -27,6 +27,7 @@ export class CodeImportInlineComponent implements AfterViewInit, OnChanges {
   code: string;
 
   constructor(
+    private _renderer: Renderer2,
     private _elementRef: ElementRef,
     private _cd: ChangeDetectorRef,
     private _hs: HighlightService
@@ -44,8 +45,15 @@ export class CodeImportInlineComponent implements AfterViewInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     // tslint:disable:no-string-literal
-    if (changes['snippet'] && changes['snippet'].currentValue) {
-      // this.highlight();
+    if (changes['code'] && changes['code'].currentValue) {
+
+      const code = this._elementRef.nativeElement.querySelectorAll('code') as HTMLElement[];
+
+      this._renderer.setProperty(code[0],
+                                 'innerHTML',
+                                 changes['code'].currentValue);
+
+      this._hs.highlight(this._elementRef, this._cd);
     }
     // tslint:enable:no-string-literal
   }

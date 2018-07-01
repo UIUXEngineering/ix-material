@@ -1,0 +1,504 @@
+@import 'constants';
+@import 'theme.palette';
+
+@mixin theme-override-classes($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  // Apply theme for this app
+
+  .ix-view-top {
+    padding-top: 85px !important;
+  }
+
+  .alert-background {
+    background-color: mat-color($ix-dark-warn);
+    line-height: 1.5;
+  }
+
+  .alert {
+    &.success {
+      background-color: mat-color($ix-dark-primary);
+    }
+
+    &.error {
+      background-color: mat-color($ix-dark-warn);
+    }
+  }
+
+  .input-error {
+    color: mat-color($ix-dark-warn);
+  }
+
+  .color-primary {
+    color: mat-color($primary, 500);
+  }
+
+  .color-accent {
+    color: mat-color($accent, 500);
+  }
+
+  .color-warn {
+    color: mat-color($warn, 500);
+  }
+
+  .background-primary {
+    background-color: mat-color($primary, 500);
+  }
+
+  .border-primary {
+    border: 1px solid mat-color($primary, 500);
+  }
+
+  .border-faded {
+    border: 1px solid mat-color($primary, 200);
+  }
+
+  .enabled-opacity {
+    opacity: 1 !important;
+  }
+
+  .disabled-opacity {
+    opacity: 0;
+    transition: opacity 300ms $swift-ease-out-timing-function;
+  }
+
+  .xi-mini-fab-small {
+    &.mat-mini-fab {
+      width: 26px;
+      height: 26px;
+      color: white;
+
+      .mat-button-wrapper {
+        padding: 0 0;
+        display: block;
+        line-height: 0px;
+      }
+    }
+  }
+
+  .ix-card-footer-progress-bar-container {
+    height: 2px;
+  }
+
+  .ix-mini-fab-button {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  @if $is-dark {
+
+    $dark-palette: $ix-deep-mat-blue;
+
+    $ix-303030: mat-color($dark-palette, 900);
+    $ix-424242-lighter: mat-color($dark-palette, 700);
+    $ix-424242: mat-color($dark-palette, 800);
+    $ix-616161: mat-color($dark-palette, 600);
+    $ix-616161-lighter: mat-color($dark-palette, 400);
+    $ix-border-color: rgba($ix-616161-lighter, 0.8);
+
+    .mat-drawer-container {
+      background-color: black;
+
+      .mat-drawer {
+        background-color: $ix-424242;
+      }
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: rgba(mat-color($dark-palette, 100), 0.6)
+    }
+
+    .action-primary-btn {
+      &.mat-button, &.mat-raised-button, &.mat-mini-fab {
+        //color: mat-color($primary, default);
+        color: white !important;
+        background-color: mat-color($primary, default) !important;
+      }
+      &.mat-button[disabled], &.mat-raised-button[disabled], &.mat-mini-fab[disabled] {
+        color: mat-color($dark-palette, 100) !important;
+        background-color: mat-color($dark-palette, 400) !important;
+      }
+    }
+
+    .action-accent-btn {
+      &.mat-button, &.mat-raised-button, &.mat-mini-fab {
+        color: white;
+        background-color: mat-color($accent, 700);
+      }
+      &.mat-button[disabled], &.mat-raised-button[disabled], &.mat-mini-fab[disabled] {
+        color: mat-color($dark-palette, 100);
+        background-color: mat-color($dark-palette, 400);
+      }
+    }
+
+    .action-warn-btn {
+      &.mat-button {
+        //color: white;
+        background-color: mat-color($warn, 700);
+      }
+      &.mat-button[disabled] {
+        color: mat-color($dark-palette, 100);
+        background-color: mat-color($dark-palette, 400);
+      }
+    }
+
+    .mat-card-accent {
+      background-color: mat-color($accent, 700);
+
+      .mat-card-title {
+        color: white;
+      }
+    }
+
+    .mat-card, .mat-dialog-container {
+      background: $ix-424242 !important;
+      .mat-card-title {
+        color: mat-color($primary, default);
+      }
+    }
+
+    .mat-dialog-container {
+      border: 1px solid $ix-border-color;
+    }
+
+    .mat-autocomplete-panel {
+      border: 1px solid $ix-border-color;
+      background: $ix-424242;
+    }
+
+    .mat-select-panel {
+      border: 1px solid $ix-border-color;
+      .mat-select-content {
+        background: $ix-424242;
+      }
+    }
+
+    .mat-expansion-panel {
+      border: 1px solid $ix-border-color;
+      background: $ix-616161;
+    }
+
+    .mat-expansion-panel-header {
+      background:  $ix-616161;
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $ix-616161-lighter;
+    }
+
+    .mat-menu-panel {
+      border: solid 1px $ix-border-color;
+      background: $ix-424242-lighter;
+    }
+
+    .mat-stepper-horizontal, .mat-stepper-vertical {
+      background: $ix-424242;
+    }
+
+    .mixer-sidenav-context-container {
+      // TODO background-color
+      //background-color: $background-color;
+      border-top-color: mat-color($background, background);
+      border-right-color: mat-color($background, background);
+    }
+
+    .mixer-sidenav-container {
+      // TODO background-color
+      //background-color: $background-color;
+      border-top-color: mat-color($background, background);
+      border-right-color: mat-color($background, background);
+
+      ul {
+
+        li {
+          border-color: rgba(mat-color($foreground, secondary-text), 1);
+          border-bottom: 1px solid rgba(mat-color($foreground, secondary-text), .3);
+          color: mat-color($foreground, secondary-text);
+
+          //&.mixer-sidenav-item-selected {
+          //  font-weight: 600;
+          //}
+
+          > a {
+            color: #ffffff;
+
+            &.is-selected,
+            &:hover,
+            &:focus {
+              // TODO background-color
+              //background: $navbar-item-selected;
+              color: mat-color($primary);
+            }
+
+            &.mixer-sidenav-item-selected {
+              color: mat-color($primary);
+              // TODO background-color
+              //background-color: $navbar-item-selected;
+            }
+          }
+        }
+      }
+
+      .mixer-sidenav-action {
+        border-top-color: rgba(mat-color($foreground, secondary-text), .06);
+      }
+    }
+
+    .ix-chat-header {
+      // TODO background-color
+      //background-color: if($is-dark, mat-color($mat-blue-gray, 900), mat-color($mat-blue-gray, 100));
+
+      .ix-chat-header-text-title {
+        color: mat-color($primary);
+      }
+    }
+
+    // chat message input field
+    .message-input {
+      // TODO background-color
+      //background-color: if($is-dark, mat-color($mat-blue-gray, 900), mat-color($mat-blue-gray, 100));
+    }
+  }
+
+}
+
+@mixin transition-all-swift-ease-in-out() {
+  -webkit-transform: $swift-ease-in-out;
+  transition: $swift-ease-in-out;
+}
+
+@mixin ix-error() {
+  .ix-error-wrapper {
+    position: relative;
+    opacity: 0;
+    top: -20px;
+
+    transition: opacity 100ms $swift-ease-out-timing-function,
+    top 300ms $swift-ease-out-timing-function;
+
+    &.ix-error {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  .mat-error {
+    font-size: 75%;
+  }
+}
+
+@mixin button-small() {
+  .mat-button {
+    min-width: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@mixin button-faded-dark($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: mat-color($accent, 500);
+
+    //:hover {
+    //  color: mat-color($primary);
+    //}
+
+    &.ix-button-faded-dark {
+      color: #ababab;
+      background-color: #1d1d1d;
+      :hover .mat-button-wrapper {
+        color: mat-color($primary);
+        display: inline-block;
+        //width: 84px;
+        //border: 1px solid white;
+        text-align: center;
+      }
+    }
+
+    .btn-text {
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
+
+@mixin menu-theme($theme) {
+
+  background: $background-color-2;
+
+  .mat-card {
+    background: $background-color-2;
+  }
+}
+
+@mixin slide-el() {
+  @keyframes slide-in {
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @-webkit-keyframes slide-in {
+    100% {
+      -webkit-transform: translateX(0%);
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @-webkit-keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @-webkit-keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(100%);
+    }
+  }
+}
+
+
+
+@mixin animation-show-properties() {
+  0%   { opacity: 0; }
+  99.9% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@mixin animation-hide-properties() {
+  0%   {
+    //-webkit-transform: rotate(360deg);
+    opacity: 1
+  }
+  99.9% {
+    //-webkit-transform: rotate(0deg);
+    opacity: 0;
+  }
+  100% { opacity: 0; }
+}
+
+@mixin animation-show-prefixes() {
+  @-webkit-keyframes show {
+    @include animation-show-properties();
+  }
+  @-moz-keyframes show {
+    @include animation-show-properties();
+  }
+  @-o-keyframes show {
+    @include animation-show-properties();
+  }
+  @keyframes show {
+    @include animation-show-properties();
+  }
+}
+
+@mixin animation-hide-prefixes() {
+  @-webkit-keyframes hide {
+    @include animation-hide-properties();
+  }
+  @-moz-keyframes hide {
+    @include animation-hide-properties();
+  }
+  @-o-keyframes hide {
+    @include animation-hide-properties();
+  }
+  @keyframes hide {
+    @include animation-hide-properties();
+  }
+}
+
+@mixin animate-show() {
+
+  @include animation-show-prefixes();
+  @include animation-hide-prefixes();
+
+  .ix-hide {
+    -webkit-animation: hide 500ms $swift-ease-out-timing-function;
+    -moz-animation: hide 500ms $swift-ease-out-timing-function;
+    -o-animation: hide 500ms $swift-ease-out-timing-function;
+    animation: hide 500ms $swift-ease-out-timing-function;
+    opacity: 0;
+  }
+
+  .ix-show {
+    -webkit-animation: show 500ms $swift-ease-out-timing-function;
+    -moz-animation: show 500ms $swift-ease-out-timing-function;
+    -o-animation: show 500ms $swift-ease-out-timing-function;
+    animation: show 500ms $swift-ease-out-timing-function;
+    opacity: 1;
+  }
+}
+
+$background-image-width: 100%;
+$background-image-height: 656px;;
+
+@mixin background-image-wrapper() {
+  position: absolute;
+  width: 100%;
+  height: $background-image-height;
+  top: 0;
+  left: 0;
+  background: $background-main-color;
+  overflow: hidden;
+}
+
+@mixin background-image-wrapper-full-view() {
+  @include background-image-wrapper();
+  height: 100%;
+}
+
+@mixin background-image-url($url) {
+  position: absolute;
+  width: 100%;
+  height: $background-image-height;
+  background: $background-main-color url($url) no-repeat 50% top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
+@mixin background-image-url-full-view($url) {
+  @include background-image-url($url);
+  height: 100%;
+}
+
