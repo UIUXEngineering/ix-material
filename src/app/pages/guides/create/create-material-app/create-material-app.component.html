@@ -107,6 +107,9 @@
 
   <h4-title [text]="'8. Update Package Scripts'"></h4-title>
   <div class="indent p">
+    In the <code-json-inline [code]="'package.json'"></code-json-inline>
+    file in the scripts node, remove the "lint" property and add the
+    following:
     <code-json-block [code]="pkgScripts"></code-json-block>
   </div>
 
