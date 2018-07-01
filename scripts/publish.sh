@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
-ROOTDIR= pwd;
+ROOT_DIR=$PWD;
 
-cd "$ROOTDIR/dist/@uiux/cdk"
-#npm publish
+cd "$ROOT_DIR/dist/@uiux/cdk"
+echo $PWD
+npm publish
 
-cd ../material
-#npm publish
+cd "$ROOT_DIR/dist/@uiux/material"
+echo $PWD
+npm publish
 
-cd ../../../projects
-#npm publish
+cd "$ROOT_DIR/projects/uiux/icons"
+echo $PWD
+npm publish
 
+cd $ROOT_DIR
+echo $PWD
 
