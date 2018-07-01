@@ -7,14 +7,14 @@
  */
 
 /**
- * Throws an exception for the case when menu trigger doesn't have a valid sp-menu instance
+ * Throws an exception for the case when menu trigger doesn't have a valid ix-menu instance
  * @docs-private
  */
 export function throwSPMenuMissingError() {
-  throw Error(`sp-menu-trigger: must pass in an sp-menu instance.
+  throw Error(`ix-menu-trigger: must pass in an ix-menu instance.
 
     Example:
-      <sp-menu #menu="SPMenu"></sp-menu>
+      <ix-menu #menu="SPMenu"></ix-menu>
       <button [SPMenuTriggerFor]="menu"></button>`);
 }
 
@@ -25,7 +25,7 @@ export function throwSPMenuMissingError() {
  */
 export function throwSPMenuInvalidPositionX() {
   throw Error(`x-position value must be either 'before' or after'.
-      Example: <sp-menu x-position="before" #menu="SPMenu"></sp-menu>`);
+      Example: <ix-menu x-position="before" #menu="SPMenu"></ix-menu>`);
 }
 
 /**
@@ -35,5 +35,5 @@ export function throwSPMenuInvalidPositionX() {
  */
 export function throwSPMenuInvalidPositionY() {
   throw Error(`y-position value must be either 'above' or below'.
-      Example: <sp-menu y-position="above" #menu="SPMenu"></sp-menu>`);
+      Example: <ix-menu y-position="above" #menu="SPMenu"></ix-menu>`);
 }

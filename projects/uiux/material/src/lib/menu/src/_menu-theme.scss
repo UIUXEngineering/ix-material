@@ -3,16 +3,16 @@
 @import '../../core/typography/typography-utils';
 
 
-@mixin sp-menu-theme($theme) {
+@mixin ix-menu-theme($theme) {
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  .sp-menu-panel {
+  .ix-menu-panel {
     background: mat-color($background, 'card');
     color: mat-color($foreground, 'text');
   }
 
-  .sp-menu-item {
+  .ix-menu-item {
     background: transparent;
     color: mat-color($foreground, 'text');
 
@@ -23,23 +23,23 @@
     }
   }
 
-  .sp-menu-item .mat-icon:not([color]),
-  .sp-menu-item-submenu-trigger::after {
+  .ix-menu-item .mat-icon:not([color]),
+  .ix-menu-item-submenu-trigger::after {
     color: mat-color($foreground, 'icon');
   }
 
-  .sp-menu-item:hover,
-  .sp-menu-item.cdk-program-focused,
-  .sp-menu-item.cdk-keyboard-focused,
-  .sp-menu-item-highlighted {
+  .ix-menu-item:hover,
+  .ix-menu-item.cdk-program-focused,
+  .ix-menu-item.cdk-keyboard-focused,
+  .ix-menu-item-highlighted {
     &:not([disabled]) {
       background: mat-color($background, 'hover');
     }
   }
 }
 
-@mixin sp-menu-typography($config) {
-  .sp-menu-item {
+@mixin ix-menu-typography($config) {
+  .ix-menu-item {
     font: {
       family: mat-font-family($config, subheading-2);
       size: mat-font-size($config, subheading-2);

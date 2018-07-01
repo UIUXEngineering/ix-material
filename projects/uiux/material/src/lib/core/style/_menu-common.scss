@@ -3,34 +3,34 @@
 @import './list-common';
 @import './vendor-prefixes';
 
-/** The mixins below are shared between sp-menu and mat-select */
+/** The mixins below are shared between ix-menu and mat-select */
 
 // menu width must be a multiple of 56px
-$sp-menu-overlay-min-width: 112px !default;   // 56 * 2
-$sp-menu-overlay-max-width: 280px !default;   // 56 * 5
+$ix-menu-overlay-min-width: 112px !default;   // 56 * 2
+$ix-menu-overlay-max-width: 280px !default;   // 56 * 5
 
-$sp-menu-item-height: 48px !default;
-$sp-menu-side-padding: 16px !default;
-$sp-menu-icon-margin: 16px !default;
+$ix-menu-item-height: 48px !default;
+$ix-menu-side-padding: 16px !default;
+$ix-menu-icon-margin: 16px !default;
 
 
-@mixin sp-menu-base($default-elevation) {
+@mixin ix-menu-base($default-elevation) {
   @include mat-overridable-elevation($default-elevation);
 
-  min-width: $sp-menu-overlay-min-width;
-  max-width: $sp-menu-overlay-max-width;
+  min-width: $ix-menu-overlay-min-width;
+  max-width: $ix-menu-overlay-max-width;
   overflow: auto;
   -webkit-overflow-scrolling: touch;   // for momentum scroll on mobile
 }
 
-@mixin sp-menu-item-base() {
+@mixin ix-menu-item-base() {
   @include mat-truncate-line();
 
   // Needs to be a block for the ellipsis to work.
   display: block;
-  line-height: $sp-menu-item-height;
-  height: $sp-menu-item-height;
-  padding: 0 $sp-menu-side-padding;
+  line-height: $ix-menu-item-height;
+  height: $ix-menu-item-height;
+  padding: 0 $ix-menu-side-padding;
 
   text-align: left;
   text-decoration: none;   // necessary to reset anchor tags
@@ -44,7 +44,7 @@ $sp-menu-icon-margin: 16px !default;
   }
 
   .mat-icon {
-    margin-right: $sp-menu-icon-margin;
+    margin-right: $ix-menu-icon-margin;
     vertical-align: middle;
 
     svg {
@@ -52,7 +52,7 @@ $sp-menu-icon-margin: 16px !default;
     }
 
     [dir='rtl'] & {
-      margin-left: $sp-menu-icon-margin;
+      margin-left: $ix-menu-icon-margin;
       margin-right: 0;
     }
   }

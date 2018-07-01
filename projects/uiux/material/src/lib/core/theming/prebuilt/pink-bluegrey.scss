@@ -5,7 +5,7 @@
 @include mat-core();
 
 // Include non-theme styles for core.
-@include sp-core();
+@include ix-core();
 
 // Define a theme.
 $primary: mat-palette($mat-pink, 700, 500, 900);
@@ -15,4 +15,4 @@ $theme: mat-light-theme($primary, $accent);
 
 @include angular-material-theme($theme);
 // Include all theme styles for the components.
-@include sp-material-theme($theme);
+@include ix-material-theme($theme);

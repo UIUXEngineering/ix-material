@@ -1,7 +1,7 @@
 @import '../../app-theme';
 
 @include mat-core();
-@include sp-core();
+@include ix-core();
 
 // Define the light theme.
 $primary: mat-palette($mat-deep-purple);
@@ -9,5 +9,5 @@ $accent:  mat-palette($mat-amber, A200, A100, A400);
 
 $theme: mat-light-theme($primary, $accent);
 @include angular-material-theme($theme);
-@include sp-material-theme($theme);
+@include ix-material-theme($theme);
 @include material-app-theme($theme);

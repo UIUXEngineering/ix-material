@@ -33,7 +33,7 @@ import {
   ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'sp-my-component',
+  selector: 'ix-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.scss'],
   preserveWhitespaces: false,

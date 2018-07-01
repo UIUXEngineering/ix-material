@@ -54,11 +54,11 @@
   @include animation-show-prefixes();
   @include animation-hide-prefixes();
 
-  .sp-hide-initial {
+  .ix-hide-initial {
     opacity: 0;
   }
 
-  .sp-show {
+  .ix-show {
     -webkit-animation: show 500ms $swift-ease-out-timing-function;
     -moz-animation: show 500ms $swift-ease-out-timing-function;
     -o-animation: show 500ms $swift-ease-out-timing-function;
@@ -66,7 +66,7 @@
     opacity: 1;
   }
 
-  .sp-hide {
+  .ix-hide {
     -webkit-animation: hide 500ms $swift-ease-out-timing-function;
     -moz-animation: hide 500ms $swift-ease-out-timing-function;
     -o-animation: hide 500ms $swift-ease-out-timing-function;

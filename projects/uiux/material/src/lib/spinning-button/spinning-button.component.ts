@@ -6,7 +6,7 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'sp-spinning-button',
+  selector: 'ix-spinning-button',
   templateUrl: './spinning-button.component.html',
   styleUrls: ['./spinning-button.component.scss'],
   encapsulation: ViewEncapsulation.None,

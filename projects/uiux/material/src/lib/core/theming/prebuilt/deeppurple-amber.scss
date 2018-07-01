@@ -3,7 +3,7 @@
 @import '../all-theme';
 
 @include mat-core();
-@include sp-core();
+@include ix-core();
 // Include non-theme styles for core.
 
 // Define a theme.
@@ -14,4 +14,4 @@ $theme: mat-light-theme($primary, $accent);
 
 @include angular-material-theme($theme);
 // Include all theme styles for the components.
-@include sp-material-theme($theme);
+@include ix-material-theme($theme);

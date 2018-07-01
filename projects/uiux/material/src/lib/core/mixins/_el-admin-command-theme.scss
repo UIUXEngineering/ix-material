@@ -1,7 +1,7 @@
 // need to use relative path and not "~" so script can compile
 //@import '../../../../../../../../node_modules/@angular/material/theming';
 
-@mixin sp-el-admin-command-theme($theme) {
+@mixin ix-el-admin-command-theme($theme) {
 
   // Parent css class of theme
   $primary: map-get($theme, primary);
@@ -14,6 +14,6 @@
   color: mat-color($primary, default);
   background-color: mat-color($background, background);
 
-  // Global css classes for sp-el-admin-command-theme theme here
+  // Global css classes for ix-el-admin-command-theme theme here
 
 }

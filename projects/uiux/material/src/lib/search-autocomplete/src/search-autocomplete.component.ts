@@ -30,7 +30,7 @@ export interface ISpinnerConfig {
 }
 
 @Component({
-  selector: 'sp-search-autocomplete',
+  selector: 'ix-search-autocomplete',
   templateUrl: './search-autocomplete.component.html',
   styleUrls: ['./search-autocomplete.component.scss'],
   encapsulation: ViewEncapsulation.None,

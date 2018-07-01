@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpOnRenderCompleteComponent } from './sp-on-render-complete.component';
+import { SpOnRenderCompleteComponent } from './ix-on-render-complete.component';
 
-describe('SpOnRenderCompleteComponent', () => {
+describe('IxOnRenderCompleteComponent', () => {
   let component: SpOnRenderCompleteComponent;
   let fixture: ComponentFixture<SpOnRenderCompleteComponent>;
 

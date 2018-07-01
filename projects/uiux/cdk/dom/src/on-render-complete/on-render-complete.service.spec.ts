@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SpOnRenderCompleteService } from './sp-on-render-complete.service';
+import { SpOnRenderCompleteService } from './ix-on-render-complete.service';
 
-describe('SpOnRenderCompleteService', () => {
+describe('IxOnRenderCompleteService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [SpOnRenderCompleteService],

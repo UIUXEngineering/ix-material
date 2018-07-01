@@ -4,14 +4,14 @@
 @import '../../core/style/layout-common';
 @import '../../core/style/a11y';
 
-$sp-menu-vertical-padding: 8px !default;
-$sp-menu-border-radius: 2px !default;
-$sp-menu-submenu-indicator-size: 10px !default;
+$ix-menu-vertical-padding: 8px !default;
+$ix-menu-border-radius: 2px !default;
+$ix-menu-submenu-indicator-size: 10px !default;
 
-.sp-menu-panel {
-  @include sp-menu-base(2);
-  max-height: calc(100vh - #{$sp-menu-item-height});
-  border-radius: $sp-menu-border-radius;
+.ix-menu-panel {
+  @include ix-menu-base(2);
+  max-height: calc(100vh - #{$ix-menu-item-height});
+  border-radius: $ix-menu-border-radius;
   outline: 0;
 
   @include cdk-high-contrast {
@@ -19,24 +19,24 @@ $sp-menu-submenu-indicator-size: 10px !default;
   }
 }
 
-.sp-menu-content {
-  padding-top: $sp-menu-vertical-padding;
-  padding-bottom: $sp-menu-vertical-padding;
+.ix-menu-content {
+  padding-top: $ix-menu-vertical-padding;
+  padding-bottom: $ix-menu-vertical-padding;
 }
 
-.sp-menu-item {
+.ix-menu-item {
   @include mat-button-reset();
-  @include sp-menu-item-base();
+  @include ix-menu-item-base();
   position: relative;
 }
 
-.sp-menu-item-submenu-trigger {
+.ix-menu-item-submenu-trigger {
   // Increase the side padding to prevent the indicator from overlapping the text.
-  padding-right: $sp-menu-side-padding * 2;
+  padding-right: $ix-menu-side-padding * 2;
 
   // Renders a triangle to indicate that the menu item will open a sub-menu.
   &::after {
-    $size: $sp-menu-submenu-indicator-size / 2;
+    $size: $ix-menu-submenu-indicator-size / 2;
 
     width: 0;
     height: 0;
@@ -47,17 +47,17 @@ $sp-menu-submenu-indicator-size: 10px !default;
     display: inline-block;
     position: absolute;
     top: 50%;
-    right: $sp-menu-side-padding;
+    right: $ix-menu-side-padding;
     transform: translateY(-50%);
   }
 
   [dir='rtl'] & {
-    padding-right: $sp-menu-side-padding;
-    padding-left: $sp-menu-side-padding * 2;
+    padding-right: $ix-menu-side-padding;
+    padding-left: $ix-menu-side-padding * 2;
 
     &::after {
       right: auto;
-      left: $sp-menu-side-padding;
+      left: $ix-menu-side-padding;
       transform: rotateY(180deg) translateY(-50%);
     }
   }
@@ -65,16 +65,16 @@ $sp-menu-submenu-indicator-size: 10px !default;
   // Prevent the user from interacting while the panel is still animating.
   // This avoids issues where the user could accidentally open a sub-menu,
   // because of the `overlapTrigger` option.
-  .sp-menu-panel.ng-animating & {
+  .ix-menu-panel.ng-animating & {
     pointer-events: none;
   }
 }
 
-button.sp-menu-item {
+button.ix-menu-item {
   width: 100%;
 }
 
-.sp-menu-ripple {
+.ix-menu-ripple {
   @include mat-fill;
 
   // Prevent any pointer events on the ripple container for a menu item. The ripple container is

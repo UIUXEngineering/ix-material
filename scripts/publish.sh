@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-cd projects/uiux/cdk
-npm publish
+ROOTDIR= pwd;
 
-cd ../icons
-npm publish
+cd "$ROOTDIR/dist/@uiux/cdk"
+#npm publish
 
 cd ../material
-npm publish
+#npm publish
 
-cd ../../../
+cd ../../../projects
+#npm publish
+
+

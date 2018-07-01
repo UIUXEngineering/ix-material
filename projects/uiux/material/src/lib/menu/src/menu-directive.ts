@@ -39,7 +39,7 @@ import {MAT_MENU_PANEL, SPMenuPanel} from './menu-panel';
 import {MenuPositionX, MenuPositionY} from './menu-positions';
 import {SPMenuModel} from './_model/menu-model.service'; // TODO(uiux): model edit
 
-/** Default `sp-menu` options that can be overridden. */
+/** Default `ix-menu` options that can be overridden. */
 export interface SPMenuDefaultOptions {
   /** The x-axis position of the menu. */
   xPosition: MenuPositionX;
@@ -57,9 +57,9 @@ export interface SPMenuDefaultOptions {
   hasBackdrop?: boolean;
 }
 
-/** Injection token to be used to override the default options for `sp-menu`. */
+/** Injection token to be used to override the default options for `ix-menu`. */
 export const MAT_MENU_DEFAULT_OPTIONS =
-    new InjectionToken<SPMenuDefaultOptions>('sp-menu-default-options', {
+    new InjectionToken<SPMenuDefaultOptions>('ix-menu-default-options', {
       providedIn: 'root',
       factory: MAT_MENU_DEFAULT_OPTIONS_FACTORY
     });
@@ -81,7 +81,7 @@ const MAT_MENU_BASE_ELEVATION = 2;
 
 
 @Component({
-  selector: 'sp-menu',
+  selector: 'ix-menu',
   templateUrl: 'menu.html',
   styleUrls: ['menu.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -201,7 +201,7 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
   private _hasBackdrop: boolean | undefined = this._defaultOptions.hasBackdrop;
 
   /**
-   * This method takes classes set on the host sp-menu element and applies them on the
+   * This method takes classes set on the host ix-menu element and applies them on the
    * menu template that displays in the overlay container.  Otherwise, it's difficult
    * to style the containing menu from outside the component.
    * @param classes list of class names
@@ -219,7 +219,7 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
   }
 
   /**
-   * This method takes classes set on the host sp-menu element and applies them on the
+   * This method takes classes set on the host ix-menu element and applies them on the
    * menu template that displays in the overlay container.  Otherwise, it's difficult
    * to style the containing menu from outside the component.
    * @deprecated Use `panelClass` instead.
@@ -377,9 +377,9 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
   addItem(item: SPMenuItem) {
     // We register the items through this method, rather than picking them up through
     // `ContentChildren`, because we need the items to be picked up by their closest
-    // `sp-menu` ancestor. If we used `@ContentChildren(SPMenuItem, {descendants: true})`,
+    // `ix-menu` ancestor. If we used `@ContentChildren(SPMenuItem, {descendants: true})`,
     // all descendant items will bleed into the top-level menu in the case where the consumer
-    // has `sp-menu` instances nested inside each other.
+    // has `ix-menu` instances nested inside each other.
     if (this._items.indexOf(item) === -1) {
       this._items.push(item);
       this._itemChanges.next(this._items);

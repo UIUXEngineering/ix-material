@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
 import { MyServiceService } from './my-service.service';
 
 @Component({
-  selector: 'sp-my-component',
+  selector: 'ix-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.scss'],
   preserveWhitespaces: false,

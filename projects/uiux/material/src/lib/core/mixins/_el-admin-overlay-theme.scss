@@ -1,7 +1,7 @@
 // need to use relative path and not "~" so script can compile
 //@import '../../../../../../../../node_modules/@angular/material/theming';
 
-@mixin sp-el-admin-overlay-theme($theme) {
+@mixin ix-el-admin-overlay-theme($theme) {
 
   // Parent css class of theme
   $primary: map-get($theme, primary);
@@ -15,7 +15,7 @@
   color: white;
 
   // Global css classes for el-admin-overlay-theme theme here
-  .sp-content, .mat-dialog-container {
+  .ix-content, .mat-dialog-container {
     background: mat-color($background, background);
   }
 }

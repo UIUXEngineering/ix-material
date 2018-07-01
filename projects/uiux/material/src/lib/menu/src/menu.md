@@ -1,14 +1,14 @@
-`<sp-menu>` is a floating panel containing list of options.
+`<ix-menu>` is a floating panel containing list of options.
 
 <!-- example(menu-overview) -->
 
-By itself, the `<sp-menu>` element does not render anything. The menu is attached to and opened
+By itself, the `<ix-menu>` element does not render anything. The menu is attached to and opened
 via application of the `SPMenuTriggerFor` directive:
 ```html
-<sp-menu #appMenu="SPMenu">
-  <button sp-menu-item>Settings</button>
-  <button sp-menu-item>Help</button>
-</sp-menu>
+<ix-menu #appMenu="SPMenu">
+  <button ix-menu-item>Settings</button>
+  <button ix-menu-item>Help</button>
+</ix-menu>
 
 <button mat-icon-button [SPMenuTriggerFor]="appMenu">
   <mat-icon>more_vert</mat-icon>
@@ -34,20 +34,20 @@ Menus support displaying `mat-icon` elements before the menu item text.
 
 *my-comp.html*
 ```html
-<sp-menu #menu="SPMenu">
-  <button sp-menu-item>
+<ix-menu #menu="SPMenu">
+  <button ix-menu-item>
     <mat-icon>dialpad</mat-icon>
     <span>Redial</span>
   </button>
-  <button sp-menu-item disabled>
+  <button ix-menu-item disabled>
     <mat-icon>voicemail</mat-icon>
     <span>Check voicemail</span>
   </button>
-  <button sp-menu-item>
+  <button ix-menu-item>
     <mat-icon>notifications_off</mat-icon>
     <span>Disable alerts</span>
   </button>
-</sp-menu>
+</ix-menu>
 ```
 
 ### Customizing menu position
@@ -58,10 +58,10 @@ The position can be changed using the `xPosition` (`before | after`) and `yPosit
 `[overlapTrigger]="false"` attribute.
 
 ```html
-<sp-menu #appMenu="SPMenu" yPosition="above">
-  <button sp-menu-item>Settings</button>
-  <button sp-menu-item>Help</button>
-</sp-menu>
+<ix-menu #appMenu="SPMenu" yPosition="above">
+  <button ix-menu-item>Settings</button>
+  <button ix-menu-item>Help</button>
+</ix-menu>
 
 <button mat-icon-button [SPMenuTriggerFor]="appMenu">
   <mat-icon>more_vert</mat-icon>
@@ -70,21 +70,21 @@ The position can be changed using the `xPosition` (`before | after`) and `yPosit
 
 ### Nested menu
 
-Material supports the ability for an `sp-menu-item` to open a sub-menu. To do so, you have to define
-your root menu and sub-menus, in addition to setting the `[SPMenuTriggerFor]` on the `sp-menu-item`
+Material supports the ability for an `ix-menu-item` to open a sub-menu. To do so, you have to define
+your root menu and sub-menus, in addition to setting the `[SPMenuTriggerFor]` on the `ix-menu-item`
 that should trigger the sub-menu:
 
 ```html
-<sp-menu #rootMenu="SPMenu">
-  <button sp-menu-item [SPMenuTriggerFor]="subMenu">Power</button>
-  <button sp-menu-item>System settings</button>
-</sp-menu>
+<ix-menu #rootMenu="SPMenu">
+  <button ix-menu-item [SPMenuTriggerFor]="subMenu">Power</button>
+  <button ix-menu-item>System settings</button>
+</ix-menu>
 
-<sp-menu #subMenu="SPMenu">
-  <button sp-menu-item>Shut down</button>
-  <button sp-menu-item>Restart</button>
-  <button sp-menu-item>Hibernate</button>
-</sp-menu>
+<ix-menu #subMenu="SPMenu">
+  <button ix-menu-item>Shut down</button>
+  <button ix-menu-item>Restart</button>
+  <button ix-menu-item>Hibernate</button>
+</ix-menu>
 
 <button mat-icon-button [SPMenuTriggerFor]="rootMenu">
   <mat-icon>more_vert</mat-icon>
@@ -99,12 +99,12 @@ initialization until the menu is open, the content can be provided as an `ng-tem
 with the `SPMenuContent` attribute:
 
 ```html
-<sp-menu #appMenu="SPMenu">
+<ix-menu #appMenu="SPMenu">
   <ng-template SPMenuContent>
-    <button sp-menu-item>Settings</button>
-    <button sp-menu-item>Help</button>
+    <button ix-menu-item>Settings</button>
+    <button ix-menu-item>Help</button>
   </ng-template>
-</sp-menu>
+</ix-menu>
 
 <button mat-icon-button [SPMenuTriggerFor]="appMenu">
   <mat-icon>more_vert</mat-icon>
@@ -117,12 +117,12 @@ the `SPMenuTriggerData` input. This allows for a single menu instance to be rend
 with a different set of data, depending on the trigger that opened it:
 
 ```html
-<sp-menu #appMenu="SPMenu">
+<ix-menu #appMenu="SPMenu">
   <ng-template SPMenuContent let-name="name">
-    <button sp-menu-item>Settings</button>
-    <button sp-menu-item>Log off {{name}}</button>
+    <button ix-menu-item>Settings</button>
+    <button ix-menu-item>Log off {{name}}</button>
   </ng-template>
-</sp-menu>
+</ix-menu>
 
 <button mat-icon-button [SPMenuTriggerFor]="appMenu" [SPMenuTriggerData]="{name: 'Sally'}">
   <mat-icon>more_vert</mat-icon>

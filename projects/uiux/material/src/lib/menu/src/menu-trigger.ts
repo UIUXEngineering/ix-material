@@ -43,7 +43,7 @@ import {MenuPositionX, MenuPositionY} from './menu-positions';
 
 /** Injection token that determines the scroll handling while the menu is open. */
 export const MAT_MENU_SCROLL_STRATEGY =
-    new InjectionToken<() => ScrollStrategy>('sp-menu-scroll-strategy');
+    new InjectionToken<() => ScrollStrategy>('ix-menu-scroll-strategy');
 
 /** @docs-private */
 export function MAT_MENU_SCROLL_STRATEGY_FACTORY(overlay: Overlay): () => ScrollStrategy {
@@ -63,11 +63,11 @@ export const MENU_PANEL_TOP_PADDING = 8;
 // TODO(andrewseguin): Remove the kebab versions in favor of camelCased attribute selectors
 
 /**
- * This directive is intended to be used in conjunction with an sp-menu tag.  It is
+ * This directive is intended to be used in conjunction with an ix-menu tag.  It is
  * responsible for toggling the display of the provided menu instance.
  */
 @Directive({
-  selector: `[sp-menu-trigger-for], [SPMenuTriggerFor]`,
+  selector: `[ix-menu-trigger-for], [SPMenuTriggerFor]`,
   host: {
     'aria-haspopup': 'true',
     '(mousedown)': '_handleMousedown($event)',
@@ -91,7 +91,7 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
    * @deprecated
    * @deletion-target 7.0.0
    */
-  @Input('sp-menu-trigger-for')
+  @Input('ix-menu-trigger-for')
   get _deprecatedSPMenuTriggerFor(): SPMenuPanel {
     return this.menu;
   }
@@ -394,7 +394,7 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
 
     return this._overlay.position()
         .flexibleConnectedTo(this._element)
-        .withTransformOriginOn('.sp-menu-panel')
+        .withTransformOriginOn('.ix-menu-panel')
         .withPositions([
           {originX, originY, overlayX, overlayY, offsetY},
           {originX: originFallbackX, originY, overlayX: overlayFallbackX, overlayY, offsetY},

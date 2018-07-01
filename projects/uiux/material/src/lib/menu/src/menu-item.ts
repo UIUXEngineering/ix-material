@@ -32,18 +32,18 @@ export class SPMenuItemBase {}
 export const _SPMenuItemMixinBase = mixinDisableRipple(mixinDisabled(SPMenuItemBase));
 
 /**
- * This directive is intended to be used inside an sp-menu tag.
+ * This directive is intended to be used inside an ix-menu tag.
  * It exists mostly to set the role attribute.
  */
 @Component({
-  selector: '[sp-menu-item]',
+  selector: '[ix-menu-item]',
   exportAs: 'SPMenuItem',
   inputs: ['disabled', 'disableRipple'],
   host: {
     'role': 'menuitem',
-    'class': 'sp-menu-item',
-    '[class.sp-menu-item-highlighted]': '_highlighted',
-    '[class.sp-menu-item-submenu-trigger]': '_triggersSubmenu',
+    'class': 'ix-menu-item',
+    '[class.ix-menu-item-highlighted]': '_highlighted',
+    '[class.ix-menu-item-submenu-trigger]': '_triggersSubmenu',
     '[attr.tabindex]': '_getTabIndex()',
     '[attr.aria-disabled]': 'disabled.toString()',
     '[attr.disabled]': 'disabled || null',

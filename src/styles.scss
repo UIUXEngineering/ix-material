@@ -19,7 +19,7 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-@include sp-core();
+@include ix-core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -33,11 +33,11 @@ $uiux-material-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
 $uiux-material-theme: mat-light-theme($uiux-material-primary, $uiux-material-accent, $uiux-material-warn);
 
-// Include theme styles for core and each component used in your app.
+// Include theme styles for core and each component used in your  app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($uiux-material-theme);
-@include sp-material-theme($uiux-material-theme);
+@include ix-material-theme($uiux-material-theme);
 @include material-app-theme($uiux-material-theme);
 @include theme-override-classes($uiux-material-theme);
 /* You can add global styles to this file, and also import other style files */

@@ -1,6 +1,6 @@
-import { SpOnRenderCompleteModule } from './sp-on-render-complete.module';
+import { SpOnRenderCompleteModule } from './ix-on-render-complete.module';
 
-describe('SpOnRenderCompleteModule', () => {
+describe('IxOnRenderCompleteModule', () => {
   let spOnRenderCompleteModule: SpOnRenderCompleteModule;
 
   beforeEach(() => {

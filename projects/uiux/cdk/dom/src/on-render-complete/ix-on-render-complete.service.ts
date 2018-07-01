@@ -5,7 +5,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class SpOnRenderCompleteService {
+export class IxOnRenderCompleteService {
   private _cache: any = {};
 
   isComplete(key: string): Observable<any> {
@@ -45,16 +45,16 @@ export class SpOnRenderCompleteService {
 }
 
 export function _spOnRenderCompleteFactory(
-  parentDispatcher: SpOnRenderCompleteService
-): SpOnRenderCompleteService {
-  return parentDispatcher || new SpOnRenderCompleteService();
+  parentDispatcher: IxOnRenderCompleteService
+): IxOnRenderCompleteService {
+  return parentDispatcher || new IxOnRenderCompleteService();
 }
 
-export const SP_ON_RENDER_COMPLETE_PROVIDER: any[] = [
+export const IX_ON_RENDER_COMPLETE_PROVIDER: any[] = [
   {
-    provide: SpOnRenderCompleteService,
+    provide: IxOnRenderCompleteService,
     useFactory: _spOnRenderCompleteFactory,
     // tslint:disable-next-line
-    deps: [[new Optional(), new SkipSelf(), SpOnRenderCompleteService]],
+    deps: [[new Optional(), new SkipSelf(), IxOnRenderCompleteService]],
   },
 ];

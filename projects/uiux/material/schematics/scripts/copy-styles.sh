@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p src/styles/fonts
+mkdir -p src/styles
 rsync -r node_modules/@uiux/material/schematics/styles src
 
 # mkdir -p "src/assets/fonts/robotocondensed"

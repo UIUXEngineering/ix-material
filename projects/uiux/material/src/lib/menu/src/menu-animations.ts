@@ -19,7 +19,7 @@ import{
 } from '@angular/animations';
 
 /**
- * Animations used by the sp-menu component.
+ * Animations used by the ix-menu component.
  * Animation duration and timing values are based on:
  * https://material.io/guidelines/components/menus.html#menus-usage
  */
@@ -43,10 +43,10 @@ export const SPMenuAnimations: {
       transform: 'scale(0.01, 0.01)'
     })),
     transition('void => enter', sequence([
-      query('.sp-menu-content', style({opacity: 0})),
+      query('.ix-menu-content', style({opacity: 0})),
       animate('100ms linear', style({opacity: 1, transform: 'scale(1, 0.5)'})),
       group([
-        query('.sp-menu-content', animate('400ms cubic-bezier(0.55, 0, 0.55, 0.2)',
+        query('.ix-menu-content', animate('400ms cubic-bezier(0.55, 0, 0.55, 0.2)',
           style({opacity: 1})
         )),
         animate('300ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({transform: 'scale(1, 1)'})),

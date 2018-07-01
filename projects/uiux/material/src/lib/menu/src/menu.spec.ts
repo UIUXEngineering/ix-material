@@ -122,7 +122,7 @@ describe('SPMenu', () => {
     triggerEl.click();
     fixture.detectChanges();
 
-    expect(overlayContainerElement.querySelector('.sp-menu-panel')).toBeTruthy();
+    expect(overlayContainerElement.querySelector('.ix-menu-panel')).toBeTruthy();
 
     fixture.componentInstance.trigger.closeMenu();
     fixture.detectChanges();
@@ -154,7 +154,7 @@ describe('SPMenu', () => {
     triggerEl.click();
     fixture.detectChanges();
 
-    expect(overlayContainerElement.querySelector('.sp-menu-panel')).toBeTruthy();
+    expect(overlayContainerElement.querySelector('.ix-menu-panel')).toBeTruthy();
 
     fixture.componentInstance.trigger.closeMenu();
     fixture.detectChanges();
@@ -207,7 +207,7 @@ describe('SPMenu', () => {
     fixture.detectChanges();
     fixture.componentInstance.trigger.openMenu();
 
-    const panel = overlayContainerElement.querySelector('.sp-menu-panel')!;
+    const panel = overlayContainerElement.querySelector('.ix-menu-panel')!;
     const event = createKeyboardEvent('keydown', ESCAPE);
     const stopPropagationSpy = spyOn(event, 'stopPropagation').and.callThrough();
 
@@ -276,8 +276,8 @@ describe('SPMenu', () => {
     fixture.componentInstance.trigger.openMenu();
     fixture.detectChanges();
 
-    const menuEl = fixture.debugElement.query(By.css('sp-menu')).nativeElement;
-    const panel = overlayContainerElement.querySelector('.sp-menu-panel')!;
+    const menuEl = fixture.debugElement.query(By.css('ix-menu')).nativeElement;
+    const panel = overlayContainerElement.querySelector('.ix-menu-panel')!;
 
     expect(menuEl.classList).not.toContain('custom-one');
     expect(menuEl.classList).not.toContain('custom-two');
@@ -292,7 +292,7 @@ describe('SPMenu', () => {
     fixture.componentInstance.trigger.openMenu();
     fixture.detectChanges();
 
-    const menuPanel = overlayContainerElement.querySelector('.sp-menu-panel');
+    const menuPanel = overlayContainerElement.querySelector('.ix-menu-panel');
 
     expect(menuPanel).toBeTruthy('Expected to find a menu panel.');
 
@@ -364,9 +364,9 @@ describe('SPMenu', () => {
       fixture.componentInstance.triggerEl.nativeElement.click();
       fixture.detectChanges();
 
-      const panel = document.querySelector('.sp-menu-panel')! as HTMLElement;
+      const panel = document.querySelector('.ix-menu-panel')! as HTMLElement;
       const items: HTMLElement[] =
-          Array.from(panel.querySelectorAll('.sp-menu-panel [sp-menu-item]'));
+          Array.from(panel.querySelectorAll('.ix-menu-panel [ix-menu-item]'));
 
       items.forEach(item => patchElementFocus(item));
 
@@ -393,7 +393,7 @@ describe('SPMenu', () => {
       fixture.detectChanges();
       tick(500);
 
-      const panel = overlayContainerElement.querySelector('.sp-menu-panel')!;
+      const panel = overlayContainerElement.querySelector('.ix-menu-panel')!;
 
       expect(panel).toBeTruthy('Expected panel to be defined');
       expect(panel.textContent).toContain('Another item', 'Expected panel to have correct content');
@@ -433,7 +433,7 @@ describe('SPMenu', () => {
       zone!.simulateZoneExit();
       tick();
 
-      const item = document.querySelector('.sp-menu-panel [sp-menu-item]')!;
+      const item = document.querySelector('.ix-menu-panel [ix-menu-item]')!;
 
       expect(document.activeElement).toBe(item, 'Expected first item to be focused');
     }));
@@ -446,7 +446,7 @@ describe('SPMenu', () => {
       fixture.detectChanges();
       tick(500);
 
-      let item = overlayContainerElement.querySelector('.sp-menu-panel [sp-menu-item]')!;
+      let item = overlayContainerElement.querySelector('.ix-menu-panel [ix-menu-item]')!;
 
       expect(item.textContent!.trim()).toBe('one');
 
@@ -457,7 +457,7 @@ describe('SPMenu', () => {
       fixture.componentInstance.triggerTwo.openMenu();
       fixture.detectChanges();
       tick(500);
-      item = overlayContainerElement.querySelector('.sp-menu-panel [sp-menu-item]')!;
+      item = overlayContainerElement.querySelector('.ix-menu-panel [ix-menu-item]')!;
 
       expect(item.textContent!.trim()).toBe('two');
     }));
@@ -618,7 +618,7 @@ describe('SPMenu', () => {
       }
 
       get menuPanel() {
-        return overlayContainerElement.querySelector('.sp-menu-panel');
+        return overlayContainerElement.querySelector('.ix-menu-panel');
       }
 
       private get overlayPane() {
@@ -679,7 +679,7 @@ describe('SPMenu', () => {
       fixture.componentInstance.trigger.openMenu();
       fixture.detectChanges();
 
-      const item = fixture.debugElement.query(By.css('.sp-menu-item'));
+      const item = fixture.debugElement.query(By.css('.ix-menu-item'));
       const ripple = item.query(By.css('.mat-ripple')).injector.get<MatRipple>(MatRipple);
 
       expect(ripple.disabled).toBe(false);
@@ -692,7 +692,7 @@ describe('SPMenu', () => {
       fixture.componentInstance.trigger.openMenu();
       fixture.detectChanges();
 
-      const items = fixture.debugElement.queryAll(By.css('.sp-menu-item'));
+      const items = fixture.debugElement.queryAll(By.css('.ix-menu-item'));
       const ripple = items[1].query(By.css('.mat-ripple')).injector.get<MatRipple>(MatRipple);
 
       expect(ripple.disabled).toBe(true);
@@ -706,7 +706,7 @@ describe('SPMenu', () => {
       fixture.detectChanges();
 
       // The third menu item in the `SimpleMenu` component has ripples disabled.
-      const items = fixture.debugElement.queryAll(By.css('.sp-menu-item'));
+      const items = fixture.debugElement.queryAll(By.css('.ix-menu-item'));
       const ripple = items[2].query(By.css('.mat-ripple')).injector.get<MatRipple>(MatRipple);
 
       expect(ripple.disabled).toBe(true);
@@ -724,7 +724,7 @@ describe('SPMenu', () => {
     });
 
     it('should emit an event when a menu item is clicked', () => {
-      const menuItem = overlayContainerElement.querySelector('[sp-menu-item]') as HTMLElement;
+      const menuItem = overlayContainerElement.querySelector('[ix-menu-item]') as HTMLElement;
 
       menuItem.click();
       fixture.detectChanges();
@@ -745,7 +745,7 @@ describe('SPMenu', () => {
     });
 
     it('should emit an event when pressing ESCAPE', () => {
-      const menu = overlayContainerElement.querySelector('.sp-menu-panel') as HTMLElement;
+      const menu = overlayContainerElement.querySelector('.ix-menu-panel') as HTMLElement;
 
       dispatchKeyboardEvent(menu, 'keydown', ESCAPE);
       fixture.detectChanges();
@@ -827,7 +827,7 @@ describe('SPMenu', () => {
 
       const spy = jasmine.createSpy('hover spy');
       const subscription = instance.rootMenu._hovered().subscribe(spy);
-      const menuItems = overlay.querySelectorAll('[sp-menu-item]');
+      const menuItems = overlay.querySelectorAll('[ix-menu-item]');
 
       dispatchMouseEvent(menuItems[0], 'mouseenter');
       fixture.detectChanges();
@@ -846,9 +846,9 @@ describe('SPMenu', () => {
       compileTestComponent();
       instance.rootTriggerEl.nativeElement.click();
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
-      const items = Array.from(overlay.querySelectorAll('.sp-menu-panel [sp-menu-item]'));
+      const items = Array.from(overlay.querySelectorAll('.ix-menu-panel [ix-menu-item]'));
       const levelOneTrigger = overlay.querySelector('#level-one-trigger')!;
 
       dispatchMouseEvent(levelOneTrigger, 'mouseenter');
@@ -857,16 +857,16 @@ describe('SPMenu', () => {
       fixture.detectChanges();
 
       expect(levelOneTrigger.classList)
-          .toContain('sp-menu-item-highlighted', 'Expected the trigger to be highlighted');
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+          .toContain('ix-menu-item-highlighted', 'Expected the trigger to be highlighted');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
 
       dispatchMouseEvent(items[items.indexOf(levelOneTrigger) + 1], 'mouseenter');
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
       expect(levelOneTrigger.classList)
-          .not.toContain('sp-menu-item-highlighted', 'Expected the trigger to not be highlighted');
+          .not.toContain('ix-menu-item-highlighted', 'Expected the trigger to not be highlighted');
     }));
 
     it('should close all the open sub-menus when the hover state is changed at the root',
@@ -875,7 +875,7 @@ describe('SPMenu', () => {
         instance.rootTriggerEl.nativeElement.click();
         fixture.detectChanges();
 
-        const items = Array.from(overlay.querySelectorAll('.sp-menu-panel [sp-menu-item]'));
+        const items = Array.from(overlay.querySelectorAll('.ix-menu-panel [ix-menu-item]'));
         const levelOneTrigger = overlay.querySelector('#level-one-trigger')!;
 
         dispatchMouseEvent(levelOneTrigger, 'mouseenter');
@@ -887,14 +887,14 @@ describe('SPMenu', () => {
         fixture.detectChanges();
         tick();
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(3, 'Expected three open menus');
 
         dispatchMouseEvent(items[items.indexOf(levelOneTrigger) + 1], 'mouseenter');
         fixture.detectChanges();
         tick(500);
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(1, 'Expected one open menu');
       }));
 
@@ -910,7 +910,7 @@ describe('SPMenu', () => {
         fixture.detectChanges();
         tick(500);
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(2, 'Expected two open menus');
 
         items[1].componentInstance.disabled = true;
@@ -921,7 +921,7 @@ describe('SPMenu', () => {
         fixture.detectChanges();
         tick(500);
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(1, 'Expected one open menu');
       }));
 
@@ -931,7 +931,7 @@ describe('SPMenu', () => {
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length)
+      expect(overlay.querySelectorAll('.ix-menu-panel').length)
           .toBe(1, 'Expected one open menu');
 
       const item = fixture.debugElement.query(By.directive(SPMenuItem));
@@ -944,7 +944,7 @@ describe('SPMenu', () => {
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length)
+      expect(overlay.querySelectorAll('.ix-menu-panel').length)
           .toBe(1, 'Expected to remain at one open menu');
     }));
 
@@ -953,17 +953,17 @@ describe('SPMenu', () => {
       compileTestComponent();
       instance.rootTriggerEl.nativeElement.click();
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
       const levelOneTrigger = overlay.querySelector('#level-one-trigger')! as HTMLElement;
 
       levelOneTrigger.click();
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
 
       levelOneTrigger.click();
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length)
+      expect(overlay.querySelectorAll('.ix-menu-panel').length)
           .toBe(2, 'Expected repeat clicks not to close the menu.');
     });
 
@@ -971,42 +971,42 @@ describe('SPMenu', () => {
       compileTestComponent();
       instance.rootTriggerEl.nativeElement.click();
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
       const levelOneTrigger = overlay.querySelector('#level-one-trigger')! as HTMLElement;
 
       dispatchKeyboardEvent(levelOneTrigger, 'keydown', RIGHT_ARROW);
       fixture.detectChanges();
 
-      const panels = overlay.querySelectorAll('.sp-menu-panel');
+      const panels = overlay.querySelectorAll('.ix-menu-panel');
 
       expect(panels.length).toBe(2, 'Expected two open menus');
       dispatchKeyboardEvent(panels[1], 'keydown', LEFT_ARROW);
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1);
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1);
     }));
 
     it('should open and close a nested menu with the arrow keys in rtl', fakeAsync(() => {
       compileTestComponent('rtl');
       instance.rootTriggerEl.nativeElement.click();
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
       const levelOneTrigger = overlay.querySelector('#level-one-trigger')! as HTMLElement;
 
       dispatchKeyboardEvent(levelOneTrigger, 'keydown', LEFT_ARROW);
       fixture.detectChanges();
 
-      const panels = overlay.querySelectorAll('.sp-menu-panel');
+      const panels = overlay.querySelectorAll('.ix-menu-panel');
 
       expect(panels.length).toBe(2, 'Expected two open menus');
       dispatchKeyboardEvent(panels[1], 'keydown', RIGHT_ARROW);
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1);
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1);
     }));
 
     it('should not do anything with the arrow keys for a top-level menu', () => {
@@ -1014,16 +1014,16 @@ describe('SPMenu', () => {
       instance.rootTriggerEl.nativeElement.click();
       fixture.detectChanges();
 
-      const menu = overlay.querySelector('.sp-menu-panel')!;
+      const menu = overlay.querySelector('.ix-menu-panel')!;
 
       dispatchKeyboardEvent(menu, 'keydown', RIGHT_ARROW);
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length)
+      expect(overlay.querySelectorAll('.ix-menu-panel').length)
           .toBe(1, 'Expected one menu to remain open');
 
       dispatchKeyboardEvent(menu, 'keydown', LEFT_ARROW);
       fixture.detectChanges();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length)
+      expect(overlay.querySelectorAll('.ix-menu-panel').length)
           .toBe(1, 'Expected one menu to remain open');
     });
 
@@ -1038,18 +1038,18 @@ describe('SPMenu', () => {
       instance.levelTwoTrigger.openMenu();
       fixture.detectChanges();
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length)
+      expect(overlay.querySelectorAll('.ix-menu-panel').length)
           .toBe(3, 'Expected three open menus');
       expect(overlay.querySelectorAll('.cdk-overlay-backdrop').length)
           .toBe(1, 'Expected one backdrop element');
-      expect(overlay.querySelectorAll('.sp-menu-panel, .cdk-overlay-backdrop')[0].classList)
+      expect(overlay.querySelectorAll('.ix-menu-panel, .cdk-overlay-backdrop')[0].classList)
           .toContain('cdk-overlay-backdrop', 'Expected backdrop to be beneath all of the menus');
 
       (overlay.querySelector('.cdk-overlay-backdrop')! as HTMLElement).click();
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(0, 'Expected no open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(0, 'Expected no open menus');
     }));
 
     it('should shift focus between the sub-menus', () => {
@@ -1057,31 +1057,31 @@ describe('SPMenu', () => {
       instance.rootTrigger.openMenu();
       fixture.detectChanges();
 
-      expect(overlay.querySelector('.sp-menu-panel')!.contains(document.activeElement))
+      expect(overlay.querySelector('.ix-menu-panel')!.contains(document.activeElement))
           .toBe(true, 'Expected focus to be inside the root menu');
 
       instance.levelOneTrigger.openMenu();
       fixture.detectChanges();
 
-      expect(overlay.querySelectorAll('.sp-menu-panel')[1].contains(document.activeElement))
+      expect(overlay.querySelectorAll('.ix-menu-panel')[1].contains(document.activeElement))
           .toBe(true, 'Expected focus to be inside the first nested menu');
 
       instance.levelTwoTrigger.openMenu();
       fixture.detectChanges();
 
-      expect(overlay.querySelectorAll('.sp-menu-panel')[2].contains(document.activeElement))
+      expect(overlay.querySelectorAll('.ix-menu-panel')[2].contains(document.activeElement))
           .toBe(true, 'Expected focus to be inside the second nested menu');
 
       instance.levelTwoTrigger.closeMenu();
       fixture.detectChanges();
 
-      expect(overlay.querySelectorAll('.sp-menu-panel')[1].contains(document.activeElement))
+      expect(overlay.querySelectorAll('.ix-menu-panel')[1].contains(document.activeElement))
           .toBe(true, 'Expected focus to be back inside the first nested menu');
 
       instance.levelOneTrigger.closeMenu();
       fixture.detectChanges();
 
-      expect(overlay.querySelector('.sp-menu-panel')!.contains(document.activeElement))
+      expect(overlay.querySelector('.ix-menu-panel')!.contains(document.activeElement))
           .toBe(true, 'Expected focus to be back inside the root menu');
     });
 
@@ -1170,15 +1170,15 @@ describe('SPMenu', () => {
       instance.levelTwoTrigger.openMenu();
       fixture.detectChanges();
 
-      const menus = overlay.querySelectorAll('.sp-menu-panel');
+      const menus = overlay.querySelectorAll('.ix-menu-panel');
 
       expect(menus.length).toBe(3, 'Expected three open menus');
 
-      (menus[2].querySelector('.sp-menu-item')! as HTMLElement).click();
+      (menus[2].querySelector('.ix-menu-item')! as HTMLElement).click();
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(0, 'Expected no open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(0, 'Expected no open menus');
     }));
 
     it('should close all of the menus when the user tabs away', fakeAsync(() => {
@@ -1192,7 +1192,7 @@ describe('SPMenu', () => {
       instance.levelTwoTrigger.openMenu();
       fixture.detectChanges();
 
-      const menus = overlay.querySelectorAll('.sp-menu-panel');
+      const menus = overlay.querySelectorAll('.ix-menu-panel');
 
       expect(menus.length).toBe(3, 'Expected three open menus');
 
@@ -1200,7 +1200,7 @@ describe('SPMenu', () => {
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(0, 'Expected no open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(0, 'Expected no open menus');
     }));
 
     it('should set a class on the menu items that trigger a sub-menu', () => {
@@ -1208,10 +1208,10 @@ describe('SPMenu', () => {
       instance.rootTrigger.openMenu();
       fixture.detectChanges();
 
-      const menuItems = overlay.querySelectorAll('[sp-menu-item]');
+      const menuItems = overlay.querySelectorAll('[ix-menu-item]');
 
-      expect(menuItems[0].classList).toContain('sp-menu-item-submenu-trigger');
-      expect(menuItems[1].classList).not.toContain('sp-menu-item-submenu-trigger');
+      expect(menuItems[0].classList).toContain('ix-menu-item-submenu-trigger');
+      expect(menuItems[1].classList).not.toContain('ix-menu-item-submenu-trigger');
     });
 
     it('should increase the sub-menu elevation based on its depth', () => {
@@ -1225,7 +1225,7 @@ describe('SPMenu', () => {
       instance.levelTwoTrigger.openMenu();
       fixture.detectChanges();
 
-      const menus = overlay.querySelectorAll('.sp-menu-panel');
+      const menus = overlay.querySelectorAll('.ix-menu-panel');
 
       expect(menus[0].classList)
           .toContain('mat-elevation-z2', 'Expected root menu to have base elevation.');
@@ -1247,7 +1247,7 @@ describe('SPMenu', () => {
         instance.levelTwoTrigger.openMenu();
         fixture.detectChanges();
 
-        let lastMenu = overlay.querySelectorAll('.sp-menu-panel')[2];
+        let lastMenu = overlay.querySelectorAll('.ix-menu-panel')[2];
 
         expect(lastMenu.classList)
             .toContain('mat-elevation-z4', 'Expected menu to have the base elevation plus two.');
@@ -1256,14 +1256,14 @@ describe('SPMenu', () => {
         fixture.detectChanges();
         tick(500);
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(0, 'Expected no open menus');
 
         instance.alternateTrigger.openMenu();
         fixture.detectChanges();
         tick(500);
 
-        lastMenu = overlay.querySelector('.sp-menu-panel') as HTMLElement;
+        lastMenu = overlay.querySelector('.ix-menu-panel') as HTMLElement;
 
         expect(lastMenu.classList)
             .not.toContain('mat-elevation-z4', 'Expected menu not to maintain old elevation.');
@@ -1281,7 +1281,7 @@ describe('SPMenu', () => {
       elevationFixture.componentInstance.levelOneTrigger.openMenu();
       elevationFixture.detectChanges();
 
-      const menuClasses = overlayContainerElement.querySelectorAll('.sp-menu-panel')[1].classList;
+      const menuClasses = overlayContainerElement.querySelectorAll('.ix-menu-panel')[1].classList;
 
       expect(menuClasses)
           .toContain('mat-elevation-z24', 'Expected user elevation to be maintained');
@@ -1300,7 +1300,7 @@ describe('SPMenu', () => {
       instance.levelTwoTrigger.openMenu();
       fixture.detectChanges();
 
-      const menus = overlay.querySelectorAll('.sp-menu-panel');
+      const menus = overlay.querySelectorAll('.ix-menu-panel');
 
       expect(menus.length).toBe(3, 'Expected three open menus');
 
@@ -1308,7 +1308,7 @@ describe('SPMenu', () => {
       fixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(0, 'Expected no open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(0, 'Expected no open menus');
     }));
 
     it('should toggle a nested menu when its trigger is added after init', fakeAsync(() => {
@@ -1316,7 +1316,7 @@ describe('SPMenu', () => {
       instance.rootTriggerEl.nativeElement.click();
       fixture.detectChanges();
       tick(500);
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
       instance.showLazy = true;
       fixture.detectChanges();
@@ -1329,8 +1329,8 @@ describe('SPMenu', () => {
       fixture.detectChanges();
 
       expect(lazyTrigger.classList)
-          .toContain('sp-menu-item-highlighted', 'Expected the trigger to be highlighted');
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+          .toContain('ix-menu-item-highlighted', 'Expected the trigger to be highlighted');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
     }));
 
     it('should prevent the default mousedown action if the menu item opens a sub-menu', () => {
@@ -1343,7 +1343,7 @@ describe('SPMenu', () => {
       Object.defineProperty(event, 'buttons', {get: () => 1});
       event.preventDefault = jasmine.createSpy('preventDefault spy');
 
-      dispatchMouseEvent(overlay.querySelector('[sp-menu-item]')!, 'mousedown', 0, 0, event);
+      dispatchMouseEvent(overlay.querySelector('[ix-menu-item]')!, 'mousedown', 0, 0, event);
       expect(event.preventDefault).toHaveBeenCalled();
     });
 
@@ -1356,12 +1356,12 @@ describe('SPMenu', () => {
       repeaterFixture.componentInstance.rootTriggerEl.nativeElement.click();
       repeaterFixture.detectChanges();
       tick(500);
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
       dispatchMouseEvent(overlay.querySelector('.level-one-trigger')!, 'mouseenter');
       repeaterFixture.detectChanges();
       tick(500);
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
     }));
 
     it('should be able to trigger the same nested menu from different triggers', fakeAsync(() => {
@@ -1372,20 +1372,20 @@ describe('SPMenu', () => {
       repeaterFixture.componentInstance.rootTriggerEl.nativeElement.click();
       repeaterFixture.detectChanges();
       tick(500);
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
       const triggers = overlay.querySelectorAll('.level-one-trigger');
 
       dispatchMouseEvent(triggers[0], 'mouseenter');
       repeaterFixture.detectChanges();
       tick(500);
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
 
       dispatchMouseEvent(triggers[1], 'mouseenter');
       repeaterFixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
     }));
 
     it('should close the initial menu if the user moves away while animating', fakeAsync(() => {
@@ -1396,7 +1396,7 @@ describe('SPMenu', () => {
       repeaterFixture.componentInstance.rootTriggerEl.nativeElement.click();
       repeaterFixture.detectChanges();
       tick(500);
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(1, 'Expected one open menu');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(1, 'Expected one open menu');
 
       const triggers = overlay.querySelectorAll('.level-one-trigger');
 
@@ -1407,7 +1407,7 @@ describe('SPMenu', () => {
       repeaterFixture.detectChanges();
       tick(500);
 
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
     }));
 
     it('should be able to open a submenu through an item that is not a direct descendant ' +
@@ -1419,14 +1419,14 @@ describe('SPMenu', () => {
         nestedFixture.componentInstance.rootTriggerEl.nativeElement.click();
         nestedFixture.detectChanges();
         tick(500);
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(1, 'Expected one open menu');
 
         dispatchMouseEvent(overlay.querySelector('.level-one-trigger')!, 'mouseenter');
         nestedFixture.detectChanges();
         tick(500);
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(2, 'Expected two open menus');
       }));
 
@@ -1439,21 +1439,21 @@ describe('SPMenu', () => {
         nestedFixture.componentInstance.rootTriggerEl.nativeElement.click();
         nestedFixture.detectChanges();
         tick(500);
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(1, 'Expected one open menu');
 
         dispatchMouseEvent(overlay.querySelector('.level-one-trigger')!, 'mouseenter');
         nestedFixture.detectChanges();
         tick(500);
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(2, 'Expected two open menus');
 
         dispatchMouseEvent(overlay.querySelector('.level-two-item')!, 'mouseenter');
         nestedFixture.detectChanges();
         tick(500);
 
-        expect(overlay.querySelectorAll('.sp-menu-panel').length)
+        expect(overlay.querySelectorAll('.ix-menu-panel').length)
             .toBe(2, 'Expected two open menus to remain');
       }));
 
@@ -1464,13 +1464,13 @@ describe('SPMenu', () => {
       instance.rootTriggerEl.nativeElement.click();
       fixture.detectChanges();
 
-      const items = Array.from(overlay.querySelectorAll('.sp-menu-panel [sp-menu-item]'));
+      const items = Array.from(overlay.querySelectorAll('.ix-menu-panel [ix-menu-item]'));
       const levelOneTrigger = overlay.querySelector('#level-one-trigger')!;
 
       dispatchMouseEvent(levelOneTrigger, 'mouseenter');
       fixture.detectChanges();
       tick();
-      expect(overlay.querySelectorAll('.sp-menu-panel').length).toBe(2, 'Expected two open menus');
+      expect(overlay.querySelectorAll('.ix-menu-panel').length).toBe(2, 'Expected two open menus');
 
       dispatchMouseEvent(items[items.indexOf(levelOneTrigger) + 1], 'mouseenter');
       fixture.detectChanges();
@@ -1510,19 +1510,19 @@ describe('SPMenu default overrides', () => {
 @Component({
   template: `
     <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
-    <sp-menu
+    <ix-menu
       #menu="SPMenu"
       class="custom-one custom-two"
       (closed)="closeCallback($event)"
       [backdropClass]="backdropClass">
 
-      <button sp-menu-item> Item </button>
-      <button sp-menu-item disabled> Disabled </button>
-      <button sp-menu-item disableRipple>
+      <button ix-menu-item> Item </button>
+      <button ix-menu-item disabled> Disabled </button>
+      <button ix-menu-item disableRipple>
         <fake-icon>unicorn</fake-icon>
         Item with an icon
       </button>
-    </sp-menu>
+    </ix-menu>
   `
 })
 class SimpleMenu {
@@ -1537,9 +1537,9 @@ class SimpleMenu {
 @Component({
   template: `
     <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
-    <sp-menu [xPosition]="xPosition" [yPosition]="yPosition" #menu="SPMenu">
-      <button sp-menu-item> Positioned Content </button>
-    </sp-menu>
+    <ix-menu [xPosition]="xPosition" [yPosition]="yPosition" #menu="SPMenu">
+      <button ix-menu-item> Positioned Content </button>
+    </ix-menu>
   `
 })
 class PositionedMenu {
@@ -1556,9 +1556,9 @@ interface TestableMenu {
 @Component({
   template: `
     <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
-    <sp-menu [overlapTrigger]="overlapTrigger" #menu="SPMenu">
-      <button sp-menu-item> Not overlapped Content </button>
-    </sp-menu>
+    <ix-menu [overlapTrigger]="overlapTrigger" #menu="SPMenu">
+      <button ix-menu-item> Not overlapped Content </button>
+    </ix-menu>
   `
 })
 class OverlapMenu implements TestableMenu {
@@ -1595,7 +1595,7 @@ class CustomMenuPanel implements SPMenuPanel {
   template: `
     <button [SPMenuTriggerFor]="menu">Toggle menu</button>
     <custom-menu #menu="matCustomMenu">
-      <button sp-menu-item> Custom Content </button>
+      <button ix-menu-item> Custom Content </button>
     </custom-menu>
   `
 })
@@ -1615,39 +1615,39 @@ class CustomMenu {
       [SPMenuTriggerFor]="levelTwo"
       #alternateTrigger="SPMenuTrigger">Toggle alternate menu</button>
 
-    <sp-menu #root="SPMenu" (close)="rootCloseCallback($event)">
-      <button sp-menu-item
+    <ix-menu #root="SPMenu" (close)="rootCloseCallback($event)">
+      <button ix-menu-item
         id="level-one-trigger"
         [SPMenuTriggerFor]="levelOne"
         #levelOneTrigger="SPMenuTrigger">One</button>
-      <button sp-menu-item>Two</button>
-      <button sp-menu-item
+      <button ix-menu-item>Two</button>
+      <button ix-menu-item
         *ngIf="showLazy"
         id="lazy-trigger"
         [SPMenuTriggerFor]="lazy"
         #lazyTrigger="SPMenuTrigger">Three</button>
-    </sp-menu>
+    </ix-menu>
 
-    <sp-menu #levelOne="SPMenu" (close)="levelOneCloseCallback($event)">
-      <button sp-menu-item>Four</button>
-      <button sp-menu-item
+    <ix-menu #levelOne="SPMenu" (close)="levelOneCloseCallback($event)">
+      <button ix-menu-item>Four</button>
+      <button ix-menu-item
         id="level-two-trigger"
         [SPMenuTriggerFor]="levelTwo"
         #levelTwoTrigger="SPMenuTrigger">Five</button>
-      <button sp-menu-item>Six</button>
-    </sp-menu>
+      <button ix-menu-item>Six</button>
+    </ix-menu>
 
-    <sp-menu #levelTwo="SPMenu" (close)="levelTwoCloseCallback($event)">
-      <button sp-menu-item>Seven</button>
-      <button sp-menu-item>Eight</button>
-      <button sp-menu-item>Nine</button>
-    </sp-menu>
+    <ix-menu #levelTwo="SPMenu" (close)="levelTwoCloseCallback($event)">
+      <button ix-menu-item>Seven</button>
+      <button ix-menu-item>Eight</button>
+      <button ix-menu-item>Nine</button>
+    </ix-menu>
 
-    <sp-menu #lazy="SPMenu">
-      <button sp-menu-item>Ten</button>
-      <button sp-menu-item>Eleven</button>
-      <button sp-menu-item>Twelve</button>
-    </sp-menu>
+    <ix-menu #lazy="SPMenu">
+      <button ix-menu-item>Ten</button>
+      <button ix-menu-item>Eleven</button>
+      <button ix-menu-item>Twelve</button>
+    </ix-menu>
   `
 })
 class NestedMenu {
@@ -1674,15 +1674,15 @@ class NestedMenu {
   template: `
     <button [SPMenuTriggerFor]="root" #rootTrigger="SPMenuTrigger">Toggle menu</button>
 
-    <sp-menu #root="SPMenu">
-      <button sp-menu-item
+    <ix-menu #root="SPMenu">
+      <button ix-menu-item
         [SPMenuTriggerFor]="levelOne"
         #levelOneTrigger="SPMenuTrigger">One</button>
-    </sp-menu>
+    </ix-menu>
 
-    <sp-menu #levelOne="SPMenu" class="mat-elevation-z24">
-      <button sp-menu-item>Two</button>
-    </sp-menu>
+    <ix-menu #levelOne="SPMenu" class="mat-elevation-z24">
+      <button ix-menu-item>Two</button>
+    </ix-menu>
   `
 })
 class NestedMenuCustomElevation {
@@ -1694,18 +1694,18 @@ class NestedMenuCustomElevation {
 @Component({
   template: `
     <button [SPMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
-    <sp-menu #root="SPMenu">
+    <ix-menu #root="SPMenu">
       <button
-        sp-menu-item
+        ix-menu-item
         class="level-one-trigger"
         *ngFor="let item of items"
         [SPMenuTriggerFor]="levelOne">{{item}}</button>
-    </sp-menu>
+    </ix-menu>
 
-    <sp-menu #levelOne="SPMenu">
-      <button sp-menu-item>Four</button>
-      <button sp-menu-item>Five</button>
-    </sp-menu>
+    <ix-menu #levelOne="SPMenu">
+      <button ix-menu-item>Four</button>
+      <button ix-menu-item>Five</button>
+    </ix-menu>
   `
 })
 class NestedMenuRepeater {
@@ -1718,13 +1718,13 @@ class NestedMenuRepeater {
   template: `
     <button [SPMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
 
-    <sp-menu #root="SPMenu">
-      <button sp-menu-item class="level-one-trigger" [SPMenuTriggerFor]="levelOne">One</button>
+    <ix-menu #root="SPMenu">
+      <button ix-menu-item class="level-one-trigger" [SPMenuTriggerFor]="levelOne">One</button>
 
-      <sp-menu #levelOne="SPMenu">
-        <button sp-menu-item class="level-two-item">Two</button>
-      </sp-menu>
-    </sp-menu>
+      <ix-menu #levelOne="SPMenu">
+        <button ix-menu-item class="level-two-item">Two</button>
+      </ix-menu>
+    </ix-menu>
   `
 })
 class SubmenuDeclaredInsideParentMenu {
@@ -1743,12 +1743,12 @@ class FakeIcon {}
   template: `
     <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
 
-    <sp-menu #menu="SPMenu">
+    <ix-menu #menu="SPMenu">
       <ng-template SPMenuContent>
-        <button sp-menu-item>Item</button>
-        <button sp-menu-item>Another item</button>
+        <button ix-menu-item>Item</button>
+        <button ix-menu-item>Another item</button>
       </ng-template>
-    </sp-menu>
+    </ix-menu>
   `
 })
 class SimpleLazyMenu {
@@ -1770,11 +1770,11 @@ class SimpleLazyMenu {
       [SPMenuTriggerData]="{label: 'two'}"
       #triggerTwo="SPMenuTrigger">Two</button>
 
-    <sp-menu #menu="SPMenu">
+    <ix-menu #menu="SPMenu">
       <ng-template let-label="label" SPMenuContent>
-        <button sp-menu-item>{{label}}</button>
+        <button ix-menu-item>{{label}}</button>
       </ng-template>
-    </sp-menu>
+    </ix-menu>
   `
 })
 class LazyMenuWithContext {

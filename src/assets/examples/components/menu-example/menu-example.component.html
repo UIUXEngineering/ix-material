@@ -1,7 +1,7 @@
 <button mat-raised-button color="primary"
-        [sp-menu-trigger-for]="exampleMenu">Menu</button>
+        [ix-menu-trigger-for]="exampleMenu">Menu</button>
 
-<sp-menu #exampleMenu="SPMenu"
+<ix-menu #exampleMenu="SPMenu"
           yPosition="below"
           [overlapTrigger]="false"
           [spDisableClose]="true"
@@ -20,4 +20,4 @@
       <button mat-raised-button color="primary" (click)="onSubmit($event)">Submit</button>
     </form>
   </div>
-</sp-menu>
+</ix-menu>

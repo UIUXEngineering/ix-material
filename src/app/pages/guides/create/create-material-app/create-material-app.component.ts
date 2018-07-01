@@ -117,6 +117,8 @@ export class CreateMaterialAppComponent implements OnInit {
 "bump.rc": "gulp bump.rc"
 `;
 
+  fontsImport = `@import './styles/fonts';`;
+
   constructor(
     private fb: FormBuilder,
     private cd: ChangeDetectorRef ) {

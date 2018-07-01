@@ -14,8 +14,8 @@ export class SpShowDirective implements OnChanges {
   @Input('spShow') spShow: boolean;
 
   constructor(private _renderer: Renderer2, private _el: ElementRef) {
-    this._renderer.addClass(this._el.nativeElement, 'sp-hide-initial');
-    // this._renderer.addClass(this._el.nativeElement, 'sp-hide');
+    this._renderer.addClass(this._el.nativeElement, 'ix-hide-initial');
+    // this._renderer.addClass(this._el.nativeElement, 'ix-hide');
   }
 
   ngOnChanges(change: SimpleChanges): void {
@@ -32,17 +32,17 @@ export class SpShowDirective implements OnChanges {
 
   show(): void {
     if (!this._hasShown) {
-      this._renderer.addClass(this._el.nativeElement, 'sp-show');
-      this._renderer.removeClass(this._el.nativeElement, 'sp-hide-initial');
+      this._renderer.addClass(this._el.nativeElement, 'ix-show');
+      this._renderer.removeClass(this._el.nativeElement, 'ix-hide-initial');
       this._hasShown = true;
     } else {
-      this._renderer.removeClass(this._el.nativeElement, 'sp-hide');
+      this._renderer.removeClass(this._el.nativeElement, 'ix-hide');
     }
   }
 
   hide(): void {
     if (this._hasShown) {
-      this._renderer.addClass(this._el.nativeElement, 'sp-hide');
+      this._renderer.addClass(this._el.nativeElement, 'ix-hide');
     }
   }
 }
