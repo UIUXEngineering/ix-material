@@ -1,6 +1,6 @@
 {
   "name": "uiux-material",
-  "version": "6.12.0",
+  "version": "6.12.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -30,7 +30,8 @@
     "bump.alpa": "gulp bump.alpa",
     "bump.beta": "gulp bump.beta",
     "bump.build": "gulp bump.build",
-    "bump.rc": "gulp bump.rc"
+    "bump.rc": "gulp bump.rc",
+    "publish": "bash scripts/publish.sh"
   },
   "private": true,
   "dependencies": {
