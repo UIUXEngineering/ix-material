@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo "--> updating @angular/cli @uiux/cli"
-
 source node_modules/@uiux/material/schematics/scripts/copy-fonts.sh
 source node_modules/@uiux/material/schematics/scripts/copy-prettier.sh
 source node_modules/@uiux/material/schematics/scripts/copy-styles.sh
@@ -9,6 +7,7 @@ source node_modules/@uiux/material/schematics/scripts/copy-svg-cli.sh
 source node_modules/@uiux/material/schematics/scripts/copy-tools.sh
 source node_modules/@uiux/material/schematics/scripts/lite-server-configs.sh
 
+echo "--> @uiux/cli, installing prettier"
 npm install -g @uiux/cli prettier
 
 # common packages
