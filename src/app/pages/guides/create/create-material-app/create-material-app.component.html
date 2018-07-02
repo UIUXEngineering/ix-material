@@ -32,19 +32,13 @@
       .
     </p>
     <p>
-      To add
+      To add or upgrade
       <angular-cli></angular-cli>
       .
 
       <code-bash-block [code]="cliNpm"></code-bash-block>
       <code-bash-block [code]="cliYarn"></code-bash-block>
 
-      To upgrade
-      <angular-cli></angular-cli>
-      .
-
-      <code-bash-block [code]="cliNpm"></code-bash-block>
-      <code-bash-block [code]="cliYarnUpgrade"></code-bash-block>
     </p>
   </div>
 
@@ -52,11 +46,22 @@
 
   <div class="indent p">
     <form [formGroup]="appForm">
-      <mat-form-field appearance="outline" [style.min-width]="'300px'">
-        <mat-label>App Name</mat-label>
-        <input matInput placeholder="my-app-name" formControlName="appName">
-        <mat-hint>kebab case: my-app-name</mat-hint>
-      </mat-form-field>
+      <div class="pad-bottom-20">
+        <mat-form-field appearance="outline" [style.min-width]="'300px'">
+          <mat-label>App Name</mat-label>
+          <input matInput placeholder="my-app-name" formControlName="appName">
+          <mat-hint>kebab case: my-app-name</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline" [style.min-width]="'300px'">
+          <mat-label>Component Prefix</mat-label>
+          <input matInput placeholder="app" formControlName="prefix">
+          <mat-hint>app</mat-hint>
+        </mat-form-field>
+      </div>
+
     </form>
 
   </div>

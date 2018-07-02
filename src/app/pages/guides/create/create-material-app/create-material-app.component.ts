@@ -5,6 +5,7 @@ import { IDataItem } from '../../../../../models/routes';
 
 export interface AppSpecs {
   appName: string;
+  prefix: string;
 }
 
 @Component({
@@ -129,8 +130,8 @@ export class CreateMaterialAppComponent implements OnInit {
     private cd: ChangeDetectorRef ) {
   }
 
-  updateCodeSnippets(val: string) {
-    this.createProject = `ng new ${val} --style=scss`;
+  updateCodeSnippets(val: string, prefix: string) {
+    this.createProject = `ng new ${val} --prefix=${prefix} --style=scss`;
     this.cdIntoProject = `cd ${val}`;
     this.projectName = ` ${val} `;
     this.installSchematic = `ng generate @angular/material:material-shell ` +
@@ -141,17 +142,18 @@ export class CreateMaterialAppComponent implements OnInit {
   ngOnInit(): void {
     this.appForm = this.buildFormGroup();
     this.projectName = this.appForm.value.appName;
-    this.updateCodeSnippets(this.projectName);
+    this.updateCodeSnippets(this.projectName, this.appForm.value.prefix);
 
     this.appForm.valueChanges.subscribe((val: AppSpecs) => {
       this.projectName = val.appName;
-      this.updateCodeSnippets(this.projectName);
+      this.updateCodeSnippets(this.projectName, val.prefix);
     });
   }
 
   private buildFormGroup(): FormGroup {
     const group: any = {
       appName: new FormControl('my-app-name'),
+      prefix: new FormControl('app'),
     };
 
     return this.fb.group(group);
