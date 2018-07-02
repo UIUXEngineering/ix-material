@@ -1,6 +1,6 @@
 {
   "name": "uiux-material",
-  "version": "6.12.6",
+  "version": "6.12.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
