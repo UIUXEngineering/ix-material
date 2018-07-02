@@ -118,6 +118,10 @@ export class CreateMaterialAppComponent implements OnInit {
 `;
 
   fontsImport = `@import './styles/fonts';`;
+  angularTheming = `@import '~@angular/material/theming';`;
+  uiuxTheming = `@import '~@uiux/material/theming';`;
+  matCore = `@include mat-core();`;
+  ixCore = `@include ix-core();`;
 
   constructor(
     private fb: FormBuilder,

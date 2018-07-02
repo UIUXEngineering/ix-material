@@ -1,14 +1,25 @@
 <guide-container [data]="data">
 
-  <p class="indent p">
+  <div class="indent p pad-bottom-20">
     TODO: Create schematic for this process.
-  </p>
+  </div>
 
-  <p class="indent p">
+  <div class="indent p pad-bottom-20">
     This is a step-by-step guide to creating an angular material starter app using the latest
     versions of Angular, Material, and supporting technologies.
-  </p>
+  </div>
 
+  <div class="indent p pad-bottom-20">
+    Built into the scripts of this process are the features:
+
+    <ul>
+      <li>Fix for Angular Material Schematics</li>
+      <li>Adding Prettier</li>
+      <li>Adding Gulp SemVer Tasks</li>
+      <li>Adding Gulp SVG Tasks</li>
+      <li>Localize Roboto and Material Icon fonts to have disconnected Electron apps.</li>
+    </ul>
+  </div>
 
   <!-- STOP HERE -->
   <h4-title [text]="'1. Add or Update Angular CLI'"></h4-title>
@@ -86,26 +97,13 @@
     <code-json-block [code]="stylesConfig"></code-json-block>
   </div>
 
-  <h4-title [text]="'6. Fix Material Schematic Issue'"></h4-title>
-
-  <div class="indent p">
-    There is an issue with mal-formed <code-bash-inline [code]="'collection.json'"></code-bash-inline>
-    file in the <angular-material></angular-material> module.
-    See <a-link [href]="materialIssue">GitHub Issue</a-link> for more info.
-  </div>
-
-  <div class="indent p">
-    Replace <code-bash-inline [code]="collectionJson"></code-bash-inline> with:
-    <code-json-block [code]="replaceJson"></code-json-block>
-  </div>
-
-  <h4-title [text]="'7. Install Schematic'"></h4-title>
+  <h4-title [text]="'6. Install Schematic'"></h4-title>
 
   <div class="indent p">
     <code-bash-block [code]="installSchematic"></code-bash-block>
   </div>
 
-  <h4-title [text]="'8. Update Package Scripts'"></h4-title>
+  <h4-title [text]="'7. Update Package Scripts'"></h4-title>
   <div class="indent p">
     In the <code-json-inline [code]="'package.json'"></code-json-inline>
     file in the scripts node, remove the "lint" property and add the
@@ -113,11 +111,25 @@
     <code-json-block [code]="pkgScripts"></code-json-block>
   </div>
 
-  <h4-title [text]="'9. Add styles imports'"></h4-title>
+  <h4-title [text]="'8. Add Imports to Styles'"></h4-title>
   <div class="indent p">
-    Att the top of the file <code-bash-inline [code]="'./src/styles.scss'"></code-bash-inline> add
-    the following fonts import:
+    Make the following changes to the <code-bash-inline [code]="'./src/styles.scss'"></code-bash-inline> file.
+  </div>
+  <div class="indent p">
+    Att the top of the file add the fonts import:
     <code-scss-block [code]="fontsImport"></code-scss-block>
+  </div>
+
+  <div class="indent p">
+    Directly below the line  <code-scss-inline [code]="angularTheming"></code-scss-inline> add
+    the the uiux theming:
+    <code-scss-block [code]="uiuxTheming"></code-scss-block>
+  </div>
+
+  <div class="indent p">
+    Directly below the line  <code-scss-inline [code]="matCore"></code-scss-inline> add
+    the the ix-core:
+    <code-scss-block [code]="ixCore"></code-scss-block>
   </div>
 
 </guide-container>
