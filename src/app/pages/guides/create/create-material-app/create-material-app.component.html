@@ -91,24 +91,13 @@
     <code-bash-block [code]="installScript"></code-bash-block>
   </div>
 
-
-  <h4-title [text]="'5. Update Styles Config'"></h4-title>
-
-  <div class="indent p">
-    in the <code-bash-inline [code]="'./angular.json'"></code-bash-inline> file,
-    change the “styles” config of your <code-bash-inline [code]="projectName"></code-bash-inline>
-    project to:
-
-    <code-json-block [code]="stylesConfig"></code-json-block>
-  </div>
-
-  <h4-title [text]="'6. Install Schematic'"></h4-title>
+  <h4-title [text]="'5. Install Schematic'"></h4-title>
 
   <div class="indent p">
     <code-bash-block [code]="installSchematic"></code-bash-block>
   </div>
 
-  <h4-title [text]="'7. Update Package Scripts'"></h4-title>
+  <h4-title [text]="'6. Update Package Scripts'"></h4-title>
   <div class="indent p">
     In the <code-json-inline [code]="'package.json'"></code-json-inline>
     file in the scripts node, remove the "lint" property and add the
@@ -116,7 +105,7 @@
     <code-json-block [code]="pkgScripts"></code-json-block>
   </div>
 
-  <h4-title [text]="'8. Add Imports to Styles'"></h4-title>
+  <h4-title [text]="'7. Add Imports to Styles'"></h4-title>
   <div class="indent p">
     Make the following changes to the <code-bash-inline [code]="'./src/styles.scss'"></code-bash-inline> file.
   </div>

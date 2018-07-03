@@ -134,8 +134,7 @@ export class CreateMaterialAppComponent implements OnInit {
     this.createProject = `ng new ${val} --prefix=${prefix} --style=scss`;
     this.cdIntoProject = `cd ${val}`;
     this.projectName = ` ${val} `;
-    this.installSchematic = `ng generate @angular/material:material-shell ` +
-      `--collection=material-schematics --theme=custom --project=${val}`;
+    this.installSchematic = `ng add @angular/material --theme=custom`;
     this.cd.markForCheck();
   }
 
