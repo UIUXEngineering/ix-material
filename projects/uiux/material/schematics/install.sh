@@ -10,6 +10,8 @@ source node_modules/@uiux/material/schematics/scripts/lite-server-configs.sh
 echo "--> @uiux/cli, installing prettier"
 npm install -g @uiux/cli prettier
 
+yarn add parse5 --dev
+
 # common packages
 yarn add rxjs-compat moment hammerjs @angular/cdk @angular/material @uiux/cdk @angular/flex-layout lodash-es immutable
 

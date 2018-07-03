@@ -2,7 +2,7 @@
   "name": "@uiux/material",
   "version": "6.12.17",
   "peerDependencies": {
-    "@angular/common": "6.0.0",
+    "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@uiux/cdk": "^6.4.0",
     "@angular/flex-layout": "^6.0.0-beta.16"
