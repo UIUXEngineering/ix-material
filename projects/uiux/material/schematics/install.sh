@@ -21,7 +21,7 @@ yarn add classlist.js web-animations-js intl
 # build tools
 yarn add gulp gulp-bump gulp-clean gulp-shell lite-server semver yargs merge-stream run-sequence @types/yargs @types/semver @types/lodash-es --dev
 
-#source node_modules/@uiux/material/schematics/scripts/copy-material-fix.sh
+source node_modules/@uiux/material/schematics/scripts/copy-material-fix.sh
 
 ix svg
 
