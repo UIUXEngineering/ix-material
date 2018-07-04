@@ -11,6 +11,7 @@ import { GuidesComponent } from './guides.component';
 import { FirebaseComponent } from './getting-started/firebase/firebase.component';
 import { AngularComponent } from './upgrade/angular/angular.component';
 import { CreateMaterialAppComponent } from './create/create-material-app/create-material-app.component';
+import { ArchitectureComponent } from './create/architecture/architecture.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, GuidesRoutingModule],
@@ -23,6 +24,7 @@ import { CreateMaterialAppComponent } from './create/create-material-app/create-
     FirebaseComponent,
     AngularComponent,
     CreateMaterialAppComponent,
+    ArchitectureComponent,
   ],
 })
 export class GuidesModule {}

@@ -207,6 +207,18 @@ export const ROUTES: IRoute = {
         seeAlso: [],
         version: '6.0',
       },
+      architecture : {
+        base: '',
+        desc: 'Angular Architecture.',
+        file: `assets/${GUIDES}/create/material-app/ARCHITECTURE.md`,
+        githubSpec: '',
+        icon: ICON.GUIDE,
+        name: 'Architecture',
+        route: `/${GUIDES}/create/architecture`,
+        search: `${GUIDES}, create, architecture`,
+        seeAlso: [],
+        version: '6.0',
+      },
     },
     upgrade: {
       angular: <IDataItem>{

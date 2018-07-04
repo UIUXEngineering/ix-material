@@ -4,6 +4,7 @@ import { AngularMaterialInstallComponent } from '../../shared/doc-components/com
 import { DocComponentsComponent } from './adding-docs-to-this-site/doc-components/doc-components.component';
 import { GuideHTMLComponent } from './adding-docs-to-this-site/html/guide-html.component';
 import { GuideMarkdownComponent } from './adding-docs-to-this-site/guide-markdown.component';
+import { ArchitectureComponent } from './create/architecture/architecture.component';
 import { FirebaseComponent } from './getting-started/firebase/firebase.component';
 import { InstallComponent } from './getting-started/install/install.component';
 import { GuidesComponent } from './guides.component';
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: 'create/material-app',
         component: CreateMaterialAppComponent,
+      },
+      {
+        path: 'create/architecture',
+        component: ArchitectureComponent,
       },
     ],
   },
