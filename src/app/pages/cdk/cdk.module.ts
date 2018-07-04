@@ -47,6 +47,7 @@ import { PropsWithNoValueComponent } from './object/props-with-no-value/props-wi
 import { SetInComponent } from './object/set-in/set-in.component';
 import { SetInIfSrcComponent } from './object/set-in-if-src/set-in-if-src.component';
 import { SetInIfSrcWithConfigComponent } from './object/set-in-if-src-with-config/set-in-if-src-with-config.component';
+import { StoreSubjectComponent } from './store/store-subject/store-subject.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],
@@ -96,6 +97,7 @@ import { SetInIfSrcWithConfigComponent } from './object/set-in-if-src-with-confi
     SetInComponent,
     SetInIfSrcComponent,
     SetInIfSrcWithConfigComponent,
+    StoreSubjectComponent,
   ],
 })
 export class CdkModule {}

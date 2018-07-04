@@ -1,0 +1,20 @@
+<api-container [data]="data" [containerCssClass]="'.store-subject'">
+  <div class="store-subject">
+    <div class="indent p">
+      {{data.desc}}
+    </div>
+    <div class="indent p">
+      TODO: Need docs, see unit tests for implementation.
+    </div>
+
+    <h4-title [text]="'Additional Specs'"></h4-title>
+    <ul class="indent p">
+      <li><a-link [href]="actionSpec">Action</a-link></li>
+      <li><a-link [href]="behaviorSpec">Behavior</a-link></li>
+      <li><a-link [href]="composeSpec">Compose</a-link></li>
+      <li><a-link [href]="transformSpec">Transform</a-link></li>
+      <li><a-link [href]="updateSpec">Update</a-link></li>
+      <li><a-link [href]="transformStoreSpec">Transform Store</a-link></li>
+    </ul>
+  </div>
+</api-container>

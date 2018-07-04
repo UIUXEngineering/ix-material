@@ -39,6 +39,20 @@ export const ROUTES: IRoute = {
     },
     // section
     object: object,
+
+    store: {
+      storeSubject: <IDataItem>{
+        route: `/${CDK}/store/storeSubject`,
+        name: 'storeSubject',
+        desc: 'RxJS Store Subject that supports optional flux pattern.',
+        base: '',
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/store/src/store-subject.spec.ts`,
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.CDK,
+        search: `${CDK}, value, storeSubject, store, subject`,
+      }
+    },
     // section
     value: {
       hasValue: <IDataItem>{
