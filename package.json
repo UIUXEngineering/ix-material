@@ -16,6 +16,7 @@
     "copy.icons": "gulp copy.icons",
     "copy.menu": "bash ./scripts/copy-from-mat/copy-menu.sh",
     "copy.pkg": "gulp copy.pkg",
+    "deploy": "firebase deploy --only hosting",
     "lint.cdk": "gulp lint.cdk",
     "lint.mat": "gulp lint.mat",
     "serve.cc": "lite-server --config=coverage-server-cdk",
