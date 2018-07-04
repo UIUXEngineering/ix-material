@@ -29,7 +29,7 @@ all of it's dependencies such as REST clients, Store ( state ), API for other fe
 to consume, etc.
 
 In the directory structure above, the 'user' feature is a core feature as it is
-global to the entire app. It's store is maintained in the sure directory, but may 
+global to the entire app. It's store is maintained in the same directory, but may 
 be referenced in the ./app/store service for ease of consumption by other modules 
 ( easier to import ). It may be consumed by the home module -- a lazy loaded module,
 and the header -- a non-lazy loaded module, hence it belongs in the core module 
