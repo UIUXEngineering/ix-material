@@ -11,7 +11,7 @@ import { IDataItem } from '../../../../../models/routes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddingComponentsComponent {
-  data: IDataItem = ROUTES.material.guide['adding-components'];
+  data: IDataItem = ROUTES.material.guides['adding-components'];
 
   importMatCommonModule = `
   imports: [
