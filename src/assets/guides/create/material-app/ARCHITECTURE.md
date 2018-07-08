@@ -7,7 +7,7 @@
    │    │     └── footer 
    │    │     └── gaurds
    │    │     └── header
-   │    │     └── services
+   │    │     └── services // singleton services
    │    │     └── user // module ( feature ) state
    │    ├── pages
    │    │     └── home.module
