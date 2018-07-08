@@ -12,6 +12,10 @@ cd "$ROOT_DIR/dist/@uiux/material"
 echo $PWD
 npm publish
 
+cd "$ROOT_DIR/dist/@uiux/dal"
+echo $PWD
+npm publish
+
 cd "$ROOT_DIR/projects/uiux/icons"
 echo $PWD
 npm publish

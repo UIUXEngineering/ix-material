@@ -1,6 +1,6 @@
 {
   "name": "@uiux/dal",
-  "version": "0.0.1",
+  "version": "6.13.2",
   "dependencies": {
     "immutable": "3.8.2",
     "lodash-es": "4.17.10",
@@ -11,6 +11,8 @@
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@angular/material": "^6.0.1",
+    "angularfire2": "^5.0.0-rc.11",
+    "firebase": "^5.2.0",
     "rxjs": "^6.1.0",
     "rxjs-compat": "^6.1.0"
   }

@@ -44,5 +44,6 @@ task('build.mat', sequenceTask(
 task('build.projects', sequenceTask(
   'build.cdk',
   'build.mat',
+  'build.dal'
 ));
 

@@ -23,9 +23,6 @@
       "@uiux/material": [
         "dist/@uiux/material"
       ],
-      "@uiux/dal": [
-        "dist/uiux/dal"
-      ],
       "@uiux/dal/*": [
         "dist/uiux/dal/*"
       ]
