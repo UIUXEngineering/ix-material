@@ -30,10 +30,22 @@
                 "input": "src/styles.scss"
               },
               "src/styles/highlightjs/material-light.scss",
-              {"input": "src/assets/pink-bluegrey.css", "lazy": true},
-              {"input": "src/assets/deeppurple-amber.css", "lazy": true},
-              {"input": "src/assets/indigo-pink.css", "lazy": true},
-              {"input": "src/assets/purple-green.css", "lazy": true}
+              {
+                "input": "src/assets/pink-bluegrey.css",
+                "lazy": true
+              },
+              {
+                "input": "src/assets/deeppurple-amber.css",
+                "lazy": true
+              },
+              {
+                "input": "src/assets/indigo-pink.css",
+                "lazy": true
+              },
+              {
+                "input": "src/assets/purple-green.css",
+                "lazy": true
+              }
             ],
             "scripts": [
               "src/assets/vendors/gsap/CSSPlugin.min.js",
@@ -256,6 +268,46 @@
             "tsConfig": [
               "projects/uiux/icons/tsconfig.lib.json",
               "projects/uiux/icons/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@uiux/dal": {
+      "root": "projects/uiux/dal",
+      "sourceRoot": "projects/uiux/dal/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/uiux/dal/tsconfig.lib.json",
+            "project": "projects/uiux/dal/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/uiux/dal/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uiux/dal/src/test.ts",
+            "tsConfig": "projects/uiux/dal/tsconfig.spec.json",
+            "karmaConfig": "projects/uiux/dal/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/uiux/dal/tsconfig.lib.json",
+              "projects/uiux/dal/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

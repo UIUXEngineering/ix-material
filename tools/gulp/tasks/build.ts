@@ -9,6 +9,13 @@ task('build.cdk', sequenceTask(
   ':clean.cdk',
   ':build.cdk'));
 
+// DAL
+task(':build.dal', execTask('ng', [ 'build', '@uiux/dal', '--prod' ]));
+
+task('build.dal', sequenceTask(
+  ':clean.dal',
+  ':build.dal'));
+
 // MATERIAL
 task(':build.mat', execTask('ng', [ 'build', '@uiux/material', '--prod' ], { failOnStderr: true }));
 

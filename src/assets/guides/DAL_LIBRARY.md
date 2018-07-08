@@ -3,9 +3,9 @@
 Copy this file to your local drive and do a global search/replace with project and library names. For example, 
 if my project is named "uiux", and my project will be in the npm registry as "@uiux":
 
-replace `[project-name]` with something like your compoany project, for example: `uiux-material`, or `angular-material`.
+replace `uiux-dal` with something like your compoany project, for example: `uiux-material`, or `angular-material`.
 
-replace `[project/library]` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
+replace `uiux/dal` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
 
 Note: the '@' symbol is already coded, and you don't need to provide it.
 
@@ -14,18 +14,18 @@ Note: the '@' symbol is already coded, and you don't need to provide it.
 
 ```bash
 
-ng new [project-name] --style=scss
+ng new uiux-dal --style=scss
 
-cd [project-name]
+cd uiux-dal
 
 git flow init
 
-ng generate library @[project/library]
+ng generate library @uiux/dal
 ```
 
 ### Open `tsconfig.json`
 
-This change is to reference the library as if it's in `node_modules`.  
+This change is to reference the library as if it's in `node_modules`. This doesn't work at times. Rather, use a script to copy the built library to `node_modules`. 
 
 Change:
 
@@ -42,15 +42,15 @@ Change:
 ```json
 
 "paths": {
-      "@[project/library]/*": [
-        "dist/@[project/library]/*"
+      "@uiux/dal/*": [
+        "dist/@uiux/dal/*"
       ]
     }
 ```
 
 ### For a library that ONLY has secondary endpoints
 
-In the path `projects/[project/library]`  
+In the path `projects/uiux/dal`  
 Open files `ng-package.json` and `ng-package.prod.json`
 
 Remove:
@@ -124,7 +124,7 @@ add file in root `.prettierrc` that contains:
 
 To test secondary endpoints that are not in the `src` directory.
 
-in the file `projects/[project/library]/src/test.ts`
+in the file `projects/uiux/dal/src/test.ts`
 
 Change:
 
@@ -138,19 +138,17 @@ to:
 const context = require.context('../', true, /\.spec\.ts$/);`
 ```
 
-### Gulp
+### Scripts
 
-In the root `package.json` file, add the following to scripts:
+In the root `package.json` file, add the following to scritps node:
 
 ```json
 {
-    "test.dal": "gulp test.dal",
-    "lint.dal": "gulp lint.dal",
-    "build.dal": "gulp build.dal",
+    "p.projects": "prettier --write \"./projects/**/*.ts\"",
+    "p.dal": "prettier --write \"./projects/uiux/dal/**/*.ts\"",
+    "test.dal": "ng test @uiux/dal",
+    "lint.dal": "ng lint @uiux/dal",
+    "build.dal": "ng build @uiux/dal"
 }   
 ```
-
-In the `./tools/gulp/tasks` directory, add the appropriate tasks 
-for new library. Follow the patterns for  for cdk or material. The cdk 
-uses secondary end-points and material is one major library.
 

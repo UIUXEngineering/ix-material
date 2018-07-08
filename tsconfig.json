@@ -17,8 +17,18 @@
       "dom"
     ],
     "paths": {
-      "@uiux/cdk/*": ["dist/@uiux/cdk/*"],
-      "@uiux/material": ["dist/@uiux/material"]
+      "@uiux/cdk/*": [
+        "dist/@uiux/cdk/*"
+      ],
+      "@uiux/material": [
+        "dist/@uiux/material"
+      ],
+      "@uiux/dal": [
+        "dist/uiux/dal"
+      ],
+      "@uiux/dal/*": [
+        "dist/uiux/dal/*"
+      ]
     }
   }
 }
