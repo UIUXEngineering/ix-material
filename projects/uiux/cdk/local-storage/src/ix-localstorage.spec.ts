@@ -3,25 +3,25 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { inject, TestBed } from '@angular/core/testing';
-import { SPLocalStorageService } from './localStorage';
+import { IxLocalStorageService } from './ix-localstorage.service';
 
-describe('LocalStorageService', () => {
+describe('IxLocalStorageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SPLocalStorageService],
+      providers: [IxLocalStorageService],
     });
   });
 
   it(
     'should be created',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       expect(service).toBeTruthy();
     })
   );
 
   it(
     'should setItem',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('testSetItem', 'fooSetItem');
       expect(window.localStorage.getItem('testSetItem')).toBe('fooSetItem');
@@ -29,7 +29,7 @@ describe('LocalStorageService', () => {
   );
 
   it('should setItem via local-storage directly and update cache', (done) => {
-    const s: SPLocalStorageService = new SPLocalStorageService();
+    const s: IxLocalStorageService = new IxLocalStorageService();
 
     s.reset();
 
@@ -46,7 +46,7 @@ describe('LocalStorageService', () => {
   });
 
   it('should clearMemory and reload', (done) => {
-    const s: SPLocalStorageService = new SPLocalStorageService();
+    const s: IxLocalStorageService = new IxLocalStorageService();
 
     s.reset();
 
@@ -76,7 +76,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should getItem',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('testSetItem', 'fooSetItem');
       expect(service.getItem('testSetItem')).toBe('fooSetItem');
@@ -85,7 +85,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should removeItem',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('testSetItem', 'fooSetItem');
       service.removeItem('testSetItem');
@@ -95,7 +95,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should clear',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('testSetItem', 'fooSetItem');
       service.clear();
@@ -105,7 +105,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should setItemWithPrefix',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItemWithPrefix('myPrefix', 'testSetItem', 'prefixValue');
 
@@ -115,7 +115,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should getItemsByPrefix',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItemWithPrefix('foo', 'foo1', 'value1');
       service.setItemWithPrefix('foo', 'foo2', 'value2');
@@ -136,7 +136,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should removeItemsByPrefix',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItemWithPrefix('foo', 'foo1', 'value1');
       service.setItemWithPrefix('foo', 'foo2', 'value2');
@@ -160,7 +160,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should removeAllItemsByPrefixArray',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItemWithPrefix('foo', 'foo1', 'value1');
       service.setItemWithPrefix('foo', 'foo2', 'value2');
@@ -187,7 +187,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should getKeysByPrefix',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItemWithPrefix('foo', 'foo1', 'value1');
       service.setItemWithPrefix('foo', 'foo2', 'value2');
@@ -204,7 +204,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should getKeysWithSearchString',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('foo1', 'prefixValue');
       service.setItem('foo2', 'prefixValue');
@@ -222,7 +222,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should removeItemsBySearchString',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItemWithPrefix('foo', 'afoo1', 'value1');
       service.setItemWithPrefix('foo', 'afoo2', 'value2');
@@ -245,7 +245,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should removeAllItemsBySearchArray',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItemWithPrefix('foo', 'afoo1', 'value1');
       service.setItemWithPrefix('foo', 'afoo2', 'value2');
@@ -268,7 +268,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should getItemsWithPartialKey',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('foo1', 'value1');
       service.setItem('foo2', 'value2');
@@ -289,7 +289,7 @@ describe('LocalStorageService', () => {
 
   it(
     'should onstorageKey',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('foo1', 'value1');
       service.setItem('foo2', 'value2');
@@ -306,7 +306,7 @@ describe('LocalStorageService', () => {
 
   it(
     'storage',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('foo1', 'value1');
       service.setItem('foo2', 'value2');
@@ -327,7 +327,7 @@ describe('LocalStorageService', () => {
 
   it(
     'onstorage',
-    inject([SPLocalStorageService], (service: SPLocalStorageService) => {
+    inject([IxLocalStorageService], ( service: IxLocalStorageService) => {
       service.reset();
       service.setItem('foo1', 'value1');
       service.setItem('foo2', 'value2');

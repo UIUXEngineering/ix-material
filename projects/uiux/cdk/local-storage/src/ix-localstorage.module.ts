@@ -6,11 +6,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SPWindowRefModule } from '@uiux/cdk/dom';
-import { SP_LOCALSTORAGE_PROVIDER } from './localStorage';
+import { IxLocalStorageService } from './ix-localstorage.service';
 
 @NgModule({
   imports: [CommonModule, SPWindowRefModule],
   exports: [],
-  providers: [SP_LOCALSTORAGE_PROVIDER],
+  providers: [IxLocalStorageService],
 })
-export class LocalstorageModule {}
+export class IxLocalstorageModule {}

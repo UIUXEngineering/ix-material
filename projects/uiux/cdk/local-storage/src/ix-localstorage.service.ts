@@ -2,12 +2,12 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Injectable, Optional, SkipSelf } from '@angular/core';
-import { clone } from '@uiux/cdk/object';
-import { clonePipe } from '@uiux/cdk/rxjs';
+import { Injectable} from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
+import { clone } from '@uiux/cdk/object';
+import { clonePipe } from '@uiux/cdk/rxjs';
 
 /**
  * Wrapper for local-storage.
@@ -19,8 +19,10 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
  * This service eliminates race conditions but keeps
  * persistence.
  */
-@Injectable()
-export class SPLocalStorageService {
+@Injectable({
+              providedIn: 'root'
+            })
+export class IxLocalStorageService {
   private _localStorageAvaliable = true;
   private _ls: Storage; // local-storage
   private _removeOnWindowUnload: string[] = [];
@@ -316,16 +318,16 @@ export class SPLocalStorageService {
   }
 }
 
-export function _localstorageFactory(
-  parentDispatcher: SPLocalStorageService
-): SPLocalStorageService {
-  return parentDispatcher || new SPLocalStorageService();
-}
-
-export const SP_LOCALSTORAGE_PROVIDER: any[] = [
-  {
-    provide: SPLocalStorageService,
-    useFactory: _localstorageFactory,
-    deps: [[new Optional(), new SkipSelf(), SPLocalStorageService]],
-  },
-];
+// export function _localstorageFactory(
+//   parentDispatcher: IxLocalStorageService
+// ): IxLocalStorageService {
+//   return parentDispatcher || new IxLocalStorageService();
+// }
+//
+// export const SP_LOCALSTORAGE_PROVIDER: any[] = [
+//   {
+//     provide: IxLocalStorageService,
+//     useFactory: _localstorageFactory,
+//     deps: [[new Optional(), new SkipSelf(), IxLocalStorageService]],
+//   },
+// ];

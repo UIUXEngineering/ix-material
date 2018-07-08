@@ -3,5 +3,5 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-export * from './src/localStorage.module';
-export * from './src/localStorage';
+export * from './src/ix-localstorage.module';
+export * from './src/ix-localstorage.service';
