@@ -1,6 +1,6 @@
+// tslint:disable
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { propHasValueInAllPaths } from '../../../../projects/uiux/cdk/object/src/prop-has-value-in-all-paths';
 import { CdkComponent } from './cdk.component';
 import { AddingToCdkComponent } from './guide/adding-to-cdk/adding-to-cdk.component';
 import { CdkOverviewComponent } from './guide/cdk-overview/cdk-overview.component';
@@ -47,6 +47,7 @@ import { IsDefinedComponent } from './object/is-defined/is-defined.component';
 import { IsInComponent } from './object/is-in/is-in.component';
 import { IsMatchComponent } from './object/is-match/is-match.component';
 import { IsScalarComponent } from './value/is-scalar/is-scalar.component';
+// tslint:enable
 
 const routes: Routes = [
   {

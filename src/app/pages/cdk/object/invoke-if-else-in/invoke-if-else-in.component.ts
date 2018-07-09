@@ -6,15 +6,13 @@ import { IDataItem } from '../../../../../models/routes';
   selector: 'invoke-if-else-in',
   templateUrl: './invoke-if-else-in.component.html',
   styleUrls: ['./invoke-if-else-in.component.scss'],
-    preserveWhitespaces: false,
-      encapsulation: ViewEncapsulation.None,
-      changeDetection: ChangeDetectionStrategy.OnPush,
+  preserveWhitespaces: false,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InvokeIfElseInComponent implements OnInit {
   data: IDataItem = ROUTES.cdk.object.invokeIfElseIn;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

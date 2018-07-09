@@ -8,9 +8,8 @@ describe('KeySplitterIntoImmutablePathComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KeySplitterIntoImmutablePathComponent ]
-    })
-    .compileComponents();
+      declarations: [KeySplitterIntoImmutablePathComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

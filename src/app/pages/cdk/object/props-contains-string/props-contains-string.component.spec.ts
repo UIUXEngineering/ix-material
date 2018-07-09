@@ -8,9 +8,8 @@ describe('PropsContainsStringComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropsContainsStringComponent ]
-    })
-    .compileComponents();
+      declarations: [PropsContainsStringComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -8,9 +8,8 @@ describe('SplitKeysIntoDotNotationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SplitKeysIntoDotNotationComponent ]
-    })
-    .compileComponents();
+      declarations: [SplitKeysIntoDotNotationComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

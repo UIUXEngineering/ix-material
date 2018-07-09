@@ -8,9 +8,8 @@ describe('CreateObjectWithPathComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateObjectWithPathComponent ]
-    })
-    .compileComponents();
+      declarations: [CreateObjectWithPathComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

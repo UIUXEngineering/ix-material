@@ -8,9 +8,8 @@ describe('IsScalarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IsScalarComponent ]
-    })
-    .compileComponents();
+      declarations: [IsScalarComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

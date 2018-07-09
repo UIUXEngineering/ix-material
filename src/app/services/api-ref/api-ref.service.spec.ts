@@ -9,10 +9,7 @@ describe('RouteRefService', () => {
     });
   });
 
-  it(
-    'should be created',
-    inject([ApiRefService], (service: ApiRefService) => {
-      expect(service).toBeTruthy();
-    })
-  );
+  it('should be created', inject([ApiRefService], (service: ApiRefService) => {
+    expect(service).toBeTruthy();
+  }));
 });

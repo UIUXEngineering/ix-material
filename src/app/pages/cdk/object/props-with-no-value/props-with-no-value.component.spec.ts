@@ -8,9 +8,8 @@ describe('PropsWithNoValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropsWithNoValueComponent ]
-    })
-    .compileComponents();
+      declarations: [PropsWithNoValueComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

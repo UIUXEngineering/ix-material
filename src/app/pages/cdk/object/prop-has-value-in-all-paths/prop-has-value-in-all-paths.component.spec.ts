@@ -8,9 +8,8 @@ describe('PropHasValueInAllPathsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropHasValueInAllPathsComponent ]
-    })
-    .compileComponents();
+      declarations: [PropHasValueInAllPathsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

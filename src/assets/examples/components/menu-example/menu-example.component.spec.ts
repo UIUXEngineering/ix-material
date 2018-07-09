@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '../../../../app/shared/shared.module';
 
 import { MenuBasicExampleComponent } from './menu-example.component';
 
@@ -8,6 +9,7 @@ describe('MenuExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [MenuBasicExampleComponent],
     }).compileComponents();
   }));

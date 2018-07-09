@@ -8,9 +8,8 @@ describe('SetInIfSrcWithConfigComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SetInIfSrcWithConfigComponent ]
-    })
-    .compileComponents();
+      declarations: [SetInIfSrcWithConfigComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

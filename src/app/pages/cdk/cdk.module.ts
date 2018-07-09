@@ -1,3 +1,4 @@
+// tslint:disable
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
@@ -48,6 +49,7 @@ import { SetInComponent } from './object/set-in/set-in.component';
 import { SetInIfSrcComponent } from './object/set-in-if-src/set-in-if-src.component';
 import { SetInIfSrcWithConfigComponent } from './object/set-in-if-src-with-config/set-in-if-src-with-config.component';
 import { StoreSubjectComponent } from './store/store-subject/store-subject.component';
+// tslint:enable
 
 @NgModule({
   imports: [CommonModule, SharedModule, CdkRoutingModule],

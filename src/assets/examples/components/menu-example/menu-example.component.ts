@@ -2,18 +2,17 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { IxMenuModel } from '@uiux/material';
 
 @Component({
-             selector: 'app-menu-basic-example',
-             templateUrl: './menu-example.component.html',
-             styleUrls: [ './menu-example.component.scss' ],
-             preserveWhitespaces: false,
-             encapsulation: ViewEncapsulation.None,
-             changeDetection: ChangeDetectionStrategy.OnPush,
-           })
+  selector: 'app-menu-basic-example',
+  templateUrl: './menu-example.component.html',
+  styleUrls: ['./menu-example.component.scss'],
+  preserveWhitespaces: false,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
 export class MenuBasicExampleComponent {
-  constructor( private _ixShowModel: IxMenuModel ) {
-  }
+  constructor(private _ixShowModel: IxMenuModel) {}
 
-  onSubmit( event: Event ): void {
+  onSubmit(event: Event): void {
     event.preventDefault();
 
     /**

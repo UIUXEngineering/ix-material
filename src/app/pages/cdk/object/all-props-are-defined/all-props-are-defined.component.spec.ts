@@ -8,9 +8,8 @@ describe('AllPropsAreDefinedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllPropsAreDefinedComponent ]
-    })
-    .compileComponents();
+      declarations: [AllPropsAreDefinedComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

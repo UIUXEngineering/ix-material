@@ -8,9 +8,8 @@ describe('InvokeIfElseInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InvokeIfElseInComponent ]
-    })
-    .compileComponents();
+      declarations: [InvokeIfElseInComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
