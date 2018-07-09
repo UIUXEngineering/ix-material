@@ -1,11 +1,11 @@
 <button mat-raised-button color="primary"
         [ix-menu-trigger-for]="exampleMenu">Menu</button>
 
-<ix-menu #exampleMenu="SPMenu"
+<ix-menu #exampleMenu="ixMenu"
           yPosition="below"
           [overlapTrigger]="false"
-          [spDisableClose]="true"
-          [spMenuModelID]="'exampleMenu'"
+         [ixDisableClose]="true"
+         [ixMenuModelID]="'exampleMenu'"
           (click)="$event.stopPropagation();">
   <div class="example-form-container">
     <form class="example-form">

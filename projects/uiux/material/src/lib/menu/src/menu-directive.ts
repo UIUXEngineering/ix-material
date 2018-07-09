@@ -28,15 +28,17 @@ import {
   QueryList,
   ViewChild,
   ViewEncapsulation,
+  OnInit,
 } from '@angular/core';
 import {merge, Observable, Subject, Subscription} from 'rxjs';
 import {startWith, switchMap, take} from 'rxjs/operators';
-import {IxMenuAnimations} from './menu-animations';
+import {ixMenuAnimations} from './menu-animations';
 import {IxMenuContent} from './menu-content';
 import {throwIxMenuInvalidPositionX, throwIxMenuInvalidPositionY} from './menu-errors';
 import {IxMenuItem} from './menu-item';
 import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
 import {MenuPositionX, MenuPositionY} from './menu-positions';
+import {AnimationEvent} from '@angular/animations';
 import {IxMenuModel} from './_model/menu-model.service'; // TODO(uiux): model edit
 
 /** Default `ix-menu` options that can be overridden. */
@@ -86,24 +88,24 @@ const MAT_MENU_BASE_ELEVATION = 2;
   styleUrls: ['menu.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  exportAs: 'IxMenu',
+  exportAs: 'ixMenu',
   animations: [
-    IxMenuAnimations.transformMenu,
-    IxMenuAnimations.fadeInItems
+    ixMenuAnimations.transformMenu,
+    ixMenuAnimations.fadeInItems
   ],
   providers: [
     {provide: MAT_MENU_PANEL, useExisting: IxMenu}
   ]
 })
-export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDestroy {
+export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit, OnDestroy {
   private _keyManager: FocusKeyManager<IxMenuItem>;
   private _xPosition: MenuPositionX = this._defaultOptions.xPosition;
   private _yPosition: MenuPositionY = this._defaultOptions.yPosition;
   private _previousElevation: string;
 
   // TODO(uiux): Model edits
-  private _spDisableClose = false;
-  private _IxMenuModelID: string;
+  private _ixDisableClose = false;
+  private _ixMenuModelID: string;
   private _IxMenuModelSubscription = Subscription.EMPTY;
 
   /** Menu items inside the current menu. */
@@ -144,6 +146,7 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDest
       throwIxMenuInvalidPositionX();
     }
     this._xPosition = value;
+    this.setPositionClasses();
   }
 
   /** Position of the menu in the Y axis. */
@@ -154,18 +157,19 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDest
       throwIxMenuInvalidPositionY();
     }
     this._yPosition = value;
+    this.setPositionClasses();
   }
 
   // TODO(uiux): model edit
   @Input()
-  set spDisableClose(val: boolean) {
-    this._spDisableClose = val !== undefined ? val : true;
+  set ixDisableClose( val: boolean) {
+    this._ixDisableClose = val !== undefined ? val : true;
   }
 
   // TODO(uiux): model edit
   @Input()
-  set IxMenuModelID(val: string) {
-    this._IxMenuModelID = val;
+  set ixMenuModelID( val: string) {
+    this._ixMenuModelID = val;
   }
 
   /** @docs-private */
@@ -246,14 +250,19 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDest
     private _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
     @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: IxMenuDefaultOptions) { }
 
+  ngOnInit() {
+    this.setPositionClasses();
+  }
+
   ngAfterContentInit() {
     this._keyManager = new FocusKeyManager<IxMenuItem>(this._items).withWrap().withTypeAhead();
+    // this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.closed.emit('tab'));
 
     // TODO(uiux): model edit
-    this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.spTabHandler());
-    if (this._IxMenuModelID) {
+    this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.ixTabHandler());
+    if (this._ixMenuModelID) {
       this._IxMenuModelSubscription = this._IxMenuModel
-        .getModelByID(this._IxMenuModelID)
+        .getModelByID(this._ixMenuModelID)
         .subscribe((_event: string) => {
           if (_event === 'close') {
             this.closed.emit('click');
@@ -308,22 +317,22 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDest
 
   // TODO(uiux): model edit
   /**
-   * Prevent closing menu if _spDisableClose
+   * Prevent closing menu if _ixDisableClose
    * flag is set
    */
-  spCloseHandler() {
-    if (!this._spDisableClose) {
+  ixCloseHandler() {
+    if (!this._ixDisableClose) {
       this.closed.emit('click');
     }
   }
 
   // TODO(uiux): model edit
   /**
-   * Prevent closing menu if _spDisableClose
+   * Prevent closing menu if _ixDisableClose
    * flag is set
    */
-  spTabHandler() {
-    if (!this._spDisableClose) {
+  ixTabHandler() {
+    if (!this._ixDisableClose) {
       this.close.emit('tab');
     }
   }
@@ -399,6 +408,21 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDest
     }
   }
 
+  /**
+   * Adds classes to the menu panel based on its position. Can be used by
+   * consumers to add specific styling based on the position.
+   * @param posX Position of the menu along the x axis.
+   * @param posY Position of the menu along the y axis.
+   * @docs-private
+   */
+  setPositionClasses(posX: MenuPositionX = this.xPosition, posY: MenuPositionY = this.yPosition) {
+    const classes = this._classList;
+    classes['ix-menu-before'] = posX === 'before';
+    classes['ix-menu-after'] = posX === 'after';
+    classes['ix-menu-above'] = posY === 'above';
+    classes['ix-menu-below'] = posY === 'below';
+  }
+
   /** Starts the enter animation. */
   _startAnimation() {
     // @deletion-target 7.0.0 Combine with _resetAnimation.
@@ -415,5 +439,15 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDest
   _onAnimationDone(event: AnimationEvent) {
     this._animationDone.next(event);
     this._isAnimating = false;
+
+    // Scroll the content element to the top once the animation is done. This is necessary, because
+    // we move focus to the first item while it's still being animated, which can throw the browser
+    // off when it determines the scroll position. Alternatively we can move focus when the
+    // animation is done, however moving focus asynchronously will interrupt screen readers
+    // which are in the process of reading out the menu already. We take the `element` from
+    // the `event` since we can't use a `ViewChild` to access the pane.
+    if (event.toState === 'enter' && this._keyManager.activeItemIndex === 0) {
+      event.element.scrollTop = 0;
+    }
   }
 }

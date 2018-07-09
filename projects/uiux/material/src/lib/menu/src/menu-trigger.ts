@@ -67,14 +67,15 @@ export const MENU_PANEL_TOP_PADDING = 8;
  * responsible for toggling the display of the provided menu instance.
  */
 @Directive({
-  selector: `[ix-menu-trigger-for], [IxMenuTriggerFor]`,
+  selector: `[ix-menu-trigger-for], [ixMenuTriggerFor]`,
   host: {
     'aria-haspopup': 'true',
+    '[attr.aria-expanded]': 'menuOpen || null',
     '(mousedown)': '_handleMousedown($event)',
     '(keydown)': '_handleKeydown($event)',
     '(click)': '_handleClick($event)',
   },
-  exportAs: 'IxMenuTrigger'
+  exportAs: 'ixMenuTrigger'
 })
 export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   private _portal: TemplatePortal;
@@ -101,10 +102,10 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   }
 
   /** References the menu instance that the trigger is associated with. */
-  @Input('IxMenuTriggerFor') menu: IxMenuPanel;
+  @Input('ixMenuTriggerFor') menu: IxMenuPanel;
 
   /** Data to be passed along to any lazily-rendered content. */
-  @Input('IxMenuTriggerData') menuData: any;
+  @Input('ixMenuTriggerData') menuData: any;
 
   /** Event emitted when the associated menu is opened. */
   @Output() readonly menuOpened: EventEmitter<void> = new EventEmitter<void>();
@@ -195,7 +196,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
     }
 
     const overlayRef = this._createOverlay();
-    overlayRef.setDirection(this.dir);
+    this._setPosition(overlayRef.getConfig().positionStrategy as FlexibleConnectedPositionStrategy);
     overlayRef.attach(this._portal);
 
     if (this.menu.lazyContent) {
@@ -235,7 +236,6 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
 
     const menu = this.menu;
 
-    this._resetMenu();
     this._closeSubscription.unsubscribe();
     this._overlayRef.detach();
 
@@ -245,11 +245,20 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
       if (menu.lazyContent) {
         // Wait for the exit animation to finish before detaching the content.
         menu._animationDone
-          .pipe(take(1))
-          .subscribe(() => menu.lazyContent!.detach());
+          .pipe(filter(event => event.toState === 'void'), take(1))
+          .subscribe(() => {
+            menu.lazyContent!.detach();
+            this._resetMenu();
+          });
+      } else {
+        this._resetMenu();
       }
-    } else if (menu.lazyContent) {
-      menu.lazyContent.detach();
+    } else {
+      this._resetMenu();
+
+      if (menu.lazyContent) {
+        menu.lazyContent.detach();
+      }
     }
   }
 
@@ -313,7 +322,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
 
   /**
    * This method checks that a valid instance of IxMenu has been passed into
-   * IxMenuTriggerFor. If not, an exception is thrown.
+   * ixMenuTriggerFor. If not, an exception is thrown.
    */
   private _checkMenu() {
     if (!this.menu) {
@@ -342,10 +351,13 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
    */
   private _getOverlayConfig(): OverlayConfig {
     return new OverlayConfig({
-      positionStrategy: this._getPosition(),
+      positionStrategy: this._overlay.position()
+          .flexibleConnectedTo(this._element)
+          .withTransformOriginOn('.ix-menu-panel'),
       hasBackdrop: this.menu.hasBackdrop == null ? !this.triggersSubmenu() : this.menu.hasBackdrop,
       backdropClass: this.menu.backdropClass || 'cdk-overlay-transparent-backdrop',
-      scrollStrategy: this._scrollStrategy()
+      scrollStrategy: this._scrollStrategy(),
+      direction: this._dir
     });
   }
 
@@ -366,11 +378,11 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   }
 
   /**
-   * This method builds the position strategy for the overlay, so the menu is properly connected
-   * to the trigger.
-   * @returns ConnectedPositionStrategy
+   * Sets the appropriate positions on a position strategy
+   * so the overlay connects with the trigger correctly.
+   * @param positionStrategy Strategy whose position to update.
    */
-  private _getPosition(): FlexibleConnectedPositionStrategy {
+  private _setPosition(positionStrategy: FlexibleConnectedPositionStrategy) {
     let [originX, originFallbackX]: HorizontalConnectionPos[] =
         this.menu.xPosition === 'before' ? ['end', 'start'] : ['start', 'end'];
 
@@ -392,27 +404,24 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
       originFallbackY = overlayFallbackY === 'top' ? 'bottom' : 'top';
     }
 
-    return this._overlay.position()
-        .flexibleConnectedTo(this._element)
-        .withTransformOriginOn('.ix-menu-panel')
-        .withPositions([
-          {originX, originY, overlayX, overlayY, offsetY},
-          {originX: originFallbackX, originY, overlayX: overlayFallbackX, overlayY, offsetY},
-          {
-            originX,
-            originY: originFallbackY,
-            overlayX,
-            overlayY: overlayFallbackY,
-            offsetY: -offsetY
-          },
-          {
-            originX: originFallbackX,
-            originY: originFallbackY,
-            overlayX: overlayFallbackX,
-            overlayY: overlayFallbackY,
-            offsetY: -offsetY
-          }
-        ]);
+    positionStrategy.withPositions([
+      {originX, originY, overlayX, overlayY, offsetY},
+      {originX: originFallbackX, originY, overlayX: overlayFallbackX, overlayY, offsetY},
+      {
+        originX,
+        originY: originFallbackY,
+        overlayX,
+        overlayY: overlayFallbackY,
+        offsetY: -offsetY
+      },
+      {
+        originX: originFallbackX,
+        originY: originFallbackY,
+        overlayX: overlayFallbackX,
+        overlayY: overlayFallbackY,
+        offsetY: -offsetY
+      }
+    ]);
   }
 
   /** Cleans up the active subscriptions. */
@@ -425,7 +434,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   private _menuClosingActions() {
     const backdrop = this._overlayRef!.backdropClick();
     const detachments = this._overlayRef!.detachments();
-    const parentClose = this._parentMenu ? this._parentMenu.close : observableOf();
+    const parentClose = this._parentMenu ? this._parentMenu.closed : observableOf();
     const hover = this._parentMenu ? this._parentMenu._hovered().pipe(
       filter(active => active !== this._menuItemInstance),
       filter(() => this._menuOpen)

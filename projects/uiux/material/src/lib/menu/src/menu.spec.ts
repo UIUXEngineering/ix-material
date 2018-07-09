@@ -50,7 +50,8 @@ describe('IxMenu', () => {
   let overlayContainerElement: HTMLElement;
   let focusMonitor: FocusMonitor;
 
-  function createComponent<T>(component: Type<T>, providers: Provider[] = [],
+  function createComponent<T>(component: Type<T>,
+                              providers: Provider[] = [],
                               declarations: any[] = []): ComponentFixture<T> {
     TestBed.configureTestingModule({
       imports: [IxMenuModule, NoopAnimationsModule],
@@ -163,6 +164,23 @@ describe('IxMenu', () => {
     expect(document.activeElement).toBe(triggerEl);
   }));
 
+  it('should scroll the panel to the top on open, when it is scrollable', fakeAsync(() => {
+    const fixture = createComponent(SimpleMenu, [], [FakeIcon]);
+    fixture.detectChanges();
+
+    // Add 50 items to make the menu scrollable
+    fixture.componentInstance.extraItems = new Array(50).fill('Hello there');
+    fixture.detectChanges();
+
+    const triggerEl = fixture.componentInstance.triggerEl.nativeElement;
+    dispatchFakeEvent(triggerEl, 'mousedown');
+    triggerEl.click();
+    fixture.detectChanges();
+    tick();
+
+    expect(overlayContainerElement.querySelector('.ix-menu-panel')!.scrollTop).toBe(0);
+  }));
+
   it('should set the proper focus origin when restoring focus after opening by keyboard',
     fakeAsync(() => {
       const fixture = createComponent(SimpleMenu, [], [FakeIcon]);
@@ -241,8 +259,9 @@ describe('IxMenu', () => {
     fixture.componentInstance.trigger.openMenu();
     fixture.detectChanges();
 
-    const overlayPane = overlayContainerElement.querySelector('.cdk-overlay-pane')!;
-    expect(overlayPane.getAttribute('dir')).toEqual('rtl');
+    const boundingBox =
+        overlayContainerElement.querySelector('.cdk-overlay-connected-position-bounding-box')!;
+    expect(boundingBox.getAttribute('dir')).toEqual('rtl');
   });
 
   it('should update the panel direction if the trigger direction changes', () => {
@@ -255,8 +274,9 @@ describe('IxMenu', () => {
     fixture.componentInstance.trigger.openMenu();
     fixture.detectChanges();
 
-    let overlayPane = overlayContainerElement.querySelector('.cdk-overlay-pane')!;
-    expect(overlayPane.getAttribute('dir')).toEqual('rtl');
+    let boundingBox =
+        overlayContainerElement.querySelector('.cdk-overlay-connected-position-bounding-box')!;
+    expect(boundingBox.getAttribute('dir')).toEqual('rtl');
 
     fixture.componentInstance.trigger.closeMenu();
     fixture.detectChanges();
@@ -265,8 +285,9 @@ describe('IxMenu', () => {
     fixture.componentInstance.trigger.openMenu();
     fixture.detectChanges();
 
-    overlayPane = overlayContainerElement.querySelector('.cdk-overlay-pane')!;
-    expect(overlayPane.getAttribute('dir')).toEqual('ltr');
+    boundingBox =
+        overlayContainerElement.querySelector('.cdk-overlay-connected-position-bounding-box')!;
+    expect(boundingBox.getAttribute('dir')).toEqual('ltr');
   });
 
   it('should transfer any custom classes from the host to the overlay', () => {
@@ -384,6 +405,24 @@ describe('IxMenu', () => {
       expect(items[2].classList).toContain('cdk-keyboard-focused');
     }));
 
+  it('should toggle the aria-expanded attribute on the trigger', () => {
+    const fixture = createComponent(SimpleMenu, [], [FakeIcon]);
+    fixture.detectChanges();
+    const triggerEl = fixture.componentInstance.triggerEl.nativeElement;
+
+    expect(triggerEl.hasAttribute('aria-expanded')).toBe(false);
+
+    fixture.componentInstance.trigger.openMenu();
+    fixture.detectChanges();
+
+    expect(triggerEl.getAttribute('aria-expanded')).toBe('true');
+
+    fixture.componentInstance.trigger.closeMenu();
+    fixture.detectChanges();
+
+    expect(triggerEl.hasAttribute('aria-expanded')).toBe(false);
+  });
+
   describe('lazy rendering', () => {
     it('should be able to render the menu content lazily', fakeAsync(() => {
       const fixture = createComponent(SimpleLazyMenu);
@@ -417,6 +456,31 @@ describe('IxMenu', () => {
 
       expect(fixture.componentInstance.items.length).toBe(0);
     }));
+
+    it('should wait for the close animation to finish before considering the panel as closed',
+      fakeAsync(() => {
+        const fixture = createComponent(SimpleLazyMenu);
+        fixture.detectChanges();
+        const trigger = fixture.componentInstance.trigger;
+
+        expect(trigger.menuOpen).toBe(false, 'Expected menu to start off closed');
+
+        trigger.openMenu();
+        fixture.detectChanges();
+        tick(500);
+
+        expect(trigger.menuOpen).toBe(true, 'Expected menu to be open');
+
+        trigger.closeMenu();
+        fixture.detectChanges();
+
+        expect(trigger.menuOpen)
+            .toBe(true, 'Expected menu to be considered open while the close animation is running');
+        tick(500);
+        fixture.detectChanges();
+
+        expect(trigger.menuOpen).toBe(false, 'Expected menu to be closed');
+      }));
 
     it('should focus the first menu item when opening a lazy menu via keyboard', fakeAsync(() => {
       let zone: MockNgZone;
@@ -461,6 +525,103 @@ describe('IxMenu', () => {
 
       expect(item.textContent!.trim()).toBe('two');
     }));
+  });
+
+  describe('positions', () => {
+    let fixture: ComponentFixture<PositionedMenu>;
+    let trigger: HTMLElement;
+
+    beforeEach(() => {
+      fixture = createComponent(PositionedMenu);
+      fixture.detectChanges();
+
+      trigger = fixture.componentInstance.triggerEl.nativeElement;
+
+      // Push trigger to the bottom edge of viewport,so it has space to open "above"
+      trigger.style.position = 'fixed';
+      trigger.style.top = '600px';
+
+      // Push trigger to the right, so it has space to open "before"
+      trigger.style.left = '100px';
+    });
+
+    it('should append ix-menu-before if the x position is changed', () => {
+      fixture.componentInstance.trigger.openMenu();
+      fixture.detectChanges();
+
+      const panel = overlayContainerElement.querySelector('.ix-menu-panel') as HTMLElement;
+
+      expect(panel.classList).toContain('ix-menu-before');
+      expect(panel.classList).not.toContain('ix-menu-after');
+
+      fixture.componentInstance.xPosition = 'after';
+      fixture.detectChanges();
+
+      expect(panel.classList).toContain('ix-menu-after');
+      expect(panel.classList).not.toContain('ix-menu-before');
+    });
+
+    it('should append ix-menu-above if the y position is changed', () => {
+      fixture.componentInstance.trigger.openMenu();
+      fixture.detectChanges();
+
+      const panel = overlayContainerElement.querySelector('.ix-menu-panel') as HTMLElement;
+
+      expect(panel.classList).toContain('ix-menu-above');
+      expect(panel.classList).not.toContain('ix-menu-below');
+
+      fixture.componentInstance.yPosition = 'below';
+      fixture.detectChanges();
+
+      expect(panel.classList).toContain('ix-menu-below');
+      expect(panel.classList).not.toContain('ix-menu-above');
+    });
+
+    it('should default to the "below" and "after" positions', () => {
+      overlayContainer.ngOnDestroy();
+      fixture.destroy();
+      TestBed.resetTestingModule();
+
+      const newFixture = createComponent(SimpleMenu, [], [FakeIcon]);
+
+      newFixture.detectChanges();
+      newFixture.componentInstance.trigger.openMenu();
+      newFixture.detectChanges();
+      const panel = overlayContainerElement.querySelector('.ix-menu-panel') as HTMLElement;
+
+      expect(panel.classList).toContain('ix-menu-below');
+      expect(panel.classList).toContain('ix-menu-after');
+    });
+
+    it('should be able to update the position after the first open', () => {
+      trigger.style.position = 'fixed';
+      trigger.style.top = '200px';
+
+      fixture.componentInstance.yPosition = 'above';
+      fixture.detectChanges();
+
+      fixture.componentInstance.trigger.openMenu();
+      fixture.detectChanges();
+
+      let panel = overlayContainerElement.querySelector('.ix-menu-panel') as HTMLElement;
+
+      expect(Math.floor(panel.getBoundingClientRect().bottom))
+          .toBe(Math.floor(trigger.getBoundingClientRect().bottom), 'Expected menu to open above');
+
+      fixture.componentInstance.trigger.closeMenu();
+      fixture.detectChanges();
+
+      fixture.componentInstance.yPosition = 'below';
+      fixture.detectChanges();
+
+      fixture.componentInstance.trigger.openMenu();
+      fixture.detectChanges();
+      panel = overlayContainerElement.querySelector('.ix-menu-panel') as HTMLElement;
+
+      expect(Math.floor(panel.getBoundingClientRect().top))
+          .toBe(Math.floor(trigger.getBoundingClientRect().top), 'Expected menu to open below');
+    });
+
   });
 
   describe('fallback positions', () => {
@@ -667,6 +828,14 @@ describe('IxMenu', () => {
         expect(Math.floor(subject.overlayRect.bottom))
             .toBe(Math.floor(subject.triggerRect.top),
                 `Expected menu to open in "above" position if "below" position wouldn't fit.`);
+      });
+
+      it('repositions the origin to be below, so the menu opens from the trigger', () => {
+        subject.openMenu();
+        subject.fixture.detectChanges();
+
+        expect(subject.menuPanel!.classList).toContain('ix-menu-below');
+        expect(subject.menuPanel!.classList).not.toContain('ix-menu-above');
       });
     });
   });
@@ -1509,9 +1678,9 @@ describe('IxMenu default overrides', () => {
 
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <button [ixMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
     <ix-menu
-      #menu="IxMenu"
+      #menu="ixMenu"
       class="custom-one custom-two"
       (closed)="closeCallback($event)"
       [backdropClass]="backdropClass">
@@ -1522,6 +1691,7 @@ describe('IxMenu default overrides', () => {
         <fake-icon>unicorn</fake-icon>
         Item with an icon
       </button>
+      <button *ngFor="let item of extraItems" ix-menu-item> {{item}} </button>
     </ix-menu>
   `
 })
@@ -1530,14 +1700,15 @@ class SimpleMenu {
   @ViewChild('triggerEl') triggerEl: ElementRef;
   @ViewChild(IxMenu) menu: IxMenu;
   @ViewChildren(IxMenuItem) items: QueryList<IxMenuItem>;
+  extraItems: string[] = [];
   closeCallback = jasmine.createSpy('menu closed callback');
   backdropClass: string;
 }
 
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
-    <ix-menu [xPosition]="xPosition" [yPosition]="yPosition" #menu="IxMenu">
+    <button [ixMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <ix-menu [xPosition]="xPosition" [yPosition]="yPosition" #menu="ixMenu">
       <button ix-menu-item> Positioned Content </button>
     </ix-menu>
   `
@@ -1555,8 +1726,8 @@ interface TestableMenu {
 }
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
-    <ix-menu [overlapTrigger]="overlapTrigger" #menu="IxMenu">
+    <button [ixMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <ix-menu [overlapTrigger]="overlapTrigger" #menu="ixMenu">
       <button ix-menu-item> Not overlapped Content </button>
     </ix-menu>
   `
@@ -1593,7 +1764,7 @@ class CustomMenuPanel implements IxMenuPanel {
 
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="menu">Toggle menu</button>
+    <button [ixMenuTriggerFor]="menu">Toggle menu</button>
     <custom-menu #menu="matCustomMenu">
       <button ix-menu-item> Custom Content </button>
     </custom-menu>
@@ -1607,43 +1778,43 @@ class CustomMenu {
 @Component({
   template: `
     <button
-      [IxMenuTriggerFor]="root"
-      #rootTrigger="IxMenuTrigger"
+      [ixMenuTriggerFor]="root"
+      #rootTrigger="ixMenuTrigger"
       #rootTriggerEl>Toggle menu</button>
 
     <button
-      [IxMenuTriggerFor]="levelTwo"
-      #alternateTrigger="IxMenuTrigger">Toggle alternate menu</button>
+      [ixMenuTriggerFor]="levelTwo"
+      #alternateTrigger="ixMenuTrigger">Toggle alternate menu</button>
 
-    <ix-menu #root="IxMenu" (close)="rootCloseCallback($event)">
+    <ix-menu #root="ixMenu" (closed)="rootCloseCallback($event)">
       <button ix-menu-item
         id="level-one-trigger"
-        [IxMenuTriggerFor]="levelOne"
-        #levelOneTrigger="IxMenuTrigger">One</button>
+        [ixMenuTriggerFor]="levelOne"
+        #levelOneTrigger="ixMenuTrigger">One</button>
       <button ix-menu-item>Two</button>
       <button ix-menu-item
         *ngIf="showLazy"
         id="lazy-trigger"
-        [IxMenuTriggerFor]="lazy"
-        #lazyTrigger="IxMenuTrigger">Three</button>
+        [ixMenuTriggerFor]="lazy"
+        #lazyTrigger="ixMenuTrigger">Three</button>
     </ix-menu>
 
-    <ix-menu #levelOne="IxMenu" (close)="levelOneCloseCallback($event)">
+    <ix-menu #levelOne="ixMenu" (closed)="levelOneCloseCallback($event)">
       <button ix-menu-item>Four</button>
       <button ix-menu-item
         id="level-two-trigger"
-        [IxMenuTriggerFor]="levelTwo"
-        #levelTwoTrigger="IxMenuTrigger">Five</button>
+        [ixMenuTriggerFor]="levelTwo"
+        #levelTwoTrigger="ixMenuTrigger">Five</button>
       <button ix-menu-item>Six</button>
     </ix-menu>
 
-    <ix-menu #levelTwo="IxMenu" (close)="levelTwoCloseCallback($event)">
+    <ix-menu #levelTwo="ixMenu" (closed)="levelTwoCloseCallback($event)">
       <button ix-menu-item>Seven</button>
       <button ix-menu-item>Eight</button>
       <button ix-menu-item>Nine</button>
     </ix-menu>
 
-    <ix-menu #lazy="IxMenu">
+    <ix-menu #lazy="ixMenu">
       <button ix-menu-item>Ten</button>
       <button ix-menu-item>Eleven</button>
       <button ix-menu-item>Twelve</button>
@@ -1672,15 +1843,15 @@ class NestedMenu {
 
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="root" #rootTrigger="IxMenuTrigger">Toggle menu</button>
+    <button [ixMenuTriggerFor]="root" #rootTrigger="ixMenuTrigger">Toggle menu</button>
 
-    <ix-menu #root="IxMenu">
+    <ix-menu #root="ixMenu">
       <button ix-menu-item
-        [IxMenuTriggerFor]="levelOne"
-        #levelOneTrigger="IxMenuTrigger">One</button>
+        [ixMenuTriggerFor]="levelOne"
+        #levelOneTrigger="ixMenuTrigger">One</button>
     </ix-menu>
 
-    <ix-menu #levelOne="IxMenu" class="mat-elevation-z24">
+    <ix-menu #levelOne="ixMenu" class="mat-elevation-z24">
       <button ix-menu-item>Two</button>
     </ix-menu>
   `
@@ -1693,16 +1864,16 @@ class NestedMenuCustomElevation {
 
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
-    <ix-menu #root="IxMenu">
+    <button [ixMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
+    <ix-menu #root="ixMenu">
       <button
         ix-menu-item
         class="level-one-trigger"
         *ngFor="let item of items"
-        [IxMenuTriggerFor]="levelOne">{{item}}</button>
+        [ixMenuTriggerFor]="levelOne">{{item}}</button>
     </ix-menu>
 
-    <ix-menu #levelOne="IxMenu">
+    <ix-menu #levelOne="ixMenu">
       <button ix-menu-item>Four</button>
       <button ix-menu-item>Five</button>
     </ix-menu>
@@ -1716,12 +1887,12 @@ class NestedMenuRepeater {
 
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
+    <button [ixMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
 
-    <ix-menu #root="IxMenu">
-      <button ix-menu-item class="level-one-trigger" [IxMenuTriggerFor]="levelOne">One</button>
+    <ix-menu #root="ixMenu">
+      <button ix-menu-item class="level-one-trigger" [ixMenuTriggerFor]="levelOne">One</button>
 
-      <ix-menu #levelOne="IxMenu">
+      <ix-menu #levelOne="ixMenu">
         <button ix-menu-item class="level-two-item">Two</button>
       </ix-menu>
     </ix-menu>
@@ -1741,10 +1912,10 @@ class FakeIcon {}
 
 @Component({
   template: `
-    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <button [ixMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
 
-    <ix-menu #menu="IxMenu">
-      <ng-template IxMenuContent>
+    <ix-menu #menu="ixMenu">
+      <ng-template ixMenuContent>
         <button ix-menu-item>Item</button>
         <button ix-menu-item>Another item</button>
       </ng-template>
@@ -1761,17 +1932,17 @@ class SimpleLazyMenu {
 @Component({
   template: `
     <button
-      [IxMenuTriggerFor]="menu"
-      [IxMenuTriggerData]="{label: 'one'}"
-      #triggerOne="IxMenuTrigger">One</button>
+      [ixMenuTriggerFor]="menu"
+      [ixMenuTriggerData]="{label: 'one'}"
+      #triggerOne="ixMenuTrigger">One</button>
 
     <button
-      [IxMenuTriggerFor]="menu"
-      [IxMenuTriggerData]="{label: 'two'}"
-      #triggerTwo="IxMenuTrigger">Two</button>
+      [ixMenuTriggerFor]="menu"
+      [ixMenuTriggerData]="{label: 'two'}"
+      #triggerTwo="ixMenuTrigger">Two</button>
 
-    <ix-menu #menu="IxMenu">
-      <ng-template let-label="label" IxMenuContent>
+    <ix-menu #menu="ixMenu">
+      <ng-template let-label="label" ixMenuContent>
         <button ix-menu-item>{{label}}</button>
       </ng-template>
     </ix-menu>

@@ -19,7 +19,7 @@ import {IxMenuContent} from './menu-content';
 export const MAT_MENU_PANEL = new InjectionToken<IxMenuPanel>('MAT_MENU_PANEL');
 
 /**
- * Interface for a custom menu panel that can be used with `IxMenuTriggerFor`.
+ * Interface for a custom menu panel that can be used with `ixMenuTriggerFor`.
  * @docs-private
  */
 export interface IxMenuPanel<T = any> {

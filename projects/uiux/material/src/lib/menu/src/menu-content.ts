@@ -23,7 +23,7 @@ import {DOCUMENT} from '@angular/common';
  * Menu content that will be rendered lazily once the menu is opened.
  */
 @Directive({
-  selector: 'ng-template[IxMenuContent]'
+  selector: 'ng-template[ixMenuContent]'
 })
 export class IxMenuContent implements OnDestroy {
   private _portal: TemplatePortal<any>;

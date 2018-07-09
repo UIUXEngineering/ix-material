@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-dal',
+  selector: 'ix-dal',
   template: `
     <p>
       dal works!
     </p>
   `,
-  styles: []
+  styles: [],
 })
 export class DalComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
