@@ -59,7 +59,7 @@ import { SeeAlsoComponent } from './util-components/see-also/see-also.component'
 import { TableOfContentsModule } from './util-components/table-of-contents/table-of-contents.module';
 import { ContentLoadedModule } from '@uiux/cdk/dom';
 import { SpPipesModule } from '@uiux/cdk/pipes';
-import { SpSearchAutocompleteModule, SpShowModule } from '@uiux/material';
+import { SpSearchAutocompleteModule, IxShowModule } from '@uiux/material';
 import { MarkdownModule } from 'ngx-markdown';
 import { ApiContainerComponent } from './doc-components/api-container/api-container.component';
 import { ApiTitleComponent } from './doc-components/api-container/api-viewer/api-title/api-title.component';
@@ -127,7 +127,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     // BrowserAnimationsModule,
 
     SpSearchAutocompleteModule,
-    SpShowModule,
+    IxShowModule,
     SpPipesModule,
     DocViewerModule,
     ComponentHeaderModule,
@@ -237,7 +237,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     // BrowserAnimationsModule,
 
     SpSearchAutocompleteModule,
-    SpShowModule,
+    IxShowModule,
     SpPipesModule,
     DocViewerModule,
     CodeImportInlineComponent,

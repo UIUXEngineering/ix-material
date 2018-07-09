@@ -8,9 +8,8 @@ describe('DalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DalComponent ]
-    })
-    .compileComponents();
+      declarations: [DalComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

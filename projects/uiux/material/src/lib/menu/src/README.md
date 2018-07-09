@@ -28,3 +28,18 @@ Please see the official documentation at https://material.angular.io/components/
    ```
    projects/uiux/material/src/lib/menu/src/menu.spec.ts(42,8)
    ```
+10. Run Unit Tests  
+    All tests should pass without changing any tests.
+    
+## Adding model
+
+11. In the file `menu-module.ts`:
+
+    Add `MENU_MODEL_PROVIDER` to providers.
+    
+12. In the file `menu-directive.ts`
+
+    Compare with either WebStorm or Git history, and re-apply model edits.
+    Look for `TODO(uiux)` in the history to find edits.
+    
+13. Re-run build and test. All should still pass without editing tests.

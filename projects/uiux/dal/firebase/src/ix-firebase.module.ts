@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
-import { IxForestoreService } from './ix-forestore.service';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { IxFirestoreService } from './ix-firestore.service';
 
 @NgModule({
-  imports: [
-  ],
-  providers: [
-    IxForestoreService,
-  ],
-  exports: [
-  ]
+  imports: [AngularFirestoreModule],
+  providers: [IxFirestoreService],
+  exports: [],
 })
-export class IxFirebaseModule { }
+export class IxFirebaseModule {}

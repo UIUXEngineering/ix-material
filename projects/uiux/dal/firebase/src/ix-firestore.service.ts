@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FirebaseFirestore } from '@firebase/firestore-types';
 import { hasValue } from '@uiux/cdk/value';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+} from 'angularfire2/firestore';
 import { QueryFn } from 'angularfire2/firestore/interfaces';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { map, take, tap } from 'rxjs/operators';
 
@@ -11,13 +15,12 @@ export type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
 export type DocPredicate<T> = string | AngularFirestoreDocument<T>;
 
 @Injectable({
-              providedIn: 'root',
-            })
-export class IxForestoreService {
-
+  providedIn: 'root',
+})
+export class IxFirestoreService {
   firestore: FirebaseFirestore;
 
-  constructor( public afs: AngularFirestore ) {
+  constructor(public afs: AngularFirestore) {
     this.firestore = afs.firestore;
   }
 
@@ -28,14 +31,14 @@ export class IxForestoreService {
   }
 
   /// **************
-  col<T>( ref: CollectionPredicate<T>, queryFn?: QueryFn ): AngularFirestoreCollection<T> {
+  col<T>(ref: CollectionPredicate<T>, queryFn?: QueryFn): AngularFirestoreCollection<T> {
     return typeof ref === 'string' ? this.afs.collection<T>(ref, queryFn) : ref;
   }
 
   /// **************
   /// Get Data
 
-  doc<T>( ref: DocPredicate<T> ): AngularFirestoreDocument<T> {
+  doc<T>(ref: DocPredicate<T>): AngularFirestoreDocument<T> {
     return typeof ref === 'string' ? this.afs.doc<T>(ref) : ref;
   }
 
@@ -46,16 +49,17 @@ export class IxForestoreService {
    * @param ref
    * @returns Observable<T>
    */
-  doc$<T>( ref: DocPredicate<T> ): Observable<T> {
-    return this.doc(ref).snapshotChanges()
+  doc$<T>(ref: DocPredicate<T>): Observable<T> {
+    return this.doc(ref)
+      .snapshotChanges()
       .pipe(
-        map(( doc: any ) => {
-          if ( doc.exists ) {
+        map((doc: any) => {
+          if (doc.exists) {
             return doc.payload.data() as T;
           } else {
             return null;
           }
-        }),
+        })
       );
   }
 
@@ -66,10 +70,11 @@ export class IxForestoreService {
    * @param ref
    * @returns Observable<T>
    */
-  docRealTime$<T>( ref: DocPredicate<T> ): Observable<T> {
-    return this.doc(ref).valueChanges()
+  docRealTime$<T>(ref: DocPredicate<T>): Observable<T> {
+    return this.doc(ref)
+      .valueChanges()
       .pipe(
-        map(( doc: any ) => {
+        map((doc: any) => {
           // console.log(doc);
           // if (doc.exists) {
           //   return doc.payload.data() as T;
@@ -77,7 +82,7 @@ export class IxForestoreService {
           //   return null;
           // }
           return doc;
-        }),
+        })
       );
   }
 
@@ -94,12 +99,13 @@ export class IxForestoreService {
    * @param queryFn
    * @returns Observable<T[]>
    */
-  col$<T>( ref: CollectionPredicate<T>, queryFn?: QueryFn ): Observable<T[]> {
-    return this.col(ref, queryFn).snapshotChanges()
+  col$<T>(ref: CollectionPredicate<T>, queryFn?: QueryFn): Observable<T[]> {
+    return this.col(ref, queryFn)
+      .snapshotChanges()
       .pipe(
-        map(( docs: any ) => {
-          return docs.map(( a: any ) => a.payload.doc.data()) as T[];
-        }),
+        map((docs: any) => {
+          return docs.map((a: any) => a.payload.doc.data()) as T[];
+        })
       );
   }
 
@@ -117,19 +123,19 @@ export class IxForestoreService {
    * @param queryFn
    * @returns Observable<any[]>
    */
-  colWithIds$<T>( ref: CollectionPredicate<T>, queryFn?: QueryFn ): Observable<any[]> {
-    return this.col(ref, queryFn).snapshotChanges()
+  colWithIds$<T>(ref: CollectionPredicate<T>, queryFn?: QueryFn): Observable<any[]> {
+    return this.col(ref, queryFn)
+      .snapshotChanges()
       .pipe(
-        map(( actions: any ) => {
-          return actions
-            .pipe(
-              map(( a: any ) => {
-                const data: any = a.payload.doc.data();
-                const id: any = a.payload.doc.id;
-                return { id, ...data };
-              }),
-            );
-        }),
+        map((actions: any) => {
+          return actions.pipe(
+            map((a: any) => {
+              const data: any = a.payload.doc.data();
+              const id: any = a.payload.doc.id;
+              return { id, ...data };
+            })
+          );
+        })
       );
   }
 
@@ -143,14 +149,17 @@ export class IxForestoreService {
    * @param data
    * @returns Promise<void>
    */
-  set<T>( ref: DocPredicate<T>, data: any ): Promise<void> {
+  set<T>(ref: DocPredicate<T>, data: any): Promise<void> {
     return this.doc(ref).set(this.payloadForSet(data));
   }
 
-  setWithoutTimestamp<T>( ref: DocPredicate<T>, data: any ): Promise<void> {
-    return this.doc(ref).set({
-                               ...data,
-                             }, { merge: true });
+  setWithoutTimestamp<T>(ref: DocPredicate<T>, data: any): Promise<void> {
+    return this.doc(ref).set(
+      {
+        ...data,
+      },
+      { merge: true }
+    );
   }
 
   /**
@@ -163,15 +172,15 @@ export class IxForestoreService {
    * @param data
    * @returns Promise<void>
    */
-  update<T>( ref: DocPredicate<T>, data: any ): Promise<void> {
+  update<T>(ref: DocPredicate<T>, data: any): Promise<void> {
     return this.doc(ref).set(this.payloadForUpdate(data), { merge: true });
   }
 
-  updateWithoutTimestamp<T>( ref: DocPredicate<T>, data: any ): Promise<void> {
+  updateWithoutTimestamp<T>(ref: DocPredicate<T>, data: any): Promise<void> {
     return this.doc(ref).set(data, { merge: true });
   }
 
-  delete<T>( ref: DocPredicate<T> ): Promise<void> {
+  delete<T>(ref: DocPredicate<T>): Promise<void> {
     return this.doc(ref).delete();
   }
 
@@ -185,9 +194,7 @@ export class IxForestoreService {
    * @param data
    * @returns Promise<firebase.firestore.DocumentReference>
    */
-  add<T>( ref: CollectionPredicate<T>,
-          data: any ): Promise<firebase.firestore.DocumentReference> {
-
+  add<T>(ref: CollectionPredicate<T>, data: any): Promise<firebase.firestore.DocumentReference> {
     return this.col(ref).add(this.payloadForSet(data));
   }
 
@@ -200,7 +207,7 @@ export class IxForestoreService {
    * @param lng
    * @returns firebase.firestore.GeoPoint
    */
-  geopoint( lat: number, lng: number ): firebase.firestore.GeoPoint {
+  geopoint(lat: number, lng: number): firebase.firestore.GeoPoint {
     return new firebase.firestore.GeoPoint(lat, lng);
   }
 
@@ -214,26 +221,26 @@ export class IxForestoreService {
    * @param data
    * @returns Promise<any>
    */
-  upsert<T>( ref: DocPredicate<T>, data: any ): Promise<any> {
+  upsert<T>(ref: DocPredicate<T>, data: any): Promise<any> {
     const doc: Promise<any> = this.doc(ref).ref.get();
-    return doc.then(( snap: firebase.firestore.DocumentSnapshot ): any => {
-      if ( !snap.exists ) {
-
-        // use .set with merge true
-        return this.doc(ref).set(this.payloadForSet(data), { merge: true });
-      } else {
-
-        // Get the entire document
-        const rootData: any = snap.data();
-
-        if ( hasValue(rootData) ) {
-          return this.doc(ref).set(this.payloadForUpdate(data), { merge: true });
-        } else {
+    return doc.then(
+      (snap: firebase.firestore.DocumentSnapshot): any => {
+        if (!snap.exists) {
           // use .set with merge true
           return this.doc(ref).set(this.payloadForSet(data), { merge: true });
+        } else {
+          // Get the entire document
+          const rootData: any = snap.data();
+
+          if (hasValue(rootData)) {
+            return this.doc(ref).set(this.payloadForUpdate(data), { merge: true });
+          } else {
+            // use .set with merge true
+            return this.doc(ref).set(this.payloadForSet(data), { merge: true });
+          }
         }
       }
-    });
+    );
 
     // const doc: Promise<any> = this.doc( ref ).snapshotChanges()
     //   .pipe(
@@ -248,23 +255,25 @@ export class IxForestoreService {
     // } );
   }
 
-  setIfNotExist<T>( ref: DocPredicate<T>, data: any, checkProp?: any ): Promise<any> {
+  setIfNotExist<T>(ref: DocPredicate<T>, data: any, checkProp?: any): Promise<any> {
     const doc: Promise<any> = this.doc(ref).ref.get();
-    return doc.then(( snap: firebase.firestore.DocumentSnapshot ): any => {
-      if ( !snap.exists ) {
-        return this.set(ref, data);
-      } else {
-        const _data: any = snap.data();
-        if ( checkProp ) {
-          if ( !_data[ checkProp ] ) {
-            return this.set(ref, data);
-          } else {
-            return snap;
+    return doc.then(
+      (snap: firebase.firestore.DocumentSnapshot): any => {
+        if (!snap.exists) {
+          return this.set(ref, data);
+        } else {
+          const _data: any = snap.data();
+          if (checkProp) {
+            if (!_data[checkProp]) {
+              return this.set(ref, data);
+            } else {
+              return snap;
+            }
           }
+          return snap;
         }
-        return snap;
       }
-    });
+    );
   }
 
   /**
@@ -277,26 +286,26 @@ export class IxForestoreService {
    * @param data
    * @returns Promise<any>
    */
-  setMerge<T>( ref: DocPredicate<T>, data: any ): Promise<any> {
+  setMerge<T>(ref: DocPredicate<T>, data: any): Promise<any> {
     const doc: Promise<any> = this.doc(ref).ref.get();
-    return doc.then(( snap: firebase.firestore.DocumentSnapshot ): any => {
-      if ( !snap.exists ) {
-
-        // use .set with merge true
-        return this.doc(ref).set(this.payloadForSet(data), { merge: true });
-      } else {
-
-        // Get the entire document
-        const rootData: any = snap.data();
-
-        if ( hasValue(rootData) ) {
-          return this.doc(ref).set(this.payloadForUpdate(data), { merge: true });
-        } else {
+    return doc.then(
+      (snap: firebase.firestore.DocumentSnapshot): any => {
+        if (!snap.exists) {
           // use .set with merge true
           return this.doc(ref).set(this.payloadForSet(data), { merge: true });
+        } else {
+          // Get the entire document
+          const rootData: any = snap.data();
+
+          if (hasValue(rootData)) {
+            return this.doc(ref).set(this.payloadForUpdate(data), { merge: true });
+          } else {
+            // use .set with merge true
+            return this.doc(ref).set(this.payloadForSet(data), { merge: true });
+          }
         }
       }
-    });
+    );
 
     // const doc: Promise<any> = this.doc( ref ).snapshotChanges()
     //   .pipe(
@@ -311,8 +320,7 @@ export class IxForestoreService {
     // } );
   }
 
-  payloadForSet( data: any ): any {
-
+  payloadForSet(data: any): any {
     const timestamp: firebase.firestore.FieldValue = this.timestamp;
 
     const payload: any = {
@@ -324,7 +332,7 @@ export class IxForestoreService {
     return payload;
   }
 
-  payloadForUpdate( data: any ): any {
+  payloadForUpdate(data: any): any {
     const timestamp: firebase.firestore.FieldValue = this.timestamp;
 
     const payload: any = {
@@ -345,16 +353,18 @@ export class IxForestoreService {
    *
    * @param ref
    */
-  inspectDoc( ref: DocPredicate<any> ): void {
+  inspectDoc(ref: DocPredicate<any>): void {
     const tick: number = new Date().getTime();
-    this.doc(ref).snapshotChanges()
+    this.doc(ref)
+      .snapshotChanges()
       .pipe(
         take(1),
-        tap(( d: any ) => {
+        tap((d: any) => {
           const tock: number = new Date().getTime() - tick;
           console.log(`Loaded Document in ${tock}ms`, d);
-        }),
-      ).subscribe();
+        })
+      )
+      .subscribe();
   }
 
   /**
@@ -363,15 +373,16 @@ export class IxForestoreService {
    *
    * @param ref
    */
-  inspectCol( ref: CollectionPredicate<any> ): void {
+  inspectCol(ref: CollectionPredicate<any>): void {
     const tick: number = new Date().getTime();
-    this.col(ref).snapshotChanges()
+    this.col(ref)
+      .snapshotChanges()
       .pipe(
         take(1),
-        tap(( c: any ) => {
+        tap((c: any) => {
           const tock: number = new Date().getTime() - tick;
           console.log(`Loaded Collection in ${tock}ms`, c);
-        }),
+        })
       )
       .subscribe();
   }
@@ -380,8 +391,8 @@ export class IxForestoreService {
   /// Create and read doc references
   /// **************
   /// create a reference between two documents
-  connect( host: DocPredicate<any>, key: string, doc: DocPredicate<any> ): Promise<any> {
-    return this.doc(host).update({ [ key ]: this.doc(doc).ref });
+  connect(host: DocPredicate<any>, key: string, doc: DocPredicate<any>): Promise<any> {
+    return this.doc(host).update({ [key]: this.doc(doc).ref });
   }
 
   /**
@@ -406,16 +417,17 @@ export class IxForestoreService {
    * @param ref
    * @returns any
    */
-  docWithRefs$<T>( ref: DocPredicate<T> ): any {
-    return this.doc$(ref)
-      .pipe(map(( doc: any ) => {
-        for ( const k of Object.keys(doc) ) {
-          if ( doc[ k ] instanceof firebase.firestore.DocumentReference ) {
-            doc[ k ] = this.doc(doc[ k ].path);
+  docWithRefs$<T>(ref: DocPredicate<T>): any {
+    return this.doc$(ref).pipe(
+      map((doc: any) => {
+        for (const k of Object.keys(doc)) {
+          if (doc[k] instanceof firebase.firestore.DocumentReference) {
+            doc[k] = this.doc(doc[k].path);
           }
         }
         return doc;
-      }));
+      })
+    );
   }
 
   /// **************
@@ -426,7 +438,9 @@ export class IxForestoreService {
     const batch: firebase.firestore.WriteBatch = firebase.firestore().batch();
 
     /// add your operations here
-    const itemDoc: firebase.firestore.DocumentReference = firebase.firestore().doc('items/myCoolItem');
+    const itemDoc: firebase.firestore.DocumentReference = firebase
+      .firestore()
+      .doc('items/myCoolItem');
     const userDoc: firebase.firestore.DocumentReference = firebase.firestore().doc('users/userId');
     const currentTime: firebase.firestore.FieldValue = this.timestamp;
     batch.update(itemDoc, { timestamp: currentTime });
@@ -436,6 +450,7 @@ export class IxForestoreService {
     return batch.commit();
   }
 
-  initialize(): void { /* noop */
+  initialize(): void {
+    /* noop */
   }
 }

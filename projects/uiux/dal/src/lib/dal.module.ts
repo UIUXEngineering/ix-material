@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { DalComponent } from './dal.component';
 
 @NgModule({
-  imports: [
-  ],
+  imports: [],
   declarations: [DalComponent],
-  exports: [DalComponent]
+  exports: [DalComponent],
 })
-export class DalModule { }
+export class DalModule {}

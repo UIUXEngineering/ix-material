@@ -39,7 +39,7 @@ import {IxMenuItem} from './menu-item';
 import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
 import {MenuPositionX, MenuPositionY} from './menu-positions';
 import {AnimationEvent} from '@angular/animations';
-
+import {IxMenuModel} from './_model/menu-model.service'; // TODO(uiux): model edit
 
 /** Default `ix-menu` options that can be overridden. */
 export interface IxMenuDefaultOptions {
@@ -103,6 +103,11 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
   private _yPosition: MenuPositionY = this._defaultOptions.yPosition;
   private _previousElevation: string;
 
+  // TODO(uiux): Model edits
+  private _ixDisableClose = false;
+  private _ixMenuModelID: string;
+  private _IxMenuModelSubscription = Subscription.EMPTY;
+
   /** Menu items inside the current menu. */
   private _items: IxMenuItem[] = [];
 
@@ -153,6 +158,18 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
     }
     this._yPosition = value;
     this.setPositionClasses();
+  }
+
+  // TODO(uiux): model edit
+  @Input()
+  set ixDisableClose( val: boolean) {
+    this._ixDisableClose = val !== undefined ? val : true;
+  }
+
+  // TODO(uiux): model edit
+  @Input()
+  set ixMenuModelID( val: string) {
+    this._ixMenuModelID = val;
   }
 
   /** @docs-private */
@@ -230,6 +247,7 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
   constructor(
     private _elementRef: ElementRef,
     private _ngZone: NgZone,
+    private _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
     @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: IxMenuDefaultOptions) { }
 
   ngOnInit() {
@@ -238,12 +256,27 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
 
   ngAfterContentInit() {
     this._keyManager = new FocusKeyManager<IxMenuItem>(this._items).withWrap().withTypeAhead();
-    this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.closed.emit('tab'));
+    // this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.closed.emit('tab'));
+
+    // TODO(uiux): model edit
+    this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.ixTabHandler());
+    if (this._ixMenuModelID) {
+      this._IxMenuModelSubscription = this._IxMenuModel
+        .getModelByID(this._ixMenuModelID)
+        .subscribe((_event: string) => {
+          if (_event === 'close') {
+            this.closed.emit('click');
+          }
+        });
+    }
   }
 
   ngOnDestroy() {
     this._tabSubscription.unsubscribe();
     this.closed.complete();
+
+    // TODO(uiux): model edit
+    this._IxMenuModelSubscription.unsubscribe();
   }
 
   /** Stream that emits whenever the hovered menu item changes. */
@@ -279,6 +312,28 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
         }
 
         this._keyManager.onKeydown(event);
+    }
+  }
+
+  // TODO(uiux): model edit
+  /**
+   * Prevent closing menu if _ixDisableClose
+   * flag is set
+   */
+  ixCloseHandler() {
+    if (!this._ixDisableClose) {
+      this.closed.emit('click');
+    }
+  }
+
+  // TODO(uiux): model edit
+  /**
+   * Prevent closing menu if _ixDisableClose
+   * flag is set
+   */
+  ixTabHandler() {
+    if (!this._ixDisableClose) {
+      this.close.emit('tab');
     }
   }
 

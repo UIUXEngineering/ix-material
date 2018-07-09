@@ -11,3 +11,4 @@ export * from './src/menu';
 export * from './src/menu-animations';
 export * from './src/menu-content';
 export {MAT_MENU_SCROLL_STRATEGY} from './src/menu-trigger';
+export * from './src/_model/menu-model.service';
