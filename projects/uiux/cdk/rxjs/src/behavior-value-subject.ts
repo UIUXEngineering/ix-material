@@ -7,6 +7,7 @@ import { ObjectUnsubscribedError } from 'rxjs';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { Subscriber } from 'rxjs/Subscriber';
 import { hasValue, isDefined } from '@uiux/cdk/value';
+import { merge } from '@uiux/cdk/object';
 
 export class BehaviorValueSubject<T> extends Subject<T> {
   private _value: T;
@@ -39,6 +40,41 @@ export class BehaviorValueSubject<T> extends Subject<T> {
     } else {
       return this._value;
     }
+  }
+
+  /**
+   * Does not publish value.
+   * @param val
+   */
+  setValue(val: T): void {
+    this._value = val;
+  }
+
+  merge(val: T): void {
+    this._value = merge(this._value, val);
+  }
+
+  mergeNext(val: T): void {
+    this.merge(val);
+    this.publish();
+  }
+
+  /**
+   * Only works for objects, of course.
+   * @param key
+   * @param val
+   */
+  setValueByKey(key: string, val: T): void {
+    this._value[key] = val;
+  }
+
+  setValueByKeyNext(key: string, val: T): void {
+    this.setValueByKey(key, val);
+    this.publish();
+  }
+
+  publish(): void {
+    this.next(this._value);
   }
 
   next(value: T): void {

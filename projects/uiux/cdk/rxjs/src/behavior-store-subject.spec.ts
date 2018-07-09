@@ -38,7 +38,7 @@ describe('BehaviorStoreSubject', () => {
     });
   });
 
-  it('should mergeValue and not publish store', () => {
+  it('should merge and not publish store', () => {
     const i: any = {
       foo: null,
     };
@@ -50,7 +50,7 @@ describe('BehaviorStoreSubject', () => {
       r = _r;
     });
 
-    s.mergeValue({
+    s.merge({
       foo: 'bar',
     });
 
@@ -60,7 +60,7 @@ describe('BehaviorStoreSubject', () => {
     });
   });
 
-  it('should publishStore after setValue', () => {
+  it('should publish after setValue', () => {
     const i: any = {
       foo: null,
     };
@@ -72,11 +72,11 @@ describe('BehaviorStoreSubject', () => {
       r = _r;
     });
 
-    s.mergeValue({
+    s.merge({
       foo: 'bar',
     });
 
-    s.publishStore();
+    s.publish();
 
     expect(s.getValue().foo).toEqual('bar');
     expect(r).toEqual({ foo: 'bar' });

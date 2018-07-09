@@ -153,7 +153,7 @@
       "root": "projects/uiux/cdk",
       "sourceRoot": "projects/uiux/cdk/src",
       "projectType": "library",
-      "prefix": "sp",
+      "prefix": "ix",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -194,7 +194,7 @@
       "root": "projects/uiux/material",
       "sourceRoot": "projects/uiux/material/src",
       "projectType": "library",
-      "prefix": "sp",
+      "prefix": "ix",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
@@ -240,7 +240,7 @@
       "root": "projects/uiux/icons",
       "sourceRoot": "projects/uiux/icons/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "ix",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -280,7 +280,7 @@
       "root": "projects/uiux/dal",
       "sourceRoot": "projects/uiux/dal/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "ix",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

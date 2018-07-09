@@ -23,9 +23,9 @@ import {DOCUMENT} from '@angular/common';
  * Menu content that will be rendered lazily once the menu is opened.
  */
 @Directive({
-  selector: 'ng-template[SPMenuContent]'
+  selector: 'ng-template[IxMenuContent]'
 })
-export class SPMenuContent implements OnDestroy {
+export class IxMenuContent implements OnDestroy {
   private _portal: TemplatePortal<any>;
   private _outlet: DomPortalOutlet;
 

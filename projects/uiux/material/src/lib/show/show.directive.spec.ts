@@ -2,7 +2,7 @@
  * @license
  * Copyright uiux Engineering Corporation All Rights Reserved.
  */
-import { SpShowDirective } from './show.directive';
+import { IxShowDirective } from './show.directive';
 import { SimpleChange, SimpleChanges } from '@angular/core';
 
 describe('ShowDirective', () => {
@@ -32,19 +32,19 @@ describe('ShowDirective', () => {
   });
 
   it('should create an instance', () => {
-    const directive = new SpShowDirective(mockRenderer, mockElementRef);
+    const directive = new IxShowDirective(mockRenderer, mockElementRef);
     expect(directive).toBeTruthy();
   });
 
   it('should addClass', () => {
     spyOn(mockRenderer, 'addClass');
     spyOn(mockRenderer, 'removeClass');
-    const directive = new SpShowDirective(mockRenderer, mockElementRef);
+    const directive = new IxShowDirective(mockRenderer, mockElementRef);
 
     const change: SimpleChange = new SimpleChange(null, true, true);
 
     directive.ngOnChanges(<SimpleChanges>{
-      ['spShow']: change,
+      ['ixShow']: change,
     });
 
     expect(mockRenderer.addClass).toHaveBeenCalledTimes(2);
@@ -54,16 +54,16 @@ describe('ShowDirective', () => {
   it('should removeClass', () => {
     spyOn(mockRenderer, 'addClass');
     spyOn(mockRenderer, 'removeClass');
-    const directive = new SpShowDirective(mockRenderer, mockElementRef);
+    const directive = new IxShowDirective(mockRenderer, mockElementRef);
 
     const change1: SimpleChange = new SimpleChange(null, true, true);
     directive.ngOnChanges(<SimpleChanges>{
-      ['spShow']: change1,
+      ['ixShow']: change1,
     });
     const change2: SimpleChange = new SimpleChange(null, false, true);
 
     directive.ngOnChanges(<SimpleChanges>{
-      ['spShow']: change2,
+      ['ixShow']: change2,
     });
 
     expect(mockRenderer.removeClass).toHaveBeenCalled();

@@ -191,7 +191,7 @@ export class ZipSubject<T> extends Subject<T> {
     }
   }
 
-  mergeValue(value: any): void {
+  merge(value: any): void {
     this._value = this._value.merge(this._immutableValue(value));
   }
 

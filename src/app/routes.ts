@@ -5,7 +5,7 @@ export const APP_ROUTES: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full', data: {} },
   {
     path: 'cdk',
-    loadChildren: './pages/cdk/cdk.module#CdkModule',
+    loadChildren: './pages/cdk/cdk.module#IxCdkModule',
     data: <any>{
       preload: true,
     },

@@ -26,9 +26,10 @@ describe('poll-for-value', () => {
         )
       );
 
-      m
-        .expect(result)
-        .toBeObservable(expected, undefined, { name: 'Error', message: 'Custom Error' });
+      m.expect(result).toBeObservable(expected, undefined, {
+        name: 'Error',
+        message: 'Custom Error',
+      });
       m.expect(e1).toHaveSubscriptions(e1subs);
     })
   );
@@ -110,9 +111,10 @@ describe('poll-for-value', () => {
 
       const destination = source.pipe(pollForValueWithConfig(pollConfig));
 
-      m
-        .expect(destination)
-        .toBeObservable(expected, undefined, { name: 'Error', message: 'Foo Error' });
+      m.expect(destination).toBeObservable(expected, undefined, {
+        name: 'Error',
+        message: 'Foo Error',
+      });
       m.expect(source).toHaveSubscriptions(subs);
     })
   );

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CdkComponent } from './cdk.component';
 
-describe('CdkComponent', () => {
+describe('IxCdkComponent', () => {
   let component: CdkComponent;
   let fixture: ComponentFixture<CdkComponent>;
 

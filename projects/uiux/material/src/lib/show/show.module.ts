@@ -4,10 +4,10 @@
  */
 
 import { NgModule } from '@angular/core';
-import { SpShowDirective } from './show.directive';
+import { IxShowDirective } from './show.directive';
 
 @NgModule({
-  declarations: [SpShowDirective],
-  exports: [SpShowDirective],
+  declarations: [IxShowDirective],
+  exports: [IxShowDirective],
 })
 export class SpShowModule {}

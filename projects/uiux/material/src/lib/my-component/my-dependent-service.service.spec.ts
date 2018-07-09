@@ -9,10 +9,10 @@ describe('MyDependentServiceService', () => {
     });
   });
 
-  it(
-    'should be created',
-    inject([MyDependentServiceService], (service: MyDependentServiceService) => {
+  it('should be created', inject(
+    [MyDependentServiceService],
+    (service: MyDependentServiceService) => {
       expect(service).toBeTruthy();
-    })
-  );
+    }
+  ));
 });

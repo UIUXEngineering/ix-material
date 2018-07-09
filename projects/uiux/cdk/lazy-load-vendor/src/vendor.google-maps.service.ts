@@ -11,10 +11,11 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class GoogleMapsService {
   private _callbackName = 'ixGoogleMapsAPILazyLoader';
-  private _basePath: string = 'https://maps.googleapis.com/maps/api/js?key=' +
-  'apiKey' +
-  '&libraries=places&callback=' +
-  this._callbackName;
+  private _basePath: string =
+    'https://maps.googleapis.com/maps/api/js?key=' +
+    'apiKey' +
+    '&libraries=places&callback=' +
+    this._callbackName;
   configs: IVendorFile[] = [];
 
   constructor(private _vendor: LazyLoadVendorService) {

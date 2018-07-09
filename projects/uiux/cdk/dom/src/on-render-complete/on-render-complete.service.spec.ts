@@ -1,18 +1,18 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SpOnRenderCompleteService } from './ix-on-render-complete.service';
+import { IxOnRenderCompleteService } from './ix-on-render-complete.service';
 
 describe('IxOnRenderCompleteService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SpOnRenderCompleteService],
+      providers: [IxOnRenderCompleteService],
     });
   });
 
-  it(
-    'should be created',
-    inject([SpOnRenderCompleteService], (service: SpOnRenderCompleteService) => {
+  it('should be created', inject(
+    [IxOnRenderCompleteService],
+    (service: IxOnRenderCompleteService) => {
       expect(service).toBeTruthy();
-    })
-  );
+    }
+  ));
 });

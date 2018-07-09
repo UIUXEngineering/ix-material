@@ -120,7 +120,7 @@ describe('ZipSubject', () => {
 
     s.nextKey('a', 'foo');
     s.nextKey('b', 'bar');
-    s.mergeValue({
+    s.merge({
       c: 'baz',
       d: 'bum',
     });
@@ -257,7 +257,7 @@ describe('ZipSubject', () => {
     });
   });
 
-  it('should not publish if using setKey or mergeValue', () => {
+  it('should not publish if using setKey or merge', () => {
     const spy = jasmine.createSpy('spy');
 
     const i: any = {
@@ -278,13 +278,13 @@ describe('ZipSubject', () => {
 
     s.setKey('a', 'foo');
     s.setKey('b', 'bar');
-    s.mergeValue({
+    s.merge({
       c: 'baz',
       d: 'bum',
     });
 
     s.setKey('a', 'faz');
-    s.mergeValue({
+    s.merge({
       c: 'bay',
       d: 'boo',
     });

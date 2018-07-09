@@ -35,10 +35,10 @@ import {
 } from '@angular/core';
 import {asapScheduler, merge, of as observableOf, Subscription} from 'rxjs';
 import {delay, filter, take, takeUntil} from 'rxjs/operators';
-import {SPMenu} from './menu-directive';
-import {throwSPMenuMissingError} from './menu-errors';
-import {SPMenuItem} from './menu-item';
-import {SPMenuPanel} from './menu-panel';
+import {IxMenu} from './menu-directive';
+import {throwIxMenuMissingError} from './menu-errors';
+import {IxMenuItem} from './menu-item';
+import {IxMenuPanel} from './menu-panel';
 import {MenuPositionX, MenuPositionY} from './menu-positions';
 
 /** Injection token that determines the scroll handling while the menu is open. */
@@ -67,16 +67,16 @@ export const MENU_PANEL_TOP_PADDING = 8;
  * responsible for toggling the display of the provided menu instance.
  */
 @Directive({
-  selector: `[ix-menu-trigger-for], [SPMenuTriggerFor]`,
+  selector: `[ix-menu-trigger-for], [IxMenuTriggerFor]`,
   host: {
     'aria-haspopup': 'true',
     '(mousedown)': '_handleMousedown($event)',
     '(keydown)': '_handleKeydown($event)',
     '(click)': '_handleClick($event)',
   },
-  exportAs: 'SPMenuTrigger'
+  exportAs: 'IxMenuTrigger'
 })
-export class SPMenuTrigger implements AfterContentInit, OnDestroy {
+export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   private _portal: TemplatePortal;
   private _overlayRef: OverlayRef | null = null;
   private _menuOpen: boolean = false;
@@ -92,19 +92,19 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
    * @deletion-target 7.0.0
    */
   @Input('ix-menu-trigger-for')
-  get _deprecatedSPMenuTriggerFor(): SPMenuPanel {
+  get _deprecatedIxMenuTriggerFor(): IxMenuPanel {
     return this.menu;
   }
 
-  set _deprecatedSPMenuTriggerFor(v: SPMenuPanel) {
+  set _deprecatedIxMenuTriggerFor(v: IxMenuPanel) {
     this.menu = v;
   }
 
   /** References the menu instance that the trigger is associated with. */
-  @Input('SPMenuTriggerFor') menu: SPMenuPanel;
+  @Input('IxMenuTriggerFor') menu: IxMenuPanel;
 
   /** Data to be passed along to any lazily-rendered content. */
-  @Input('SPMenuTriggerData') menuData: any;
+  @Input('IxMenuTriggerData') menuData: any;
 
   /** Event emitted when the associated menu is opened. */
   @Output() readonly menuOpened: EventEmitter<void> = new EventEmitter<void>();
@@ -132,8 +132,8 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
               private _element: ElementRef,
               private _viewContainerRef: ViewContainerRef,
               @Inject(MAT_MENU_SCROLL_STRATEGY) private _scrollStrategy,
-              @Optional() private _parentMenu: SPMenu,
-              @Optional() @Self() private _menuItemInstance: SPMenuItem,
+              @Optional() private _parentMenu: IxMenu,
+              @Optional() @Self() private _menuItemInstance: IxMenuItem,
               @Optional() private _dir: Directionality,
               // TODO(crisbeto): make the _focusMonitor required when doing breaking changes.
               // @deletion-target 7.0.0
@@ -205,7 +205,7 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
     this._closeSubscription = this._menuClosingActions().subscribe(() => this.closeMenu());
     this._initMenu();
 
-    if (this.menu instanceof SPMenu) {
+    if (this.menu instanceof IxMenu) {
       this.menu._startAnimation();
     }
   }
@@ -239,7 +239,7 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
     this._closeSubscription.unsubscribe();
     this._overlayRef.detach();
 
-    if (menu instanceof SPMenu) {
+    if (menu instanceof IxMenu) {
       menu._resetAnimation();
 
       if (menu.lazyContent) {
@@ -312,12 +312,12 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
   }
 
   /**
-   * This method checks that a valid instance of SPMenu has been passed into
-   * SPMenuTriggerFor. If not, an exception is thrown.
+   * This method checks that a valid instance of IxMenu has been passed into
+   * IxMenuTriggerFor. If not, an exception is thrown.
    */
   private _checkMenu() {
     if (!this.menu) {
-      throwSPMenuMissingError();
+      throwIxMenuMissingError();
     }
   }
 
@@ -491,7 +491,7 @@ export class SPMenuTrigger implements AfterContentInit, OnDestroy {
         // If the same menu is used between multiple triggers, it might still be animating
         // while the new trigger tries to re-open it. Wait for the animation to finish
         // before doing so. Also interrupt if the user moves to another item.
-        if (this.menu instanceof SPMenu && this.menu._isAnimating) {
+        if (this.menu instanceof IxMenu && this.menu._isAnimating) {
           this.menu._animationDone
             .pipe(take(1), takeUntil(this._parentMenu._hovered()))
             .subscribe(() => this.openMenu());

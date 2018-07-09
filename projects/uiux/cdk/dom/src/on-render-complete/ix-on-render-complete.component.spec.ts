@@ -1,19 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpOnRenderCompleteComponent } from './ix-on-render-complete.component';
+import { IxOnRenderCompleteComponent } from './ix-on-render-complete.component';
+import { IxOnRenderCompleteService } from './ix-on-render-complete.service';
 
 describe('IxOnRenderCompleteComponent', () => {
-  let component: SpOnRenderCompleteComponent;
-  let fixture: ComponentFixture<SpOnRenderCompleteComponent>;
+  let component: IxOnRenderCompleteComponent;
+  let fixture: ComponentFixture<IxOnRenderCompleteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SpOnRenderCompleteComponent],
+      declarations: [IxOnRenderCompleteComponent],
+      providers: [IxOnRenderCompleteService],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpOnRenderCompleteComponent);
+    fixture = TestBed.createComponent(IxOnRenderCompleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

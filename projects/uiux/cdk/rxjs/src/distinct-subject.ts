@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { ObjectUnsubscribedError } from 'rxjs';
-import { get } from '@uiux/cdk/object';
+import { get, merge } from '@uiux/cdk/object';
 import { hasValue } from '@uiux/cdk/value';
 import { default as _isEqual } from 'lodash-es/isEqual';
 
@@ -67,5 +67,40 @@ export class DistinctSubject<T> extends Subject<T> {
 
   isDistinct(value: T): boolean {
     return this.next(value);
+  }
+
+  /**
+   * Does not publish value.
+   * @param val
+   */
+  setValue(val: T): void {
+    this._previousValue = val;
+  }
+
+  merge(val: T): void {
+    this._previousValue = merge(this._previousValue, val);
+  }
+
+  mergeNext(val: T): void {
+    this.merge(val);
+    this.publish();
+  }
+
+  /**
+   * Only works for objects, of course.
+   * @param key
+   * @param val
+   */
+  setValueByKey(key: string, val: T): void {
+    this._previousValue[key] = val;
+  }
+
+  setValueByKeyNext(key: string, val: T): void {
+    this.setValueByKey(key, val);
+    this.publish();
+  }
+
+  publish(): void {
+    this.next(this._previousValue);
   }
 }

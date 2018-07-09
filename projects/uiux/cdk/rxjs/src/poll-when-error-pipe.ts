@@ -43,7 +43,13 @@ export function pollWhenError(
       source
         .pipe(
           retryWhen((errors: Observable<any>) => {
-            return concat(errors.pipe(delay(_delay), take(_take)), throwError(new Error(errorMsg)));
+            return concat(
+              errors.pipe(
+                delay(_delay),
+                take(_take)
+              ),
+              throwError(new Error(errorMsg))
+            );
           })
         )
         .subscribe({

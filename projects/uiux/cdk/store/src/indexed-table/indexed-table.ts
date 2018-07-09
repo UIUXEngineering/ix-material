@@ -249,7 +249,10 @@ export class IndexedTable {
 
   getKey(hashKey: string, distint: boolean = true): Observable<any> {
     if (this._destroyed) {
-      return this._getSubject(hashKey).pipe(this._allPropsHaveValuePipe(), toJSPipe());
+      return this._getSubject(hashKey).pipe(
+        this._allPropsHaveValuePipe(),
+        toJSPipe()
+      );
     }
     if (distint) {
       return this._getSubject(hashKey).pipe(
@@ -258,7 +261,10 @@ export class IndexedTable {
         toJSPipe()
       );
     } else {
-      return this._getSubject(hashKey).pipe(this._allPropsHaveValuePipe(), toJSPipe());
+      return this._getSubject(hashKey).pipe(
+        this._allPropsHaveValuePipe(),
+        toJSPipe()
+      );
     }
   }
 

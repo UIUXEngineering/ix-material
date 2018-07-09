@@ -20,13 +20,13 @@ import {OverlayContainer, Overlay} from '@angular/cdk/overlay';
 import {ESCAPE, LEFT_ARROW, RIGHT_ARROW, DOWN_ARROW, TAB} from '@angular/cdk/keycodes';
 import {
   MAT_MENU_DEFAULT_OPTIONS,
-  SPMenu,
-  SPMenuModule,
-  SPMenuPanel,
-  SPMenuTrigger,
+  IxMenu,
+  IxMenuModule,
+  IxMenuPanel,
+  IxMenuTrigger,
   MenuPositionX,
   MenuPositionY,
-  SPMenuItem,
+  IxMenuItem,
 } from '../index';
 import {MENU_PANEL_TOP_PADDING, MAT_MENU_SCROLL_STRATEGY} from './menu-trigger';
 import {MatRipple} from '@angular/material/core';
@@ -45,7 +45,7 @@ import {ScrollDispatcher} from '@angular/cdk/scrolling';
 import {FocusMonitor} from '@angular/cdk/a11y';
 
 
-describe('SPMenu', () => {
+describe('IxMenu', () => {
   let overlayContainer: OverlayContainer;
   let overlayContainerElement: HTMLElement;
   let focusMonitor: FocusMonitor;
@@ -53,7 +53,7 @@ describe('SPMenu', () => {
   function createComponent<T>(component: Type<T>, providers: Provider[] = [],
                               declarations: any[] = []): ComponentFixture<T> {
     TestBed.configureTestingModule({
-      imports: [SPMenuModule, NoopAnimationsModule],
+      imports: [IxMenuModule, NoopAnimationsModule],
       declarations: [component, ...declarations],
       providers
     }).compileComponents();
@@ -904,7 +904,7 @@ describe('SPMenu', () => {
         fixture.detectChanges();
         tick(500);
 
-        const items = fixture.debugElement.queryAll(By.directive(SPMenuItem));
+        const items = fixture.debugElement.queryAll(By.directive(IxMenuItem));
 
         dispatchFakeEvent(items[0].nativeElement, 'mouseenter');
         fixture.detectChanges();
@@ -934,7 +934,7 @@ describe('SPMenu', () => {
       expect(overlay.querySelectorAll('.ix-menu-panel').length)
           .toBe(1, 'Expected one open menu');
 
-      const item = fixture.debugElement.query(By.directive(SPMenuItem));
+      const item = fixture.debugElement.query(By.directive(IxMenuItem));
 
       item.componentInstance.disabled = true;
       fixture.detectChanges();
@@ -1484,10 +1484,10 @@ describe('SPMenu', () => {
 
 });
 
-describe('SPMenu default overrides', () => {
+describe('IxMenu default overrides', () => {
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      imports: [SPMenuModule, NoopAnimationsModule],
+      imports: [IxMenuModule, NoopAnimationsModule],
       declarations: [SimpleMenu, FakeIcon],
       providers: [{
         provide: MAT_MENU_DEFAULT_OPTIONS,
@@ -1509,9 +1509,9 @@ describe('SPMenu default overrides', () => {
 
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
     <ix-menu
-      #menu="SPMenu"
+      #menu="IxMenu"
       class="custom-one custom-two"
       (closed)="closeCallback($event)"
       [backdropClass]="backdropClass">
@@ -1526,44 +1526,44 @@ describe('SPMenu default overrides', () => {
   `
 })
 class SimpleMenu {
-  @ViewChild(SPMenuTrigger) trigger: SPMenuTrigger;
+  @ViewChild(IxMenuTrigger) trigger: IxMenuTrigger;
   @ViewChild('triggerEl') triggerEl: ElementRef;
-  @ViewChild(SPMenu) menu: SPMenu;
-  @ViewChildren(SPMenuItem) items: QueryList<SPMenuItem>;
+  @ViewChild(IxMenu) menu: IxMenu;
+  @ViewChildren(IxMenuItem) items: QueryList<IxMenuItem>;
   closeCallback = jasmine.createSpy('menu closed callback');
   backdropClass: string;
 }
 
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
-    <ix-menu [xPosition]="xPosition" [yPosition]="yPosition" #menu="SPMenu">
+    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <ix-menu [xPosition]="xPosition" [yPosition]="yPosition" #menu="IxMenu">
       <button ix-menu-item> Positioned Content </button>
     </ix-menu>
   `
 })
 class PositionedMenu {
-  @ViewChild(SPMenuTrigger) trigger: SPMenuTrigger;
+  @ViewChild(IxMenuTrigger) trigger: IxMenuTrigger;
   @ViewChild('triggerEl') triggerEl: ElementRef;
   xPosition: MenuPositionX = 'before';
   yPosition: MenuPositionY = 'above';
 }
 
 interface TestableMenu {
-  trigger: SPMenuTrigger;
+  trigger: IxMenuTrigger;
   triggerEl: ElementRef;
 }
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
-    <ix-menu [overlapTrigger]="overlapTrigger" #menu="SPMenu">
+    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <ix-menu [overlapTrigger]="overlapTrigger" #menu="IxMenu">
       <button ix-menu-item> Not overlapped Content </button>
     </ix-menu>
   `
 })
 class OverlapMenu implements TestableMenu {
   @Input() overlapTrigger: boolean;
-  @ViewChild(SPMenuTrigger) trigger: SPMenuTrigger;
+  @ViewChild(IxMenuTrigger) trigger: IxMenuTrigger;
   @ViewChild('triggerEl') triggerEl: ElementRef;
 }
 
@@ -1577,12 +1577,12 @@ class OverlapMenu implements TestableMenu {
   `,
   exportAs: 'matCustomMenu'
 })
-class CustomMenuPanel implements SPMenuPanel {
+class CustomMenuPanel implements IxMenuPanel {
   direction: Direction;
   xPosition: MenuPositionX = 'after';
   yPosition: MenuPositionY = 'below';
   overlapTrigger = true;
-  parentMenu: SPMenuPanel;
+  parentMenu: IxMenuPanel;
 
   @ViewChild(TemplateRef) templateRef: TemplateRef<any>;
   @Output() close = new EventEmitter<void | 'click' | 'keydown'>();
@@ -1593,57 +1593,57 @@ class CustomMenuPanel implements SPMenuPanel {
 
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="menu">Toggle menu</button>
+    <button [IxMenuTriggerFor]="menu">Toggle menu</button>
     <custom-menu #menu="matCustomMenu">
       <button ix-menu-item> Custom Content </button>
     </custom-menu>
   `
 })
 class CustomMenu {
-  @ViewChild(SPMenuTrigger) trigger: SPMenuTrigger;
+  @ViewChild(IxMenuTrigger) trigger: IxMenuTrigger;
 }
 
 
 @Component({
   template: `
     <button
-      [SPMenuTriggerFor]="root"
-      #rootTrigger="SPMenuTrigger"
+      [IxMenuTriggerFor]="root"
+      #rootTrigger="IxMenuTrigger"
       #rootTriggerEl>Toggle menu</button>
 
     <button
-      [SPMenuTriggerFor]="levelTwo"
-      #alternateTrigger="SPMenuTrigger">Toggle alternate menu</button>
+      [IxMenuTriggerFor]="levelTwo"
+      #alternateTrigger="IxMenuTrigger">Toggle alternate menu</button>
 
-    <ix-menu #root="SPMenu" (close)="rootCloseCallback($event)">
+    <ix-menu #root="IxMenu" (close)="rootCloseCallback($event)">
       <button ix-menu-item
         id="level-one-trigger"
-        [SPMenuTriggerFor]="levelOne"
-        #levelOneTrigger="SPMenuTrigger">One</button>
+        [IxMenuTriggerFor]="levelOne"
+        #levelOneTrigger="IxMenuTrigger">One</button>
       <button ix-menu-item>Two</button>
       <button ix-menu-item
         *ngIf="showLazy"
         id="lazy-trigger"
-        [SPMenuTriggerFor]="lazy"
-        #lazyTrigger="SPMenuTrigger">Three</button>
+        [IxMenuTriggerFor]="lazy"
+        #lazyTrigger="IxMenuTrigger">Three</button>
     </ix-menu>
 
-    <ix-menu #levelOne="SPMenu" (close)="levelOneCloseCallback($event)">
+    <ix-menu #levelOne="IxMenu" (close)="levelOneCloseCallback($event)">
       <button ix-menu-item>Four</button>
       <button ix-menu-item
         id="level-two-trigger"
-        [SPMenuTriggerFor]="levelTwo"
-        #levelTwoTrigger="SPMenuTrigger">Five</button>
+        [IxMenuTriggerFor]="levelTwo"
+        #levelTwoTrigger="IxMenuTrigger">Five</button>
       <button ix-menu-item>Six</button>
     </ix-menu>
 
-    <ix-menu #levelTwo="SPMenu" (close)="levelTwoCloseCallback($event)">
+    <ix-menu #levelTwo="IxMenu" (close)="levelTwoCloseCallback($event)">
       <button ix-menu-item>Seven</button>
       <button ix-menu-item>Eight</button>
       <button ix-menu-item>Nine</button>
     </ix-menu>
 
-    <ix-menu #lazy="SPMenu">
+    <ix-menu #lazy="IxMenu">
       <button ix-menu-item>Ten</button>
       <button ix-menu-item>Eleven</button>
       <button ix-menu-item>Twelve</button>
@@ -1651,58 +1651,58 @@ class CustomMenu {
   `
 })
 class NestedMenu {
-  @ViewChild('root') rootMenu: SPMenu;
-  @ViewChild('rootTrigger') rootTrigger: SPMenuTrigger;
+  @ViewChild('root') rootMenu: IxMenu;
+  @ViewChild('rootTrigger') rootTrigger: IxMenuTrigger;
   @ViewChild('rootTriggerEl') rootTriggerEl: ElementRef;
-  @ViewChild('alternateTrigger') alternateTrigger: SPMenuTrigger;
+  @ViewChild('alternateTrigger') alternateTrigger: IxMenuTrigger;
   readonly rootCloseCallback = jasmine.createSpy('root menu closed callback');
 
-  @ViewChild('levelOne') levelOneMenu: SPMenu;
-  @ViewChild('levelOneTrigger') levelOneTrigger: SPMenuTrigger;
+  @ViewChild('levelOne') levelOneMenu: IxMenu;
+  @ViewChild('levelOneTrigger') levelOneTrigger: IxMenuTrigger;
   readonly levelOneCloseCallback = jasmine.createSpy('level one menu closed callback');
 
-  @ViewChild('levelTwo') levelTwoMenu: SPMenu;
-  @ViewChild('levelTwoTrigger') levelTwoTrigger: SPMenuTrigger;
+  @ViewChild('levelTwo') levelTwoMenu: IxMenu;
+  @ViewChild('levelTwoTrigger') levelTwoTrigger: IxMenuTrigger;
   readonly levelTwoCloseCallback = jasmine.createSpy('level one menu closed callback');
 
-  @ViewChild('lazy') lazyMenu: SPMenu;
-  @ViewChild('lazyTrigger') lazyTrigger: SPMenuTrigger;
+  @ViewChild('lazy') lazyMenu: IxMenu;
+  @ViewChild('lazyTrigger') lazyTrigger: IxMenuTrigger;
   showLazy = false;
 }
 
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="root" #rootTrigger="SPMenuTrigger">Toggle menu</button>
+    <button [IxMenuTriggerFor]="root" #rootTrigger="IxMenuTrigger">Toggle menu</button>
 
-    <ix-menu #root="SPMenu">
+    <ix-menu #root="IxMenu">
       <button ix-menu-item
-        [SPMenuTriggerFor]="levelOne"
-        #levelOneTrigger="SPMenuTrigger">One</button>
+        [IxMenuTriggerFor]="levelOne"
+        #levelOneTrigger="IxMenuTrigger">One</button>
     </ix-menu>
 
-    <ix-menu #levelOne="SPMenu" class="mat-elevation-z24">
+    <ix-menu #levelOne="IxMenu" class="mat-elevation-z24">
       <button ix-menu-item>Two</button>
     </ix-menu>
   `
 })
 class NestedMenuCustomElevation {
-  @ViewChild('rootTrigger') rootTrigger: SPMenuTrigger;
-  @ViewChild('levelOneTrigger') levelOneTrigger: SPMenuTrigger;
+  @ViewChild('rootTrigger') rootTrigger: IxMenuTrigger;
+  @ViewChild('levelOneTrigger') levelOneTrigger: IxMenuTrigger;
 }
 
 
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
-    <ix-menu #root="SPMenu">
+    <button [IxMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
+    <ix-menu #root="IxMenu">
       <button
         ix-menu-item
         class="level-one-trigger"
         *ngFor="let item of items"
-        [SPMenuTriggerFor]="levelOne">{{item}}</button>
+        [IxMenuTriggerFor]="levelOne">{{item}}</button>
     </ix-menu>
 
-    <ix-menu #levelOne="SPMenu">
+    <ix-menu #levelOne="IxMenu">
       <button ix-menu-item>Four</button>
       <button ix-menu-item>Five</button>
     </ix-menu>
@@ -1716,12 +1716,12 @@ class NestedMenuRepeater {
 
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
+    <button [IxMenuTriggerFor]="root" #rootTriggerEl>Toggle menu</button>
 
-    <ix-menu #root="SPMenu">
-      <button ix-menu-item class="level-one-trigger" [SPMenuTriggerFor]="levelOne">One</button>
+    <ix-menu #root="IxMenu">
+      <button ix-menu-item class="level-one-trigger" [IxMenuTriggerFor]="levelOne">One</button>
 
-      <ix-menu #levelOne="SPMenu">
+      <ix-menu #levelOne="IxMenu">
         <button ix-menu-item class="level-two-item">Two</button>
       </ix-menu>
     </ix-menu>
@@ -1741,10 +1741,10 @@ class FakeIcon {}
 
 @Component({
   template: `
-    <button [SPMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
+    <button [IxMenuTriggerFor]="menu" #triggerEl>Toggle menu</button>
 
-    <ix-menu #menu="SPMenu">
-      <ng-template SPMenuContent>
+    <ix-menu #menu="IxMenu">
+      <ng-template IxMenuContent>
         <button ix-menu-item>Item</button>
         <button ix-menu-item>Another item</button>
       </ng-template>
@@ -1752,33 +1752,33 @@ class FakeIcon {}
   `
 })
 class SimpleLazyMenu {
-  @ViewChild(SPMenuTrigger) trigger: SPMenuTrigger;
+  @ViewChild(IxMenuTrigger) trigger: IxMenuTrigger;
   @ViewChild('triggerEl') triggerEl: ElementRef;
-  @ViewChildren(SPMenuItem) items: QueryList<SPMenuItem>;
+  @ViewChildren(IxMenuItem) items: QueryList<IxMenuItem>;
 }
 
 
 @Component({
   template: `
     <button
-      [SPMenuTriggerFor]="menu"
-      [SPMenuTriggerData]="{label: 'one'}"
-      #triggerOne="SPMenuTrigger">One</button>
+      [IxMenuTriggerFor]="menu"
+      [IxMenuTriggerData]="{label: 'one'}"
+      #triggerOne="IxMenuTrigger">One</button>
 
     <button
-      [SPMenuTriggerFor]="menu"
-      [SPMenuTriggerData]="{label: 'two'}"
-      #triggerTwo="SPMenuTrigger">Two</button>
+      [IxMenuTriggerFor]="menu"
+      [IxMenuTriggerData]="{label: 'two'}"
+      #triggerTwo="IxMenuTrigger">Two</button>
 
-    <ix-menu #menu="SPMenu">
-      <ng-template let-label="label" SPMenuContent>
+    <ix-menu #menu="IxMenu">
+      <ng-template let-label="label" IxMenuContent>
         <button ix-menu-item>{{label}}</button>
       </ng-template>
     </ix-menu>
   `
 })
 class LazyMenuWithContext {
-  @ViewChild('triggerOne') triggerOne: SPMenuTrigger;
-  @ViewChild('triggerTwo') triggerTwo: SPMenuTrigger;
+  @ViewChild('triggerOne') triggerOne: IxMenuTrigger;
+  @ViewChild('triggerTwo') triggerTwo: IxMenuTrigger;
 }
 

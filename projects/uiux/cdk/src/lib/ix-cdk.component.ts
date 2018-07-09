@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-cdk',
+  selector: 'ix-cdk',
   template: `
     <p>
       cdk works!
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: [],
 })
-export class CdkComponent implements OnInit {
+export class IxCdkComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

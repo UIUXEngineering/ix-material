@@ -37,16 +37,39 @@ export class BehaviorStoreSubject<T> extends Subject<T> {
     }
   }
 
-  setValue(value: T): void {
-    this._value = value;
+  /**
+   * Does not publish value.
+   * @param val
+   */
+  setValue(val: T): void {
+    this._value = val;
   }
 
-  mergeValue(value: T): void {
-    this._value = merge(this._value, value);
+  merge(val: T): void {
+    this._value = merge(this._value, val);
   }
 
-  publishStore(): void {
-    super.next(this._value);
+  mergeNext(val: T): void {
+    this.merge(val);
+    this.publish();
+  }
+
+  /**
+   * Only works for objects, of course.
+   * @param key
+   * @param val
+   */
+  setValueByKey(key: string, val: T): void {
+    this._value[key] = val;
+  }
+
+  setValueByKeyNext(key: string, val: T): void {
+    this.setValueByKey(key, val);
+    this.publish();
+  }
+
+  publish(): void {
+    this.next(this._value);
   }
 
   next(value: T): void {

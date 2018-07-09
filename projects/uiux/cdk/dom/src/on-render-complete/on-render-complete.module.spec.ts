@@ -1,13 +1,13 @@
-import { SpOnRenderCompleteModule } from './ix-on-render-complete.module';
+import { IxOnRenderCompleteModule } from './ix-on-render-complete.module';
 
 describe('IxOnRenderCompleteModule', () => {
-  let spOnRenderCompleteModule: SpOnRenderCompleteModule;
+  let ixOnRenderCompleteModule: IxOnRenderCompleteModule;
 
   beforeEach(() => {
-    spOnRenderCompleteModule = new SpOnRenderCompleteModule();
+    ixOnRenderCompleteModule = new IxOnRenderCompleteModule();
   });
 
   it('should create an instance', () => {
-    expect(spOnRenderCompleteModule).toBeTruthy();
+    expect(IxOnRenderCompleteModule).toBeTruthy();
   });
 });

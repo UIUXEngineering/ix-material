@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -20,8 +20,8 @@ import { clonePipe } from '@uiux/cdk/rxjs';
  * persistence.
  */
 @Injectable({
-              providedIn: 'root'
-            })
+  providedIn: 'root',
+})
 export class IxLocalStorageService {
   private _localStorageAvaliable = true;
   private _ls: Storage; // local-storage

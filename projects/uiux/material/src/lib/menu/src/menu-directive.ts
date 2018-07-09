@@ -31,16 +31,16 @@ import {
 } from '@angular/core';
 import {merge, Observable, Subject, Subscription} from 'rxjs';
 import {startWith, switchMap, take} from 'rxjs/operators';
-import {SPMenuAnimations} from './menu-animations';
-import {SPMenuContent} from './menu-content';
-import {throwSPMenuInvalidPositionX, throwSPMenuInvalidPositionY} from './menu-errors';
-import {SPMenuItem} from './menu-item';
-import {MAT_MENU_PANEL, SPMenuPanel} from './menu-panel';
+import {IxMenuAnimations} from './menu-animations';
+import {IxMenuContent} from './menu-content';
+import {throwIxMenuInvalidPositionX, throwIxMenuInvalidPositionY} from './menu-errors';
+import {IxMenuItem} from './menu-item';
+import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
 import {MenuPositionX, MenuPositionY} from './menu-positions';
-import {SPMenuModel} from './_model/menu-model.service'; // TODO(uiux): model edit
+import {IxMenuModel} from './_model/menu-model.service'; // TODO(uiux): model edit
 
 /** Default `ix-menu` options that can be overridden. */
-export interface SPMenuDefaultOptions {
+export interface IxMenuDefaultOptions {
   /** The x-axis position of the menu. */
   xPosition: MenuPositionX;
 
@@ -59,13 +59,13 @@ export interface SPMenuDefaultOptions {
 
 /** Injection token to be used to override the default options for `ix-menu`. */
 export const MAT_MENU_DEFAULT_OPTIONS =
-    new InjectionToken<SPMenuDefaultOptions>('ix-menu-default-options', {
+    new InjectionToken<IxMenuDefaultOptions>('ix-menu-default-options', {
       providedIn: 'root',
       factory: MAT_MENU_DEFAULT_OPTIONS_FACTORY
     });
 
 /** @docs-private */
-export function MAT_MENU_DEFAULT_OPTIONS_FACTORY(): SPMenuDefaultOptions {
+export function MAT_MENU_DEFAULT_OPTIONS_FACTORY(): IxMenuDefaultOptions {
   return {
     overlapTrigger: true,
     xPosition: 'after',
@@ -86,31 +86,31 @@ const MAT_MENU_BASE_ELEVATION = 2;
   styleUrls: ['menu.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  exportAs: 'SPMenu',
+  exportAs: 'IxMenu',
   animations: [
-    SPMenuAnimations.transformMenu,
-    SPMenuAnimations.fadeInItems
+    IxMenuAnimations.transformMenu,
+    IxMenuAnimations.fadeInItems
   ],
   providers: [
-    {provide: MAT_MENU_PANEL, useExisting: SPMenu}
+    {provide: MAT_MENU_PANEL, useExisting: IxMenu}
   ]
 })
-export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDestroy {
-  private _keyManager: FocusKeyManager<SPMenuItem>;
+export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnDestroy {
+  private _keyManager: FocusKeyManager<IxMenuItem>;
   private _xPosition: MenuPositionX = this._defaultOptions.xPosition;
   private _yPosition: MenuPositionY = this._defaultOptions.yPosition;
   private _previousElevation: string;
 
   // TODO(uiux): Model edits
   private _spDisableClose = false;
-  private _spMenuModelID: string;
-  private _spMenuModelSubscription = Subscription.EMPTY;
+  private _IxMenuModelID: string;
+  private _IxMenuModelSubscription = Subscription.EMPTY;
 
   /** Menu items inside the current menu. */
-  private _items: SPMenuItem[] = [];
+  private _items: IxMenuItem[] = [];
 
   /** Emits whenever the amount of menu items changes. */
-  private _itemChanges = new Subject<SPMenuItem[]>();
+  private _itemChanges = new Subject<IxMenuItem[]>();
 
   /** Subscription to tab events on the menu panel */
   private _tabSubscription = Subscription.EMPTY;
@@ -128,7 +128,7 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
   _isAnimating: boolean;
 
   /** Parent menu of the current menu panel. */
-  parentMenu: SPMenuPanel | undefined;
+  parentMenu: IxMenuPanel | undefined;
 
   /** Layout direction of the menu. */
   direction: Direction;
@@ -141,7 +141,7 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
   get xPosition(): MenuPositionX { return this._xPosition; }
   set xPosition(value: MenuPositionX) {
     if (value !== 'before' && value !== 'after') {
-      throwSPMenuInvalidPositionX();
+      throwIxMenuInvalidPositionX();
     }
     this._xPosition = value;
   }
@@ -151,7 +151,7 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
   get yPosition(): MenuPositionY { return this._yPosition; }
   set yPosition(value: MenuPositionY) {
     if (value !== 'above' && value !== 'below') {
-      throwSPMenuInvalidPositionY();
+      throwIxMenuInvalidPositionY();
     }
     this._yPosition = value;
   }
@@ -164,8 +164,8 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
 
   // TODO(uiux): model edit
   @Input()
-  set spMenuModelID(val: string) {
-    this._spMenuModelID = val;
+  set IxMenuModelID(val: string) {
+    this._IxMenuModelID = val;
   }
 
   /** @docs-private */
@@ -176,13 +176,13 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
    * @deprecated
    * @deletion-target 7.0.0
    */
-  @ContentChildren(SPMenuItem) items: QueryList<SPMenuItem>;
+  @ContentChildren(IxMenuItem) items: QueryList<IxMenuItem>;
 
   /**
    * Menu content that will be rendered lazily.
    * @docs-private
    */
-  @ContentChild(SPMenuContent) lazyContent: SPMenuContent;
+  @ContentChild(IxMenuContent) lazyContent: IxMenuContent;
 
   /** Whether the menu should overlap its trigger. */
   @Input()
@@ -243,17 +243,17 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
   constructor(
     private _elementRef: ElementRef,
     private _ngZone: NgZone,
-    private _spMenuModel: SPMenuModel, // TODO(uiux): model edit
-    @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: SPMenuDefaultOptions) { }
+    private _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
+    @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: IxMenuDefaultOptions) { }
 
   ngAfterContentInit() {
-    this._keyManager = new FocusKeyManager<SPMenuItem>(this._items).withWrap().withTypeAhead();
+    this._keyManager = new FocusKeyManager<IxMenuItem>(this._items).withWrap().withTypeAhead();
 
     // TODO(uiux): model edit
     this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.spTabHandler());
-    if (this._spMenuModelID) {
-      this._spMenuModelSubscription = this._spMenuModel
-        .getModelByID(this._spMenuModelID)
+    if (this._IxMenuModelID) {
+      this._IxMenuModelSubscription = this._IxMenuModel
+        .getModelByID(this._IxMenuModelID)
         .subscribe((_event: string) => {
           if (_event === 'close') {
             this.closed.emit('click');
@@ -267,11 +267,11 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
     this.closed.complete();
 
     // TODO(uiux): model edit
-    this._spMenuModelSubscription.unsubscribe();
+    this._IxMenuModelSubscription.unsubscribe();
   }
 
   /** Stream that emits whenever the hovered menu item changes. */
-  _hovered(): Observable<SPMenuItem> {
+  _hovered(): Observable<IxMenuItem> {
     return this._itemChanges.pipe(
       startWith(this._items),
       switchMap(items => merge(...items.map(item => item._hovered)))
@@ -374,10 +374,10 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
    * Registers a menu item with the menu.
    * @docs-private
    */
-  addItem(item: SPMenuItem) {
+  addItem(item: IxMenuItem) {
     // We register the items through this method, rather than picking them up through
     // `ContentChildren`, because we need the items to be picked up by their closest
-    // `ix-menu` ancestor. If we used `@ContentChildren(SPMenuItem, {descendants: true})`,
+    // `ix-menu` ancestor. If we used `@ContentChildren(IxMenuItem, {descendants: true})`,
     // all descendant items will bleed into the top-level menu in the case where the consumer
     // has `ix-menu` instances nested inside each other.
     if (this._items.indexOf(item) === -1) {
@@ -390,7 +390,7 @@ export class SPMenu implements AfterContentInit, SPMenuPanel<SPMenuItem>, OnDest
    * Removes an item from the menu.
    * @docs-private
    */
-  removeItem(item: SPMenuItem) {
+  removeItem(item: IxMenuItem) {
     const index = this._items.indexOf(item);
 
     if (this._items.indexOf(item) > -1) {

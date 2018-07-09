@@ -47,7 +47,7 @@ export class ForkJoinSubject<T> extends Subject<T> {
     this._next(this._structure);
   }
 
-  mergeValue(value: any): void {
+  merge(value: any): void {
     this._structure = merge(this._structure, value);
     this._next(this._structure);
   }
@@ -55,6 +55,37 @@ export class ForkJoinSubject<T> extends Subject<T> {
   next(value: T): void {
     this._structure = merge(this._structure, value);
     this._next(this._structure);
+  }
+
+  /**
+   * Does not publish value.
+   * @param val
+   */
+  setValue(val: T): void {
+    this._structure = val;
+  }
+
+  mergeNext(val: T): void {
+    this.merge(val);
+    this.publish();
+  }
+
+  /**
+   * Only works for objects, of course.
+   * @param key
+   * @param val
+   */
+  setValueByKey(key: string, val: T): void {
+    this._structure[key] = val;
+  }
+
+  setValueByKeyNext(key: string, val: T): void {
+    this.setValueByKey(key, val);
+    this.publish();
+  }
+
+  publish(): void {
+    this.next(this._structure);
   }
 
   private _next(value: T): void {

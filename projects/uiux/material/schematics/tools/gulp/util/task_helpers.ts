@@ -9,8 +9,8 @@ const gulpClean = require('gulp-clean');
 
 // There are no type definitions available for these imports.
 const resolveBin = require('resolve-bin');
-// const httpRewrite = require('http-rewrite-middleware');
 
+// const httpRewrite = require('http-rewrite-middleware');
 
 /** If the string passed in is a glob, returns it, otherwise append '**\/*' to it. */
 function _globify(maybeGlob: string, suffix = '**/*') {
@@ -25,7 +25,6 @@ function _globify(maybeGlob: string, suffix = '**/*') {
   } catch (e) {}
   return path.join(maybeGlob, suffix);
 }
-
 
 /** Creates a task that runs the TypeScript compiler */
 export function tsBuildTask(tsConfigPath: string) {
@@ -55,7 +54,7 @@ export interface ExecTaskOptions {
 export function execTask(binPath: string, args: string[], options: ExecTaskOptions = {}) {
   return (done: (err?: string) => void) => {
     const env = Object.assign({}, process.env, options.env);
-    const childProcess = child_process.spawn(binPath, args, {env});
+    const childProcess = child_process.spawn(binPath, args, { env });
     const stderrData: string[] = [];
 
     if (!options.silentStdout && !options.silent) {
@@ -83,8 +82,12 @@ export function execTask(binPath: string, args: string[], options: ExecTaskOptio
  * binaries that are normally in the `./node_modules/.bin` directory, but their name might differ
  * from the package. Examples are typescript, ngc and gulp itself.
  */
-export function execNodeTask(packageName: string, executable: string | string[], args?: string[],
-                             options: ExecTaskOptions = {}) {
+export function execNodeTask(
+  packageName: string,
+  executable: string | string[],
+  args?: string[],
+  options: ExecTaskOptions = {}
+) {
   if (!args) {
     args = <string[]>executable;
     executable = '';
@@ -95,25 +98,31 @@ export function execNodeTask(packageName: string, executable: string | string[],
       if (err) {
         done(err);
       } else {
+        let _args: string[];
+
+        if (args) {
+          _args = [binPath].concat(args);
+        } else {
+          _args = [binPath];
+        }
+
         // Execute the node binary within a new child process using spawn.
         // The binary needs to be `node` because on Windows the shell cannot determine the correct
         // interpreter from the shebang.
-        execTask('node', [binPath].concat(args!), options)(done);
+        execTask('node', _args, options)(done);
       }
     });
   };
 }
-
 
 /** Copy files from a glob to a destination. */
 export function copyTask(srcGlobOrDir: string | string[], outRoot: string) {
   if (typeof srcGlobOrDir === 'string') {
     return () => gulp.src(_globify(srcGlobOrDir)).pipe(gulp.dest(outRoot));
   } else {
-    return () => gulp.src(srcGlobOrDir.map(name => _globify(name))).pipe(gulp.dest(outRoot));
+    return () => gulp.src(srcGlobOrDir.map((name) => _globify(name))).pipe(gulp.dest(outRoot));
   }
 }
-
 
 /** Delete files. */
 export function cleanTask(glob: string) {

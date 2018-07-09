@@ -23,7 +23,7 @@ import{
  * Animation duration and timing values are based on:
  * https://material.io/guidelines/components/menus.html#menus-usage
  */
-export const SPMenuAnimations: {
+export const IxMenuAnimations: {
   readonly transformMenu: AnimationTriggerMetadata;
   readonly fadeInItems: AnimationTriggerMetadata;
 } = {
@@ -75,10 +75,10 @@ export const SPMenuAnimations: {
  * @deprecated
  * @deletion-target 7.0.0
  */
-export const fadeInItems = SPMenuAnimations.fadeInItems;
+export const fadeInItems = IxMenuAnimations.fadeInItems;
 
 /**
  * @deprecated
  * @deletion-target 7.0.0
  */
-export const transformMenu = SPMenuAnimations.transformMenu;
+export const transformMenu = IxMenuAnimations.transformMenu;

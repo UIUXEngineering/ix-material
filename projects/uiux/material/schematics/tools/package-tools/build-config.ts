@@ -1,4 +1,4 @@
-import {findBuildConfig} from './find-build-config';
+import { findBuildConfig } from './find-build-config';
 
 export interface BuildConfig {
   /** Required Angular version for the project. */
@@ -10,7 +10,6 @@ export interface BuildConfig {
   /** Required Angular version for the project. */
   cdkVersion: string;
 
-
   /** Required Flex Layout version of the project. */
   flexLayoutVersion: string;
 
@@ -19,7 +18,6 @@ export interface BuildConfig {
 
   /** Required Lodah version for the project. */
   lodashVersion: string;
-
 
   /** Required immutable version for the project. */
   immutableVersion: string;
@@ -38,15 +36,16 @@ export interface BuildConfig {
 
   /** Required rxjs-compat of the project. */
   buildVersion: string;
-
 }
 
 // Search for a build config by walking up the current working directory of the Node process.
 const buildConfigPath = findBuildConfig();
 
 if (!buildConfigPath) {
-  throw 'Build tools were not able to find a build config. ' +
-  'Please create a "build-config.js" file in your project.';
+  const errorMsg =
+    'Build tools were not able to find a build config. ' +
+    'Please create a "build-config.js" file in your project.';
+  throw new Error(errorMsg);
 }
 
 // Load the config file using a basic CommonJS import.

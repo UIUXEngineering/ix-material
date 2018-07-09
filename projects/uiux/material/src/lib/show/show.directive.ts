@@ -7,11 +7,11 @@ import { hasValue } from '@uiux/cdk/value';
 
 // tslint:disable-next-line
 @Directive({
-  selector: '[spShow]',
+  selector: '[ixShow]',
 })
-export class SpShowDirective implements OnChanges {
+export class IxShowDirective implements OnChanges {
   private _hasShown = false;
-  @Input('spShow') spShow: boolean;
+  @Input('ixShow') ixShow: boolean;
 
   constructor(private _renderer: Renderer2, private _el: ElementRef) {
     this._renderer.addClass(this._el.nativeElement, 'ix-hide-initial');
@@ -20,8 +20,8 @@ export class SpShowDirective implements OnChanges {
 
   ngOnChanges(change: SimpleChanges): void {
     // tslint:disable:no-string-literal
-    if (hasValue(change['spShow'])) {
-      if (change['spShow'].currentValue) {
+    if (hasValue(change['ixShow'])) {
+      if (change['ixShow'].currentValue) {
         this.show();
       } else {
         this.hide();

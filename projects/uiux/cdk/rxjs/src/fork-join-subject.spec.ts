@@ -61,7 +61,7 @@ describe('ForkJoinSubject', () => {
 
     s.nextKey('a', 'foo');
     s.nextKey('b', 'bar');
-    s.mergeValue({
+    s.merge({
       c: 'baz',
       d: 'bum',
     });
