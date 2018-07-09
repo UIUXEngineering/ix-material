@@ -24,12 +24,12 @@ import {
 } from '@angular/material/core';
 import {Subject} from 'rxjs';
 import {DOCUMENT} from '@angular/common';
-import {MAT_MENU_PANEL, MatMenuPanel} from './menu-panel';
+import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
 
-// Boilerplate for applying mixins to MatMenuItem.
+// Boilerplate for applying mixins to IxMenuItem.
 /** @docs-private */
-export class MatMenuItemBase {}
-export const _MatMenuItemMixinBase = mixinDisableRipple(mixinDisabled(MatMenuItemBase));
+export class IxMenuItemBase {}
+export const _IxMenuItemMixinBase = mixinDisableRipple(mixinDisabled(IxMenuItemBase));
 
 /**
  * This directive is intended to be used inside an ix-menu tag.
@@ -37,7 +37,7 @@ export const _MatMenuItemMixinBase = mixinDisableRipple(mixinDisabled(MatMenuIte
  */
 @Component({
   selector: '[ix-menu-item]',
-  exportAs: 'matMenuItem',
+  exportAs: 'ixMenuItem',
   inputs: ['disabled', 'disableRipple'],
   host: {
     'role': 'menuitem',
@@ -54,13 +54,13 @@ export const _MatMenuItemMixinBase = mixinDisableRipple(mixinDisabled(MatMenuIte
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'menu-item.html',
 })
-export class MatMenuItem extends _MatMenuItemMixinBase
+export class IxMenuItem extends _IxMenuItemMixinBase
     implements FocusableOption, CanDisable, CanDisableRipple, OnDestroy {
 
   private _document: Document;
 
   /** Stream that emits when the menu item is hovered. */
-  readonly _hovered: Subject<MatMenuItem> = new Subject<MatMenuItem>();
+  readonly _hovered: Subject<IxMenuItem> = new Subject<IxMenuItem>();
 
   /** Whether the menu item is highlighted. */
   _highlighted: boolean = false;
@@ -72,7 +72,7 @@ export class MatMenuItem extends _MatMenuItemMixinBase
     private _elementRef: ElementRef,
     @Inject(DOCUMENT) document?: any,
     private _focusMonitor?: FocusMonitor,
-    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: MatMenuPanel<MatMenuItem>) {
+    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: IxMenuPanel<IxMenuItem>) {
 
     // @deletion-target 7.0.0 make `_focusMonitor` and `document` required params.
     super();

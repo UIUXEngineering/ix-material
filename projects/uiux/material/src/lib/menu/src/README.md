@@ -15,7 +15,9 @@ Please see the official documentation at https://material.angular.io/components/
 6. Rename `mat-menu` to `ix-menu`
    Search files in menu and styles directories
    
-7. Change `MatMenu` to `IxMenu`
+7. Change `IxMenu` to `IxMenu`
+   
+   Preserve Case in WebStorm
 
 8. Change `./index` to `../index`
    ```

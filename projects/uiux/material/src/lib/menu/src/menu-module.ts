@@ -10,11 +10,11 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {MatCommonModule, MatRippleModule} from '@angular/material/core';
-import {MatMenuContent} from './menu-content';
-import {MatMenu} from './menu-directive';
-import {MatMenuItem} from './menu-item';
+import {IxMenuContent} from './menu-content';
+import {IxMenu} from './menu-directive';
+import {IxMenuItem} from './menu-item';
 import {
-  MatMenuTrigger,
+  IxMenuTrigger,
   MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER,
 } from './menu-trigger';
 
@@ -26,8 +26,8 @@ import {
     MatRippleModule,
     OverlayModule,
   ],
-  exports: [MatMenu, MatMenuItem, MatMenuTrigger, MatMenuContent, MatCommonModule],
-  declarations: [MatMenu, MatMenuItem, MatMenuTrigger, MatMenuContent],
+  exports: [IxMenu, IxMenuItem, IxMenuTrigger, IxMenuContent, MatCommonModule],
+  declarations: [IxMenu, IxMenuItem, IxMenuTrigger, IxMenuContent],
   providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
 })
-export class MatMenuModule {}
+export class IxMenuModule {}

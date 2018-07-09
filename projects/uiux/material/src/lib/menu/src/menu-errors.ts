@@ -10,12 +10,12 @@
  * Throws an exception for the case when menu trigger doesn't have a valid ix-menu instance
  * @docs-private
  */
-export function throwMatMenuMissingError() {
+export function throwIxMenuMissingError() {
   throw Error(`ix-menu-trigger: must pass in an ix-menu instance.
 
     Example:
-      <ix-menu #menu="matMenu"></ix-menu>
-      <button [matMenuTriggerFor]="menu"></button>`);
+      <ix-menu #menu="ixMenu"></ix-menu>
+      <button [ixMenuTriggerFor]="menu"></button>`);
 }
 
 /**
@@ -23,9 +23,9 @@ export function throwMatMenuMissingError() {
  * In other words, it doesn't match 'before' or 'after'.
  * @docs-private
  */
-export function throwMatMenuInvalidPositionX() {
+export function throwIxMenuInvalidPositionX() {
   throw Error(`x-position value must be either 'before' or after'.
-      Example: <ix-menu x-position="before" #menu="matMenu"></ix-menu>`);
+      Example: <ix-menu x-position="before" #menu="ixMenu"></ix-menu>`);
 }
 
 /**
@@ -33,7 +33,7 @@ export function throwMatMenuInvalidPositionX() {
  * In other words, it doesn't match 'above' or 'below'.
  * @docs-private
  */
-export function throwMatMenuInvalidPositionY() {
+export function throwIxMenuInvalidPositionY() {
   throw Error(`y-position value must be either 'above' or below'.
-      Example: <ix-menu y-position="above" #menu="matMenu"></ix-menu>`);
+      Example: <ix-menu y-position="above" #menu="ixMenu"></ix-menu>`);
 }
