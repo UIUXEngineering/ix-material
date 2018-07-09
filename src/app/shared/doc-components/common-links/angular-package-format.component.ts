@@ -6,6 +6,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AngularPackageFormatComponent {
-  href = 'https://docs.google.com/document/d/' +
-  '1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview';
+  href =
+    'https://docs.google.com/document/d/' + '1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview';
 }

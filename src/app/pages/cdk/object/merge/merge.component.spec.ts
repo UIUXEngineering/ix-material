@@ -8,9 +8,8 @@ describe('MergeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MergeComponent ]
-    })
-    .compileComponents();
+      declarations: [MergeComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

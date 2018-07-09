@@ -8,9 +8,8 @@ describe('HasValueNotEqualComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HasValueNotEqualComponent ]
-    })
-    .compileComponents();
+      declarations: [HasValueNotEqualComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

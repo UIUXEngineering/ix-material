@@ -8,9 +8,8 @@ describe('HasValueEqualComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HasValueEqualComponent ]
-    })
-    .compileComponents();
+      declarations: [HasValueEqualComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

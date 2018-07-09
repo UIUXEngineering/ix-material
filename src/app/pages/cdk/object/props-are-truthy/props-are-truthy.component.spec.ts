@@ -8,9 +8,8 @@ describe('PropsAreTruthyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropsAreTruthyComponent ]
-    })
-    .compileComponents();
+      declarations: [PropsAreTruthyComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

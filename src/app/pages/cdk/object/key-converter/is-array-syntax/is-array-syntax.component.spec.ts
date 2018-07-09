@@ -8,9 +8,8 @@ describe('IsArraySyntaxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IsArraySyntaxComponent ]
-    })
-    .compileComponents();
+      declarations: [IsArraySyntaxComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

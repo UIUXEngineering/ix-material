@@ -8,9 +8,8 @@ describe('PropsHaveValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropsHaveValueComponent ]
-    })
-    .compileComponents();
+      declarations: [PropsHaveValueComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

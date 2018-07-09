@@ -16,7 +16,16 @@ import { hasValue } from '@uiux/cdk/value';
 import { default as _uniqBy } from 'lodash-es/uniqBy';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
-import { APP_NAME, CDK, COMPONENTS, GUIDES, ICON, ICONS, POC, THEMES } from '../../../configs/constants';
+import {
+  APP_NAME,
+  CDK,
+  COMPONENTS,
+  GUIDES,
+  ICON,
+  ICONS,
+  POC,
+  THEMES,
+} from '../../../configs/constants';
 import { ROUTES } from '../../../configs/nav-items';
 import { svgAssets } from '../../../environments/svgIconAssets';
 import { IDataItem } from '../../../models/routes';

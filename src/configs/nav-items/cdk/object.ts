@@ -2,7 +2,7 @@ import { propHasValueInAllPaths } from '../../../../projects/uiux/cdk/object/src
 import { IDataItem } from '../../../models/routes';
 import { CDK, GIT_REPO_PROJECTS_BASE, ICON } from '../../constants';
 
-export const object: { [ key: string ]: IDataItem } = {
+export const object: { [key: string]: IDataItem } = {
   // dataItem
   allPropsAreDefined: <IDataItem>{
     route: `/${CDK}/object/allPropsAreDefined`,
@@ -142,7 +142,7 @@ export const object: { [ key: string ]: IDataItem } = {
     base: '',
     desc: 'Determines if a scalar value is not undefined, null, or empty in a nested object.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/has-value-in.spec.ts`,
-    seeAlso: [ 'hasValue' ],
+    seeAlso: ['hasValue'],
     version: '6.0',
     icon: ICON.CDK,
     search: `${CDK}, object, hasValueIn`,
@@ -261,7 +261,8 @@ export const object: { [ key: string ]: IDataItem } = {
     route: `/${CDK}/object/keySplitterIntoImmutablePath`,
     name: 'keySplitterIntoImmutablePath',
     base: '',
-    desc: 'Immutable.js helper. Split nested object path string into notation consumable by Immutable.js.',
+    desc:
+      'Immutable.js helper. Split nested object path string into notation consumable by Immutable.js.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/key-converter.spec.ts#L47`,
     seeAlso: [],
     version: '6.0',
@@ -294,7 +295,8 @@ export const object: { [ key: string ]: IDataItem } = {
     route: `/${CDK}/object/mergePropsIfNoValue`,
     name: 'mergePropsIfNoValue',
     base: '',
-    desc: 'Merge properties of a source object to a target object only if the target properties have no value.',
+    desc:
+      'Merge properties of a source object to a target object only if the target properties have no value.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/merge-props-if-no-value.spec.ts`,
     seeAlso: [],
     version: '6.0',
@@ -305,7 +307,8 @@ export const object: { [ key: string ]: IDataItem } = {
     route: `/${CDK}/object/propHasValueInAllPaths`,
     name: 'propHasValueInAllPaths',
     base: '',
-    desc: 'In an object that has nested objects with the exact same interface, determine if a property in each nested object has a value.',
+    desc:
+      'In an object that has nested objects with the exact same interface, determine if a property in each nested object has a value.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/prop-has-value-in-all-paths.spec.ts`,
     seeAlso: [],
     version: '6.0',
@@ -316,7 +319,8 @@ export const object: { [ key: string ]: IDataItem } = {
     route: `/${CDK}/object/propTruthyInAllPaths`,
     name: 'propTruthyInAllPaths',
     base: '',
-    desc: 'In an object that has nested objects with the exact same interface, determine if a property in each nested object is truthy.',
+    desc:
+      'In an object that has nested objects with the exact same interface, determine if a property in each nested object is truthy.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/prop-truthy-in-all-paths.spec.ts`,
     seeAlso: [],
     version: '6.0',
@@ -327,7 +331,8 @@ export const object: { [ key: string ]: IDataItem } = {
     route: `/${CDK}/object/propsAreEqual`,
     name: 'propsAreEqual',
     base: '',
-    desc: 'Evaluates if properties in a source and target object are equal based on a mapping object.',
+    desc:
+      'Evaluates if properties in a source and target object are equal based on a mapping object.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/props-are-equal.spec.ts`,
     seeAlso: [],
     version: '6.0',
@@ -362,7 +367,7 @@ export const object: { [ key: string ]: IDataItem } = {
     base: '',
     desc: 'Determines if values of given properties of an object hasValue.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/props-have-value.spec.ts`,
-    seeAlso: [ 'hasValue' ],
+    seeAlso: ['hasValue'],
     version: '6.0',
     icon: ICON.CDK,
     search: `${CDK}, object, propsHaveValue`,
@@ -382,7 +387,8 @@ export const object: { [ key: string ]: IDataItem } = {
     route: `/${CDK}/object/setIn`,
     name: 'setIn',
     base: '',
-    desc: 'Sets the nested key to the provided value, ' +
+    desc:
+      'Sets the nested key to the provided value, ' +
       'creating objects for any non-existent properties, ' +
       'and returns the supplied object. Keys may be ' +
       'supplied an array, or a dot-delimited string of properties.',
@@ -404,14 +410,14 @@ export const object: { [ key: string ]: IDataItem } = {
     search: `${CDK}, object, setInIfSrc`,
   },
   setInIfSrcWithConfig: <IDataItem>{
-           route: `/${CDK}/object/setInIfSrcWithConfig`,
-           name: 'setInIfSrcWithConfig',
-           base: '',
-           desc: 'Use setInIfSrc with config object instead of arguments.',
-           githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/set-in-if-src-with-config.spec.ts`,
-           seeAlso: [],
-           version: '6.0',
-           icon: ICON.CDK,
-           search: `${CDK}, object, setInIfSrcWithConfig`,
-         },
+    route: `/${CDK}/object/setInIfSrcWithConfig`,
+    name: 'setInIfSrcWithConfig',
+    base: '',
+    desc: 'Use setInIfSrc with config object instead of arguments.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/set-in-if-src-with-config.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, setInIfSrcWithConfig`,
+  },
 };

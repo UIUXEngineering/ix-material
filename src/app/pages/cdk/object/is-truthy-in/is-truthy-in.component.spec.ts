@@ -8,9 +8,8 @@ describe('IsTruthyInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IsTruthyInComponent ]
-    })
-    .compileComponents();
+      declarations: [IsTruthyInComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

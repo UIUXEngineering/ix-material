@@ -5,7 +5,14 @@ import { IxMenuModule, IxShowModule } from '@uiux/material';
 import { MenuBasicExampleComponent } from './menu-example.component';
 
 @NgModule({
-  imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatInputModule, IxMenuModule, IxShowModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    IxMenuModule,
+    IxShowModule,
+  ],
   declarations: [MenuBasicExampleComponent],
   exports: [MenuBasicExampleComponent],
 })

@@ -8,9 +8,8 @@ describe('PropTruthyInAllPathsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropTruthyInAllPathsComponent ]
-    })
-    .compileComponents();
+      declarations: [PropTruthyInAllPathsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

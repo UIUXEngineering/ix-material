@@ -8,9 +8,8 @@ describe('AllPropsHaveValueInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllPropsHaveValueInComponent ]
-    })
-    .compileComponents();
+      declarations: [AllPropsHaveValueInComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

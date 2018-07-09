@@ -11,11 +11,9 @@ describe('StyleManager', () => {
       providers: [StyleManager],
     }));
 
-  beforeEach(
-    inject([StyleManager], (sm: StyleManager) => {
-      styleManager = sm;
-    })
-  );
+  beforeEach(inject([StyleManager], (sm: StyleManager) => {
+    styleManager = sm;
+  }));
 
   afterEach(() => {
     const links = document.head.querySelectorAll('link');

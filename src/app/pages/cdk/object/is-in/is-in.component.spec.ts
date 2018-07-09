@@ -8,9 +8,8 @@ describe('IsInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IsInComponent ]
-    })
-    .compileComponents();
+      declarations: [IsInComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,13 +4,13 @@ import { ROUTES } from '../../../../../configs/nav-items';
 import { IDataItem } from '../../../../../models/routes';
 
 @Component({
-             selector: 'store-subject',
-             templateUrl: './store-subject.component.html',
-             styleUrls: [ './store-subject.component.scss' ],
-             preserveWhitespaces: false,
-             encapsulation: ViewEncapsulation.None,
-             changeDetection: ChangeDetectionStrategy.OnPush,
-           })
+  selector: 'store-subject',
+  templateUrl: './store-subject.component.html',
+  styleUrls: ['./store-subject.component.scss'],
+  preserveWhitespaces: false,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
 export class StoreSubjectComponent implements OnInit {
   data: IDataItem = ROUTES.cdk.store.storeSubject;
 
@@ -20,10 +20,7 @@ export class StoreSubjectComponent implements OnInit {
   transformSpec = `${GIT_REPO_PROJECTS_BASE}/${CDK}/store/src/store-subject.transform.spec.ts`;
   updateSpec = `${GIT_REPO_PROJECTS_BASE}/${CDK}/store/src/store-subject.update.spec.ts`;
   transformStoreSpec = `${GIT_REPO_PROJECTS_BASE}/${CDK}/store/src/transform-store-subject.spec.ts`;
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -8,9 +8,8 @@ describe('FindPropsWithValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FindPropsWithValueComponent ]
-    })
-    .compileComponents();
+      declarations: [FindPropsWithValueComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

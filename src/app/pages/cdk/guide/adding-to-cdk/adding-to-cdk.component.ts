@@ -13,9 +13,8 @@ import { IDataItem } from '../../../../../models/routes';
 export class AddingToCdkComponent {
   data: IDataItem = ROUTES.cdk.guides['adding-to-cdk'];
 
-  seconaryEnpoints = 'https://github.com/dherges/' +
-  'ng-packagr/blob/master/' +
-  'docs/secondary-entrypoints.md';
+  seconaryEnpoints =
+    'https://github.com/dherges/' + 'ng-packagr/blob/master/' + 'docs/secondary-entrypoints.md';
 
   starterImport = `import { myStarterFunction } from '@uiux/cdk/starter`;
 }

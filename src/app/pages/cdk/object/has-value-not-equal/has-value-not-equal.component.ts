@@ -6,15 +6,13 @@ import { IDataItem } from '../../../../../models/routes';
   selector: 'has-value-not-equal',
   templateUrl: './has-value-not-equal.component.html',
   styleUrls: ['./has-value-not-equal.component.scss'],
-    preserveWhitespaces: false,
-      encapsulation: ViewEncapsulation.None,
-      changeDetection: ChangeDetectionStrategy.OnPush,
+  preserveWhitespaces: false,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HasValueNotEqualComponent implements OnInit {
   data: IDataItem = ROUTES.cdk.value.hasValueNotEqual;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

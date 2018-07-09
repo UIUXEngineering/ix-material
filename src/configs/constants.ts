@@ -19,14 +19,7 @@ export const PROJECTS = {
   [POC]: 'PoC',
   [THEMES]: 'Themes',
 };
-export const sectionOrder: string[] = [
-  CDK,
-  COMPONENTS,
-  POC,
-  ICONS,
-  THEMES,
-  GUIDES,
-];
+export const sectionOrder: string[] = [CDK, COMPONENTS, POC, ICONS, THEMES, GUIDES];
 export const THEME_PICKER_THEMES: any[] = [
   {
     primary: '#673AB7',

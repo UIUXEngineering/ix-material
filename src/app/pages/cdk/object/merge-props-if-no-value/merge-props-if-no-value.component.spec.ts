@@ -8,9 +8,8 @@ describe('MergePropsIfNoValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MergePropsIfNoValueComponent ]
-    })
-    .compileComponents();
+      declarations: [MergePropsIfNoValueComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

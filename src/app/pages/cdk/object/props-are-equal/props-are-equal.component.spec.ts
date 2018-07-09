@@ -8,9 +8,8 @@ describe('PropsAreEqualComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropsAreEqualComponent ]
-    })
-    .compileComponents();
+      declarations: [PropsAreEqualComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

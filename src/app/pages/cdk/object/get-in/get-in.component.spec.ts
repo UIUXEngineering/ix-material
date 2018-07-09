@@ -8,9 +8,8 @@ describe('GetInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GetInComponent ]
-    })
-    .compileComponents();
+      declarations: [GetInComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
