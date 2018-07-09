@@ -10,4 +10,4 @@ import { IxShowDirective } from './show.directive';
   declarations: [IxShowDirective],
   exports: [IxShowDirective],
 })
-export class SpShowModule {}
+export class IxShowModule {}

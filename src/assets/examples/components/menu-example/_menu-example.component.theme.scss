@@ -1,0 +1,15 @@
+@mixin menu-example($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  @if $is-dark {
+    input, textarea {
+      color: mat-color($primary, default-contrast) !important;
+    }
+
+  }
+}

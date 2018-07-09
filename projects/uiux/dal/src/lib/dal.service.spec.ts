@@ -5,7 +5,7 @@ import { DalService } from './dal.service';
 describe('DalService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DalService]
+      providers: [DalService],
     });
   });
 

@@ -4,4 +4,3 @@
  */
 
 export * from './src/ix-firebase.module';
-

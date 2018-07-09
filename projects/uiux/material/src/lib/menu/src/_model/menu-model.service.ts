@@ -6,7 +6,9 @@
 import {Injectable, Optional, SkipSelf} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 
-@Injectable()
+@Injectable({
+              providedIn: 'root',
+            })
 export class IxMenuSubject extends Subject<string> {
     constructor() {
         super();
@@ -22,7 +24,9 @@ export class IxMenuSubject extends Subject<string> {
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-@Injectable()
+@Injectable({
+              providedIn: 'root',
+            })
 export class IxMenuModel {
     private _cache: { [ key: string]: IxMenuSubject } = {};
 

@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import{
+import {
   trigger,
   state,
   style,
@@ -23,7 +23,7 @@ import{
  * Animation duration and timing values are based on:
  * https://material.io/guidelines/components/menus.html#menus-usage
  */
-export const IxMenuAnimations: {
+export const ixMenuAnimations: {
   readonly transformMenu: AnimationTriggerMetadata;
   readonly fadeInItems: AnimationTriggerMetadata;
 } = {
@@ -75,10 +75,10 @@ export const IxMenuAnimations: {
  * @deprecated
  * @deletion-target 7.0.0
  */
-export const fadeInItems = IxMenuAnimations.fadeInItems;
+export const fadeInItems = ixMenuAnimations.fadeInItems;
 
 /**
  * @deprecated
  * @deletion-target 7.0.0
  */
-export const transformMenu = IxMenuAnimations.transformMenu;
+export const transformMenu = ixMenuAnimations.transformMenu;

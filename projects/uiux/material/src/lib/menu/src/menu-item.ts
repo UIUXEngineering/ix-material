@@ -36,9 +36,8 @@ export const _IxMenuItemMixinBase = mixinDisableRipple(mixinDisabled(IxMenuItemB
  * It exists mostly to set the role attribute.
  */
 @Component({
-  // tslint:disable-next-line
   selector: '[ix-menu-item]',
-  exportAs: 'IxMenuItem',
+  exportAs: 'ixMenuItem',
   inputs: ['disabled', 'disableRipple'],
   host: {
     'role': 'menuitem',
