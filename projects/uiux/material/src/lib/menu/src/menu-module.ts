@@ -10,14 +10,14 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {MatCommonModule, MatRippleModule} from '@angular/material/core';
-import {IxMenuContent} from './menu-content';
-import {IxMenu} from './menu-directive';
-import {IxMenuItem} from './menu-item';
+import {MatMenuContent} from './menu-content';
+import {MatMenu} from './menu-directive';
+import {MatMenuItem} from './menu-item';
 import {
-  IxMenuTrigger,
+  MatMenuTrigger,
   MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER,
 } from './menu-trigger';
-import {MENU_MODEL_PROVIDER} from './_model/menu-model.service';
+
 
 @NgModule({
   imports: [
@@ -26,8 +26,8 @@ import {MENU_MODEL_PROVIDER} from './_model/menu-model.service';
     MatRippleModule,
     OverlayModule,
   ],
-  exports: [IxMenu, IxMenuItem, IxMenuTrigger, IxMenuContent, MatCommonModule],
-  declarations: [IxMenu, IxMenuItem, IxMenuTrigger, IxMenuContent],
-  providers: [MENU_MODEL_PROVIDER, MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
+  exports: [MatMenu, MatMenuItem, MatMenuTrigger, MatMenuContent, MatCommonModule],
+  declarations: [MatMenu, MatMenuItem, MatMenuTrigger, MatMenuContent],
+  providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
 })
-export class IxMenuModule {}
+export class MatMenuModule {}

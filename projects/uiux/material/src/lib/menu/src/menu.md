@@ -3,25 +3,25 @@
 <!-- example(menu-overview) -->
 
 By itself, the `<ix-menu>` element does not render anything. The menu is attached to and opened
-via application of the `IxMenuTriggerFor` directive:
+via application of the `matMenuTriggerFor` directive:
 ```html
-<ix-menu #appMenu="IxMenu">
+<ix-menu #appMenu="matMenu">
   <button ix-menu-item>Settings</button>
   <button ix-menu-item>Help</button>
 </ix-menu>
 
-<button mat-icon-button [IxMenuTriggerFor]="appMenu">
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
   <mat-icon>more_vert</mat-icon>
 </button>
 ```
 
 ### Toggling the menu programmatically
 The menu exposes an API to open/close programmatically. Please note that in this case, an
-`IxMenuTriggerFor` directive is still necessary to attach the menu to a trigger element in the DOM.
+`matMenuTriggerFor` directive is still necessary to attach the menu to a trigger element in the DOM.
 
 ```ts
 class MyComponent {
-  @ViewChild(IxMenuTrigger) trigger: IxMenuTrigger;
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   someMethod() {
     this.trigger.openMenu();
@@ -34,7 +34,7 @@ Menus support displaying `mat-icon` elements before the menu item text.
 
 *my-comp.html*
 ```html
-<ix-menu #menu="IxMenu">
+<ix-menu #menu="matMenu">
   <button ix-menu-item>
     <mat-icon>dialpad</mat-icon>
     <span>Redial</span>
@@ -58,12 +58,12 @@ The position can be changed using the `xPosition` (`before | after`) and `yPosit
 `[overlapTrigger]="false"` attribute.
 
 ```html
-<ix-menu #appMenu="IxMenu" yPosition="above">
+<ix-menu #appMenu="matMenu" yPosition="above">
   <button ix-menu-item>Settings</button>
   <button ix-menu-item>Help</button>
 </ix-menu>
 
-<button mat-icon-button [IxMenuTriggerFor]="appMenu">
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
   <mat-icon>more_vert</mat-icon>
 </button>
 ```
@@ -71,22 +71,22 @@ The position can be changed using the `xPosition` (`before | after`) and `yPosit
 ### Nested menu
 
 Material supports the ability for an `ix-menu-item` to open a sub-menu. To do so, you have to define
-your root menu and sub-menus, in addition to setting the `[IxMenuTriggerFor]` on the `ix-menu-item`
+your root menu and sub-menus, in addition to setting the `[matMenuTriggerFor]` on the `ix-menu-item`
 that should trigger the sub-menu:
 
 ```html
-<ix-menu #rootMenu="IxMenu">
-  <button ix-menu-item [IxMenuTriggerFor]="subMenu">Power</button>
+<ix-menu #rootMenu="matMenu">
+  <button ix-menu-item [matMenuTriggerFor]="subMenu">Power</button>
   <button ix-menu-item>System settings</button>
 </ix-menu>
 
-<ix-menu #subMenu="IxMenu">
+<ix-menu #subMenu="matMenu">
   <button ix-menu-item>Shut down</button>
   <button ix-menu-item>Restart</button>
   <button ix-menu-item>Hibernate</button>
 </ix-menu>
 
-<button mat-icon-button [IxMenuTriggerFor]="rootMenu">
+<button mat-icon-button [matMenuTriggerFor]="rootMenu">
   <mat-icon>more_vert</mat-icon>
 </button>
 ```
@@ -96,39 +96,39 @@ that should trigger the sub-menu:
 ### Lazy rendering
 By default, the menu content will be initialized even when the panel is closed. To defer
 initialization until the menu is open, the content can be provided as an `ng-template`
-with the `IxMenuContent` attribute:
+with the `matMenuContent` attribute:
 
 ```html
-<ix-menu #appMenu="IxMenu">
-  <ng-template IxMenuContent>
+<ix-menu #appMenu="matMenu">
+  <ng-template matMenuContent>
     <button ix-menu-item>Settings</button>
     <button ix-menu-item>Help</button>
   </ng-template>
 </ix-menu>
 
-<button mat-icon-button [IxMenuTriggerFor]="appMenu">
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
   <mat-icon>more_vert</mat-icon>
 </button>
 ```
 
 ### Passing in data to a menu
 When using lazy rendering, additional context data can be passed to the menu panel via
-the `IxMenuTriggerData` input. This allows for a single menu instance to be rendered
+the `matMenuTriggerData` input. This allows for a single menu instance to be rendered
 with a different set of data, depending on the trigger that opened it:
 
 ```html
-<ix-menu #appMenu="IxMenu">
-  <ng-template IxMenuContent let-name="name">
+<ix-menu #appMenu="matMenu">
+  <ng-template matMenuContent let-name="name">
     <button ix-menu-item>Settings</button>
     <button ix-menu-item>Log off {{name}}</button>
   </ng-template>
 </ix-menu>
 
-<button mat-icon-button [IxMenuTriggerFor]="appMenu" [IxMenuTriggerData]="{name: 'Sally'}">
+<button mat-icon-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Sally'}">
   <mat-icon>more_vert</mat-icon>
 </button>
 
-<button mat-icon-button [IxMenuTriggerFor]="appMenu" [IxMenuTriggerData]="{name: 'Bob'}">
+<button mat-icon-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Bob'}">
   <mat-icon>more_vert</mat-icon>
 </button>
 ```

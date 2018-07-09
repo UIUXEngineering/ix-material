@@ -3,7 +3,7 @@
     class="ix-menu-panel"
     [ngClass]="_classList"
     (keydown)="_handleKeydown($event)"
-    (click)="spCloseHandler()"
+    (click)="closed.emit('click')"
     [@transformMenu]="_panelAnimationState"
     (@transformMenu.start)="_isAnimating = true"
     (@transformMenu.done)="_onAnimationDone($event)"

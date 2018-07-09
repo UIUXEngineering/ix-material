@@ -24,21 +24,20 @@ import {
 } from '@angular/material/core';
 import {Subject} from 'rxjs';
 import {DOCUMENT} from '@angular/common';
-import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
+import {MAT_MENU_PANEL, MatMenuPanel} from './menu-panel';
 
-// Boilerplate for applying mixins to IxMenuItem.
+// Boilerplate for applying mixins to MatMenuItem.
 /** @docs-private */
-export class IxMenuItemBase {}
-export const _IxMenuItemMixinBase = mixinDisableRipple(mixinDisabled(IxMenuItemBase));
+export class MatMenuItemBase {}
+export const _MatMenuItemMixinBase = mixinDisableRipple(mixinDisabled(MatMenuItemBase));
 
 /**
  * This directive is intended to be used inside an ix-menu tag.
  * It exists mostly to set the role attribute.
  */
 @Component({
-  // tslint:disable-next-line
   selector: '[ix-menu-item]',
-  exportAs: 'IxMenuItem',
+  exportAs: 'matMenuItem',
   inputs: ['disabled', 'disableRipple'],
   host: {
     'role': 'menuitem',
@@ -55,13 +54,13 @@ export const _IxMenuItemMixinBase = mixinDisableRipple(mixinDisabled(IxMenuItemB
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'menu-item.html',
 })
-export class IxMenuItem extends _IxMenuItemMixinBase
+export class MatMenuItem extends _MatMenuItemMixinBase
     implements FocusableOption, CanDisable, CanDisableRipple, OnDestroy {
 
   private _document: Document;
 
   /** Stream that emits when the menu item is hovered. */
-  readonly _hovered: Subject<IxMenuItem> = new Subject<IxMenuItem>();
+  readonly _hovered: Subject<MatMenuItem> = new Subject<MatMenuItem>();
 
   /** Whether the menu item is highlighted. */
   _highlighted: boolean = false;
@@ -73,7 +72,7 @@ export class IxMenuItem extends _IxMenuItemMixinBase
     private _elementRef: ElementRef,
     @Inject(DOCUMENT) document?: any,
     private _focusMonitor?: FocusMonitor,
-    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: IxMenuPanel<IxMenuItem>) {
+    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: MatMenuPanel<MatMenuItem>) {
 
     // @deletion-target 7.0.0 make `_focusMonitor` and `document` required params.
     super();
