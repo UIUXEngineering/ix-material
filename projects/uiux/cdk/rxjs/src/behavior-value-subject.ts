@@ -46,7 +46,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
   next(value: T): void {
     if (hasValue(value)) {
       this._value = clone(value);
-      super.next((this._value = value));
+      super.next(this._value );
     }
   }
 
@@ -63,7 +63,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
    * @param publish
    */
   setValue(val: T, publish = true): void {
-    this._value = val;
+    this._value = clone(val);
 
     if (publish) {
       this.publish();
@@ -71,7 +71,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
   }
 
   merge(val: T, publish = true): void {
-    this._value = merge(this._value, val);
+    this._value = merge(this._value, clone(val));
 
     if (publish) {
       this.publish();
@@ -85,7 +85,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
    * @param publish
    */
   setValueByKey(key: string, val: T, publish = true): void {
-    this._value[key] = val;
+    this._value[key] = clone(val);
 
     if (publish) {
       this.publish();
@@ -101,7 +101,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
   }
 
   setIn(key: string | string[], val: T, publish = true): void {
-    setIn(this._value, key, val);
+    setIn(this._value, key, clone(val));
 
     if (publish) {
       this.publish();
@@ -109,7 +109,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
   }
 
   setValueByKeyNext(key: string, val: T, publish = true): void {
-    this.setValueByKey(key, val);
+    this.setValueByKey(key, clone(val));
 
     if (publish) {
       this.publish();
