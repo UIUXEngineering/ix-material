@@ -36,6 +36,7 @@ import { PropsWithNoValueComponent } from './object/props-with-no-value/props-wi
 import { SetInIfSrcWithConfigComponent } from './object/set-in-if-src-with-config/set-in-if-src-with-config.component';
 import { SetInIfSrcComponent } from './object/set-in-if-src/set-in-if-src.component';
 import { SetInComponent } from './object/set-in/set-in.component';
+import { TernaryComponent } from './object/ternary/ternary.component';
 import { StoreSubjectComponent } from './store/store-subject/store-subject.component';
 import { HasValueComponent } from './value/has-value/has-value.component';
 import { InvokeIfElseInConfigComponent } from './object/invoke-if-else-in-config/invoke-if-else-in-config.component';
@@ -213,6 +214,10 @@ const routes: Routes = [
       {
         path: 'object/setInIfSrcWithConfig',
         component: SetInIfSrcWithConfigComponent,
+      },
+      {
+        path: 'object/ternary',
+        component: TernaryComponent,
       },
 
       // store
