@@ -70,7 +70,7 @@ export class BehaviorStoreSubject<T> extends Subject<T> {
    * @param val
    * @param publish
    */
-  setValueByKey(key: string, val: T, publish = true): void {
+  setValueByKey(key: string, val: any, publish = true): void {
     this._value[key] = clone(val);
 
     if (publish) {
@@ -86,7 +86,7 @@ export class BehaviorStoreSubject<T> extends Subject<T> {
     return getIn(this._value, key);
   }
 
-  setIn(key: string | string[], val: T, publish = true): void {
+  setIn(key: string | string[], val: any, publish = true): void {
     setIn(this._value, key, clone(val));
 
     if (publish) {
@@ -94,7 +94,7 @@ export class BehaviorStoreSubject<T> extends Subject<T> {
     }
   }
 
-  setValueByKeyNext(key: string, val: T, publish = true): void {
+  setValueByKeyNext(key: string, val: any, publish = true): void {
     this.setValueByKey(key, clone(val));
 
     if (publish) {
