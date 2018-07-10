@@ -28,9 +28,12 @@ describe('BehaviorStoreSubject', () => {
       r = _r;
     });
 
-    s.setValue({
-      foo: 'bar',
-    });
+    s.setValue(
+      {
+        foo: 'bar',
+      },
+      false
+    );
 
     expect(s.getValue().foo).toEqual('bar');
     expect(r).toEqual({
@@ -50,9 +53,12 @@ describe('BehaviorStoreSubject', () => {
       r = _r;
     });
 
-    s.merge({
-      foo: 'bar',
-    });
+    s.merge(
+      {
+        foo: 'bar',
+      },
+      false
+    );
 
     expect(s.getValue().foo).toEqual('bar');
     expect(r).toEqual({

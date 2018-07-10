@@ -8,6 +8,7 @@ import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { Subscriber } from 'rxjs/Subscriber';
 import { hasValue, isDefined } from '@uiux/cdk/value';
 import { merge } from '@uiux/cdk/object';
+import { clone, getIn, setIn } from '@uiux/cdk/object';
 
 export class BehaviorValueSubject<T> extends Subject<T> {
   private _value: T;
@@ -42,50 +43,80 @@ export class BehaviorValueSubject<T> extends Subject<T> {
     }
   }
 
-  /**
-   * Does not publish value.
-   * @param val
-   */
-  setValue(val: T): void {
-    this._value = val;
-  }
-
-  merge(val: T): void {
-    this._value = merge(this._value, val);
-  }
-
-  mergeNext(val: T): void {
-    this.merge(val);
-    this.publish();
-  }
-
-  /**
-   * Only works for objects, of course.
-   * @param key
-   * @param val
-   */
-  setValueByKey(key: string, val: T): void {
-    this._value[key] = val;
-  }
-
-  setValueByKeyNext(key: string, val: T): void {
-    this.setValueByKey(key, val);
-    this.publish();
-  }
-
-  publish(): void {
-    this.next(this._value);
-  }
-
   next(value: T): void {
     if (hasValue(value)) {
+      this._value = clone(value);
       super.next((this._value = value));
     }
   }
 
   nextDefined(value: T): void {
     if (isDefined(value)) {
-      super.next((this._value = value));
+      this._value = clone(value);
+      super.next(this._value);
     }
+  }
+
+  /**
+   * Does not publish value.
+   * @param val
+   * @param publish
+   */
+  setValue(val: T, publish = true): void {
+    this._value = val;
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  merge(val: T, publish = true): void {
+    this._value = merge(this._value, val);
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  /**
+   * Only works for objects, of course.
+   * @param key
+   * @param val
+   * @param publish
+   */
+  setValueByKey(key: string, val: T, publish = true): void {
+    this._value[key] = val;
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  getValueByKey(key: string): any {
+    return this._value[key];
+  }
+
+  getIn(key: string | string[]): any {
+    return getIn(this._value, key);
+  }
+
+  setIn(key: string | string[], val: T, publish = true): void {
+    setIn(this._value, key, val);
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  setValueByKeyNext(key: string, val: T, publish = true): void {
+    this.setValueByKey(key, val);
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  publish(): void {
+    this.next(this._value);
   }
 }
