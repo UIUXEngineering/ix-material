@@ -147,16 +147,22 @@ describe('ZipSubject', () => {
 
     s.nextKey('a', 'foo');
     s.nextKey('b', 'bar');
-    s.mergeNextValue({
-      c: 'baz',
-      d: 'bum',
-    });
+    s.merge(
+      {
+        c: 'baz',
+        d: 'bum',
+      },
+      true
+    );
 
     s.nextKey('a', 'faz');
-    s.mergeNextValue({
-      c: 'bay',
-      d: 'boo',
-    });
+    s.merge(
+      {
+        c: 'bay',
+        d: 'boo',
+      },
+      true
+    );
 
     expect(spy.calls.count()).toEqual(3);
     expect(result).toEqual({
@@ -190,18 +196,24 @@ describe('ZipSubject', () => {
 
     s.nextKey('a', 'foo');
     s.nextKey('b', 'bar');
-    s.mergeNextValue({
-      c: 'baz',
-      d: 'bum',
-    });
+    s.merge(
+      {
+        c: 'baz',
+        d: 'bum',
+      },
+      true
+    );
 
     // will reset here
 
     s.nextKey('a', 'faz');
-    s.mergeNextValue({
-      c: 'bay',
-      d: 'boo',
-    });
+    s.merge(
+      {
+        c: 'bay',
+        d: 'boo',
+      },
+      true
+    );
     s.nextKey('b', 'bum');
 
     expect(spy.calls.count()).toEqual(2);
@@ -234,18 +246,24 @@ describe('ZipSubject', () => {
 
     s.nextKey('a', 'foo');
     s.nextKey('b', 'bar');
-    s.mergeNextValue({
-      c: 'baz',
-      d: 'bum',
-    });
+    s.merge(
+      {
+        c: 'baz',
+        d: 'bum',
+      },
+      true
+    );
 
     s.reset();
 
     s.nextKey('a', 'faz');
-    s.mergeNextValue({
-      c: 'bay',
-      d: 'boo',
-    });
+    s.merge(
+      {
+        c: 'bay',
+        d: 'boo',
+      },
+      true
+    );
     s.nextKey('b', 'bum');
 
     expect(spy.calls.count()).toEqual(2);
@@ -257,7 +275,7 @@ describe('ZipSubject', () => {
     });
   });
 
-  it('should not publish if using setKey or merge', () => {
+  it('should not publish if using setKey or merge if publish set to false', () => {
     const spy = jasmine.createSpy('spy');
 
     const i: any = {
@@ -276,21 +294,27 @@ describe('ZipSubject', () => {
       result = r;
     });
 
-    s.setKey('a', 'foo');
-    s.setKey('b', 'bar');
-    s.merge({
-      c: 'baz',
-      d: 'bum',
-    });
+    s.setKey('a', 'foo', false);
+    s.setKey('b', 'bar', false);
+    s.merge(
+      {
+        c: 'baz',
+        d: 'bum',
+      },
+      false
+    );
 
-    s.setKey('a', 'faz');
-    s.merge({
-      c: 'bay',
-      d: 'boo',
-    });
-    s.setKey('b', 'bum');
+    s.setKey('a', 'faz', false);
+    s.merge(
+      {
+        c: 'bay',
+        d: 'boo',
+      },
+      false
+    );
+    s.setKey('b', 'bum', false);
 
-    s.publishStore();
+    s.publish();
 
     expect(spy.calls.count()).toEqual(1);
     expect(result).toEqual({
@@ -348,7 +372,7 @@ describe('ZipSubject', () => {
     s.pushKey('b', 'a');
     s.pushKey('b', 'b');
 
-    s.publishStore();
+    s.publish();
 
     expect(result).toEqual({
       a: 'foo',

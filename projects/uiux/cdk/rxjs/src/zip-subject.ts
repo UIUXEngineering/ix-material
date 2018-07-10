@@ -122,8 +122,12 @@ export class ZipSubject<T> extends Subject<T> {
     }
   }
 
-  setKey(key: string | string[], value: any): void {
+  setKey(key: string | string[], value: any, publish = true): void {
     this._value = this._value.setIn(this._immutableKey(key), this._immutableValue(value));
+
+    if (publish) {
+      this.publish();
+    }
   }
 
   pushKey(key: string, value: any, uniqBy?: any): void {
@@ -191,16 +195,15 @@ export class ZipSubject<T> extends Subject<T> {
     }
   }
 
-  merge(value: any): void {
+  merge(value: any, publish = true): void {
     this._value = this._value.merge(this._immutableValue(value));
+
+    if (publish) {
+      this.publish();
+    }
   }
 
-  mergeNextValue(value: any): void {
-    this._value = this._value.merge(this._immutableValue(value));
-    this._next();
-  }
-
-  publishStore(): void {
+  publish(): void {
     this._next();
   }
 

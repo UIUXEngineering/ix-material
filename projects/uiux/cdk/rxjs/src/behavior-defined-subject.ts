@@ -8,6 +8,7 @@ import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { Subscriber } from 'rxjs/Subscriber';
 import { isDefined } from '@uiux/cdk/value';
 import { merge } from '@uiux/cdk/object';
+import { clone, getIn, setIn } from '@uiux/cdk/object';
 
 export class BehaviorDefinedSubject<T> extends Subject<T> {
   private _value: T;
@@ -44,39 +45,68 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
 
   next(value: T): void {
     if (isDefined(value)) {
-      super.next((this._value = value));
+      this._value = clone(value);
+      super.next(this._value);
     }
   }
 
   /**
    * Does not publish value.
    * @param val
+   * @param publish
    */
-  setValue(val: T): void {
+  setValue(val: T, publish = true): void {
     this._value = val;
+
+    if (publish) {
+      this.publish();
+    }
   }
 
-  merge(val: T): void {
+  merge(val: T, publish = true): void {
     this._value = merge(this._value, val);
-  }
 
-  mergeNext(val: T): void {
-    this.merge(val);
-    this.publish();
+    if (publish) {
+      this.publish();
+    }
   }
 
   /**
    * Only works for objects, of course.
    * @param key
    * @param val
+   * @param publish
    */
-  setValueByKey(key: string, val: T): void {
+  setValueByKey(key: string, val: T, publish = true): void {
     this._value[key] = val;
+
+    if (publish) {
+      this.publish();
+    }
   }
 
-  setValueByKeyNext(key: string, val: T): void {
+  getValueByKey(key: string): any {
+    return this._value[key];
+  }
+
+  getIn(key: string | string[]): any {
+    return getIn(this._value, key);
+  }
+
+  setIn(key: string | string[], val: T, publish = true): void {
+    setIn(this._value, key, val);
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  setValueByKeyNext(key: string, val: T, publish = true): void {
     this.setValueByKey(key, val);
-    this.publish();
+
+    if (publish) {
+      this.publish();
+    }
   }
 
   publish(): void {
