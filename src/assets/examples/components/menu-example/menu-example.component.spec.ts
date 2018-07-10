@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SharedModule } from '../../../../app/shared/shared.module';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IxMenuModule } from '../../../../../projects/uiux/material/src/lib/menu';
 
 import { MenuBasicExampleComponent } from './menu-example.component';
 
@@ -9,7 +11,11 @@ describe('MenuExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedModule],
+      imports: [
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        IxMenuModule],
       declarations: [MenuBasicExampleComponent],
     }).compileComponents();
   }));
