@@ -49,6 +49,7 @@ import { SetInComponent } from './object/set-in/set-in.component';
 import { SetInIfSrcComponent } from './object/set-in-if-src/set-in-if-src.component';
 import { SetInIfSrcWithConfigComponent } from './object/set-in-if-src-with-config/set-in-if-src-with-config.component';
 import { StoreSubjectComponent } from './store/store-subject/store-subject.component';
+import { TernaryComponent } from './object/ternary/ternary.component';
 // tslint:enable
 
 @NgModule({
@@ -100,6 +101,7 @@ import { StoreSubjectComponent } from './store/store-subject/store-subject.compo
     SetInIfSrcComponent,
     SetInIfSrcWithConfigComponent,
     StoreSubjectComponent,
+    TernaryComponent,
   ],
 })
 export class CdkModule {}

@@ -5,6 +5,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
+import { hasValue } from '@uiux/cdk/value';
 import { IDataItem } from '../../../../models/routes';
 import { ApiRefService } from '../../../services/api-ref/api-ref.service';
 
@@ -26,9 +27,11 @@ export class SeeAlsoItemsComponent {
   constructor(private _apiRef: ApiRefService, private _cd: ChangeDetectorRef) {}
 
   getDataItems(data: string[]): void {
-    this.items = data.map((ref: string) => {
-      return this._apiRef.getDataItem(ref);
-    });
-    this._cd.markForCheck();
+    if (hasValue(data)) {
+      this.items = data.map((ref: string) => {
+        return this._apiRef.getDataItem(ref);
+      });
+      this._cd.markForCheck();
+    }
   }
 }

@@ -2,7 +2,7 @@ import { propHasValueInAllPaths } from '../../../../projects/uiux/cdk/object/src
 import { IDataItem } from '../../../models/routes';
 import { CDK, GIT_REPO_PROJECTS_BASE, ICON } from '../../constants';
 
-export const object: { [key: string]: IDataItem } = {
+export const object: { [ key: string ]: IDataItem } = {
   // dataItem
   allPropsAreDefined: <IDataItem>{
     route: `/${CDK}/object/allPropsAreDefined`,
@@ -142,7 +142,7 @@ export const object: { [key: string]: IDataItem } = {
     base: '',
     desc: 'Determines if a scalar value is not undefined, null, or empty in a nested object.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/has-value-in.spec.ts`,
-    seeAlso: ['hasValue'],
+    seeAlso: [ 'hasValue' ],
     version: '6.0',
     icon: ICON.CDK,
     search: `${CDK}, object, hasValueIn`,
@@ -367,7 +367,7 @@ export const object: { [key: string]: IDataItem } = {
     base: '',
     desc: 'Determines if values of given properties of an object hasValue.',
     githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/props-have-value.spec.ts`,
-    seeAlso: ['hasValue'],
+    seeAlso: [ 'hasValue' ],
     version: '6.0',
     icon: ICON.CDK,
     search: `${CDK}, object, propsHaveValue`,
@@ -419,5 +419,16 @@ export const object: { [key: string]: IDataItem } = {
     version: '6.0',
     icon: ICON.CDK,
     search: `${CDK}, object, setInIfSrcWithConfig`,
+  },
+  ternary: <IDataItem>{
+    route: `/${CDK}/object/ternary`,
+    name: 'ternary',
+    base: '',
+    desc: 'Ternary that utilizes hasValueIn.',
+    githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/ternary.spec.ts`,
+    seeAlso: [],
+    version: '6.0',
+    icon: ICON.CDK,
+    search: `${CDK}, object, ternary`,
   },
 };
