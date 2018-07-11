@@ -3,11 +3,9 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { default as isArray } from 'lodash-es/isArray';
 import { hasValue } from '@uiux/cdk/value';
-import { default as get } from 'lodash-es/get';
 import { default as at } from 'lodash-es/at';
-import { default as filter } from 'lodash-es/filter';
+import { default as get } from 'lodash-es/get';
 import { ternary } from './ternary';
 
 /**
@@ -23,17 +21,17 @@ export function getIn(
   let result: any | any[];
 
   if (keys && hasValue(keys)) {
-    if (isArray(keys)) {
-      result = at(object, [...keys], defaultValue);
-      result = filter(result, (item: any) => {
-        return hasValue(item);
-      });
-    } else {
-      result = get(object, keys);
-      if (defaultValue) {
-        result = ternary(result, defaultValue);
-      }
+    // if (isArray(keys)) {
+    //   result = at(object, [...keys], defaultValue);
+    //   result = filter(result, (item: any) => {
+    //     return hasValue(item);
+    //   });
+    // } else {
+    result = get(object, keys);
+    if (defaultValue) {
+      result = ternary(result, defaultValue);
     }
+    // }
   } else if (defaultValue) {
     object = defaultValue;
     return object;

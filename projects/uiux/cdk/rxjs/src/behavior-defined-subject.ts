@@ -1,10 +1,11 @@
-import { clone, getIn, merge, setIn } from '@uiux/cdk/object';
-import { isDefined } from '@uiux/cdk/value';
-import { ObjectUnsubscribedError } from 'rxjs';
 /**
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
+
+import { clone, getIn, merge, setIn, deleteIn } from '@uiux/cdk/object';
+import { isDefined } from '@uiux/cdk/value';
+import { ObjectUnsubscribedError } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
@@ -12,9 +13,9 @@ import { ISubscription, Subscription } from 'rxjs/Subscription';
 export class BehaviorDefinedSubject<T> extends Subject<T> {
   private _value: T;
 
-  constructor( initialValue?: any ) {
+  constructor(initialValue?: any) {
     super();
-    if ( isDefined(initialValue) ) {
+    if (isDefined(initialValue)) {
       this._value = initialValue;
     }
   }
@@ -23,27 +24,27 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
     return this.getValue();
   }
 
-  _subscribe( subscriber: Subscriber<T> ): Subscription {
+  _subscribe(subscriber: Subscriber<T>): Subscription {
     // tslint:disable-next-line
     const subscription = super._subscribe(subscriber);
-    if ( subscription && !(<ISubscription>subscription).closed && isDefined(this._value) ) {
+    if (subscription && !(<ISubscription>subscription).closed && isDefined(this._value)) {
       subscriber.next(this._value);
     }
     return subscription;
   }
 
   getValue(): T {
-    if ( this.hasError ) {
+    if (this.hasError) {
       throw this.thrownError;
-    } else if ( this.closed ) {
+    } else if (this.closed) {
       throw new ObjectUnsubscribedError();
     } else {
       return this._value;
     }
   }
 
-  next( value: T ): void {
-    if ( isDefined(value) ) {
+  next(value: T): void {
+    if (isDefined(value)) {
       this._value = clone(value);
       super.next(this._value);
     }
@@ -54,18 +55,18 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
    * @param val
    * @param publish
    */
-  setValue( val: T, publish = true ): void {
+  setValue(val: T, publish = true): void {
     this._value = clone(val);
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }
 
-  merge( val: T, publish = true ): void {
+  merge(val: T, publish = true): void {
     this._value = merge(this._value, clone(val));
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }
@@ -76,34 +77,40 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
    * @param val
    * @param publish
    */
-  setValueByKey( key: string, val: any, publish = true ): void {
-    this._value[ key ] = clone(val);
+  setValueByKey(key: string, val: any, publish = true): void {
+    this._value[key] = clone(val);
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }
 
-  getValueByKey( key: string ): any {
-    return this._value[ key ];
+  getValueByKey(key: string): any {
+    return this._value[key];
   }
 
-  getIn( key: string | string[] ): any {
+  getIn(key: string | string[]): any {
     return getIn(this._value, key);
   }
 
-  setIn( key: string | string[], val: any, publish = true ): void {
+  setIn(key: string | string[], val: any, publish = true): void {
     setIn(this._value, key, clone(val));
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }
 
-  setValueByKeyNext( key: string, val: any, publish = true ): void {
-    this.setValueByKey(key, clone(val));
+  /**
+   * Delete object or array in stored value
+   * @param key
+   * @param publish
+   */
+  deleteIn(key: string | string[], publish = true): void {
 
-    if ( publish ) {
+    this._value = deleteIn(this._value, key);
+
+    if (publish) {
       this.publish();
     }
   }
@@ -113,10 +120,10 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
    * @param key
    * @param publish
    */
-  nullKey( key: string, publish = true ): void {
-    this._value[ key ] = null;
+  nullKey(key: string, publish = true): void {
+    this._value[key] = null;
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }
@@ -126,10 +133,10 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
    * @param key
    * @param publish
    */
-  undefineKey( key: string, publish = true ): void {
-    this._value[ key ] = undefined;
+  undefineKey(key: string, publish = true): void {
+    this._value[key] = undefined;
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }
@@ -139,10 +146,10 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
    * @param key
    * @param publish
    */
-  nullIn( key: string | string[], publish = true ): void {
+  nullIn(key: string | string[], publish = true): void {
     setIn(this._value, key, null);
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }
@@ -152,10 +159,10 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
    * @param key
    * @param publish
    */
-  undefineIn( key: string | string[], publish = true ): void {
+  undefineIn(key: string | string[], publish = true): void {
     setIn(this._value, key, undefined);
 
-    if ( publish ) {
+    if (publish) {
       this.publish();
     }
   }

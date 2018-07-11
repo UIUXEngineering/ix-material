@@ -16,21 +16,21 @@ describe('getIn', () => {
     object = null;
   });
 
-  describe('at', () => {
-    let atObject: any;
-
-    beforeEach(() => {
-      atObject = { a: [{ b: { c: 3 } }, 4] };
-    });
-
-    afterEach(() => {
-      atObject = null;
-    });
-
-    it('should create', () => {
-      expect(getIn(atObject, ['a[0].b.c', 'a[1]'])).toEqual([3, 4]);
-    });
-  });
+  // describe('at', () => {
+  //   let atObject: any;
+  //
+  //   beforeEach(() => {
+  //     atObject = { a: [{ b: { c: 3 } }, 4] };
+  //   });
+  //
+  //   afterEach(() => {
+  //     atObject = null;
+  //   });
+  //
+  //   it('should create', () => {
+  //     expect(getIn(atObject, ['a[0].b.c', 'a[1]'])).toEqual([3, 4]);
+  //   });
+  // });
 
   describe('getIn', function() {
     it('returns false for null object', function() {

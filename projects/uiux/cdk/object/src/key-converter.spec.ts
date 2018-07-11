@@ -59,5 +59,10 @@ describe('_internal', () => {
       const r: any[] = keySplitterIntoImmutablePath('[0][1][3].bar[10][0].FOO[100].bum');
       expect(r).toEqual([0, 1, 3, 'bar', 10, 0, 'FOO', 100, 'bum']);
     });
+
+    it('should create immutable.js path', () => {
+      const r: any[] = keySplitterIntoImmutablePath([0, 1, 3, 'bar', 10, 0, 'FOO', 100, 'bum']);
+      expect(r).toEqual([0, 1, 3, 'bar', 10, 0, 'FOO', 100, 'bum']);
+    });
   });
 });

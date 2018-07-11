@@ -3,34 +3,34 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { isNumeric } from './is-numeric';
+import { isNumber } from './is-number';
 
-describe('isNumeric', () => {
+describe('isNumber', () => {
   it('should return true when passing correct numeric string', () => {
-    expect(isNumeric('2')).toBe(true);
+    expect(isNumber('2')).toBe(true);
   });
 
   it('should return true when passing correct double string', () => {
-    expect(isNumeric('1.123')).toBe(true);
+    expect(isNumber('1.123')).toBe(true);
   });
 
   it('should return true when passing correct negative string', () => {
-    expect(isNumeric('-2')).toBe(true);
+    expect(isNumber('-2')).toBe(true);
   });
 
   it('should return true when passing correct scientific notation string', () => {
-    expect(isNumeric('1e5')).toBe(true);
+    expect(isNumber('1e5')).toBe(true);
   });
 
   it('should return false when passing incorrect numeric', () => {
-    expect(isNumeric('a')).toBe(false);
+    expect(isNumber('a')).toBe(false);
   });
 
   it('should return false when passing parseable but non numeric', () => {
-    expect(isNumeric('2a')).toBe(false);
+    expect(isNumber('2a')).toBe(false);
   });
 
   it('should return false when passing parseable but non ocatal', () => {
-    expect(isNumeric('0x12345')).toBe(true);
+    expect(isNumber('0x12345')).toBe(true);
   });
 });
