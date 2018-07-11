@@ -113,7 +113,6 @@ export class BehaviorValueSubject<T> extends Subject<T> {
    * @param publish
    */
   deleteIn(key: string | string[], publish = true): void {
-
     this._value = deleteIn(this._value, key);
 
     if (publish) {

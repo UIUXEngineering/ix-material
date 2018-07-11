@@ -42,8 +42,8 @@ describe('BehaviorValueSubject', () => {
     const sub: BehaviorValueSubject<any> = new BehaviorValueSubject();
 
     const src: any = {
-      'a': 'a',
-      'b': 'b',
+      a: 'a',
+      b: 'b',
     };
 
     sub.subscribe((r: any) => {
@@ -56,14 +56,14 @@ describe('BehaviorValueSubject', () => {
 
   it('should merge', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': 'b',
+      a: 'a',
+      b: 'b',
     };
 
     const expected: any = {
-      'a': 'a',
-      'b': 'b',
-      'c': 'c',
+      a: 'a',
+      b: 'b',
+      c: 'c',
     };
 
     const sub: BehaviorValueSubject<any> = new BehaviorValueSubject();
@@ -74,19 +74,19 @@ describe('BehaviorValueSubject', () => {
     });
 
     sub.setValue(src, false);
-    sub.merge({ 'c': 'c' });
+    sub.merge({ c: 'c' });
   });
 
   it('should setValueByKey', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': 'b',
+      a: 'a',
+      b: 'b',
     };
 
     const expected: any = {
-      'a': 'a',
-      'b': 'b',
-      'c': 'c',
+      a: 'a',
+      b: 'b',
+      c: 'c',
     };
 
     const sub: BehaviorValueSubject<any> = new BehaviorValueSubject();
@@ -102,8 +102,8 @@ describe('BehaviorValueSubject', () => {
 
   it('should setValueByKey', () => {
     const src: any = {
-      'a': 'a',
-      'b': 'b',
+      a: 'a',
+      b: 'b',
     };
 
     const sub: BehaviorValueSubject<any> = new BehaviorValueSubject(src);
@@ -113,9 +113,9 @@ describe('BehaviorValueSubject', () => {
 
   it('should getIn', () => {
     const src: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
+      a: 'a',
+      b: {
+        c: 'c',
       },
     };
 
@@ -126,17 +126,17 @@ describe('BehaviorValueSubject', () => {
 
   it('should setIn', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
+      a: 'a',
+      b: {
+        c: 'c',
       },
     };
 
     const expected: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
-        'd': 'd',
+      a: 'a',
+      b: {
+        c: 'c',
+        d: 'd',
       },
     };
 
@@ -153,16 +153,16 @@ describe('BehaviorValueSubject', () => {
 
   it('should deleteIn', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
+      a: 'a',
+      b: {
+        c: 'c',
       },
     };
 
     const expected: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
+      a: 'a',
+      b: {
+        c: 'c',
         // 'd': 'd',
       },
     };
@@ -180,16 +180,16 @@ describe('BehaviorValueSubject', () => {
 
   it('should nullKey', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
+      a: 'a',
+      b: {
+        c: 'c',
       },
     };
 
     const expected: any = {
-      'a': null,
-      'b': {
-        'c': 'c',
+      a: null,
+      b: {
+        c: 'c',
       },
     };
 
@@ -206,16 +206,16 @@ describe('BehaviorValueSubject', () => {
 
   it('should undefineKey', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
+      a: 'a',
+      b: {
+        c: 'c',
       },
     };
 
     const expected: any = {
-      'a': undefined,
-      'b': {
-        'c': 'c',
+      a: undefined,
+      b: {
+        c: 'c',
       },
     };
 
@@ -232,18 +232,18 @@ describe('BehaviorValueSubject', () => {
 
   it('should nullIn', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
-        'd': 'd',
+      a: 'a',
+      b: {
+        c: 'c',
+        d: 'd',
       },
     };
 
     const expected: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
-        'd': null,
+      a: 'a',
+      b: {
+        c: 'c',
+        d: null,
       },
     };
 
@@ -260,18 +260,18 @@ describe('BehaviorValueSubject', () => {
 
   it('should undefineIn', (done) => {
     const src: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
-        'd': 'd',
+      a: 'a',
+      b: {
+        c: 'c',
+        d: 'd',
       },
     };
 
     const expected: any = {
-      'a': 'a',
-      'b': {
-        'c': 'c',
-        'd': undefined,
+      a: 'a',
+      b: {
+        c: 'c',
+        d: undefined,
       },
     };
 
