@@ -3,12 +3,11 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
+import { clone, getIn, merge, setIn, deleteIn } from '@uiux/cdk/object';
+import { ObjectUnsubscribedError } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
-import { ObjectUnsubscribedError } from 'rxjs';
-import { merge } from '@uiux/cdk/object';
-import { clone, getIn, setIn } from '@uiux/cdk/object';
 
 export class BehaviorStoreSubject<T> extends Subject<T> {
   constructor(private _value: T) {
@@ -94,8 +93,65 @@ export class BehaviorStoreSubject<T> extends Subject<T> {
     }
   }
 
-  setValueByKeyNext(key: string, val: any, publish = true): void {
-    this.setValueByKey(key, clone(val));
+  /**
+   * Delete object or array in stored value
+   * @param key
+   * @param publish
+   */
+  deleteIn(key: string | string[], publish = true): void {
+    this._value = deleteIn(this._value, key);
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  /**
+   *
+   * @param key
+   * @param publish
+   */
+  nullKey(key: string, publish = true): void {
+    this._value[key] = null;
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  /**
+   *
+   * @param key
+   * @param publish
+   */
+  undefineKey(key: string, publish = true): void {
+    this._value[key] = undefined;
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  /**
+   *
+   * @param key
+   * @param publish
+   */
+  nullIn(key: string | string[], publish = true): void {
+    setIn(this._value, key, null);
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  /**
+   *
+   * @param key
+   * @param publish
+   */
+  undefineIn(key: string | string[], publish = true): void {
+    setIn(this._value, key, undefined);
 
     if (publish) {
       this.publish();

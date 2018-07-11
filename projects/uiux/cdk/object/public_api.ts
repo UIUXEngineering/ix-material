@@ -7,6 +7,7 @@ export * from './src/all-props-have-value';
 export * from './src/all-props-have-value-in'; // accepts path to property
 export * from './src/clone';
 export * from './src/create-object-with-path';
+export * from './src/delete-in';
 export * from './src/find-properties';
 export * from './src/find-property-data';
 export * from './src/find-props-with-value';

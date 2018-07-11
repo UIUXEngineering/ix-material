@@ -8,10 +8,10 @@ import { default as _isBoolean } from 'lodash-es/isBoolean';
 import { default as _isString } from 'lodash-es/isString';
 import { default as _isPlainObject } from 'lodash-es/isPlainObject';
 import { DATA_TYPE } from '../constants';
-import { isNumeric } from '@uiux/cdk/number';
+import { isNumber } from '@uiux/cdk/number';
 
 export function isNumberDataType(value: any): boolean {
-  return isNumeric(value);
+  return isNumber(value);
 }
 
 export function isArrayDataType(value: any): boolean {
@@ -51,7 +51,7 @@ export function getDataType(value: any): string {
     return DATA_TYPE.ARRAY;
   }
 
-  if (isNumeric(value)) {
+  if (isNumber(value)) {
     return DATA_TYPE.NUMBER;
   }
 

@@ -54,7 +54,7 @@ export function splitKeysIntoDotNotation(keys: string | string[]): string | stri
  * Converts '[0][1][3].bar[10][0].FOO[100].bum'
  * into     [ 0, 1, 3, 'bar', 10, 0, 'FOO', 100, 'bum']
  */
-export function keySplitterIntoImmutablePath(key: string | string[]): any[] {
+export function keySplitterIntoImmutablePath(key: string | any[]): any[] {
   if (!isArray(key)) {
     return keySplitter(key)
       .split('.')
