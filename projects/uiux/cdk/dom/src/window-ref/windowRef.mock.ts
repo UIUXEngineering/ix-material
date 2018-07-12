@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { SPWindowRefService } from './windowRef.service';
+import { IxWindowRefService } from './windowRef.service';
 
 export class MockSpWindow {
   private _matchMedia = false;
@@ -47,7 +47,7 @@ function createSpWindowServiceMock() {
   const mockInstance = new MockSpWindow();
   const provider = {
     // tslint:disable-next-line
-    provide: SPWindowRefService,
+    provide: IxWindowRefService,
     useValue: mockInstance,
   };
 

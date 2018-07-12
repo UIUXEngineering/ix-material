@@ -3,10 +3,10 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { InjectionToken, Optional, SkipSelf } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
-import { fromEvent } from 'rxjs/observable/fromEvent';
 
 export function _window(): any {
   return window;
@@ -19,8 +19,10 @@ export abstract class AbstractSPWindowRef {
   abstract get nativeWindow(): any;
 }
 
-/** @deprecated use window directly */
-export class SPWindowRefService extends AbstractSPWindowRef {
+@Injectable({
+  providedIn: 'root',
+})
+export class IxWindowRefService extends AbstractSPWindowRef {
   private _globalSubscription: Subscription;
   private _resizing = false;
 
@@ -89,18 +91,3 @@ export class SPWindowRefService extends AbstractSPWindowRef {
     return this.storageAvailable('sessionStorage');
   }
 }
-
-// tslint:disable
-export function _windowRefFactory(parentDispatcher: SPWindowRefService): SPWindowRefService {
-  return parentDispatcher || new SPWindowRefService();
-}
-// tslint:enable
-
-export const SP_WINDOW_PROVIDER: any[] = [
-  {
-    provide: SPWindow,
-    useFactory: _windowRefFactory,
-    // tslint:disable-next-line
-    deps: [[new Optional(), new SkipSelf(), SPWindowRefService]],
-  },
-];
