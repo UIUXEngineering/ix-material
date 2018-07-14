@@ -1,0 +1,27 @@
+[
+  {
+    "name": "sequences",
+    "desc": "Learn to combine RxJs sequences with super intuitive interactive diagrams",
+    "link": "https://blog.angularindepth.com/learn-to-combine-rxjs-sequences-with-super-intuitive-interactive-diagrams-20fce8e6511"
+  },
+  {
+    "name": "concat-all",
+    "desc": "concat streams sequentially",
+    "link": "https://stackblitz.com/edit/concat-all-djed1r"
+  },
+  {
+    "name": "draggable",
+    "desc": "Draggable PoC",
+    "link": "https://codepen.io/indyplanets/pen/KeOjre"
+  },
+  {
+    "name": "menu",
+    "desc": "Menu that hovers",
+    "link": "https://codepen.io/indyplanets/pen/mKZdgp"
+  },
+  {
+    "name": "color picker",
+    "desc": "Color Picker",
+    "link": "https://codepen.io/indyplanets/pen/xzvPRB"
+  }
+]
