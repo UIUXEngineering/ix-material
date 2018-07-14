@@ -1,0 +1,54 @@
+
+// column
+.address-form {
+  display: flex;
+  flex-direction: column;
+
+  .mat-form-field, .city-state-zip {
+    margin-bottom: 30px;
+  }
+
+  // row
+  .city-state-zip {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > .mat-form-field {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    // first item in row
+    & > .mat-form-field:first-child {
+      margin-left: 0;
+    }
+
+    // last item in row
+    & > .mat-form-field:last-child {
+      margin-right: 0;
+    }
+
+    .city {
+      flex: 1 1 auto;
+    }
+
+    .state, .postalCode {
+      max-width: 150px;
+    }
+  }
+
+  .phone {
+    margin-top: -15px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    & > button:first-child {
+      margin-right: 10px;
+    }
+  }
+}
