@@ -5,11 +5,10 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SPWindowRefModule } from '@uiux/cdk/dom';
 import { IxLocalStorageService } from './ix-localstorage.service';
 
 @NgModule({
-  imports: [CommonModule, SPWindowRefModule],
+  imports: [CommonModule],
   exports: [],
   providers: [IxLocalStorageService],
 })

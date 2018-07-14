@@ -1,0 +1,17 @@
+<guide-container [data]="data">
+  <div>
+    <h3-title [text]="'Component Libraries'"></h3-title>
+    <div class="pad-bottom-20" *ngFor="let item of componentLibs">
+      <a-link  [href]="item.link">{{item.name}}</a-link>
+      <div class="p">{{item.desc}}</div>
+    </div>
+  </div>
+
+  <div>
+    <h3-title [text]="'RxJS Samples'"></h3-title>
+    <div class="pad-bottom-20" *ngFor="let item of rxjsSamples">
+      <a-link  [href]="item.link">{{item.name}}</a-link>
+      <div class="p">{{item.desc}}</div>
+    </div>
+  </div>
+</guide-container>

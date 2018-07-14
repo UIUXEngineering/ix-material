@@ -5,14 +5,14 @@
 
 import { NgModule } from '@angular/core';
 
-import { SP_WINDOW_PROVIDER } from './windowRef.service';
+import { IxWindowRefService } from './windowRef.service';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [CommonModule],
   exports: [],
-  providers: [SP_WINDOW_PROVIDER],
+  providers: [IxWindowRefService],
 })
-export class SPWindowRefModule {
+export class IxWindowRefModule {
   /* noop */
 }

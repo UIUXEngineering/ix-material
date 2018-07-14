@@ -7,6 +7,7 @@ import { GuideMarkdownComponent } from './adding-docs-to-this-site/guide-markdow
 import { ArchitectureComponent } from './create/architecture/architecture.component';
 import { FirebaseComponent } from './getting-started/firebase/firebase.component';
 import { InstallComponent } from './getting-started/install/install.component';
+import { ReferencesComponent } from './getting-started/references/references.component';
 import { GuidesComponent } from './guides.component';
 import { CreateMaterialAppComponent } from './create/create-material-app/create-material-app.component';
 import { AngularComponent } from './upgrade/angular/angular.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'getting-started/firebase',
         component: FirebaseComponent,
+      },
+      {
+        path: 'getting-started/references',
+        component: ReferencesComponent,
       },
       {
         // end route matches route in `src/configs/nav-items.ts`

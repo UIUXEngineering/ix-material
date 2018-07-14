@@ -3,16 +3,7 @@ import { MenuExampleComponent } from '../app/pages/components/Layout/menu/menu-e
 import { MenuOverviewComponent } from '../app/pages/components/Layout/menu/menu-overview/menu-overview.component';
 import { TabItem } from '../app/shared/util-components/tab-group/tab-item';
 import { IDataItem, IRoute } from '../models/routes';
-import {
-  CDK,
-  COMPONENTS,
-  GIT_REPO_PROJECTS_BASE,
-  GUIDES,
-  ICON,
-  ICONS,
-  POC,
-  THEMES,
-} from './constants';
+import { CDK, COMPONENTS, GIT_REPO_PROJECTS_BASE, GUIDES, ICON, ICONS, POC, THEMES } from './constants';
 import { object } from './nav-items/cdk/object';
 
 export const ROUTES: IRoute = {
@@ -215,6 +206,16 @@ export const ROUTES: IRoute = {
         search: `${GUIDES}, install, getting-started, firebase`,
         seeAlso: [],
         version: '6.0',
+      },
+      references: <IDataItem>{
+        route: `/${GUIDES}/getting-started/references`,
+        name: 'References',
+        base: '',
+        desc: 'References for learning, research, and development.',
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.GUIDE,
+        search: `${GUIDES}, references, learning, research, dev, develop, development`,
       },
     },
     create: {
