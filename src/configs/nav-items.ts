@@ -377,7 +377,7 @@ export const ROUTES: IRoute = {
     patterns: {
       forms: <IDataItem>{
         route: `/${GUIDES}/patterns/forms`,
-        name: 'Forms',
+        name: 'Forms Patterns',
         base: '',
         desc: 'Software patterns for forms.',
         seeAlso: [],

@@ -1,3 +1,24 @@
-<p>
-  forms works!
-</p>
+<guide-container [data]="data">
+  <h3-title [text]="'References'"></h3-title>
+  <div class="p indent">
+    <a-link [href]="'https://angular.io/guide/reactive-forms'">Angular Reactive Forms Doc</a-link><br />
+    <a-link [href]="'https://material.angular.io/components/form-field/examples'">Angular Material Form Field Examples</a-link><br />
+    <a-link [href]="'https://material.angular.io/components/input/examples'">Angular Material Input Examples</a-link> ( See phone number example )
+  </div>
+
+
+  <h3-title [text]="'In Component'"></h3-title>
+  <div class="p push-bottom-20">
+    See source code in this repo at <code-bash-block [code]="'./src/assets/examples/patterns/forms/form-builder-sample'"></code-bash-block>
+  </div>
+  <example-demo-viewer [title]="'FormBuilder Component'"
+                       [baseUrl]="'assets/examples/patterns/forms/form-builder-sample'"
+                       [file]="'form-builder-sample.component'">
+    <form-builder-sample></form-builder-sample>
+  </example-demo-viewer>
+
+  <h3-title [text]="'In A Model Service'"></h3-title>
+  <div class="p push-bottom-20">
+    See source code in this repo at <code-bash-block [code]="'./src/assets/examples/patterns/forms/form-service-sample'"></code-bash-block>
+  </div>
+</guide-container>
