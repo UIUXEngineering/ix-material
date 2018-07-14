@@ -14,6 +14,7 @@ import { AngularComponent } from './upgrade/angular/angular.component';
 import { CreateMaterialAppComponent } from './create/create-material-app/create-material-app.component';
 import { ArchitectureComponent } from './create/architecture/architecture.component';
 import { ReferencesComponent } from './getting-started/references/references.component';
+import { FormsComponent } from './patterns/forms/forms.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, GuidesRoutingModule],
@@ -28,6 +29,7 @@ import { ReferencesComponent } from './getting-started/references/references.com
     CreateMaterialAppComponent,
     ArchitectureComponent,
     ReferencesComponent,
+    FormsComponent,
   ],
   providers: [
     ReferencesStoreService,
