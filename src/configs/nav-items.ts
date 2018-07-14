@@ -375,16 +375,16 @@ export const ROUTES: IRoute = {
       },
     },
     patterns: {
-       forms: <IDataItem>{
-               route: `/${GUIDES}/patterns/forms`,
-               name: 'Forms',
-               base: '',
-               desc: 'Software patterns for forms.',
-               seeAlso: [],
-               version: '6.0',
-               icon: ICON.GUIDE,
-               search: `${GUIDES}, software, design, patterns, forms`,
-             },
+      forms: <IDataItem>{
+        route: `/${GUIDES}/patterns/forms`,
+        name: 'Forms',
+        base: '',
+        desc: 'Software patterns for forms.',
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.GUIDE,
+        search: `${GUIDES}, software, design, patterns, forms`,
+      },
     },
   },
 
