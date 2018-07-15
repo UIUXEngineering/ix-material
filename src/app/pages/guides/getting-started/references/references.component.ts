@@ -18,6 +18,7 @@ export class ReferencesComponent implements OnInit, OnDestroy {
   data: IDataItem = ROUTES.guides['getting-started'].references;
   rxjsSamples: ReferenceLink[] = [];
   componentLibs: ReferenceLink[] = [];
+  css: ReferenceLink[] = [];
 
   constructor(private _store: ReferencesStoreService,
               private _cd: ChangeDetectorRef) {
@@ -28,6 +29,7 @@ export class ReferencesComponent implements OnInit, OnDestroy {
       .subscribe((r: ReferenceStore) => {
         this.rxjsSamples = r.rxjsSamples;
         this.componentLibs = r.componentLibs;
+        this.css = r.css;
         this._cd.markForCheck();
       });
   }
