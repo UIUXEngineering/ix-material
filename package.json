@@ -54,6 +54,7 @@
     "@types/yargs": "^11.0.0",
     "angularfire2": "^5.0.0-rc.11",
     "core-js": "^2.5.4",
+    "d3": "^5.5.0",
     "firebase": "^5.2.0",
     "hammerjs": "^2.0.8",
     "immutable": "3.8.2",
