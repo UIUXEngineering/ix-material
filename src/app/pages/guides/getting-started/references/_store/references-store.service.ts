@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorValueSubject } from '@uiux/cdk/rxjs';
 import { Observable } from 'rxjs/Observable';
 import { zip } from 'rxjs/Observable/zip';
 import { map } from 'rxjs/operators';
-import { BehaviorValueSubject } from '../../../../../../../projects/uiux/cdk/rxjs';
 
 export interface ReferenceLink {
   name: string;
@@ -14,6 +14,7 @@ export interface ReferenceLink {
 export interface ReferenceStore {
   rxjsSamples: ReferenceLink[];
   componentLibs: ReferenceLink[];
+  css: ReferenceLink[];
 }
 
 @Injectable({
@@ -30,8 +31,11 @@ export class ReferencesStoreService {
 
   onInit(): void {
 
-    zip(this.getRxJSSamples(), this.getComponentLibs())
-      .pipe(map((r: any[]) => {
+    zip(
+      this.getRxJSSamples(),
+      this.getComponentLibs(),
+      this.getCss(),
+    ).pipe(map((r: any[]) => {
         return this.zipObservables(r);
       }))
       .subscribe((r: any) => {
@@ -43,6 +47,7 @@ export class ReferencesStoreService {
     return <ReferenceStore>{
       rxjsSamples: r[0],
       componentLibs: r[1],
+      css: r[2],
     };
   }
 
@@ -52,5 +57,9 @@ export class ReferencesStoreService {
 
   getComponentLibs(): Observable<any> {
     return this.http.get('assets/data/component-libs.json');
+  }
+
+  getCss(): Observable<any> {
+    return this.http.get('assets/data/css.json');
   }
 }

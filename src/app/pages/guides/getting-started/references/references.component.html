@@ -14,4 +14,12 @@
       <div class="p">{{item.desc}}</div>
     </div>
   </div>
+
+  <div>
+    <h3-title [text]="'CSS'"></h3-title>
+    <div class="pad-bottom-20" *ngFor="let item of css">
+      <a-link  [href]="item.link">{{item.name}}</a-link>
+      <div class="p">{{item.desc}}</div>
+    </div>
+  </div>
 </guide-container>

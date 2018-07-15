@@ -15,7 +15,7 @@ import {
 import { MatTabChangeEvent } from '@angular/material';
 import { ZipSubject } from '@uiux/cdk/rxjs';
 import { Subscription } from 'rxjs/Subscription';
-import { hasValueIn } from '../../../../../projects/uiux/cdk/object';
+import { hasValueIn } from '@uiux/cdk/object';
 import { IDataItem } from '../../../../models/routes';
 import { ApiRefService, IRouteStore } from '../../../services/api-ref/api-ref.service';
 import { AbstractDocCompoment } from './abstract-doc-compoment';
