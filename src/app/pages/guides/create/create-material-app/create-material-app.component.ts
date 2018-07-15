@@ -131,6 +131,10 @@ export class CreateMaterialAppComponent implements OnInit {
   uiuxTheming = `@import '~@uiux/material/theming';`;
   matCore = `@include mat-core();`;
   ixCore = `@include ix-core();`;
+  deleteFontLinksInIndex = `
+< link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+< link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  `;
 
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 
