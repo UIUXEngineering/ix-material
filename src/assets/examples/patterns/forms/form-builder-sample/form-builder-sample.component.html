@@ -1,0 +1,106 @@
+<form class="address-form" [formGroup]="addressForm" (ngSubmit)="onSubmitHandler()">
+
+  <!-- firstName -->
+  <mat-form-field [floatLabel]="floatLabel"
+                  [appearance]="appearance"
+                  hintLabel="Max 100 characters">
+    <mat-label>{{formLabels.firstName}}</mat-label>
+    <input matInput #firstNameInput formControlName="firstName">
+    <mat-error *ngIf="getControl('firstName').invalid">{{getErrorMessage('firstName')}}</mat-error>
+    <mat-hint align="end">{{firstNameInput.value?.length || 0}}/100</mat-hint>
+  </mat-form-field>
+
+  <!-- lastName -->
+  <mat-form-field [floatLabel]="floatLabel"
+                  [appearance]="appearance"
+                  hintLabel="Max 100 characters">
+    <mat-label>{{formLabels.lastName}}</mat-label>
+    <input matInput #lastNameInput formControlName="lastName">
+    <mat-error *ngIf="getControl('lastName').invalid">{{getErrorMessage('lastName')}}</mat-error>
+    <mat-hint align="end">{{lastNameInput.value?.length || 0}}/100</mat-hint>
+  </mat-form-field>
+
+  <!-- address -->
+  <mat-form-field [floatLabel]="floatLabel"
+                  [appearance]="appearance">
+    <mat-label>{{formLabels.address}}</mat-label>
+    <input matInput formControlName="address">
+    <mat-error *ngIf="getControl('address').invalid">{{getErrorMessage('address')}}</mat-error>
+  </mat-form-field>
+
+  <!-- address2 -->
+  <mat-form-field [floatLabel]="floatLabel"
+                  [appearance]="appearance">
+    <mat-label>{{formLabels.address2}}</mat-label>
+    <input matInput formControlName="address2">
+  </mat-form-field>
+
+  <!-- begin city-state-zip-->
+  <div class="city-state-zip">
+
+    <!-- city -->
+    <mat-form-field [floatLabel]="floatLabel"
+                    [appearance]="appearance"
+                    class="city">
+      <mat-label>{{formLabels.city}}</mat-label>
+      <input matInput formControlName="city">
+      <mat-error *ngIf="getControl('city').invalid">{{getErrorMessage('city')}}</mat-error>
+    </mat-form-field>
+
+    <!-- state -->
+    <mat-form-field [floatLabel]="floatLabel"
+                    [appearance]="appearance"
+                    class="state">
+      <mat-label>{{formLabels.state}}</mat-label>
+      <input matInput formControlName="state">
+      <mat-error *ngIf="getControl('state').invalid">{{getErrorMessage('state')}}</mat-error>
+    </mat-form-field>
+
+    <!-- postalCode -->
+    <mat-form-field [floatLabel]="floatLabel"
+                    [appearance]="appearance"
+                    hintLabel="Max 5 characters"
+                    class="postalCode">
+      <mat-label>{{formLabels.postalCode}}</mat-label>
+      <input matInput #postalCodeInput formControlName="postalCode">
+      <mat-error *ngIf="getControl('postalCode').invalid">{{getErrorMessage('postalCode')}}</mat-error>
+      <mat-hint align="end">{{postalCodeInput.value?.length || 0}}/5</mat-hint>
+    </mat-form-field>
+
+  </div>
+  <!-- end city-state-zip-->
+
+  <!-- phone -->
+  <mat-form-field [floatLabel]="floatLabel"
+                  [appearance]="appearance"
+                  class="phone">
+    <mat-label>{{formLabels.phone}}</mat-label>
+    <input matInput formControlName="phone">
+    <mat-error *ngIf="getControl('phone').invalid">{{getErrorMessage('phone')}}</mat-error>
+  </mat-form-field>
+
+  <!-- email -->
+  <mat-form-field [floatLabel]="floatLabel"
+                  [appearance]="appearance"
+                  class="email">
+    <mat-label>{{formLabels.email}}</mat-label>
+    <input matInput formControlName="email">
+    <mat-error *ngIf="getControl('email').invalid">{{getErrorMessage('email')}}</mat-error>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button
+            color="primary"
+            type="button"
+            [disabled]="addressForm.pristine"
+            (click)="reset()">Reset</button>
+
+    <button mat-raised-button
+            type="submit"
+            [disabled]="addressForm.invalid || addressForm.pristine"
+            color="primary">Submit</button>
+  </div>
+
+</form>
+
+

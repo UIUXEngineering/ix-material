@@ -10,6 +10,7 @@ import { InstallComponent } from './getting-started/install/install.component';
 import { ReferencesComponent } from './getting-started/references/references.component';
 import { GuidesComponent } from './guides.component';
 import { CreateMaterialAppComponent } from './create/create-material-app/create-material-app.component';
+import { FormsComponent } from './patterns/forms/forms.component';
 import { AngularComponent } from './upgrade/angular/angular.component';
 
 const routes: Routes = [
@@ -55,6 +56,10 @@ const routes: Routes = [
       {
         path: 'create/architecture',
         component: ArchitectureComponent,
+      },
+      {
+        path: 'patterns/forms',
+        component: FormsComponent,
       },
     ],
   },

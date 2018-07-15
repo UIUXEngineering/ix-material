@@ -125,7 +125,7 @@ export class SpSearchAutoCompleteComponent implements AfterViewInit {
   @Output() submit: EventEmitter<string | object> = new EventEmitter<string | object>();
 
   /**
-   * Aggregation of optionSelected, onSubmit, and valueChanges events.
+   * Aggregation of optionSelected, onSubmitHandler, and valueChanges events.
    * ( You receive all events )
    */
   @Output() changes: EventEmitter<string | object> = new EventEmitter<string | object>();
@@ -159,7 +159,7 @@ export class SpSearchAutoCompleteComponent implements AfterViewInit {
   }
 
   /**
-   * onSubmit handler
+   * onSubmitHandler handler
    */
   onSubmitHandler(): void {
     if (!this.disableSubmit && this._controller.valid && !this._controller.pristine) {

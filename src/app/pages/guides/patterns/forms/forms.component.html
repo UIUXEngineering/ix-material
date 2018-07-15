@@ -1,0 +1,52 @@
+<guide-container [data]="data">
+  <h3-title [text]="'References'"></h3-title>
+  <div class="p indent">
+    <a-link [href]="'https://angular.io/guide/reactive-forms'">Angular Reactive Forms Doc</a-link>
+    <br/>
+    <a-link [href]="'https://material.angular.io/components/form-field/examples'">Angular Material Form Field Examples
+    </a-link>
+    <br/>
+    <a-link [href]="'https://material.angular.io/components/input/examples'">Angular Material Input Examples</a-link>
+    ( See phone number example )
+  </div>
+
+
+  <h3-title [text]="'In Component'"></h3-title>
+  <div class="p push-bottom-20">
+    See source code in this repo at
+    <code-bash-block [code]="'./src/assets/examples/patterns/forms/form-builder-sample'"></code-bash-block>
+  </div>
+  <!--<div class="p push-bottom-20">-->
+    <!--Or see repo <a-link [href]="''">online</a-link>;-->
+  <!--</div>-->
+  <example-demo-viewer [title]="'FormBuilder Component'"
+                       [baseUrl]="'assets/examples/patterns/forms/form-builder-sample'"
+                       [file]="'form-builder-sample.component'">
+    <form-builder-sample></form-builder-sample>
+  </example-demo-viewer>
+
+  <div class="push-top-50"></div>
+  <h3-title [text]="'In A Model Service'"></h3-title>
+  <div class="p push-bottom-20">
+    Using a model service ( model of MVC ) will allow you to put some functions in a service, making
+    your form component more thin.
+  </div>
+  <div class="p push-bottom-20">
+    This pattern is useful if the data flow of your form is outside of your component tree -- decoupling
+    form from source of data.
+  </div>
+  <div class="p push-bottom-20">
+    See source code in this repo at
+    <code-bash-block [code]="'./src/assets/examples/patterns/forms/form-service-sample'"></code-bash-block>
+  </div>
+  <div class="push-bottom-50">
+    <example-demo-viewer [title]="'Using Model Service'"
+                         [baseUrl]="'assets/examples/patterns/forms/form-service-sample'"
+                         [file]="'form-service-sample.component'">
+      <form-service-sample></form-service-sample>
+    </example-demo-viewer>
+  </div>
+
+  <h4-title [text]="'Model'"></h4-title>
+  <ts-file-viewer [url]="'assets/examples/patterns/forms/form-service-sample/form-model.service.ts'"></ts-file-viewer>
+</guide-container>
