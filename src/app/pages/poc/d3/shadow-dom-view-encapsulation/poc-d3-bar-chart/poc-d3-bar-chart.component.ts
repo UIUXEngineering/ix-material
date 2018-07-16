@@ -1,4 +1,14 @@
-import { AfterContentInit, ChangeDetectionStrategy, Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
+import { hasValueIn } from '@uiux/cdk/object';
 import { PocD3BarChartRender } from './poc-d3-bar-chart-render';
 
 @Component({
@@ -11,7 +21,7 @@ import { PocD3BarChartRender } from './poc-d3-bar-chart-render';
              encapsulation: ViewEncapsulation.ShadowDom,
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
-export class PocD3BarChartComponent implements AfterContentInit {
+export class PocD3BarChartComponent implements AfterContentInit, OnChanges {
 
   private chartSelector = '.poc-bar-chart';
 
@@ -23,8 +33,15 @@ export class PocD3BarChartComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    this.dimensions();
     this.removeExtraStyles();
+    this.renderD3();
+  }
+
+  /**
+   * Called when component loads and in ngOnChanges
+   */
+  renderD3(): void {
+    this.dimensions();
     if (this.data) {
       PocD3BarChartRender.render(this.el.nativeElement.shadowRoot, this.data);
     }
@@ -42,6 +59,11 @@ export class PocD3BarChartComponent implements AfterContentInit {
     }
   }
 
+  /**
+   * For some reason all of Material's styles are included
+   * in the ShadowDom. Remove all styles except what is included
+   * in the stylesUrl meta-data.
+   */
   removeExtraStyles(): void {
     const styles: HTMLElement[] = this.el.nativeElement.shadowRoot
       .querySelectorAll('style') as HTMLElement[];
@@ -52,6 +74,17 @@ export class PocD3BarChartComponent implements AfterContentInit {
           this.el.nativeElement.shadowRoot.removeChild(r);
         }
       });
+    }
+  }
+
+  ngOnChanges(val: SimpleChanges): void {
+    // if no previous data, this is the first time
+    // component is rendered. First render is handled
+    // via ngAfterContentInit;
+    if (hasValueIn(val, 'data.previousValue') && hasValueIn(val, 'width.previousValue')) {
+      this.data = val.data.currentValue;
+      this.width = val.width.currentValue;
+      this.renderD3();
     }
   }
 

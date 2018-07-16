@@ -1,0 +1,22 @@
+<form [formGroup]="barsForm" (ngSubmit)="onSubmitHandler()">
+  <mat-form-field [floatLabel]="floatLabel"
+                  [appearance]="appearance">
+    <mat-label>Number of bars in chart</mat-label>
+    <input matInput #barsInput formControlName="bars">
+    <mat-error *ngIf="getControl('bars').invalid">{{getErrorMessage('bars')}}</mat-error>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button
+            color="primary"
+            type="button"
+            [disabled]="barsForm.pristine"
+            (click)="reset()">Reset</button>
+
+    <button mat-raised-button
+            type="submit"
+            [disabled]="barsForm.invalid || barsForm.pristine"
+            color="primary">Submit</button>
+  </div>
+
+</form>
