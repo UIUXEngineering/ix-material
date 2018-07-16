@@ -4,7 +4,10 @@ export class PocD3SvgBarChartRender {
 
   static render(shadowRoot: ShadowRoot, data: any): void {
     const domSvg: SVGSVGElement = shadowRoot.querySelector('svg') as SVGSVGElement;
-    const svg = d3.select(domSvg);
+    const svg: any = d3.select(domSvg);
+
+    // remove all children  
+    svg.selectAll('*').remove();
 
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
     const width = +svg.attr('width') - margin.left - margin.right;
