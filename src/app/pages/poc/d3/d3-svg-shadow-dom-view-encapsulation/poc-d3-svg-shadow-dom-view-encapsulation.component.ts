@@ -17,7 +17,7 @@ export class PocD3SvgShadowDomViewEncapsulationComponent {
   data: any = getBars(1000);
   bars = 1000;
 
-  // 2000 px more than number of bars
+  // 200 px more than number of bars
   width = 1200;
 
   chartSample1 = 'https://bl.ocks.org/caravinden/d04238c4c9770020ff6867ee92c7dac1';
