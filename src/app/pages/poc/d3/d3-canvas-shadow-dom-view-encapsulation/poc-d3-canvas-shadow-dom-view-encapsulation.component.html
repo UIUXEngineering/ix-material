@@ -1,0 +1,39 @@
+<div class="poc-d3-svg-shadowdom-view-encapsulation">
+
+  <h3-title [text]="'PoC: D3 SVG In A ShadowDom'"></h3-title>
+
+  <div class="p indent pad-bottom-20">
+    This proof of concept is to wrap d3 in a ShadowDom to see if performance
+    and memory can be improved. See <a-link [href]="chartSample1">this example</a-link>
+    and <a-link [href]="chartSample2">this example</a-link>
+    for references on how these charts are built. See <a-link [href]="sourceCode">source code</a-link> for the charts below.
+  </div>
+
+  <div class="p indent pad-bottom-40">
+    <span class="table-title">Versions:</span>
+    <div class="table indent">
+      <div class="row">
+        <div>D3</div><div>^5.5.0</div>
+      </div>
+      <div class="row">
+        <div>Angular</div><div>^6.0.9</div>
+      </div>
+      <div class="row">
+        <div>Angular Material</div><div>^6.3.3</div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="p indent pad-bottom-20">
+    <poc-shadow-dom-bar-form [init]="bars" (onsubmit)="onBarsSubmit($event)"></poc-shadow-dom-bar-form>
+  </div>
+
+
+  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
+  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
+  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
+  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
+  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
+</div>

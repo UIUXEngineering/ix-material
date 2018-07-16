@@ -3,16 +3,16 @@ import { getBars } from '../_data';
 import { PoCShadowDomBarForm } from '../bar-form/poc-shadow-dom-bar-form.component';
 
 @Component({
-             selector: 'poc-d3-svg-shadowdom-view-encapsulation',
-             templateUrl: './poc-d3-svg-shadow-dom-view-encapsulation.component.html',
-             styleUrls: ['./poc-d3-svg-shadow-dom-view-encapsulation.component.scss'],
+             selector: 'poc-d3-canvas-shadowdom-view-encapsulation',
+             templateUrl: './poc-d3-canvas-shadow-dom-view-encapsulation.component.html',
+             styleUrls: ['./poc-d3-canvas-shadow-dom-view-encapsulation.component.scss'],
              preserveWhitespaces: false,
 
              // Note: Testing Performance of Native Setting
              encapsulation: ViewEncapsulation.None,
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
-export class PocD3SvgShadowDomViewEncapsulationComponent {
+export class PocD3CanvasShadowDomViewEncapsulationComponent {
 
   data: any = getBars(1000);
   bars = 1000;

@@ -19,7 +19,11 @@ const routes: Routes = [
         component: SamplePocComponent,
       },
       {
-        path: 'd3/shadowDomViewEncapsulation',
+        path: 'd3/svgShadowDomViewEncapsulation',
+        component: PocD3SvgShadowDomViewEncapsulationComponent,
+      },
+      {
+        path: 'd3/canvasShadowDomViewEncapsulation',
         component: PocD3SvgShadowDomViewEncapsulationComponent,
       },
     ],
