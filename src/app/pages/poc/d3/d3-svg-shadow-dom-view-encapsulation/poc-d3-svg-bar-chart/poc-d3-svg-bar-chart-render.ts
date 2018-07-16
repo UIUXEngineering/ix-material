@@ -6,7 +6,7 @@ export class PocD3SvgBarChartRender {
     const domSvg: SVGSVGElement = shadowRoot.querySelector('svg') as SVGSVGElement;
     const svg: any = d3.select(domSvg);
 
-    // remove all children  
+    // remove all children 
     svg.selectAll('*').remove();
 
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
