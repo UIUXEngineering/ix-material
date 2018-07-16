@@ -1,16 +1,17 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { PocData } from './_data';
 
 @Component({
              selector: 'native-view-encapsulation',
-             templateUrl: './native-view-encapsulation.component.html',
-             styleUrls: ['./native-view-encapsulation.component.scss'],
+             templateUrl: './shadow-dom-view-encapsulation.component.html',
+             styleUrls: ['./shadow-dom-view-encapsulation.component.scss'],
              preserveWhitespaces: false,
 
              // Note: Testing Performance of Native Setting
              encapsulation: ViewEncapsulation.None,
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
-export class NativeViewEncapsulationComponent {
+export class ShadowDomViewEncapsulationComponent {
 
-
+  data: any = PocData;
 }

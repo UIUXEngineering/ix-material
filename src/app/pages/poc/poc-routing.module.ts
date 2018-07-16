@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NativeViewEncapsulationComponent } from './d3/native-view-encapsulation/native-view-encapsulation.component';
+import { ShadowDomViewEncapsulationComponent } from './d3/shadow-dom-view-encapsulation/shadow-dom-view-encapsulation.component';
 import { SamplePocComponent } from './demos/sample-poc/sample-poc.component';
 import { PocOverviewComponent } from './guide/poc-overview/poc-overview.component';
 import { PocComponent } from './poc.component';
@@ -19,8 +19,8 @@ const routes: Routes = [
         component: SamplePocComponent,
       },
       {
-        path: 'd3/nativeViewEncapsulation',
-        component: NativeViewEncapsulationComponent,
+        path: 'd3/shadowDomViewEncapsulation',
+        component: ShadowDomViewEncapsulationComponent,
       },
     ],
   },

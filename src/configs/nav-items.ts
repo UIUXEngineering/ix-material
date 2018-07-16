@@ -465,15 +465,15 @@ export const ROUTES: IRoute = {
       },
     },
     d3: {
-      nativeViewEncapsulation: <IDataItem>{
-               route: `/${POC}/d3/nativeViewEncapsulation`,
-               name: 'nativeViewEncapsulation',
+      shadowDomViewEncapsulation: <IDataItem>{
+               route: `/${POC}/d3/shadowDomViewEncapsulation`,
+               name: 'shadowDomViewEncapsulation',
                base: '',
-               desc: 'Test Native ViewEncapsulation to speed up render time and reduce memory.',
+               desc: 'Test ShadowDom ViewEncapsulation to speed up render time and reduce memory.',
                seeAlso: [],
                version: '6.0',
                icon: ICON.POC,
-               search: `${POC}, object, native ViewEncapsulation`,
+               search: `${POC}, object, ShadowDom ViewEncapsulation`,
              },
     }
   },
