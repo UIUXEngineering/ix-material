@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 
-export class PocD3BarChartRender {
+export class PocD3SvgBarChartRender {
 
   static render(shadowRoot: ShadowRoot, data: any): void {
     const domSvg: SVGSVGElement = shadowRoot.querySelector('svg') as SVGSVGElement;

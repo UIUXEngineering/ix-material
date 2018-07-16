@@ -9,19 +9,19 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { hasValueIn } from '@uiux/cdk/object';
-import { PocD3BarChartRender } from './poc-d3-bar-chart-render';
+import { PocD3SvgBarChartRender } from './poc-d3-svg-bar-chart-render';
 
 @Component({
-             selector: 'poc-d3-bar-chart',
-             templateUrl: './poc-d3-bar-chart.component.html',
-             styleUrls: ['./poc-d3-bar-chart.component.scss'],
+             selector: 'poc-d3-svg-bar-chart',
+             templateUrl: './poc-d3-svg-bar-chart.component.html',
+             styleUrls: ['./poc-d3-svg-bar-chart.component.scss'],
              preserveWhitespaces: false,
 
              // Note: ShadowDom
              encapsulation: ViewEncapsulation.ShadowDom,
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
-export class PocD3BarChartComponent implements AfterContentInit, OnChanges {
+export class PocD3SvgBarChartComponent implements AfterContentInit, OnChanges {
 
   private chartSelector = '.poc-bar-chart';
 
@@ -43,7 +43,7 @@ export class PocD3BarChartComponent implements AfterContentInit, OnChanges {
   renderD3(): void {
     this.dimensions();
     if (this.data) {
-      PocD3BarChartRender.render(this.el.nativeElement.shadowRoot, this.data);
+      PocD3SvgBarChartRender.render(this.el.nativeElement.shadowRoot, this.data);
     }
   }
 

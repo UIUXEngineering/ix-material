@@ -1,4 +1,3 @@
-import { ViewEncapsulation } from '@angular/core';
 import { MenuApiComponent } from '../app/pages/components/Layout/menu/menu-api/menu-api.component';
 import { MenuExampleComponent } from '../app/pages/components/Layout/menu/menu-example/menu-example.component';
 import { MenuOverviewComponent } from '../app/pages/components/Layout/menu/menu-overview/menu-overview.component';
@@ -466,16 +465,16 @@ export const ROUTES: IRoute = {
     },
     d3: {
       shadowDomViewEncapsulation: <IDataItem>{
-               route: `/${POC}/d3/shadowDomViewEncapsulation`,
-               name: 'D3 ShadowDom',
-               base: '',
-               desc: 'Test ShadowDom ViewEncapsulation to speed up render time and reduce memory.',
-               seeAlso: [],
-               version: '6.0',
-               icon: ICON.POC,
-               search: `${POC}, object, ShadowDom ViewEncapsulation`,
-             },
-    }
+        route: `/${POC}/d3/shadowDomViewEncapsulation`,
+        name: 'D3 ShadowDom',
+        base: '',
+        desc: 'Test ShadowDom ViewEncapsulation to speed up render time and reduce memory.',
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.POC,
+        search: `${POC}, object, ShadowDom ViewEncapsulation`,
+      },
+    },
   },
 
   // project
