@@ -21,10 +21,9 @@ export class PocD3SvgShadowDomViewEncapsulationComponent {
   width = 1200;
 
   chartSample1 = 'https://bl.ocks.org/caravinden/d04238c4c9770020ff6867ee92c7dac1';
-  chartSample2 = 'https://github.com/UIUXEngineering/ix-utilities/tree/master/src/' +
-    'app/pages/poc/d3/shadow-dom-view-encapsulation';
+  chartSample2 = 'https://bl.ocks.org/caravinden/raw/d04238c4c9770020ff6867ee92c7dac1/';
   sourceCode = 'https://github.com/UIUXEngineering/ix-utilities/tree/master/src/' +
-    'app/pages/poc/d3/shadow-dom-view-encapsulation';
+    'app/pages/poc/d3/d3-svg-shadow-dom-view-encapsulation';
 
   onBarsSubmit(val: PoCShadowDomBarForm) {
     this.data = getBars(Number(val.bars));
