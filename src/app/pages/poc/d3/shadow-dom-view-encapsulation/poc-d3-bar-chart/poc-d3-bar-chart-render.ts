@@ -2,8 +2,8 @@ import * as d3 from 'd3';
 
 export class PocD3BarChartRender {
 
-  static render(shadowRoot, data): void {
-    const domSvg: any = shadowRoot.querySelector('svg') as HTMLElement;
+  static render(shadowRoot: ShadowRoot, data: any): void {
+    const domSvg: SVGSVGElement = shadowRoot.querySelector('svg') as SVGSVGElement;
     const svg = d3.select(domSvg);
 
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
@@ -40,8 +40,8 @@ export class PocD3BarChartRender {
       .attr('transform', 'rotate(-90)')
       .attr('y', 6)
       .attr('dy', '0.71em')
-      .attr('text-anchor', 'end')
-      .text('Speed');
+      .attr('text-anchor', 'end');
+      // .text('Speed');
 
     g.selectAll()
       .data(data)
@@ -50,9 +50,6 @@ export class PocD3BarChartRender {
       .attr('class', 'bar')
       .attr('x', function(d) {
         // return x(d.Run);
-        return d.Run;
-      })
-      .attr('Run', function(d) {
         return d.Run;
       })
       .attr('y', function(d) {

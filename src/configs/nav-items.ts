@@ -467,7 +467,7 @@ export const ROUTES: IRoute = {
     d3: {
       shadowDomViewEncapsulation: <IDataItem>{
                route: `/${POC}/d3/shadowDomViewEncapsulation`,
-               name: 'shadowDomViewEncapsulation',
+               name: 'D3 ShadowDom',
                base: '',
                desc: 'Test ShadowDom ViewEncapsulation to speed up render time and reduce memory.',
                seeAlso: [],
