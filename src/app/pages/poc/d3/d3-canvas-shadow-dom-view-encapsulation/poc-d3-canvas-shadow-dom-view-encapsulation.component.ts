@@ -3,16 +3,16 @@ import { getBars } from '../_data';
 import { PoCShadowDomBarForm } from '../bar-form/poc-shadow-dom-bar-form.component';
 
 @Component({
-             selector: 'poc-d3-svg-shadowdom-view-encapsulation',
-             templateUrl: './poc-d3-svg-shadow-dom-view-encapsulation.component.html',
-             styleUrls: ['./poc-d3-svg-shadow-dom-view-encapsulation.component.scss'],
+             selector: 'poc-d3-canvas-shadowdom-view-encapsulation',
+             templateUrl: './poc-d3-canvas-shadow-dom-view-encapsulation.component.html',
+             styleUrls: ['./poc-d3-canvas-shadow-dom-view-encapsulation.component.scss'],
              preserveWhitespaces: false,
 
              // Note: Testing Performance of Native Setting
              encapsulation: ViewEncapsulation.None,
              changeDetection: ChangeDetectionStrategy.OnPush,
            })
-export class PocD3SvgShadowDomViewEncapsulationComponent {
+export class PocD3CanvasShadowDomViewEncapsulationComponent {
 
   data: any = getBars(1000);
   bars = 1000;
@@ -20,8 +20,8 @@ export class PocD3SvgShadowDomViewEncapsulationComponent {
   // 200 px more than number of bars
   width = 1200;
 
-  chartSample1 = 'https://bl.ocks.org/caravinden/d04238c4c9770020ff6867ee92c7dac1';
-  chartSample2 = 'https://bl.ocks.org/caravinden/raw/d04238c4c9770020ff6867ee92c7dac1/';
+  chartSample1 = 'https://bl.ocks.org/mbostock/946ddf8a32b3b660ffd8';
+  chartSample2 = 'https://bl.ocks.org/mbostock/raw/946ddf8a32b3b660ffd8/';
   sourceCode = 'https://github.com/UIUXEngineering/ix-utilities/tree/master/src/' +
     'app/pages/poc/d3/d3-svg-shadow-dom-view-encapsulation';
 

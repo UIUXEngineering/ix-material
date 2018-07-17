@@ -1,13 +1,13 @@
 <div class="poc-d3-svg-shadowdom-view-encapsulation">
 
-  <h3-title [text]="'PoC: D3 SVG In A ShadowDom'"></h3-title>
+  <h3-title [text]="'PoC: D3 Canvas In A ShadowDom'"></h3-title>
 
   <div class="p indent pad-bottom-20">
-    This proof of concept is to wrap a d3 <strong>svg</strong> chart in a ShadowDom to see if performance
+    This proof of concept is to wrap a d3 <strong>canvas</strong> chart in a ShadowDom to see if performance
     and memory can be improved. The wrapping angular component's encapsulation meta-data is set to
     <code-ts-inline [code]="'ViewEncapsulation.ShadowDom'"></code-ts-inline>. See <a-link [href]="chartSample1">this example</a-link>
-    and <a-link [href]="chartSample2">this example</a-link> for references on how these
-    charts are built. See <a-link [href]="sourceCode">source code</a-link>
+    and <a-link [href]="chartSample2">this example</a-link>
+    for references on how these charts are built. See <a-link [href]="sourceCode">source code</a-link>
     for the charts below.
   </div>
 
@@ -33,9 +33,9 @@
   </div>
 
 
-  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
-  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
-  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
-  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
-  <poc-d3-svg-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-svg-bar-chart>
+  <poc-d3-canvas-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-canvas-bar-chart>
+  <poc-d3-canvas-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-canvas-bar-chart>
+  <poc-d3-canvas-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-canvas-bar-chart>
+  <poc-d3-canvas-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-canvas-bar-chart>
+  <poc-d3-canvas-bar-chart [data]="data" [width]="width" [height]="500"></poc-d3-canvas-bar-chart>
 </div>

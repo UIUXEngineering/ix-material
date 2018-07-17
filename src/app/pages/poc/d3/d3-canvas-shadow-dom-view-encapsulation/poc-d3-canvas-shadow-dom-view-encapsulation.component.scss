@@ -1,0 +1,18 @@
+.poc-d3-svg-shadowdom-view-encapsulation {
+  .table-title {
+    font-weight: 600;
+  }
+  .table {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+
+      & > div:first-child {
+        min-width: 150px;
+      }
+    }
+  }
+}
