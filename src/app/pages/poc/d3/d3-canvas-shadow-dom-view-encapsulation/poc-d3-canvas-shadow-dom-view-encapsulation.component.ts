@@ -22,8 +22,8 @@ export class PocD3CanvasShadowDomViewEncapsulationComponent {
 
   chartSample1 = 'https://bl.ocks.org/mbostock/946ddf8a32b3b660ffd8';
   chartSample2 = 'https://bl.ocks.org/mbostock/raw/946ddf8a32b3b660ffd8/';
-  sourceCode = 'https://github.com/UIUXEngineering/ix-utilities/tree/master/src/' +
-    'app/pages/poc/d3/d3-svg-shadow-dom-view-encapsulation';
+  sourceCode = 'https://github.com/UIUXEngineering/ix-utilities/tree/master' +
+    '/src/app/pages/poc/d3/d3-canvas-shadow-dom-view-encapsulation';
 
   onBarsSubmit(val: PoCShadowDomBarForm) {
     this.data = getBars(Number(val.bars));
