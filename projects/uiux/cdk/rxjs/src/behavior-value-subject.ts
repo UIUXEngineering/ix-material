@@ -69,7 +69,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
     }
   }
 
-  merge(val: T, publish = true): void {
+  merge(val: T | any, publish = true): void {
     this._value = merge(this._value, clone(val));
 
     if (publish) {
