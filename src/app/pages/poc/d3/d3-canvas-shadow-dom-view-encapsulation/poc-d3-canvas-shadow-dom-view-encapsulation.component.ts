@@ -20,8 +20,8 @@ export class PocD3CanvasShadowDomViewEncapsulationComponent {
   // 200 px more than number of bars
   width = 1200;
 
-  chartSample1 = 'https://bl.ocks.org/caravinden/d04238c4c9770020ff6867ee92c7dac1';
-  chartSample2 = 'https://bl.ocks.org/caravinden/raw/d04238c4c9770020ff6867ee92c7dac1/';
+  chartSample1 = 'https://bl.ocks.org/mbostock/946ddf8a32b3b660ffd8';
+  chartSample2 = 'https://bl.ocks.org/mbostock/raw/946ddf8a32b3b660ffd8/';
   sourceCode = 'https://github.com/UIUXEngineering/ix-utilities/tree/master/src/' +
     'app/pages/poc/d3/d3-svg-shadow-dom-view-encapsulation';
 

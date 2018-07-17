@@ -9,7 +9,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { hasValueIn } from '@uiux/cdk/object';
-import { PocD3SvgBarChartRender } from './poc-d3-svg-bar-chart-render';
+import { PocD3CanvasBarChartRender } from './poc-d3-canvas-bar-chart-render';
 
 @Component({
              selector: 'poc-d3-canvas-bar-chart',
@@ -43,19 +43,19 @@ export class PocD3CanvasBarChartComponent implements AfterContentInit, OnChanges
   renderD3(): void {
     this.dimensions();
     if (this.data) {
-      PocD3SvgBarChartRender.render(this.el.nativeElement.shadowRoot, this.data);
+      PocD3CanvasBarChartRender.render(this.el.nativeElement.shadowRoot, this.data);
     }
   }
 
   dimensions(): void {
-    const svg: any = this.el.nativeElement.shadowRoot.querySelector('svg') as HTMLElement;
+    const canvas: any = this.el.nativeElement.shadowRoot.querySelector('canvas') as HTMLElement;
 
     if (this.width) {
-      svg.setAttribute('width', this.width);
+      canvas.setAttribute('width', this.width);
     }
 
     if (this.height) {
-      svg.setAttribute('height', this.height);
+      canvas.setAttribute('height', this.height);
     }
   }
 

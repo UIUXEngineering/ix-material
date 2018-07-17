@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PocD3CanvasShadowDomViewEncapsulationComponent } from './d3/d3-canvas-shadow-dom-view-encapsulation/poc-d3-canvas-shadow-dom-view-encapsulation.component';
 import { PocD3SvgShadowDomViewEncapsulationComponent } from './d3/d3-svg-shadow-dom-view-encapsulation/poc-d3-svg-shadow-dom-view-encapsulation.component';
 import { SamplePocComponent } from './demos/sample-poc/sample-poc.component';
 import { PocOverviewComponent } from './guide/poc-overview/poc-overview.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'd3/canvasShadowDomViewEncapsulation',
-        component: PocD3SvgShadowDomViewEncapsulationComponent,
+        component: PocD3CanvasShadowDomViewEncapsulationComponent,
       },
     ],
   },

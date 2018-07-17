@@ -4,6 +4,7 @@ import { SharedModule } from '../../shared/shared.module';
 import {
   PocD3CanvasShadowDomViewEncapsulationComponent
 } from './d3/d3-canvas-shadow-dom-view-encapsulation/poc-d3-canvas-shadow-dom-view-encapsulation.component';
+import { PocD3CanvasBarChartComponent } from './d3/d3-canvas-shadow-dom-view-encapsulation/poc-d3-canvas-bar-chart/poc-d3-canvas-bar-chart.component';
 import {
   PocD3SvgShadowDomViewEncapsulationComponent
 } from './d3/d3-svg-shadow-dom-view-encapsulation/poc-d3-svg-shadow-dom-view-encapsulation.component';
@@ -23,6 +24,7 @@ import { PocShadowDomBarFormComponent } from './d3/bar-form/poc-shadow-dom-bar-f
               SamplePocComponent,
               PocD3SvgShadowDomViewEncapsulationComponent,
               PocD3SvgBarChartComponent,
+              PocD3CanvasBarChartComponent,
               PocD3CanvasShadowDomViewEncapsulationComponent,
               PocShadowDomBarFormComponent,
             ],
