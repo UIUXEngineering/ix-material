@@ -1,6 +1,6 @@
 {
   "name": "@uiux/material",
-  "version": "6.13.13",
+  "version": "6.14.0",
   "peerDependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
