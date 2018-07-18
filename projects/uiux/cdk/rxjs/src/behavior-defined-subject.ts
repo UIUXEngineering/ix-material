@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { clone, getIn, merge, setIn, deleteIn } from '@uiux/cdk/object';
+import { clone, getIn, merge, setIn, deleteIn, mergeIn } from '@uiux/cdk/object';
 import { isDefined } from '@uiux/cdk/value';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
@@ -65,6 +65,14 @@ export class BehaviorDefinedSubject<T> extends Subject<T> {
 
   merge(val: T | any, publish = true): void {
     this._value = merge(this._value, clone(val));
+
+    if (publish) {
+      this.publish();
+    }
+  }
+
+  mergeIn(keys: string | string[] | null, value: any, publish = true): void {
+    this._value = mergeIn(this._value, keys, clone(value));
 
     if (publish) {
       this.publish();

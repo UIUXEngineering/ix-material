@@ -33,13 +33,13 @@ describe('BehaviorStoreSubject', () => {
       {
         foo: 'bar',
       },
-      false
+      false,
     );
 
     expect(s.getValue().foo).toEqual('bar');
     expect(r).toEqual({
-      foo: null,
-    });
+                        foo: null,
+                      });
   });
 
   it('should merge and not publish store', () => {
@@ -58,13 +58,44 @@ describe('BehaviorStoreSubject', () => {
       {
         foo: 'bar',
       },
-      false
+      false,
     );
 
     expect(s.getValue().foo).toEqual('bar');
     expect(r).toEqual({
-      foo: null,
+                        foo: null,
+                      });
+  });
+
+  it('should mergeIn', () => {
+    const src: any = {
+      a: 'a',
+      b: {
+        c: {
+          d: 'd',
+        },
+      },
+    };
+
+    const expected: any = {
+      a: 'a',
+      b: {
+        c: {
+          d: 'd',
+          e: 'e',
+        },
+      },
+    };
+
+    const sub: BehaviorStoreSubject<any> = new BehaviorStoreSubject(src);
+
+    let r: any;
+    sub.subscribe((_r: any) => {
+      r = _r;
     });
+
+    sub.mergeIn('b.c', { e: 'e' });
+    expect(r).toEqual(expected);
   });
 
   it('should publish after setValue', () => {
@@ -80,8 +111,8 @@ describe('BehaviorStoreSubject', () => {
     });
 
     s.merge({
-      foo: 'bar',
-    });
+              foo: 'bar',
+            });
 
     s.publish();
 

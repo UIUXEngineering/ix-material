@@ -58,6 +58,37 @@ describe('BehaviorDefinedSubject', () => {
     sub.merge({ c: 'c' });
   });
 
+  it('should mergeIn', (done) => {
+    const src: any = {
+      a: 'a',
+      b: {
+        c: {
+          d: 'd',
+        },
+      },
+    };
+
+    const expected: any = {
+      a: 'a',
+      b: {
+        c: {
+          d: 'd',
+          e: 'e',
+        }
+      },
+    };
+
+    const sub: BehaviorDefinedSubject<any> = new BehaviorDefinedSubject();
+
+    sub.subscribe((r: any) => {
+      expect(r).toEqual(expected);
+      done();
+    });
+
+    sub.setValue(src, false);
+    sub.mergeIn('b.c', { e: 'e'});
+  });
+
   it('should setValueByKey', (done) => {
     const src: any = {
       a: 'a',
