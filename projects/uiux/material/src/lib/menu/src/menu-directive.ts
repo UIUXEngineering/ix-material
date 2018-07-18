@@ -333,7 +333,7 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
    */
   ixTabHandler() {
     if (!this._ixDisableClose) {
-      this.close.emit('tab');
+      this.closed.emit('tab');
     }
   }
 
