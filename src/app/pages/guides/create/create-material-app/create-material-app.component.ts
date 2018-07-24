@@ -110,7 +110,7 @@ export class CreateMaterialAppComponent implements OnInit {
 
   pkgScripts = `
 "lint": "gulp lint",
-"build.prod": "ng build --aot --prod --configuration production",
+"build.prod": "ng build --aot --prod",
 "copy.icons": "gulp copy.icons",
 "serve": "ng serve",
 "serve.cc": "lite-server --config=coverage-server-cdk",

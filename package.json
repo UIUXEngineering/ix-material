@@ -1,6 +1,6 @@
 {
   "name": "uiux-material",
-  "version": "6.14.2",
+  "version": "6.14.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,7 @@
     "serve": "ng serve",
     "build.cdk": "gulp build.cdk",
     "build.mat": "gulp build.mat",
-    "build.prod": "ng build --aot --prod --configuration production",
+    "build.prod": "ng build --aot --prod",
     "build.projects": "gulp build.projects",
     "copy.icons": "gulp copy.icons",
     "copy.menu": "bash ./scripts/copy-from-mat/copy-menu.sh",
