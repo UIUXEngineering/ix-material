@@ -126,7 +126,13 @@
     <code-scss-block [code]="ixCore"></code-scss-block>
   </div>
 
-  <h4-title [text]="'7. Delete font links'"></h4-title>
+  <div class="indent p">
+    Directly below the line  <code-scss-inline [code]="includeMatTheme"></code-scss-inline> add
+    the the ix-core:
+    <code-scss-block [code]="includeUiuxTheme"></code-scss-block>
+  </div>
+
+  <h4-title [text]="'8. Delete font links'"></h4-title>
   <div class="indent p">
     In the file <code-bash-inline [code]="'./src/index.html'"></code-bash-inline> delete
     the following two lines.

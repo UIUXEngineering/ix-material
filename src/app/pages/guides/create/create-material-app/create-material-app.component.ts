@@ -131,6 +131,8 @@ export class CreateMaterialAppComponent implements OnInit {
   uiuxTheming = `@import '~@uiux/material/theming';`;
   matCore = `@include mat-core();`;
   ixCore = `@include ix-core();`;
+  includeMatTheme = `@include angular-material-theme($app-theme);`;
+  includeUiuxTheme = `@include ix-material-theme($app-theme);`;
   deleteFontLinksInIndex = `
 < link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 < link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
