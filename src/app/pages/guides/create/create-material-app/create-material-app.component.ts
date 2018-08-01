@@ -141,7 +141,7 @@ export class CreateMaterialAppComponent implements OnInit {
   constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {}
 
   updateCodeSnippets(val: string, prefix: string) {
-    this.createProject = `ng new ${val} --prefix=${prefix} --style=scss`;
+    this.createProject = `ng new ${val} --prefix=${prefix} --style=scss --view-encapsulation=None --routing`;
     this.cdIntoProject = `cd ${val}`;
     this.projectName = ` ${val} `;
     this.installSchematic = `ng add @angular/material --theme=custom`;
