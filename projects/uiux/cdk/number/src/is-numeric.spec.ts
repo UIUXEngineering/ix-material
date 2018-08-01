@@ -30,7 +30,7 @@ describe('isNumber', () => {
     expect(isNumber('2a')).toBe(false);
   });
 
-  it('should return false when passing parseable but non ocatal', () => {
+  it('should return true when passing octal', () => {
     expect(isNumber('0x12345')).toBe(true);
   });
 });
