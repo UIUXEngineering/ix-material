@@ -1,6 +1,6 @@
 {
   "name": "uiux-material",
-  "version": "6.14.2",
+  "version": "6.14.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,7 @@
     "serve": "ng serve",
     "build.cdk": "gulp build.cdk",
     "build.mat": "gulp build.mat",
-    "build.prod": "ng build --aot --prod --configuration production",
+    "build.prod": "ng build --aot --prod",
     "build.projects": "gulp build.projects",
     "copy.icons": "gulp copy.icons",
     "copy.menu": "bash ./scripts/copy-from-mat/copy-menu.sh",
@@ -40,14 +40,14 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.0.9",
-    "@angular/cdk": "6.4.0",
+    "@angular/cdk": "^6.4.2",
     "@angular/common": "^6.0.9",
     "@angular/compiler": "^6.0.9",
     "@angular/core": "^6.0.9",
     "@angular/flex-layout": "6.0.0-beta.16",
     "@angular/forms": "^6.0.9",
     "@angular/http": "^6.0.9",
-    "@angular/material": "6.4.0",
+    "@angular/material": "^6.4.2",
     "@angular/platform-browser": "^6.0.9",
     "@angular/platform-browser-dynamic": "^6.0.9",
     "@angular/router": "^6.0.9",
