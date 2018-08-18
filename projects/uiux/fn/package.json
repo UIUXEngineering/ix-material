@@ -1,6 +1,6 @@
 {
   "name": "@uiux/fn",
-  "version": "6.14.6",
+  "version": "6.15.1",
   "dependencies": {
     "immutable": "3.8.2",
     "lodash-es": "4.17.10",

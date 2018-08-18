@@ -24,10 +24,10 @@
         "dist/@uiux/material"
       ],
       "@uiux/dal/*": [
-        "dist/uiux/dal/*"
+        "dist/@uiux/dal/*"
       ],
       "@uiux/fn/*": [
-        "dist/uiux/fn/*"
+        "dist/@uiux/fn/*"
       ]
     }
   }
