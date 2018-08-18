@@ -17,7 +17,7 @@ Node 8.10.0 is required. Recomment using [Node Version Manager](https://github.c
 
 1. Run `nvm use` to use the version of node required for this repo. You may have to install the correct version of node ( See [Node Version Manager](https://github.com/creationix/nvm#installation) docs ).
 
-2. Install development tools globally  
+2. Install development tools globally
     `npm install -g @angular/cli yarn @uiux/cli`  
 
 3. Clone this repo.
