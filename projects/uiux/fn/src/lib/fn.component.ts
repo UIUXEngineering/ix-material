@@ -7,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
       fn works!
     </p>
   `,
-  styles: []
+  styles: [],
 })
 export class FnComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

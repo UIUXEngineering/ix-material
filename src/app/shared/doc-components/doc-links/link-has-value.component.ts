@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { CDK } from '../../../../configs/constants';
+import { FN } from '../../../../configs/constants';
 import { ROUTES } from '../../../../configs/nav-items';
 
 @Component({
@@ -8,7 +8,7 @@ import { ROUTES } from '../../../../configs/nav-items';
   encapsulation: ViewEncapsulation.None,
 })
 export class LinkHasValueComponent {
-  link: string = ROUTES[CDK].object.hasValue.route;
+  link: string = ROUTES[FN].object.hasValue.route;
 
   constructor() {}
 }

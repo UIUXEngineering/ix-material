@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 import { clone } from './clone';
 import { getIn } from './get-in';
 import { merge } from './merge';
@@ -18,4 +18,3 @@ export function mergeIn(object: any, keys: string | string[] | null, value: any)
     return setIn(clone(object), keys, newValue);
   }
 }
-

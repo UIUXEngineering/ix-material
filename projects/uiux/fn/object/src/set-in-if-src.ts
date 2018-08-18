@@ -4,7 +4,7 @@
  */
 
 import { setIn } from './set-in';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 import { ternaryIn } from './ternary-in';
 
 /**

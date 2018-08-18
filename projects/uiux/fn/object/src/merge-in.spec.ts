@@ -7,9 +7,7 @@ import { merge } from './merge';
 import { mergeIn } from './merge-in';
 
 describe('mergeIn', () => {
-
   describe('works like mergeIn', () => {
-
     it('should merge nested', () => {
       const o1: any = {
         a: 'a',
@@ -52,19 +50,12 @@ describe('mergeIn', () => {
       expect(result.b.f).toEqual('f');
       expect(result.b.c.d).toEqual('d');
     });
-
   });
 
-
   describe('works like merge', () => {
+    beforeEach(() => {});
 
-    beforeEach(() => {
-
-    });
-
-    afterEach(() => {
-
-    });
+    afterEach(() => {});
 
     it('should replace target array with src array', () => {
       const target: any = {
@@ -162,7 +153,5 @@ describe('mergeIn', () => {
       expect(mergeIn(obj1, null, obj2).foo).toBeFalsy();
       expect(mergeIn(obj1, null, obj2).bar).toBeUndefined();
     });
-
   });
-
 });

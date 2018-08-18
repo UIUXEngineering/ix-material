@@ -11,7 +11,7 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { CheckContentLoaded, Content, ContentLoadedService } from '@uiux/cdk/dom';
+import { CheckContentLoaded, Content, ContentLoadedService } from '@uiux/fn/dom';
 import { IDataItem } from '../../../../../models/routes';
 
 @Component({
@@ -34,8 +34,8 @@ export class ApiViewerComponent implements AfterViewChecked, OnDestroy {
     let _api = '';
     const parts = this.data.route.split('/');
 
-    if (this.data.route.indexOf('cdk') > -1) {
-      _api = `import { ${parts[3]} } from '@uiux/cdk/${parts[2]}'`;
+    if (this.data.route.indexOf('fn') > -1) {
+      _api = `import { ${parts[3]} } from '@uiux/fn/${parts[2]}'`;
     }
 
     if (this.data.route.indexOf('material') > -1) {

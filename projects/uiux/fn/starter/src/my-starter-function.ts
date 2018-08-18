@@ -4,7 +4,7 @@
  */
 
 /**
- * Sample CDK Function
+ * Sample FN Function
  * @param val: string
  * @returns string
  */

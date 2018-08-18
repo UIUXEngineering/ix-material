@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 
 /**
  * if a value `hasValue` then return that value,

@@ -34,7 +34,7 @@ export class CopierService {
     this.textarea.style.fontSize = '12pt';
 
     // Hide the element
-    this.textarea.classList.add('cdk-visually-hidden');
+    this.textarea.classList.add('fn-visually-hidden');
 
     // Move element to the same position vertically
     const yPosition = window.pageYOffset || document.documentElement.scrollTop;

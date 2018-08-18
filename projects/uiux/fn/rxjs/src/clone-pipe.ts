@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { Observable } from 'rxjs/Observable';
-import { clone } from '@uiux/cdk/object';
+import { clone } from '@uiux/fn/object';
 
 export function clonePipe<T>(): any {
   return (source: Observable<T>): Observable<T> => {

@@ -13,7 +13,7 @@ npm install -g @uiux/cli prettier
 yarn add parse5 --dev
 
 # common packages
-yarn add rxjs-compat moment hammerjs @angular/cdk @angular/material @uiux/cdk lodash-es immutable
+yarn add rxjs-compat moment hammerjs @angular/cdk @angular/material @uiux/fn lodash-es immutable
 
 # polyfills
 yarn add classlist.js web-animations-js intl

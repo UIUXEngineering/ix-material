@@ -14,7 +14,7 @@ import {
   IFormDefaultValueConfig,
   IFormErrorsConfig,
   IFormValidatorsConfig,
-} from '@uiux/cdk/forms';
+} from '@uiux/fn/forms';
 import { FormBuilder } from '@angular/forms';
 
 describe('SpSearchAutoComplateFormGroupFactory', () => {

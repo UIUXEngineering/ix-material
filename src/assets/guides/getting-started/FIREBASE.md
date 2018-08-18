@@ -17,8 +17,8 @@ All firebase features are enabled for this project, although only hosting
 is utilized at this time. To deploy, you must first build the project.
 
 ```bash
-# build cdk
-yarn build.cdk
+# build fn
+yarn build.fn
 
 # build material
 yarn build.mat

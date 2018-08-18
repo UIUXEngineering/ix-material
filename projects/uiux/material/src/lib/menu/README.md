@@ -24,7 +24,7 @@ Please see the official documentation at https://material.angular.io/components/
    projects/uiux/material/src/lib/menu/src/menu.spec.ts(30,8)
    ```
    
-9. Change `@angular/cdk/testing` to  `@uiux/cdk/testing`
+9. Change `@angular/cdk/testing` to  `@uiux/fn/testing`
    ```
    projects/uiux/material/src/lib/menu/src/menu.spec.ts(42,8)
    ```

@@ -13,9 +13,9 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material';
-import { ZipSubject } from '@uiux/cdk/rxjs';
+import { ZipSubject } from '@uiux/fn/rxjs';
 import { Subscription } from 'rxjs/Subscription';
-import { hasValueIn } from '@uiux/cdk/object';
+import { hasValueIn } from '@uiux/fn/object';
 import { IDataItem } from '../../../../models/routes';
 import { ApiRefService, IRouteStore } from '../../../services/api-ref/api-ref.service';
 import { AbstractDocCompoment } from './abstract-doc-compoment';

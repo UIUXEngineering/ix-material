@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { clone, getIn, merge, setIn, deleteIn, mergeIn } from '@uiux/cdk/object';
+import { clone, getIn, merge, setIn, deleteIn, mergeIn } from '@uiux/fn/object';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';

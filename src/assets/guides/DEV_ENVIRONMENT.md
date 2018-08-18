@@ -6,7 +6,7 @@
 
 ### Running tests
 
-**CDK**: `yarn build.cdk`.  
+**FN**: `yarn build.fn`.  
 **Material**: `yarn build.mat`.   
 
 To build all projects: `yarn build.projects`.

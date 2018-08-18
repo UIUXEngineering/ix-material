@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FORM_OPTIONS } from '@uiux/cdk/forms';
-import { BehaviorValueSubject } from '@uiux/cdk/rxjs';
+import { FORM_OPTIONS } from '@uiux/fn/forms';
+import { BehaviorValueSubject } from '@uiux/fn/rxjs';
 
 export interface AddressForm {
   firstName: string;

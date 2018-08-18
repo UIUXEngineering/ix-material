@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { getIn } from './get-in';
-import { hasValueEqual } from '@uiux/cdk/value';
+import { hasValueEqual } from '@uiux/fn/value';
 
 export function hasValueEqualIn(
   targetValue: any,

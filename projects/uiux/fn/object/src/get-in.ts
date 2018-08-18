@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 import { default as at } from 'lodash-es/at';
 import { default as get } from 'lodash-es/get';
 import { ternary } from './ternary';

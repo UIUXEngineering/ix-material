@@ -3,7 +3,7 @@ import { sequenceTask } from '../../package-tools/sequence-task';
 import { execTask } from '../util';
 
 // CDK
-task('test.cdk', execTask('ng', ['test', '@uiux/cdk', '--code-coverage']));
+task('test.cdk', execTask('ng', ['test', '@uiux/fn', '--code-coverage']));
 
 // CDK
 task('test.mat', execTask('ng', ['test', '@uiux/material', '--code-coverage']));

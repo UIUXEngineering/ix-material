@@ -194,7 +194,7 @@ describe('BehaviorValueSubject', () => {
         c: {
           d: 'd',
           e: 'e',
-        }
+        },
       },
     };
 
@@ -206,7 +206,7 @@ describe('BehaviorValueSubject', () => {
     });
 
     sub.setValue(src, false);
-    sub.mergeIn('b.c', { e: 'e'});
+    sub.mergeIn('b.c', { e: 'e' });
   });
 
   it('should nullKey', (done) => {

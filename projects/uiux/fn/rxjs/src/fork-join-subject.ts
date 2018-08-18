@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { Subscriber } from 'rxjs/Subscriber';
-import { allPropsHaveValue, merge } from '@uiux/cdk/object';
+import { allPropsHaveValue, merge } from '@uiux/fn/object';
 
 export class ForkJoinSubject<T> extends Subject<T> {
   private _isPublished = false;

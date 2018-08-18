@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LAZY_LOAD_VENDOR_PROVIDER } from './lazy-load-vendor.service';
 import { GoogleMapsService } from './vendor.google-maps.service';
-import { IxWindowRefModule } from '@uiux/cdk/dom';
+import { IxWindowRefModule } from '@uiux/fn/dom';
 
 @NgModule({
   imports: [CommonModule, IxWindowRefModule],

@@ -37,7 +37,7 @@ import { AngularIoComponent } from './doc-components/common-links/angular-io.com
 import { AngularMaterialInstallComponent } from './doc-components/common-links/angular-material-install.component';
 import { AngularMaterialComponent } from './doc-components/common-links/angular-material.component';
 import { AngularPackageFormatComponent } from './doc-components/common-links/angular-package-format.component';
-import { DocCdkGithubComponent } from './doc-components/common-links/doc-cdk-github.component';
+import { DocFnGithubComponent } from './doc-components/common-links/doc-fn-github.component';
 import { DocMaterialGithubComponent } from './doc-components/common-links/doc-material-github.component';
 import { MaterialDesignComponent } from './doc-components/common-links/material-design.component';
 import { NgPackagrComponent } from './doc-components/common-links/ng-packagr.component';
@@ -57,8 +57,8 @@ import { ComponentHeaderModule } from './util-components/component-page-header/c
 import { DocViewerModule } from './util-components/doc-viewer/doc-viewer-module';
 import { SeeAlsoComponent } from './util-components/see-also/see-also.component';
 import { TableOfContentsModule } from './util-components/table-of-contents/table-of-contents.module';
-import { ContentLoadedModule } from '@uiux/cdk/dom';
-import { SpPipesModule } from '@uiux/cdk/pipes';
+import { ContentLoadedModule } from '@uiux/fn/dom';
+import { SpPipesModule } from '@uiux/fn/pipes';
 import { SpSearchAutocompleteModule, IxShowModule } from '@uiux/material';
 import { MarkdownModule } from 'ngx-markdown';
 import { ApiContainerComponent } from './doc-components/api-container/api-container.component';
@@ -195,7 +195,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     AngularMaterialComponent,
     MaterialDesignComponent,
     DocMaterialGithubComponent,
-    DocCdkGithubComponent,
+    DocFnGithubComponent,
     AngularCliComponent,
     NgPackagrComponent,
     ProjectArchitectureComponent,
@@ -296,7 +296,7 @@ import { ProjectArchitectureComponent } from './doc-components/common-links/proj
     AngularMaterialComponent,
     MaterialDesignComponent,
     DocMaterialGithubComponent,
-    DocCdkGithubComponent,
+    DocFnGithubComponent,
     AngularCliComponent,
     NgPackagrComponent,
     ProjectArchitectureComponent,

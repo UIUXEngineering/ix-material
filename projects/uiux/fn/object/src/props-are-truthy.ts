@@ -5,7 +5,7 @@
 
 import { default as isEmpty } from 'lodash-es/isEmpty';
 import { default as isPlainObject } from 'lodash-es/isPlainObject';
-import { isTruthy } from '@uiux/cdk/value';
+import { isTruthy } from '@uiux/fn/value';
 
 export function propsAreTruthy(value: any, keys?: string[]): boolean {
   if (isPlainObject(value)) {

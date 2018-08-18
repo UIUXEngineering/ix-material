@@ -8,8 +8,8 @@ import { Action } from './action';
 import { IReducerConfig, IReducers, IStoreConfig, ITransformConfig } from './interfaces';
 import { default as reduce } from 'lodash-es/reduce';
 import { TransformSubject } from './transform-subject';
-import { getIn, invokeIfIn, merge } from '@uiux/cdk/object';
-import { hasValue } from '@uiux/cdk/value';
+import { getIn, invokeIfIn, merge } from '@uiux/fn/object';
+import { hasValue } from '@uiux/fn/value';
 
 /**
  * S = State data structure ( Initial State ) interface

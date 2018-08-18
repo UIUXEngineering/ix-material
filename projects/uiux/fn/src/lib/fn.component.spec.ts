@@ -8,9 +8,8 @@ describe('FnComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FnComponent ]
-    })
-    .compileComponents();
+      declarations: [FnComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

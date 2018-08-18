@@ -3,7 +3,7 @@ import { sequenceTask } from '../../package-tools/sequence-task';
 import { execTask } from '../util';
 
 // CDK
-task(':build.cdk', execTask('ng', ['build', '@uiux/cdk', '--prod']));
+task(':build.cdk', execTask('ng', ['build', '@uiux/fn', '--prod']));
 
 task('build.cdk', sequenceTask(':clean.cdk', ':build.cdk'));
 

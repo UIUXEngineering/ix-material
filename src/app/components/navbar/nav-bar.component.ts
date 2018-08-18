@@ -13,7 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {
-  CDK,
+  FN,
   COMPONENTS,
   GIT_REPO,
   GUIDES,
@@ -50,8 +50,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
       };
 
       switch (i) {
-        case CDK:
-          nav.route = `${i}/guides/cdk-overview`;
+        case FN:
+          nav.route = `${i}/guides/fn-overview`;
           break;
         case COMPONENTS:
           nav.route = `${i}/guides/mat-overview`;

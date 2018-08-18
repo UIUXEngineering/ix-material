@@ -15,7 +15,7 @@ export interface IDataItem {
 }
 
 export interface IRoute {
-  cdk: { [category: string]: { [item: string]: IDataItem } };
+  fn: { [category: string]: { [item: string]: IDataItem } };
   material: { [category: string]: { [item: string]: IDataItem } };
   guides: { [category: string]: { [item: string]: IDataItem } };
   icons: { [category: string]: { [item: string]: IDataItem } };

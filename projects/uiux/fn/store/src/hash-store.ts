@@ -9,7 +9,7 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { IStoreConfig } from './interfaces';
 import { default as isEmpty } from 'lodash-es/isEmpty';
 import { IndexedTableSubject } from './indexed-table/indexed-table-subject';
-import { clone, getIn } from '@uiux/cdk/object';
+import { clone, getIn } from '@uiux/fn/object';
 
 export class HashStore<S> extends IndexedTableSubject<S> {
   private _storeCache: any[] = [];

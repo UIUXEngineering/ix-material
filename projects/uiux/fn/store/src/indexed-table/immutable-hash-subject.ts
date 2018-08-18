@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { ObjectUnsubscribedError } from 'rxjs';
-import { keySplitterIntoImmutablePath } from '@uiux/cdk/object';
+import { keySplitterIntoImmutablePath } from '@uiux/fn/object';
 
 // import { } from 'immutable';
 

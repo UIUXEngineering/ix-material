@@ -5,7 +5,7 @@
 
 import { isIn } from './is-in';
 import { get } from './get-in';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 
 /**
  * Returns whether or not the nested property is defined. Keys may be an

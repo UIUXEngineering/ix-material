@@ -3,10 +3,10 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { getIn } from './get-in';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 import { default as _isMatch } from 'lodash-es/isMatch';
 import { default as _isObject } from 'lodash-es/isObject';
-import { isScalar } from '@uiux/cdk/value';
+import { isScalar } from '@uiux/fn/value';
 
 export function isMatch(src, mapCompare): boolean {
   let _isMatchTest = _isObject(src) && _isObject(mapCompare);

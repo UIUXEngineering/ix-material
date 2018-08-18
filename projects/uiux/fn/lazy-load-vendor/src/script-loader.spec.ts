@@ -11,7 +11,7 @@ import {
 } from './script-loader';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import { IPollForValueConfig } from '@uiux/cdk/rxjs';
+import { IPollForValueConfig } from '@uiux/fn/rxjs';
 
 describe('$script', () => {
   let _window: any;

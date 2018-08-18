@@ -10,7 +10,7 @@ import { default as forIn } from 'lodash-es/forIn';
 import { ICreateIndexDictConfig, IIndexedItem, IIndexedItemDict } from './interfaces';
 import { createIndexItem } from './create-indexed-item';
 import { getDataType } from './data-type';
-import { isScalar, hasValue } from '@uiux/cdk/value';
+import { isScalar, hasValue } from '@uiux/fn/value';
 
 function createIndexedArray(
   node: any,

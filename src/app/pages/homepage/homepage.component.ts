@@ -12,13 +12,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 import { default as _uniqBy } from 'lodash-es/uniqBy';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
 import {
   APP_NAME,
-  CDK,
+  FN,
   COMPONENTS,
   GUIDES,
   ICON,
@@ -71,7 +71,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   icon = ICON;
 
   seeGuides = `${GUIDES}/getting-started/install`;
-  seeCdk = `${CDK}/guides/cdk-overview`;
+  seeFn = `${FN}/guides/fn-overview`;
   seePoc = `${POC}/guides/poc-overview`;
   seeMaterial = `${COMPONENTS}/guides/mat-overview`;
   seeThemes = `${THEMES}/demos/overview`;

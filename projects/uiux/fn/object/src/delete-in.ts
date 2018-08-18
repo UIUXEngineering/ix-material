@@ -1,5 +1,5 @@
-import { isNumber } from '@uiux/cdk/number';
-import { hasValue } from '@uiux/cdk/value';
+import { isNumber } from '@uiux/fn/number';
+import { hasValue } from '@uiux/fn/value';
 import { getIn } from './get-in';
 import { keySplitterIntoImmutablePath } from './key-converter';
 import { setIn } from './set-in';

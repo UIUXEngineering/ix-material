@@ -8,7 +8,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { getIn } from '@uiux/cdk/object';
+import { getIn } from '@uiux/fn/object';
 import { map } from 'rxjs/operators/index';
 import { Subscription } from 'rxjs/Subscription';
 import { NAVBAR_MENU_BREAKPOINT } from '../../../configs/constants';

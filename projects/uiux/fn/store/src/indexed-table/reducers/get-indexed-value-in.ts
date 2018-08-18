@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { ternaryIn } from '@uiux/cdk/object';
+import { ternaryIn } from '@uiux/fn/object';
 
 export function getIndexedValueIn(
   object: any,

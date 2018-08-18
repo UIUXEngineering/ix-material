@@ -7,7 +7,7 @@ import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { IFormConfig, IFormGroupConfig, IFormService, IFormValue } from './interfaces';
 import { Subject } from 'rxjs/Subject';
-import { clone, propTruthyInAllPaths } from '@uiux/cdk/object';
+import { clone, propTruthyInAllPaths } from '@uiux/fn/object';
 import {
   buildConfig,
   buildControls,

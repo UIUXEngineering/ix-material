@@ -4,7 +4,7 @@
  */
 
 import { IIndexedItemDict } from './interfaces';
-import { ternary } from '@uiux/cdk/object';
+import { ternary } from '@uiux/fn/object';
 
 export function getIndexedIn(
   table: IIndexedItemDict,

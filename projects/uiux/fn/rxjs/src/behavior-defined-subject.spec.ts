@@ -74,7 +74,7 @@ describe('BehaviorDefinedSubject', () => {
         c: {
           d: 'd',
           e: 'e',
-        }
+        },
       },
     };
 
@@ -86,7 +86,7 @@ describe('BehaviorDefinedSubject', () => {
     });
 
     sub.setValue(src, false);
-    sub.mergeIn('b.c', { e: 'e'});
+    sub.mergeIn('b.c', { e: 'e' });
   });
 
   it('should setValueByKey', (done) => {

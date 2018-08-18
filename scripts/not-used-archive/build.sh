@@ -6,7 +6,7 @@ rm -rf dist
 # remove build theme in node modules
 rm node_modules/@uiux/material/theming.scss
 
-source scripts/build-cdk.sh
+source scripts/build-fn.sh
 source scripts/build-material.sh
 
 # bundle and copy scss files

@@ -1,4 +1,4 @@
-import { randomInt } from '@uiux/cdk/number';
+import { randomInt } from '@uiux/fn/number';
 
 export function getBars(val: number): any[] {
   const data: any = [];

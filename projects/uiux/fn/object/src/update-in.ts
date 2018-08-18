@@ -10,7 +10,7 @@ import { splitKeysIntoDotNotation } from './key-converter';
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 
 /**
  * Updates the nested key with the given value, if it exists, and returns the

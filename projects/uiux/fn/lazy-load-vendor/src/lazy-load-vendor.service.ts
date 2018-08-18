@@ -13,8 +13,8 @@ import { filter } from 'rxjs/operators/filter';
 import { mergeMap } from 'rxjs/operators/mergeMap';
 import { scan } from 'rxjs/operators/scan';
 import { $Script, IVendorFile, lazyloadVendorScriptFactory } from './script-loader';
-import { propsHaveValue } from '@uiux/cdk/object';
-import { hasValue } from '@uiux/cdk/value';
+import { propsHaveValue } from '@uiux/fn/object';
+import { hasValue } from '@uiux/fn/value';
 
 // @Injectable()
 export class LazyLoadVendorService {

@@ -9,7 +9,7 @@ import { ISubscription, Subscription } from 'rxjs/Subscription';
 import { IndexedTableSubject } from './indexed-table/indexed-table-subject';
 import { IndexedTable } from './indexed-table/indexed-table';
 import { ITransformConfig } from './interfaces';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 import { default as reduce } from 'lodash-es/reduce';
 
 export class TransformStoreSubject<T> extends IndexedTableSubject<T> {

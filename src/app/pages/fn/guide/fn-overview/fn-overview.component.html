@@ -1,0 +1,46 @@
+<guide-container [data]="data">
+  <p class="indent bold">
+    This documentation is a work in progress. See this <fn-list></fn-list> for all available components.
+  </p>
+  <p class="indent">
+    The FN consists of utility functions and angular services to solve common problems.
+  </p>
+
+  <h3-title [text]="'Why?'"></h3-title>
+  <p class="indent">
+    In the ideal development scenario you get well structured data from an API, and display it in the UI
+    with no iteration on any data set. And then you add data in the same fashion. But, in most cases as reality hits
+    the road, you start working with complex architectures:
+  </p>
+  <div class="indent">
+    <ul>
+      <li>Legacy API's that are in maintenance mode.</li>
+      <li>No API development support.</li>
+      <li>Data sets that are not precisely as you need them.</li>
+      <li>Mixing new API's with legacy as they migrated.</li>
+      <li>Multiple API architectures -- GraphQL, REST, WebSockets</li>
+      <li>Etc., etc., etc.</li>
+    </ul>
+  </div>
+  <p class="indent">
+    When you spend significant time solving this problems, it would be nice
+    to do a little obfuscation, unit testing, documentation, and then share rather than keeping
+    code locked in multiple repos and relying on copy and paste to reuse.
+  </p>
+  <p class="indent">
+    And so here we are.
+  </p>
+
+  <h3-title [text]="'Install'"></h3-title>
+  <p class="indent">
+    Care has been taken to keep a similar architecture to Angular FN. So you may install and use in
+    the same manner.
+  </p>
+  <code-bash-block [code]="'yarn add @uiux/fn'"></code-bash-block>
+  <p class="indent">
+    The modules are just functions or classes unless documented otherwise. The
+    FN platform is broken up into smaller modules for organization and tree shaking.
+  </p>
+</guide-container>
+
+

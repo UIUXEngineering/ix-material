@@ -84,7 +84,7 @@ yarn add rxjs-compat
 
 ```
 
-Optionally, you can add dependencies, or peerDependencies to `projects/uiux/cdk/package.json`
+Optionally, you can add dependencies, or peerDependencies to `projects/uiux/fn/package.json`
 
 ```json
 
@@ -151,6 +151,6 @@ In the root `package.json` file, add the following to scripts:
 ```
 
 In the `./tools/gulp/tasks` directory, add the appropriate tasks 
-for new library. Follow the patterns for  for cdk or material. The cdk 
+for new library. Follow the patterns for  for fn or material. The fn 
 uses secondary end-points and material is one major library.
 

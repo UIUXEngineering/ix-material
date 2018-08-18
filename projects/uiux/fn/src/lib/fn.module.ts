@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { FnComponent } from './fn.component';
 
 @NgModule({
-  imports: [
-  ],
+  imports: [],
   declarations: [FnComponent],
-  exports: [FnComponent]
+  exports: [FnComponent],
 })
-export class FnModule { }
+export class FnModule {}

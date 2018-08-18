@@ -5,7 +5,7 @@ import { FnService } from './fn.service';
 describe('FnService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [FnService]
+      providers: [FnService],
     });
   });
 

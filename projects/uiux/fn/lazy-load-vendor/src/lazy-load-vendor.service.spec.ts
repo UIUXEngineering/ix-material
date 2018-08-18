@@ -1,7 +1,7 @@
 import { IVendorFile } from './script-loader';
 import { _lazyLoadVendorFactory, LazyLoadVendorService } from './lazy-load-vendor.service';
 import { BehaviorSubject } from 'rxjs';
-import { createSpWindowServiceMock } from '@uiux/cdk/dom';
+import { createSpWindowServiceMock } from '@uiux/fn/dom';
 
 describe('LazyLoadVendorService', () => {
   let lazyloadService: LazyLoadVendorService;

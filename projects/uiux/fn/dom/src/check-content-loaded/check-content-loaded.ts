@@ -1,4 +1,4 @@
-import { IPollForValueConfig, pollForValueWithConfig } from '@uiux/cdk/rxjs';
+import { IPollForValueConfig, pollForValueWithConfig } from '@uiux/fn/rxjs';
 import { BehaviorSubject, Observable, Observer } from 'rxjs';
 
 export interface Content {

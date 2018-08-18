@@ -8,7 +8,7 @@ import { default as _isBoolean } from 'lodash-es/isBoolean';
 import { default as _isString } from 'lodash-es/isString';
 import { default as _isPlainObject } from 'lodash-es/isPlainObject';
 import { DATA_TYPE } from '../constants';
-import { isNumber } from '@uiux/cdk/number';
+import { isNumber } from '@uiux/fn/number';
 
 export function isNumberDataType(value: any): boolean {
   return isNumber(value);

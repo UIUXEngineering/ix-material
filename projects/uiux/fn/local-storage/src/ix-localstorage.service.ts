@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
-import { clone } from '@uiux/cdk/object';
-import { clonePipe } from '@uiux/cdk/rxjs';
+import { clone } from '@uiux/fn/object';
+import { clonePipe } from '@uiux/fn/rxjs';
 
 /**
  * Wrapper for local-storage.

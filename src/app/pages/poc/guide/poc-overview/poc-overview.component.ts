@@ -22,7 +22,7 @@ export class PocOverviewComponent implements OnInit {
   },`;
 
   platformImports = `
-  import ( hasValue ) fron '@uiux/cdk/object';
+  import ( hasValue ) fron '@uiux/fn/object';
   import ( MenuModule ) from '@uiux/material'
   `;
 

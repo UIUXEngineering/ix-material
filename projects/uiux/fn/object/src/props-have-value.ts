@@ -5,7 +5,7 @@
 
 import { default as isEmpty } from 'lodash-es/isEmpty';
 import { default as isPlainObject } from 'lodash-es/isPlainObject';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 
 export function propsHaveValue(value: any, keys?: string[]): boolean {
   if (isPlainObject(value)) {

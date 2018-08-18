@@ -42,7 +42,7 @@ export class CreateMaterialAppComponent implements OnInit {
   projectName: string;
   installSchematic: string;
   addDependencies =
-    'yarn add @angular/material @angular/cdk @uiux/cdk @uiux/material @angular/flex-layout';
+    'yarn add @angular/material @angular/cdk @uiux/fn @uiux/material @angular/flex-layout';
   stylesConfig = `
  "styles": [
     {
@@ -113,7 +113,7 @@ export class CreateMaterialAppComponent implements OnInit {
 "build.prod": "ng build --aot --prod",
 "copy.icons": "gulp copy.icons",
 "serve": "ng serve",
-"serve.cc": "lite-server --config=coverage-server-cdk",
+"serve.cc": "lite-server --config=coverage-server-fn",
 "serve.prod": "ng serve --prod --configuration production",
 "serve.dist": "lite-server --config=server-config-dist",
 "bump": "gulp bump",

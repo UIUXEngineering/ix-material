@@ -1,7 +1,7 @@
 import { GoogleMapsService } from './vendor.google-maps.service';
 import { IVendorFile } from './script-loader';
 import { _lazyLoadVendorFactory } from './lazy-load-vendor.service';
-import { createSpWindowServiceMock } from '@uiux/cdk/dom';
+import { createSpWindowServiceMock } from '@uiux/fn/dom';
 
 describe('GoogleMapsService', () => {
   let _mockVendor: any;
