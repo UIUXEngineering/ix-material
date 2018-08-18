@@ -3,8 +3,6 @@
 Copy this file to your local drive and do a global search/replace with project and library names. For example, 
 if my project is named "uiux", and my project will be in the npm registry as "@uiux":
 
-replace `[project-name]` with something like your compoany project, for example: `uiux-material`, or `angular-material`.
-
 replace `[project/library]` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
 
 Note: the '@' symbol is already coded, and you don't need to provide it.
@@ -13,12 +11,6 @@ Note: the '@' symbol is already coded, and you don't need to provide it.
 ### Create a new project
 
 ```bash
-
-ng new [project-name] --style=scss
-
-cd [project-name]
-
-git flow init
 
 ng generate library @[project/library]
 ```

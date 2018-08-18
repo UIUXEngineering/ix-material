@@ -33,6 +33,10 @@ See the differne workflows to understand how to add code in each proejct.
   - [CDK](./src/assets/guides/WORKFLOW_CDK.md)
   - [Material](./src/assets/guides/WORKFLOW_MATERIAL.md)
   - [Documentation App](./src/assets/guides/WORKFLOW_DOCS.md)
+  
+## Adding a library
+
+See [./src/assets/guides/ANGULAR_LIBRARY.md](./src/assets/guides/ANGULAR_LIBRARY.md)
 
 # Semver
 
