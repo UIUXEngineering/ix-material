@@ -11,7 +11,7 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { CheckContentLoaded, Content, ContentLoadedService } from '@uiux/cdk/dom';
+import { CheckContentLoaded, Content, ContentLoadedService } from '@uiux/fn/dom';
 import { IDataItem } from '../../../../../models/routes';
 
 @Component({

@@ -3,9 +3,9 @@ export const APP_NAME = 'UI Utilities For Angular';
 export const GIT_REPO = 'https://github.com/UIUXEngineering/ix-utilities';
 export const GIT_REPO_PROJECTS_BASE = `${GIT_REPO}/blob/master/projects/uiux`;
 // export const GIT_REPO_PROJECTS_BASE = `${GIT_REPO}/projects/uiux`;
-export const CDK_EXAMPLE_BASE_URL = 'assets/examples/cdk';
+export const FN_EXAMPLE_BASE_URL = 'assets/examples/fn';
 export const COMPONENT_EXAMPLE_BASE_URL = 'assets/examples/components';
-export const CDK = 'cdk';
+export const FN = 'fn';
 export const COMPONENTS = 'material';
 export const GUIDES = 'guides';
 export const ICONS = 'icons';
@@ -13,13 +13,13 @@ export const POC = 'poc';
 export const THEMES = 'themes';
 export const PROJECTS = {
   [COMPONENTS]: 'Components',
-  [CDK]: 'CDK',
+  [FN]: 'FN',
   [GUIDES]: 'Guides',
   [ICONS]: 'Icons',
   [POC]: 'PoC',
   [THEMES]: 'Themes',
 };
-export const sectionOrder: string[] = [CDK, COMPONENTS, POC, ICONS, THEMES, GUIDES];
+export const sectionOrder: string[] = [FN, COMPONENTS, POC, ICONS, THEMES, GUIDES];
 export const THEME_PICKER_THEMES: any[] = [
   {
     primary: '#673AB7',
@@ -51,7 +51,7 @@ export const THEME_PICKER_THEMES: any[] = [
 ];
 
 export const ICON: any = {
-  CDK: 'build',
+  FN: 'build',
   GUIDE: 'list',
   MATERIAL: 'devices_other',
 

@@ -9,7 +9,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { ZipSubject } from '@uiux/cdk/rxjs';
+import { ZipSubject } from '@uiux/fn/rxjs';
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { IDataItem } from '../../../../models/routes';

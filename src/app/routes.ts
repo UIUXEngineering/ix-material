@@ -4,8 +4,8 @@ import { HomepageComponent } from './pages/homepage';
 export const APP_ROUTES: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full', data: {} },
   {
-    path: 'cdk',
-    loadChildren: './pages/cdk/cdk.module#CdkModule',
+    path: 'fn',
+    loadChildren: './pages/fn/fn.module#FnModule',
     data: <any>{
       preload: true,
     },

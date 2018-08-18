@@ -15,6 +15,20 @@ task('lint.cdk', sequenceTask(
   ':lint.cdk',
 ));
 
+
+// ng lint @uiux/fn
+task(':prettier.fn', execTask('prettier', [
+  '--write',
+  './projects/uiux/fn/**/*.ts',
+]));
+
+task(':lint.fn', execTask('ng', [ 'lint', '@uiux/fn' ]));
+
+task('lint.fn', sequenceTask(
+  ':prettier.fn',
+  ':lint.fn',
+));
+
 // ng lint @uiux/dal
 task(':prettier.dal', execTask('prettier', [
   '--write',
@@ -44,7 +58,7 @@ task('lint.mat', sequenceTask(
 
 // projects
 task('lint.projects', sequenceTask(
-  'lint.cdk',
+  'lint.fn',
   'lint.mat',
 ));
 

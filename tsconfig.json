@@ -25,6 +25,9 @@
       ],
       "@uiux/dal/*": [
         "dist/uiux/dal/*"
+      ],
+      "@uiux/fn/*": [
+        "dist/uiux/fn/*"
       ]
     }
   }

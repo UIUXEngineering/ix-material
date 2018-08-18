@@ -3,38 +3,38 @@ import { MenuExampleComponent } from '../app/pages/components/Layout/menu/menu-e
 import { MenuOverviewComponent } from '../app/pages/components/Layout/menu/menu-overview/menu-overview.component';
 import { TabItem } from '../app/shared/util-components/tab-group/tab-item';
 import { IDataItem, IRoute } from '../models/routes';
-import { CDK, COMPONENTS, GIT_REPO_PROJECTS_BASE, GUIDES, ICON, ICONS, POC, THEMES } from './constants';
-import { object } from './nav-items/cdk/object';
+import { FN, COMPONENTS, GIT_REPO_PROJECTS_BASE, GUIDES, ICON, ICONS, POC, THEMES } from './constants';
+import { object } from './nav-items/fn/object';
 
 export const ROUTES: IRoute = {
   // project
-  cdk: {
+  fn: {
     // section
     guides: {
       // dataItem
-      ['cdk-overview']: <IDataItem>{
-        route: `/${CDK}/guides/cdk-overview`,
-        name: 'CDK Overview',
-        desc: 'Overview of cdk.',
+      ['fn-overview']: <IDataItem>{
+        route: `/${FN}/guides/fn-overview`,
+        name: 'FN Overview',
+        desc: 'Overview of fn.',
         base: '',
         githubSpec: null,
         seeAlso: [],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, overview`,
+        icon: ICON.FN,
+        search: `${FN}, overview`,
       },
 
       // dataItem
-      ['adding-to-cdk']: <IDataItem>{
-        route: `/${CDK}/guides/adding-to-cdk`,
-        name: 'Adding To CDK',
-        desc: 'Adding To CDK.',
+      ['adding-to-fn']: <IDataItem>{
+        route: `/${FN}/guides/adding-to-fn`,
+        name: 'Adding To FN',
+        desc: 'Adding To FN.',
         base: '',
         githubSpec: null,
         seeAlso: [],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, adding`,
+        icon: ICON.FN,
+        search: `${FN}, adding`,
       },
     },
     // section
@@ -42,73 +42,73 @@ export const ROUTES: IRoute = {
 
     store: {
       storeSubject: <IDataItem>{
-        route: `/${CDK}/store/storeSubject`,
+        route: `/${FN}/store/storeSubject`,
         name: 'storeSubject',
         desc: 'RxJS Store Subject that supports optional flux pattern.',
         base: '',
-        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/store/src/store-subject.spec.ts`,
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${FN}/store/src/store-subject.spec.ts`,
         seeAlso: [],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, value, storeSubject, store, subject`,
+        icon: ICON.FN,
+        search: `${FN}, value, storeSubject, store, subject`,
       },
     },
     // section
     value: {
       hasValue: <IDataItem>{
-        route: `/${CDK}/value/hasValue`,
+        route: `/${FN}/value/hasValue`,
         name: 'hasValue',
         desc: 'Determines if a scalar value is not undefined, null, or empty.',
         base: '',
-        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/value/src/has-value.spec.ts`,
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${FN}/value/src/has-value.spec.ts`,
         seeAlso: [],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, value, hasValue`,
+        icon: ICON.FN,
+        search: `${FN}, value, hasValue`,
       },
       hasValueEqual: <IDataItem>{
-        route: `/${CDK}/value/hasValueEqual`,
+        route: `/${FN}/value/hasValueEqual`,
         name: 'hasValueEqual',
         desc: 'Determines two values are equal based on hasValue check.',
         base: '',
-        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/value/src/has-value-equal.spec.ts`,
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${FN}/value/src/has-value-equal.spec.ts`,
         seeAlso: [],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, value, hasValueEqual`,
+        icon: ICON.FN,
+        search: `${FN}, value, hasValueEqual`,
       },
       hasValueNotEqual: <IDataItem>{
-        route: `/${CDK}/value/hasValueNotEqual`,
+        route: `/${FN}/value/hasValueNotEqual`,
         name: 'hasValueNotEqual',
         base: '',
         desc: 'Determines if two objects are not equal by hasValue check.',
-        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/value/src/has-value-not-equal.spec.ts`,
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${FN}/value/src/has-value-not-equal.spec.ts`,
         seeAlso: ['hasValue'],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, object, hasValueNotEqual`,
+        icon: ICON.FN,
+        search: `${FN}, object, hasValueNotEqual`,
       },
       isDefined: <IDataItem>{
-        route: `/${CDK}/value/isDefined`,
+        route: `/${FN}/value/isDefined`,
         name: 'isDefined',
         base: '',
         desc: 'Determines if an value is not undefined or null.',
-        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/value/src/is-defined.spec.ts`,
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${FN}/value/src/is-defined.spec.ts`,
         seeAlso: [],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, value, isDefined`,
+        icon: ICON.FN,
+        search: `${FN}, value, isDefined`,
       },
       isScalar: <IDataItem>{
-        route: `/${CDK}/value/isScalar`,
+        route: `/${FN}/value/isScalar`,
         name: 'isScalar',
         base: '',
         desc: 'Determines if a value is a scalar value.',
-        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${CDK}/object/src/is-scalar.spec.ts`,
+        githubSpec: `${GIT_REPO_PROJECTS_BASE}/${FN}/object/src/is-scalar.spec.ts`,
         seeAlso: [],
         version: '6.0',
-        icon: ICON.CDK,
-        search: `${CDK}, value, isScalar`,
+        icon: ICON.FN,
+        search: `${FN}, value, isScalar`,
       },
     },
   },
@@ -192,7 +192,7 @@ export const ROUTES: IRoute = {
         // Optional
         seeAlso: [],
 
-        // Not Required, only used for components and cdk
+        // Not Required, only used for components and fn
         version: '6.0',
       },
       firebase: <IDataItem>{
@@ -273,7 +273,7 @@ export const ROUTES: IRoute = {
         // Optional
         seeAlso: [],
 
-        // Not Required, only used for components and cdk
+        // Not Required, only used for components and fn
         version: '6.0',
       },
     },
@@ -306,7 +306,7 @@ export const ROUTES: IRoute = {
         // Optional
         seeAlso: [],
 
-        // Not Required, only used for components and cdk
+        // Not Required, only used for components and fn
         version: '6.0',
       },
       html: <IDataItem>{
@@ -338,7 +338,7 @@ export const ROUTES: IRoute = {
         // Optional
         seeAlso: [],
 
-        // Not Required, only used for components and cdk
+        // Not Required, only used for components and fn
         version: '6.0',
       },
       'doc-components': <IDataItem>{
@@ -370,7 +370,7 @@ export const ROUTES: IRoute = {
         // Optional
         seeAlso: [],
 
-        // Not Required, only used for components and cdk
+        // Not Required, only used for components and fn
         version: '6.0',
       },
     },

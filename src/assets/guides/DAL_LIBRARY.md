@@ -84,7 +84,7 @@ yarn add rxjs-compat
 
 ```
 
-Optionally, you can add dependencies, or peerDependencies to `projects/uiux/cdk/package.json`
+Optionally, you can add dependencies, or peerDependencies to `projects/uiux/fn/package.json`
 
 ```json
 

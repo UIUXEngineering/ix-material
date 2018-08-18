@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorValueSubject } from '@uiux/cdk/rxjs';
+import { BehaviorValueSubject } from '@uiux/fn/rxjs';
 import { Observable } from 'rxjs/Observable';
 import { zip } from 'rxjs/Observable/zip';
 import { map } from 'rxjs/operators';

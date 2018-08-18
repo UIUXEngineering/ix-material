@@ -15,8 +15,8 @@ import {
 } from '@angular/core';
 import { AbstractControl, FormGroup, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
-import { IFormValue, INITIAL_FORM_VALUE } from '@uiux/cdk/forms';
-import { forbiddenWhitespaceValidator } from '@uiux/cdk/validators';
+import { IFormValue, INITIAL_FORM_VALUE } from '@uiux/fn/forms';
+import { forbiddenWhitespaceValidator } from '@uiux/fn/validators';
 import { default as _isString } from 'lodash-es/isString';
 import { Subscription } from 'rxjs/Subscription';
 import {

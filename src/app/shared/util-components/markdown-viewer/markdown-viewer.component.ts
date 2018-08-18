@@ -13,8 +13,8 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { CheckContentLoaded, Content, ContentLoadedService } from '@uiux/cdk/dom';
-import { hasValue } from '@uiux/cdk/value';
+import { CheckContentLoaded, Content, ContentLoadedService } from '@uiux/fn/dom';
+import { hasValue } from '@uiux/fn/value';
 import { MarkdownService } from 'ngx-markdown';
 import { Subscription } from 'rxjs';
 import { IDataItem } from '../../../../models/routes';

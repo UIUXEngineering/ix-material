@@ -244,8 +244,8 @@ _from: String;`,
     },
   ];
 
-  sampleCodeImportInline = `<code-import-inline _import="hasValue" _from="@uiux/cdk/object"></code-import-inline>`;
-  sampleCodeImportBlock = `<code-import-block _import="hasValue" _from="@uiux/cdk/object"></code-import-block>`;
+  sampleCodeImportInline = `<code-import-inline _import="hasValue" _from="@uiux/fn/object"></code-import-inline>`;
+  sampleCodeImportBlock = `<code-import-block _import="hasValue" _from="@uiux/fn/object"></code-import-block>`;
 
   @HostBinding('class.doc-components') public bind = true;
   ngOnInit(): void {

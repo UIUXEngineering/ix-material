@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, ElementRef, Injectable } from '@angular/core';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 
 @Injectable({
   providedIn: 'root',

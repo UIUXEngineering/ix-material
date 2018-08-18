@@ -18,4 +18,3 @@ export function mergeIn(object: any, keys: string | string[] | null, value: any)
     return setIn(clone(object), keys, newValue);
   }
 }
-

@@ -315,6 +315,47 @@
           }
         }
       }
+    },
+    "@uiux/fn": {
+      "root": "projects/uiux/fn",
+      "sourceRoot": "projects/uiux/fn/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/uiux/fn/tsconfig.lib.json",
+            "project": "projects/uiux/fn/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/uiux/fn/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uiux/fn/src/test.ts",
+            "tsConfig": "projects/uiux/fn/tsconfig.spec.json",
+            "karmaConfig": "projects/uiux/fn/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/uiux/fn/tsconfig.lib.json",
+              "projects/uiux/fn/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "**/projects/uiux/fn/testing/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "uiux-material"

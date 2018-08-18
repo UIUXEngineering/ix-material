@@ -11,7 +11,7 @@ import {
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
-import { guid } from '@uiux/cdk/guid';
+import { guid } from '@uiux/fn/guid';
 import { HighlightService } from '../../services/highlight-js/highlight.service';
 
 @Component({

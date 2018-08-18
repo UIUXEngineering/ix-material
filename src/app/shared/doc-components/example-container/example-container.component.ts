@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ZipSubject } from '@uiux/cdk/rxjs';
+import { ZipSubject } from '@uiux/fn/rxjs';
 import { IDataItem } from '../../../../models/routes';
 import { TableOfContents } from '../../util-components/table-of-contents/table-of-contents';
 

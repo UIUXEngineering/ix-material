@@ -6,6 +6,9 @@ import { execTask } from '../util';
 // CDK
 task('test.cdk', execTask('ng', [ 'test', '@uiux/cdk', '--code-coverage' ]));
 
+// FN
+task('test.fn', execTask('ng', [ 'test', '@uiux/fn', '--code-coverage' ]));
+
 
 // DAL
 task('test.dal', execTask('ng', [ 'test', '@uiux/dal', '--code-coverage' ]));
@@ -15,7 +18,7 @@ task('test.dal', execTask('ng', [ 'test', '@uiux/dal', '--code-coverage' ]));
 task('test.mat', execTask('ng', [ 'test', '@uiux/material', '--code-coverage' ]));
 
 task('test.projects', sequenceTask(
-  'test.cdk',
+  'test.fn',
   'test.dal',
   'test.mat',
 ));

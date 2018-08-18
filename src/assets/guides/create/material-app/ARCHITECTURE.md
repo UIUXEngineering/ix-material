@@ -55,4 +55,4 @@ State is generally maintained at the level of the module driving the state.
 Interdependence of states is handled at the app state level ( store ), or are 
 comprised from from module states and referenced in the app state.
 
-See [StoreSubject](https://uiuxengineering.com/cdk/store/storeSubject) for store implementation.
+See [StoreSubject](https://uiuxengineering.com/fn/store/storeSubject) for store implementation.

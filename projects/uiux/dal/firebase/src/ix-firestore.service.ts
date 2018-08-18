@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseFirestore } from '@firebase/firestore-types';
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from '@uiux/fn/value';
 import {
   AngularFirestore,
   AngularFirestoreCollection,

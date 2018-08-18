@@ -1,7 +1,7 @@
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { Router } from '@angular/router';
-import { clone, propsHaveValue } from '@uiux/cdk/object';
-import { StoreSubject } from '@uiux/cdk/store';
+import { clone, propsHaveValue } from '@uiux/fn/object';
+import { StoreSubject } from '@uiux/fn/store';
 import { default as _forIn } from 'lodash-es/forIn';
 import { default as _get } from 'lodash-es/get';
 import { Subscription } from 'rxjs/Subscription';
@@ -10,7 +10,7 @@ import { IDataItem } from '../../../models/routes';
 import { IRouteService, RouteService } from '../route/route.service';
 
 export interface IRouteStore {
-  cdk: IDataItem[];
+  fn: IDataItem[];
   material: IDataItem[];
   guides: IDataItem[];
   icons: IDataItem[];
@@ -21,7 +21,7 @@ export interface IRouteStore {
   route: IRouteService;
   dataItems: { [key: string]: IDataItem };
   initial: {
-    cdk: IDataItem[];
+    fn: IDataItem[];
     material: IDataItem[];
     guides: IDataItem[];
     allRoutes: IDataItem[];
@@ -41,7 +41,7 @@ const intialDataItem: IDataItem = {
 };
 
 const initialStore: IRouteStore = {
-  cdk: [],
+  fn: [],
   material: [],
   guides: [],
   icons: [],
@@ -52,7 +52,7 @@ const initialStore: IRouteStore = {
   dataItems: {},
   currentRouteData: clone(intialDataItem),
   initial: {
-    cdk: [],
+    fn: [],
     material: [],
     guides: [],
     allRoutes: [],
