@@ -10,17 +10,19 @@ import {
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
+import { guid } from '@uiux/cdk/guid';
 import { HighlightService } from '../../services/highlight-js/highlight.service';
 
 @Component({
   // tslint:disable-next-line
   selector: 'code-html-block',
-  template: `<pre><code class="html">{{code}}</code></pre>`,
+  template: `<pre><code class="html" id="{{id}}">{{code}}</code></pre>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class CodeHtmlBlockComponent implements AfterViewInit, OnChanges {
   @Input('code') code: string;
+  id = guid();
 
   constructor(
     private _renderer: Renderer2,
@@ -30,6 +32,7 @@ export class CodeHtmlBlockComponent implements AfterViewInit, OnChanges {
   ) {}
 
   ngAfterViewInit(): void {
+    document.getElementById(this.id).innerText = this.code;
     this._hs.highlight(this._elementRef, this._cd);
   }
 

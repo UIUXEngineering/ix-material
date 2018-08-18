@@ -11,18 +11,21 @@ import {
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
+import { guid } from '@uiux/cdk/guid';
 import { HighlightService } from '../../services/highlight-js/highlight.service';
 
 @Component({
   // tslint:disable-next-line
   selector: 'code-html-inline',
-  template: `<span class="code-html-inline"><pre><code class="html">{{code}}</code></pre></span>`,
+  template: `<span class="code-html-inline"><pre><code class="html" id="{{id}}"></code></pre></span>`,
   styleUrls: ['./code-html-inline.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class CodeHtmlInlineComponent implements AfterViewInit, OnChanges {
   @Input('code') code: string;
+
+  id: string = guid();
 
   constructor(
     private _renderer: Renderer2,
@@ -32,6 +35,7 @@ export class CodeHtmlInlineComponent implements AfterViewInit, OnChanges {
   ) {}
 
   ngAfterViewInit(): void {
+    document.getElementById(this.id).innerText = this.code;
     this._hs.highlight(this._elementRef, this._cd);
   }
 
