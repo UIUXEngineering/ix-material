@@ -1,9 +1,9 @@
-## Creating an Angular Library
+## Creating an UIUX Library
 
 Copy this file to your local drive and do a global search/replace with project and library names. For example, 
 if my project is named "uiux", and my project will be in the npm registry as "@uiux":
 
-replace `[project/library]` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
+replace `uiux/services` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
 
 Note: the '@' symbol is already coded, and you don't need to provide it.
 
@@ -12,7 +12,7 @@ Note: the '@' symbol is already coded, and you don't need to provide it.
 
 ```bash
 
-ng generate library @[project/library]
+ng generate library @uiux/services
 ```
 
 ### Open `tsconfig.json`
@@ -34,15 +34,15 @@ Change:
 ```json
 
 "paths": {
-      "@[project/library]/*": [
-        "dist/@[project/library]/*"
+      "@uiux/services/*": [
+        "dist/@uiux/services/*"
       ]
     }
 ```
 
 ### For a library that ONLY has secondary endpoints
 
-In the path `projects/[project/library]`  
+In the path `projects/uiux/services`
 Open files `ng-package.json` and `ng-package.prod.json`
 
 Remove:
@@ -116,7 +116,7 @@ add file in root `.prettierrc` that contains:
 
 To test secondary endpoints that are not in the `src` directory.
 
-in the file `projects/[project/library]/src/test.ts`
+in the file `projects/uiux/services/src/test.ts`
 
 Change:
 
@@ -124,7 +124,7 @@ Change:
 const context = require.context('./', true, /\.spec\.ts$/);
 ```
 
-to:
+to ( only changing '../'):
 
 ```typescript
 const context = require.context('../', true, /\.spec\.ts$/);`
@@ -136,9 +136,9 @@ In the root `package.json` file, add the following to scripts:
 
 ```json
 {
-    "test.dal": "gulp test.dal",
-    "lint.dal": "gulp lint.dal",
-    "build.dal": "gulp build.dal",
+    "test.services": "gulp test.services",
+    "lint.services": "gulp lint.services",
+    "build.services": "gulp build.services",
 }   
 ```
 
