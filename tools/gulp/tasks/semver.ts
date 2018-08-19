@@ -31,6 +31,11 @@ function updateDAL(version: string): any {
     .pipe(dest('./projects/uiux/dal/'));
 }
 
+function updatesvc(version: string): any {
+  return src('./projects/uiux/services/package.json')
+    .pipe(bump({version: version}))
+    .pipe(dest('./projects/uiux/services/'));
+}
 
 function updateMaterial(version: string): any {
   return src('./projects/uiux/material/package.json')
@@ -53,6 +58,7 @@ function updateRoot(version: string): any {
 function updatePackages(version: string): any {
   return merge(updateFN(version),
                updateDAL(version),
+               updatesvc(version),
                updateMaterial(version),
                updateIcons(version),
                updateRoot(version),

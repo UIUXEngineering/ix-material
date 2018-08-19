@@ -24,6 +24,14 @@ task('build.dal', sequenceTask(
   ':clean.dal',
   ':build.dal'));
 
+// services
+// ng build @uiux/svc
+task(':build.services', execTask('ng', [ 'build', '@uiux/services', '--prod' ]));
+
+task('build.svc', sequenceTask(
+  ':clean.services',
+  ':build.services'));
+
 // MATERIAL
 task(':build.mat', execTask('ng', [ 'build', '@uiux/material', '--prod' ], { failOnStderr: true }));
 

@@ -5,6 +5,8 @@ if my project is named "uiux", and my project will be in the npm registry as "@u
 
 replace `uiux/services` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
 
+replace `svc` with a short version of `services`. For example 'svc' is short for 'services'
+
 Note: the '@' symbol is already coded, and you don't need to provide it.
 
 
@@ -44,16 +46,6 @@ Change:
 
 In the path `projects/uiux/services`
 Open files `ng-package.json` and `ng-package.prod.json`
-
-Change output from:
- 
- ` "dest": "../../../dist/uiux/`
- 
- to:
- 
-  `"dest": "../../../dist/@uiux/`
-
-
 
 Remove:
 
@@ -146,13 +138,68 @@ In the root `package.json` file, add the following to scripts:
 
 ```json
 {
-    "test.svc": "gulp test.services",
-    "lint.svc": "gulp lint.services",
-    "build.svc": "gulp build.services",
+    "test.svc": "gulp test.svc",
+    "lint.svc": "gulp lint.svc",
+    "build.svc": "gulp build.svc",
 }   
 ```
 
 In the `./tools/gulp/tasks` directory, add the appropriate tasks 
 for new library. Follow the patterns for  for fn or material. The fn 
 uses secondary end-points and material is one major library.
+
+#### build
+
+```
+// services
+// ng build @uiux/svc
+task(':build.services', execTask('ng', [ 'build', '@uiux/services', '--prod' ]));
+
+task('build.svc', sequenceTask(
+  ':clean.services',
+  ':build.services'));
+
+```
+
+#### clean
+
+```
+task(':clean.services', cleanTask('dist/@uiux/services'));
+````
+
+#### lint
+
+```
+// ng lint @uiux/services
+task(':prettier.services', execTask('prettier', [
+  '--write',
+  './projects/uiux/services/**/*.ts',
+]));
+
+task(':lint.services', execTask('ng', [ 'lint', '@uiux/services' ]));
+
+task('lint.svc', sequenceTask(
+  ':prettier.services',
+  ':lint.services',
+));
+
+
+```
+
+#### semver
+
+```
+function updatesvc(version: string): any {
+  return src('./projects/uiux/services/package.json')
+    .pipe(bump({version: version}))
+    .pipe(dest('./projects/uiux/services/'));
+}
+```
+
+#### unit-tests
+
+```
+// ng test @uiux/services
+task('test.svc', execTask('ng', [ 'test', '@uiux/services', '--code-coverage' ]));
+```
 

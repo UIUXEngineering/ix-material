@@ -7,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
       services works!
     </p>
   `,
-  styles: []
+  styles: [],
 })
 export class ServicesComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

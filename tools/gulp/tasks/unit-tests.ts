@@ -13,6 +13,8 @@ task('test.fn', execTask('ng', [ 'test', '@uiux/fn', '--code-coverage' ]));
 // DAL
 task('test.dal', execTask('ng', [ 'test', '@uiux/dal', '--code-coverage' ]));
 
+// ng test @uiux/services
+task('test.svc', execTask('ng', [ 'test', '@uiux/services', '--code-coverage' ]));
 
 // Material
 task('test.mat', execTask('ng', [ 'test', '@uiux/material', '--code-coverage' ]));

@@ -138,9 +138,9 @@ In the root `package.json` file, add the following to scripts:
 
 ```json
 {
-    "test.[library-abbr]": "gulp test.[library]",
-    "lint.[library-abbr]": "gulp lint.[library]",
-    "build.[library-abbr]": "gulp build.[library]",
+    "test.[library-abbr]": "gulp test.[library-abbr]",
+    "lint.[library-abbr]": "gulp lint.[library-abbr]",
+    "build.[library-abbr]": "gulp build.[library-abbr]",
 }   
 ```
 
@@ -151,7 +151,7 @@ uses secondary end-points and material is one major library.
 #### build
 
 ```
-// DAL
+// [library]
 // ng build @uiux/[library-abbr]
 task(':build.[library]', execTask('ng', [ 'build', '@uiux/[library]', '--prod' ]));
 
