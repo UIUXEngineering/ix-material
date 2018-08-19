@@ -28,6 +28,9 @@
       ],
       "@uiux/fn/*": [
         "dist/@uiux/fn/*"
+      ],
+      "@uiux/services/*": [
+        "dist/@uiux/services/*"
       ]
     }
   }

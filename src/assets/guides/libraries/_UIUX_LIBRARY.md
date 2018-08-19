@@ -5,6 +5,8 @@ if my project is named "uiux", and my project will be in the npm registry as "@u
 
 replace `uiux/[library]` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
 
+replace `[library-abbr]` with a short version of `[library]`. For example 'svc' is short for 'services'
+
 Note: the '@' symbol is already coded, and you don't need to provide it.
 
 
@@ -127,7 +129,7 @@ const context = require.context('./', true, /\.spec\.ts$/);
 to ( only changing '../'):
 
 ```typescript
-const context = require.context('../', true, /\.spec\.ts$/);`
+const context = require.context('../', true, /\.spec\.ts$/);
 ```
 
 ### Gulp
@@ -136,13 +138,68 @@ In the root `package.json` file, add the following to scripts:
 
 ```json
 {
-    "test.[library]": "gulp test.[library]",
-    "lint.[library]": "gulp lint.[library]",
-    "build.[library]": "gulp build.[library]",
+    "test.[library-abbr]": "gulp test.[library]",
+    "lint.[library-abbr]": "gulp lint.[library]",
+    "build.[library-abbr]": "gulp build.[library]",
 }   
 ```
 
 In the `./tools/gulp/tasks` directory, add the appropriate tasks 
 for new library. Follow the patterns for  for fn or material. The fn 
 uses secondary end-points and material is one major library.
+
+#### build
+
+```
+// DAL
+// ng build @uiux/[library-abbr]
+task(':build.[library]', execTask('ng', [ 'build', '@uiux/[library]', '--prod' ]));
+
+task('build.[library-abbr]', sequenceTask(
+  ':clean.[library]',
+  ':build.[library]'));
+
+```
+
+#### clean
+
+```
+task(':clean.[library]', cleanTask('dist/@uiux/[library]'));
+````
+
+#### lint
+
+```
+// ng lint @uiux/[library]
+task(':prettier.[library]', execTask('prettier', [
+  '--write',
+  './projects/uiux/[library]/**/*.ts',
+]));
+
+task(':lint.[library]', execTask('ng', [ 'lint', '@uiux/[library]' ]));
+
+task('lint.[library-abbr]', sequenceTask(
+  ':prettier.[library]',
+  ':lint.[library]',
+));
+
+
+```
+
+#### semver
+
+```
+function update[library-abbr](version: string): any {
+  return src('./projects/uiux/[library]/package.json')
+    .pipe(bump({version: version}))
+    .pipe(dest('./projects/uiux/[library]/'));
+}
+```
+
+#### unit-tests
+
+```
+// ng test @uiux/[library]
+task('test.[library-abbr]', execTask('ng', [ 'test', '@uiux/[library]', '--code-coverage' ]));
+```
 

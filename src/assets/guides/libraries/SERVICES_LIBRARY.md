@@ -45,6 +45,16 @@ Change:
 In the path `projects/uiux/services`
 Open files `ng-package.json` and `ng-package.prod.json`
 
+Change output from:
+ 
+ ` "dest": "../../../dist/uiux/`
+ 
+ to:
+ 
+  `"dest": "../../../dist/@uiux/`
+
+
+
 Remove:
 
 ```json
@@ -127,7 +137,7 @@ const context = require.context('./', true, /\.spec\.ts$/);
 to ( only changing '../'):
 
 ```typescript
-const context = require.context('../', true, /\.spec\.ts$/);`
+const context = require.context('../', true, /\.spec\.ts$/);
 ```
 
 ### Gulp
@@ -136,9 +146,9 @@ In the root `package.json` file, add the following to scripts:
 
 ```json
 {
-    "test.services": "gulp test.services",
-    "lint.services": "gulp lint.services",
-    "build.services": "gulp build.services",
+    "test.svc": "gulp test.services",
+    "lint.svc": "gulp lint.services",
+    "build.svc": "gulp build.services",
 }   
 ```
 

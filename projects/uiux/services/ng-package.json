@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/@uiux/services",
+  "deleteDestPath": false,
+  "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"]
+}
