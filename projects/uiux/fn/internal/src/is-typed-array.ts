@@ -1,4 +1,3 @@
-
 import { baseIsTypedArray } from './base-is-typed-array';
 import { baseUnary } from './base-unary';
 

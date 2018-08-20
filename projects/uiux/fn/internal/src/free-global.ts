@@ -3,9 +3,7 @@
  * https://stackoverflow.com/questions/17575790/environment-detection-node-js-or-browser
  */
 
-
 const isNode: Function = new Function('try {return this===global;}catch(e){return false;}');
-
 
 // tests if global scope is binded to "global"
 // if(isNode()) console.log("running under node.js");

@@ -10,7 +10,6 @@ import {
   isLength,
   isObject,
   isObjectLike,
-  isSymbol } from '@uiux/fn/internal';
+  isSymbol,
+} from '@uiux/fn/internal';
 export { isArray, isDate, isFunction, isLength, isObject, isObjectLike, isSymbol };
-
-

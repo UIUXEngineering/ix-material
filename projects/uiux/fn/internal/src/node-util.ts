@@ -8,16 +8,16 @@ const isNode: Function = new Function('try {return this===global;}catch(e){retur
 const getExports: Function = new Function('return exports');
 const getModule: Function = new Function('return module');
 
-
 /** Detect free variable `exports`. */
-const freeExports = ( isNode()  && typeof getExports() === 'object' && !getExports().nodeType ) ?
-  getExports() : null;
+const freeExports =
+  isNode() && typeof getExports() === 'object' && !getExports().nodeType ? getExports() : null;
 
 // declare const module;
 /** Detect free variable `module`. */
 const freeModule: { exports: any; require: Function } =
-  (isNode() && freeExports && typeof getModule() === 'object' && !getModule().nodeType) ?
-    getModule() :  null;
+  isNode() && freeExports && typeof getModule() === 'object' && !getModule().nodeType
+    ? getModule()
+    : null;
 
 /** Detect the popular CommonJS extension `module.exports`. */
 const moduleExports = freeModule && freeModule.exports === freeExports;
