@@ -320,7 +320,7 @@
       "root": "projects/uiux/fn",
       "sourceRoot": "projects/uiux/fn/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "ix",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

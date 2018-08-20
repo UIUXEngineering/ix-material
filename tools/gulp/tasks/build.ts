@@ -58,6 +58,7 @@ task('build.mat', sequenceTask(
 
 /** build material project */
 task('build.projects', sequenceTask(
+  'build.cdk',
   'build.fn',
   'build.mat',
   'build.dal'

@@ -3,13 +3,13 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { default as isBoolean } from 'lodash-es/isBoolean';
-import { default as isEmpty } from 'lodash-es/isEmpty';
-import { default as isFunction } from 'lodash-es/isFunction';
-import { default as isString } from 'lodash-es/isString';
-import { default as isNumber } from 'lodash-es/isNumber';
-import { default as trim } from 'lodash-es/trim';
-import { default as isDate } from 'lodash-es/isDate';
+import { trim } from '@uiux/fn/string';
+import { isBoolean } from './is-boolean';
+import { isDate } from './is-date';
+import { isEmpty } from './is-empty';
+import { isFunction } from './is-function';
+import { isNumber } from './is-number';
+import { isString } from './is-string';
 
 export function hasValue(value: any): boolean {
   if (isDate(value)) {
