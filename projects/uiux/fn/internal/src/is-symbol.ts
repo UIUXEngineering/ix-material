@@ -8,18 +8,13 @@ const symbolTag = '[object Symbol]';
  * Checks if `value` is classified as a `Symbol` primitive or object.
  *
  *
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
- * @example
  *
  * _.isSymbol(Symbol.iterator);
  * // => true
  *
  * _.isSymbol('abc');
  * // => false
+ * @param value
  */
 export function isSymbol(value) {
   return typeof value === 'symbol' || (isObjectLike(value) && baseGetTag(value) === symbolTag);

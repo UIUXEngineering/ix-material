@@ -5,9 +5,9 @@ import { unicodeToArray } from './unicode-to-array';
 /**
  * Converts `string` to an array.
  *
+ * Returns the converted array.
  *
- *  string The string to convert.
- * @returns  Returns the converted array.
+ * @param string The string to convert.
  */
 export function stringToArray(string: string): any[] {
   return hasUnicode(string) ? unicodeToArray(string) : asciiToArray(string);

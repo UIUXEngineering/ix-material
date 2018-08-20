@@ -13,10 +13,9 @@ const symbolProto = symbol ? symbol['prototype'] : undefined,
 /**
  * The base implementation of `_.toString` which doesn't convert nullish
  * values to empty strings.
+ * Returns the string.
  *
- *
- *  value The value to process.
- * @returns {string} Returns the string.
+ * @param value The value to process.
  */
 export function baseToString(value) {
   // Exit early for strings to avoid a performance hit in some environments.

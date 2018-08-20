@@ -11,9 +11,9 @@ describe('HasValue', () => {
     expect(hasValue(value)).toBeTruthy();
   });
 
-  it('should fail with string with spaces', () => {
+  it('should pass with string with spaces', () => {
     const value = '   ';
-    expect(hasValue(value)).toBeFalsy();
+    expect(hasValue(value)).toBe(true);
   });
 
   it('should pass with number greather than 0', () => {

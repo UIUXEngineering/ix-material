@@ -1,13 +1,13 @@
-import {baseIndexOf} from './base-index-of';
+import { baseIndexOf } from './base-index-of';
 
 /**
  * Used by `_.trim` and `_.trimStart` to get the index of the first string symbol
  * that is not found in the character symbols.
  *
+ * Returns the index of the first unmatched string symbol.
  *
- * @param  strSymbols The string symbols to inspect.
- * @param  chrSymbols The character symbols to find.
- * @returns {number} Returns the index of the first unmatched string symbol.
+ * @param strSymbols The string symbols to inspect.
+ * @param chrSymbols The character symbols to find.
  */
 export function charsStartIndex(strSymbols: any[], chrSymbols: any[]): number {
   let index = -1;

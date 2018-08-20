@@ -1,21 +1,17 @@
-import { baseIsTypedArray } from '@uiux/fn/internal';
-import { baseUnary } from '@uiux/fn/internal';
+
+import { baseIsTypedArray } from './base-is-typed-array';
+import { baseUnary } from './base-unary';
 
 /* Node.js helper references. */
-import { nodeUtil } from '@uiux/fn/internal';
+import { nodeUtil } from './node-util';
 
 const nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
 
 /**
  * Checks if `value` is classified as a typed array.
  *
- *
- * @memberOf _
- * @since 3.0.0
- * @category Lang
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
- * @example
+ * @param value The value to check.
+ * Returns `true` if `value` is a typed array, else `false`.
  *
  * _.isTypedArray(new Uint8Array);
  * // => true

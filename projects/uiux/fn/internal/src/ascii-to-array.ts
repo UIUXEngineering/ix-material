@@ -1,9 +1,6 @@
 /**
  * Converts an ASCII `string` to an array.
- *
- *
- *  string The string to convert.
- * @returns  Returns the converted array.
+ * @param string The string to convert.
  */
 export function asciiToArray(string: string): any[] {
   return string.split('');

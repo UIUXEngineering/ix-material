@@ -3,10 +3,9 @@ const objectProto = Object.prototype;
 
 /**
  * Checks if `value` is likely a prototype object.
+ * Returns `true` if `value` is a prototype, else `false`.
  *
- *
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+ * @param value The value to check.
  */
 export function isPrototype(value) {
   const Ctor = value && value.constructor,

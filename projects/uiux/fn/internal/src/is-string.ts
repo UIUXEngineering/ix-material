@@ -1,20 +1,16 @@
-import { baseGetTag } from '@uiux/fn/internal';
-import { isArray } from '@uiux/fn/internal';
-import { isObjectLike } from '@uiux/fn/internal';
+import { baseGetTag } from './base-get-tag';
+import { isArray } from './is-array';
 
 /** `Object#toString` result references. */
+import { isObjectLike } from './is-object-like';
+
 const stringTag = '[object String]';
 
 /**
  * Checks if `value` is classified as a `String` primitive or object.
  *
- *
- * @since 0.1.0
- * @memberOf _
- * @category Lang
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a string, else `false`.
- * @example
+ * @param value The value to check.
+ * Returns `true` if `value` is a string, else `false`.
  *
  * _.isString('abc');
  * // => true

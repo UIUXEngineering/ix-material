@@ -17,9 +17,9 @@ const reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange + rsComboRange + rsVarRa
 /**
  * Checks if `string` contains Unicode symbols.
  *
+ * Returns `true` if a symbol is found, else `false`.
  *
- *  string The string to inspect.
- * @returns {boolean} Returns `true` if a symbol is found, else `false`.
+ * @param string The string to inspect.
  */
 export function hasUnicode(string: string): boolean {
   return reHasUnicode.test(string);

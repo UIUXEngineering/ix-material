@@ -35,11 +35,9 @@ const reIsNative = RegExp(
 
 /**
  * The base implementation of `_.isNative` without bad shim checks.
- *
- *
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function,
+ * Returns `true` if `value` is a native function,
  *  else `false`.
+ * @param value The value to check.
  */
 export function baseIsNative(value) {
   if (!isObject(value) || isMasked(value)) {

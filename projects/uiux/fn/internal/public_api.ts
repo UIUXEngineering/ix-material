@@ -28,10 +28,12 @@ export * from './src/get-raw-tag';
 export * from './src/get-tag';
 export * from './src/get-value';
 export * from './src/has-unicode';
+export * from './src/is-date';
 export * from './src/is-masked';
 export * from './src/is-prototype';
 export * from './src/map';
 export * from './src/native-keys';
+export * from './src/node-util';
 export * from './src/object-to-string';
 export * from './src/over-arg';
 export * from './src/promise';
@@ -44,8 +46,36 @@ export * from './src/to-source';
 export * from './src/weak-map';
 
 export * from './src/is-array';
+export * from './src/is-boolean';
 export * from './src/is-function';
 export * from './src/is-length';
 export * from './src/is-object';
 export * from './src/is-object-like';
 export * from './src/is-symbol';
+export * from './src/trim';
+
+export * from './src/has-value';
+export * from './src/has-value-equal';
+export * from './src/has-value-not-equal';
+export * from './src/is-defined';
+export * from './src/is-scalar';
+export * from './src/is-truthy';
+
+// Predicate
+export * from './src/is-arguments';
+export * from './src/is-arrayLike';
+export * from './src/is-boolean';
+export * from './src/is-buffer';
+export * from './src/is-date';
+export * from './src/is-empty';
+export * from './src/is-number';
+export * from './src/is-string';
+export * from './src/is-typed-array';
+export * from './src/stub-false';
+
+// String
+export * from './src/to-string';
+export * from './src/starts-or-ends-with-whitespace';
+export * from './src/to-kebab-case';
+export * from './src/trim';
+

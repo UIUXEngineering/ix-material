@@ -6,10 +6,8 @@ const argsTag = '[object Arguments]';
 
 /**
  * The base implementation of `_.isArguments`.
- *
- *
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ * Returns `true` if `value` is an `arguments` object,
+ * @param value The value to check.
  */
 export function baseIsArguments(value) {
   return isObjectLike(value) && baseGetTag(value) === argsTag;

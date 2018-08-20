@@ -48,10 +48,8 @@ typedArrayTags[argsTag] = typedArrayTags[arrayTag] = typedArrayTags[
 
 /**
  * The base implementation of `_.isTypedArray` without Node.js optimizations.
- *
- *
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ * Returns `true` if `value` is a typed array, else `false`.
+ * @param value The value to check.
  */
 export function baseIsTypedArray(value) {
   return isObjectLike(value) && isLength(value.length) && !!typedArrayTags[baseGetTag(value)];

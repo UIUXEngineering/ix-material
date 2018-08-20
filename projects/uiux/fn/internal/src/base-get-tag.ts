@@ -11,10 +11,7 @@ const symToStringTag = symbol ? symbol['toStringTag'] : undefined;
 
 /**
  * The base implementation of `getTag` without fallbacks for buggy environments.
- *
- *
- *  value The value to query.
- * @returns {string} Returns the `toStringTag`.
+ * @param value The value to query.
  */
 export function baseGetTag(value: any): string {
   if (value == null) {

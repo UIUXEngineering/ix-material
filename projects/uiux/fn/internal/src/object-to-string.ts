@@ -11,9 +11,9 @@ const nativeObjectToString = objectProto.toString;
 /**
  * Converts `value` to a string using `Object.prototype.toString`.
  *
+ * Returns the converted string.
  *
- *  value The value to convert.
- * @returns {string} Returns the converted string.
+ * @param value The value to convert.
  */
 export function objectToString(value: any): string {
   return nativeObjectToString.call(value);

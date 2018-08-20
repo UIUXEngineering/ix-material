@@ -26,8 +26,8 @@ const dataViewCtorString = toSource(dataView),
  * Gets the `toStringTag` of `value`.
  *
  *
- *  value The value to query.
- * @returns {string} Returns the `toStringTag`.
+ * @param value The value to query.
+ * Returns the `toStringTag`.
  */
 let getTag = baseGetTag;
 

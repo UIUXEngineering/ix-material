@@ -7,9 +7,9 @@ const funcToString = funcProto.toString;
 /**
  * Converts `func` to its source code.
  *
+ * Returns the source code.
  *
- * @param  func The function to convert.
- * @returns {string} Returns the source code.
+ * @param func The function to convert.
  */
 export function toSource(func: (arg: any) => any): string {
   if (func != null) {

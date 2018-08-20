@@ -10,19 +10,12 @@ const asyncTag = '[object AsyncFunction]',
 /**
  * Checks if `value` is classified as a `Function` object.
  *
- *
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a function, else `false`.
- * @example
- *
  * _.isFunction(_);
  * // => true
  *
  * _.isFunction(/abc/);
  * // => false
+ * @param value
  */
 export function isFunction(value: any): boolean {
   if (!isObject(value)) {

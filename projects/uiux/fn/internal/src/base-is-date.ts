@@ -6,13 +6,8 @@ const dateTag = '[object Date]';
 
 /**
  * The base implementation of `_.isDate` without Node optimizations.
- *
- *
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a date object, else `false`.
+ * @param value The value to check.
  */
-function baseIsDate(value: any): boolean {
+export function baseIsDate(value: any): boolean {
   return isObjectLike(value) && baseGetTag(value) === dateTag;
 }
-
-export default baseIsDate;

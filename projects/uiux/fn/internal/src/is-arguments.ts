@@ -1,6 +1,6 @@
 /** Used for built-in method references. */
-import { baseIsArguments } from '@uiux/fn/internal';
-import { isObjectLike } from '@uiux/fn/internal';
+import { baseIsArguments } from './base-is-arguments';
+import { isObjectLike } from './is-object-like';
 
 const objectProto = Object.prototype;
 
@@ -13,14 +13,8 @@ const propertyIsEnumerable = objectProto.propertyIsEnumerable;
 /**
  * Checks if `value` is likely an `arguments` object.
  *
- *
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ * Returns `true` if `value` is an `arguments` object,
  *  else `false`.
- * @example
  *
  * _.isArguments(function() { return arguments; }());
  * // => true

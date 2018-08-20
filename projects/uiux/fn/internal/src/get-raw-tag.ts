@@ -19,9 +19,9 @@ const symToStringTag = symbol ? symbol['toStringTag'] : undefined;
 /**
  * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
  *
+ * Returns the raw `toStringTag`.
  *
- *  value The value to query.
- * @returns {string} Returns the raw `toStringTag`.
+ * @param value The value to query.
  */
 export function getRawTag(value: any): string {
   const isOwn = hasOwnProperty.call(value, symToStringTag),

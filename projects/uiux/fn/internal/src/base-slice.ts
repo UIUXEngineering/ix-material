@@ -1,11 +1,10 @@
 /**
  * The base implementation of `_.slice` without an iteratee call guard.
+ * Returns the slice of `array`.
  *
- *
- * @param  array The array to slice.
- * @param [start=0] The start position.
- * @param [end=array.length] The end position.
- * @returns  Returns the slice of `array`.
+ * @param array The array to slice.
+ * @param start [start=0] The start position.
+ * @param end [end=array.length] The end position.
  */
 export function baseSlice(array: any[], start: number, end: number): any[] {
   let index = -1,

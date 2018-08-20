@@ -1,11 +1,23 @@
+/**
+ * https://stackoverflow.com/questions/17575790/environment-detection-node-js-or-browser
+ */
 import { freeGlobal } from './free-global';
 
-/** Detect free variable `exports`. */
-const freeExports = typeof exports === 'object' && exports && !exports.nodeType && exports;
+const isNode: Function = new Function('try {return this===global;}catch(e){return false;}');
 
+const getExports: Function = new Function('return exports');
+const getModule: Function = new Function('return module');
+
+
+/** Detect free variable `exports`. */
+const freeExports = ( isNode()  && typeof getExports() === 'object' && !getExports().nodeType ) ?
+  getExports() : null;
+
+// declare const module;
 /** Detect free variable `module`. */
-const freeModule =
-  freeExports && typeof module === 'object' && module && !module['nodeType'] && module;
+const freeModule: { exports: any; require: Function } =
+  (isNode() && freeExports && typeof getModule() === 'object' && !getModule().nodeType) ?
+    getModule() :  null;
 
 /** Detect the popular CommonJS extension `module.exports`. */
 const moduleExports = freeModule && freeModule.exports === freeExports;

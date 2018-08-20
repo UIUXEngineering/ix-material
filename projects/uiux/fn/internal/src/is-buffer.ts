@@ -1,6 +1,19 @@
+import { root } from './root';
+
 /** Detect free variable `exports`. */
-import { root } from '@uiux/fn/internal';
 import { stubFalse } from './stub-false';
+
+declare const exports: {
+  nodeType: any;
+  process: any;
+};
+
+declare const module: {
+  nodeType: any;
+  exports: any;
+  process: () => any;
+  require: (arg: string) => { types: any };
+};
 
 const freeExports = typeof exports === 'object' && exports && !exports.nodeType && exports;
 
@@ -20,13 +33,8 @@ const nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
 /**
  * Checks if `value` is a buffer.
  *
- *
- * @memberOf _
- * @since 4.3.0
- * @category Lang
- *  value The value to check.
- * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
- * @example
+ * @param value The value to check.
+ * Returns `true` if `value` is a buffer, else `false`.
  *
  * _.isBuffer(new Buffer(2));
  * // => true
