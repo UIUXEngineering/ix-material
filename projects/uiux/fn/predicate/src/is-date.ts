@@ -1,15 +1,15 @@
-import { baseIsDate, baseUnary, nodeUtil} from '@uiux/fn/internal';
+import { baseIsDate, baseUnary, nodeUtil } from '@uiux/fn/internal';
 
 const nodeIsDate = nodeUtil && nodeUtil.isDate;
 
 /**
  * Checks if `value` is classified as a `Date` object.
  *
- * @static
+ *
  * @memberOf _
  * @since 0.1.0
  * @category Lang
- * @param {*} value The value to check.
+ *  value The value to check.
  * @returns {boolean} Returns `true` if `value` is a date object, else `false`.
  * @example
  *

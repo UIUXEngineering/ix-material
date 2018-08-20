@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-fn',
+  selector: 'ix-fn',
   template: `
     <p>
       fn works!

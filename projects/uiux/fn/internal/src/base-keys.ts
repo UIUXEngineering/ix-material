@@ -10,9 +10,9 @@ const hasOwnProperty = objectProto.hasOwnProperty;
 /**
  * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
  *
- * @private
+ *
  * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
+ * @returns  Returns the array of property names.
  */
 export function baseKeys(object: any): string[] {
   if (!isPrototype(object)) {

@@ -1,10 +1,10 @@
 /**
  * The base implementation of `_.isNaN` without support for number objects.
  *
- * @private
- * @param {*} value The value to check.
+ *
+ *  value The value to check.
  * @returns {boolean} Returns `true` if `value` is `NaN`, else `false`.
  */
-export function baseIsNaN(value) {
+export function baseIsNan(value) {
   return value !== value;
 }

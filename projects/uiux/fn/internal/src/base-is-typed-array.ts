@@ -1,5 +1,5 @@
-import { isLength } from '../../predicate/src/is-length';
-import { isObjectLike } from '../../predicate/src/is-object-like';
+import { isLength } from './is-length';
+import { isObjectLike } from './is-object-like';
 import { baseGetTag } from './base-get-tag';
 
 /** `Object#toString` result references. */
@@ -49,8 +49,8 @@ typedArrayTags[argsTag] = typedArrayTags[arrayTag] = typedArrayTags[
 /**
  * The base implementation of `_.isTypedArray` without Node.js optimizations.
  *
- * @private
- * @param {*} value The value to check.
+ *
+ *  value The value to check.
  * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
  */
 export function baseIsTypedArray(value) {

@@ -9,8 +9,8 @@ const maskSrcKey = (function() {
 /**
  * Checks if `func` has its source masked.
  *
- * @private
- * @param {Function} func The function to check.
+ *
+ * @param  func The function to check.
  * @returns {boolean} Returns `true` if `func` is masked, else `false`.
  */
 export function isMasked(func: (arg: any) => any): boolean {

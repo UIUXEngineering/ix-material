@@ -1,21 +1,21 @@
-import { Symbol } from './symbol';
+import { symbol } from './symbol';
 import { arrayMap } from './array-map';
-import { isSymbol } from '../../predicate/src/is-symbol';
-import { isArray } from '../../predicate/src/is-array';
+import { isSymbol } from './is-symbol';
+import { isArray } from './is-array';
 
 /** Used as references for various `Number` constants. */
 const INFINITY = 1 / 0;
 
 /** Used to convert symbols to primitives and strings. */
-const symbolProto = Symbol ? Symbol['prototype'] : undefined,
+const symbolProto = symbol ? symbol['prototype'] : undefined,
   symbolToString = symbolProto ? symbolProto.toString : undefined;
 
 /**
  * The base implementation of `_.toString` which doesn't convert nullish
  * values to empty strings.
  *
- * @private
- * @param {*} value The value to process.
+ *
+ *  value The value to process.
  * @returns {string} Returns the string.
  */
 export function baseToString(value) {

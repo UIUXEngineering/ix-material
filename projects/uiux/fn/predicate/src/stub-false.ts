@@ -1,7 +1,7 @@
 /**
  * This method returns `false`.
  *
- * @static
+ *
  * @memberOf _
  * @since 4.13.0
  * @category Util

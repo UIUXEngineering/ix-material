@@ -1,8 +1,8 @@
-import { DataView } from './data-view';
-import { Map } from './map';
-import { Promise } from './promise';
-import { Set } from './set';
-import { WeakMap } from './weak-map';
+import { dataView } from './data-view';
+import { map } from './map';
+import { promise } from './promise';
+import { _set } from './set';
+import { weakMap } from './weak-map';
 import { baseGetTag } from './base-get-tag';
 import { toSource } from './to-source';
 
@@ -16,28 +16,28 @@ const mapTag = '[object Map]',
 const dataViewTag = '[object DataView]';
 
 /** Used to detect maps, sets, and weakmaps. */
-const dataViewCtorString = toSource(DataView),
-  mapCtorString = toSource(Map),
-  promiseCtorString = toSource(Promise),
-  setCtorString = toSource(Set),
-  weakMapCtorString = toSource(WeakMap);
+const dataViewCtorString = toSource(dataView),
+  mapCtorString = toSource(map),
+  promiseCtorString = toSource(promise),
+  setCtorString = toSource(_set),
+  weakMapCtorString = toSource(weakMap);
 
 /**
  * Gets the `toStringTag` of `value`.
  *
- * @private
- * @param {*} value The value to query.
+ *
+ *  value The value to query.
  * @returns {string} Returns the `toStringTag`.
  */
 let getTag = baseGetTag;
 
 // Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node < 6.
 if (
-  (DataView && getTag(new DataView(new ArrayBuffer(1))) !== dataViewTag) ||
-  (Map && getTag(new Map()) !== mapTag) ||
-  (Promise && getTag(Promise.resolve()) !== promiseTag) ||
-  (Set && getTag(new Set()) !== setTag) ||
-  (WeakMap && getTag(new WeakMap()) !== weakMapTag)
+  (dataView && getTag(new dataView(new ArrayBuffer(1))) !== dataViewTag) ||
+  (map && getTag(new map()) !== mapTag) ||
+  (promise && getTag(promise.resolve()) !== promiseTag) ||
+  (_set && getTag(new _set()) !== setTag) ||
+  (weakMap && getTag(new weakMap()) !== weakMapTag)
 ) {
   getTag = function(value) {
     const result = baseGetTag(value),

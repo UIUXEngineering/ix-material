@@ -1,4 +1,4 @@
-import { Symbol } from './symbol';
+import { symbol } from './symbol';
 import { getRawTag } from './get-raw-tag';
 import { objectToString } from './object-to-string';
 
@@ -7,13 +7,13 @@ const nullTag = '[object Null]',
   undefinedTag = '[object Undefined]';
 
 /** Built-in value references. */
-const symToStringTag = Symbol ? Symbol['toStringTag'] : undefined;
+const symToStringTag = symbol ? symbol['toStringTag'] : undefined;
 
 /**
  * The base implementation of `getTag` without fallbacks for buggy environments.
  *
- * @private
- * @param {*} value The value to query.
+ *
+ *  value The value to query.
  * @returns {string} Returns the `toStringTag`.
  */
 export function baseGetTag(value: any): string {

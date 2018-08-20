@@ -1,13 +1,12 @@
 import { baseKeys } from '@uiux/fn/internal';
 import { getTag } from '@uiux/fn/internal';
 import { isPrototype } from '@uiux/fn/internal';
-import { isArray } from './is-array';
+import { isArray } from '@uiux/fn/internal';
 import { isArguments } from './is-arguments';
 import { isArrayLike } from './is-arrayLike';
 import { isBuffer } from './is-buffer';
 import { isTypedArray } from './is-typed-array';
 /** `Object#toString` result references. */
-
 
 const mapTag = '[object Map]',
   setTag = '[object Set]';
@@ -28,11 +27,11 @@ const hasOwnProperty = objectProto.hasOwnProperty;
  * jQuery-like collections are considered empty if they have a `length` of `0`.
  * Similarly, maps and sets are considered empty if they have a `size` of `0`.
  *
- * @static
+ *
  * @memberOf _
  * @since 0.1.0
  * @category Lang
- * @param {*} value The value to check.
+ *  value The value to check.
  * @returns {boolean} Returns `true` if `value` is empty, else `false`.
  * @example
  *

@@ -1,4 +1,4 @@
-import { Symbol } from './symbol';
+import { symbol } from './symbol';
 
 /** Used for built-in method references. */
 const objectProto = Object.prototype;
@@ -14,13 +14,13 @@ const hasOwnProperty = objectProto.hasOwnProperty;
 const nativeObjectToString = objectProto.toString;
 
 /** Built-in value references. */
-const symToStringTag = Symbol ? Symbol['toStringTag'] : undefined;
+const symToStringTag = symbol ? symbol['toStringTag'] : undefined;
 
 /**
  * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
  *
- * @private
- * @param {*} value The value to query.
+ *
+ *  value The value to query.
  * @returns {string} Returns the raw `toStringTag`.
  */
 export function getRawTag(value: any): string {

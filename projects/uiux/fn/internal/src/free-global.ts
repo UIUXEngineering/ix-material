@@ -1,3 +1,4 @@
 /** Detect free variable `global` from Node.js. */
-export let freeGlobal: any =
-  typeof global === 'object' && global && global.Object === Object && global;
+declare const global;
+export let freeGlobal: any = global &&
+  typeof global === 'object' && global.Object === Object && global;

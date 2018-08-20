@@ -7,7 +7,7 @@ import { trim } from '@uiux/fn/string';
 import { isBoolean } from './is-boolean';
 import { isDate } from './is-date';
 import { isEmpty } from './is-empty';
-import { isFunction } from './is-function';
+import { isFunction } from '@uiux/fn/internal';
 import { isNumber } from './is-number';
 import { isString } from './is-string';
 

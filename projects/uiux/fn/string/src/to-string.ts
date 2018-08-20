@@ -8,11 +8,11 @@ import { baseToString } from '@uiux/fn/internal';
  * Converts `value` to a string. An empty string is returned for `null`
  * and `undefined` values. The sign of `-0` is preserved.
  *
- * @static
+ *
  * @memberOf _
  * @since 4.0.0
  * @category Lang
- * @param {*} value The value to convert.
+ *  value The value to convert.
  * @returns {string} Returns the converted string.
  * @example
  *

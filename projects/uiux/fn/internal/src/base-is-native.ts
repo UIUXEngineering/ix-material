@@ -1,10 +1,10 @@
-import { isFunction } from '../../predicate/src/is-function';
+import { isFunction } from './is-function';
 
 /**
  * Used to match `RegExp`
  * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
  */
-import { isObject } from '../../predicate/src/is-object';
+import { isObject } from './is-object';
 import { isMasked } from './is-masked';
 import { toSource } from './to-source';
 
@@ -36,8 +36,8 @@ const reIsNative = RegExp(
 /**
  * The base implementation of `_.isNative` without bad shim checks.
  *
- * @private
- * @param {*} value The value to check.
+ *
+ *  value The value to check.
  * @returns {boolean} Returns `true` if `value` is a native function,
  *  else `false`.
  */

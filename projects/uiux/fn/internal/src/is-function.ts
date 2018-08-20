@@ -1,4 +1,4 @@
-import { baseGetTag } from '@uiux/fn/internal';
+import { baseGetTag } from './base-get-tag';
 import { isObject } from './is-object';
 
 /** `Object#toString` result references. */
@@ -10,11 +10,11 @@ const asyncTag = '[object AsyncFunction]',
 /**
  * Checks if `value` is classified as a `Function` object.
  *
- * @static
+ *
  * @memberOf _
  * @since 0.1.0
  * @category Lang
- * @param {*} value The value to check.
+ *  value The value to check.
  * @returns {boolean} Returns `true` if `value` is a function, else `false`.
  * @example
  *

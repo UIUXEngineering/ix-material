@@ -40,9 +40,9 @@ const reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g')
 /**
  * Converts a Unicode `string` to an array.
  *
- * @private
- * @param {string} string The string to convert.
- * @returns {Array} Returns the converted array.
+ *
+ *  string The string to convert.
+ * @returns  Returns the converted array.
  */
 export function unicodeToArray(string: string): any[] {
   return string.match(reUnicode) || [];

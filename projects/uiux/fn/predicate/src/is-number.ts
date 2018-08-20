@@ -1,7 +1,7 @@
 import { baseGetTag } from '@uiux/fn/internal';
 
 /** `Object#toString` result references. */
-import { isObjectLike } from './is-object-like';
+import { isObjectLike } from '@uiux/fn/internal';
 
 const numberTag = '[object Number]';
 
@@ -11,11 +11,11 @@ const numberTag = '[object Number]';
  * **Note:** To exclude `Infinity`, `-Infinity`, and `NaN`, which are
  * classified as numbers, use the `_.isFinite` method.
  *
- * @static
+ *
  * @memberOf _
  * @since 0.1.0
  * @category Lang
- * @param {*} value The value to check.
+ *  value The value to check.
  * @returns {boolean} Returns `true` if `value` is a number, else `false`.
  * @example
  *
