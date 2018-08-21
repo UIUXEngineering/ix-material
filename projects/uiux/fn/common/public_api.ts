@@ -37,7 +37,7 @@ export * from './src/_nodeUtil';
 export * from './src/_objectToString';
 export * from './src/_overArg';
 export * from './src/promise';
-export * from './src/root';
+export * from './src/_root';
 export * from './src/set';
 export * from './src/_strictIndexOf';
 export * from './src/_stringToArray';

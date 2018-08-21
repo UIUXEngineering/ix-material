@@ -16,6 +16,6 @@ const symbolTag = '[object Symbol]';
  * // => false
  * @param value
  */
-export function isSymbol(value) {
+export function isSymbol(value: any): boolean {
   return typeof value === 'symbol' || (isObjectLike(value) && baseGetTag(value) === symbolTag);
 }

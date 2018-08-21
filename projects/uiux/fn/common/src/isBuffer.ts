@@ -1,4 +1,4 @@
-import { root } from './root';
+import { root } from './_root';
 
 /** Detect free variable `exports`. */
 import { stubFalse } from './stubFalse';
