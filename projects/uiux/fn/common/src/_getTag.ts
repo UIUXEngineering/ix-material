@@ -1,7 +1,7 @@
 import { dataView } from './_DataView';
 import { map } from './map';
 import { promise } from './promise';
-import { _set } from './set';
+import { Set } from './_Set';
 import { weakMap } from './_WeakMap';
 import { baseGetTag } from './_baseGetTag';
 import { toSource } from './_toSource';
@@ -19,7 +19,7 @@ const dataViewTag = '[object DataView]';
 const dataViewCtorString = toSource(dataView),
   mapCtorString = toSource(map),
   promiseCtorString = toSource(promise),
-  setCtorString = toSource(_set),
+  setCtorString = toSource(Set),
   weakMapCtorString = toSource(weakMap);
 
 /**
@@ -36,7 +36,7 @@ if (
   (dataView && getTag(new dataView(new ArrayBuffer(1))) !== dataViewTag) ||
   (map && getTag(new map()) !== mapTag) ||
   (promise && getTag(promise.resolve()) !== promiseTag) ||
-  (_set && getTag(new _set()) !== setTag) ||
+  (Set && getTag(new Set()) !== setTag) ||
   (weakMap && getTag(new weakMap()) !== weakMapTag)
 ) {
   getTag = function(value) {
