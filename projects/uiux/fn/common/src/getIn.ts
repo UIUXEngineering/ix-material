@@ -20,7 +20,7 @@ import { baseGet } from './_baseGet';
  * _.get(object, 'a.b.c', 'default');
  * // => 'default'
  */
-export function getIn(object: any, path: string[] | string, defaultValue: any): any {
+export function getIn(object: any, path: string[] | string, defaultValue?: any): any {
   const result = object == null ? undefined : baseGet(object, path);
   return result === undefined ? defaultValue : result;
 }
