@@ -5,9 +5,7 @@ import { Map } from './_Map';
 /**
  * Removes all key-value entries from the map.
  *
- * @private
- * @name clear
- * @memberOf MapCache
+ *
  */
 export function mapCacheClear(): void {
   this.size = 0;

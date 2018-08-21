@@ -7,7 +7,7 @@ import { hashSet } from './_hashSet';
 /**
  * Creates a hash object.
  *
- * @constructor
+ * constructor
  * @param entries The key-value pairs to cache.
  */
 export function Hash(entries?: any[]): void {

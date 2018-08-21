@@ -10,8 +10,8 @@ const reEscapeChar: RegExp = /\\(\\)?/g;
 /**
  * Converts `string` to a property path array.
  *
- * @private
- * @param {string} string The string to convert.
+ *
+ * @param string The string to convert.
  * Returns the property path array.
  */
 export const stringToPath: (string: string) => string[] = memoizeCapped(function(string) {

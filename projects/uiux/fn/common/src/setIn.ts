@@ -23,6 +23,6 @@ import { baseSet } from './_baseSet';
  * console.log(object.x[0].y.z);
  * // => 5
  */
-export function set(object: any, path: string[] | string, value: any): any {
+export function setIn(object: any, path: string[] | string, value: any): any {
   return object == null ? object : baseSet(object, path, value);
 }

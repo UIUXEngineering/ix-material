@@ -4,7 +4,7 @@ import { isIndex } from './_isIndex';
 import { isObject } from './isObject';
 import { toKey } from './_toKey';
 
-type customizerFn = (objValue: any, key: string, nested: any) => any;
+export type customizerFn = (objValue: any, key: string, nested: any) => any;
 
 /**
  * The base implementation of `_.set`.

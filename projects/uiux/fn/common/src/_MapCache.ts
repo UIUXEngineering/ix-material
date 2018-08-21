@@ -7,7 +7,7 @@ import { mapCacheSet } from './_mapCacheSet';
 /**
  * Creates a map cache object to store key-value pairs.
  *
- * @constructor
+ * constructor
  * @param entries The key-value pairs to cache.
  */
 export function MapCache(entries: any[]): void {
