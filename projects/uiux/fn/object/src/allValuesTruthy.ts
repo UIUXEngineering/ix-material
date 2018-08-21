@@ -5,6 +5,9 @@
 
 import { isEmpty, isPlainObject, isTruthy } from '@uiux/fn/common';
 
+/**
+ * @param object to evaluate
+ */
 export function allValuesTruthy(object: any): boolean {
   if (isPlainObject(object)) {
     if (!isEmpty(object)) {
