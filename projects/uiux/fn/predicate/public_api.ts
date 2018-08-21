@@ -11,5 +11,5 @@ import {
   isObject,
   isObjectLike,
   isSymbol,
-} from '@uiux/fn/internal';
+} from '@uiux/fn/common';
 export { isArray, isDate, isFunction, isLength, isObject, isObjectLike, isSymbol };

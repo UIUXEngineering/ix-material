@@ -2,5 +2,5 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { trim, toString, startsOrEndsWithWhitespace, kebabCase } from '@uiux/fn/internal';
+import { trim, toString, startsOrEndsWithWhitespace, kebabCase } from '@uiux/fn/common';
 export { trim };
