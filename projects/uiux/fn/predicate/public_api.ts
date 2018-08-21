@@ -6,10 +6,32 @@ import {
   isArray,
   isBoolean,
   isDate,
+  isDefined,
   isFunction,
   isLength,
   isObject,
   isObjectLike,
+  isScalar,
   isSymbol,
+  isTruthy,
+  hasValue,
+  hasValueEqual,
+  hasValueNotEqual,
 } from '@uiux/fn/common';
-export { isArray, isDate, isFunction, isLength, isObject, isObjectLike, isSymbol };
+
+export {
+  isArray,
+  isBoolean,
+  isDate,
+  isDefined,
+  isFunction,
+  isLength,
+  isObject,
+  isObjectLike,
+  isScalar,
+  isSymbol,
+  isTruthy,
+  hasValue,
+  hasValueEqual,
+  hasValueNotEqual,
+};
