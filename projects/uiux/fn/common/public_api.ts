@@ -85,6 +85,7 @@ export * from './src/_toSource';
 export * from './src/_unicodeToArray';
 export * from './src/_unicodeWords';
 export * from './src/_WeakMap';
+export * from './src/clone';
 export * from './src/deburr';
 export * from './src/eq';
 export * from './src/getIn';
