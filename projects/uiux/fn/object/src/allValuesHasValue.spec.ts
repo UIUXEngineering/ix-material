@@ -3,16 +3,21 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { allValuesDefined } from './allValuesDefined';
+import { hasValue } from '@uiux/cdk/value';
+import { allValuesHasValue } from './allValuesHasValue';
 
-describe('allValuesDefined', () => {
+describe('propsHaveValue', () => {
+  beforeEach(() => {});
+
+  afterEach(() => {});
+
   describe('object with multiple props', () => {
-    it('should return true for object with false value', () => {
+    it('should return false for object with false prop', () => {
       const obj: any = {
         foo: true,
         bar: false,
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return true for object with truthy prop', () => {
@@ -20,23 +25,23 @@ describe('allValuesDefined', () => {
         foo: true,
         bar: true,
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
-    it('should return false for object with null prop', () => {
+    it('should return true for object with null prop', () => {
       const obj: any = {
         foo: true,
         bar: null,
       };
-      expect(allValuesDefined(obj)).toBe(false);
+      expect(allValuesHasValue(obj)).toBe(false);
     });
 
-    it('should return false for object with undefined prop', () => {
+    it('should return true for object with undefined prop', () => {
       const obj: any = {
         foo: true,
         bar: undefined,
       };
-      expect(allValuesDefined(obj)).toBe(false);
+      expect(allValuesHasValue(obj)).toBe(false);
     });
 
     it('should return false for object with empty array', () => {
@@ -44,7 +49,7 @@ describe('allValuesDefined', () => {
         foo: true,
         bar: [],
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(false);
     });
 
     it('should return true for object with filled array and truthy prop', () => {
@@ -52,7 +57,7 @@ describe('allValuesDefined', () => {
         foo: true,
         bar: ['asdf'],
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return false for object with empty string', () => {
@@ -60,7 +65,15 @@ describe('allValuesDefined', () => {
         foo: true,
         bar: '',
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(false);
+    });
+
+    it('should return false for object with empty array', () => {
+      const obj: any = {
+        foo: true,
+        bar: 'asdf',
+      };
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return true for all props defined and truthy prop', () => {
@@ -70,7 +83,7 @@ describe('allValuesDefined', () => {
         baz: ['foo'],
         bum: { someKey: 'someValue' },
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return true for all props defined and falsey prop', () => {
@@ -80,7 +93,7 @@ describe('allValuesDefined', () => {
         baz: ['foo'],
         bum: { someKey: 'someValue' },
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return false for all props defined with empty string and array', () => {
@@ -90,7 +103,7 @@ describe('allValuesDefined', () => {
         baz: [],
         bum: { someKey: 'someValue' },
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(false);
     });
 
     it('should return false for all props defined and empty object', () => {
@@ -100,7 +113,7 @@ describe('allValuesDefined', () => {
         baz: ['foo'],
         bum: {},
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(false);
     });
 
     it('should return false for null prop', () => {
@@ -110,7 +123,7 @@ describe('allValuesDefined', () => {
         baz: ['foo'],
         bum: null,
       };
-      expect(allValuesDefined(obj)).toBe(false);
+      expect(allValuesHasValue(obj)).toBe(false);
     });
 
     it('should return false for undefined prop', () => {
@@ -120,63 +133,71 @@ describe('allValuesDefined', () => {
         baz: ['foo'],
         bum: undefined,
       };
-      expect(allValuesDefined(obj)).toBe(false);
+      expect(allValuesHasValue(obj)).toBe(false);
     });
   });
 
   describe('object', () => {
     it('should return false for empty object value', () => {
-      expect(allValuesDefined({})).toBe(false);
+      expect(allValuesHasValue({})).toBe(false);
+    });
+
+    it('should return false for empty object with no keys', () => {
+      expect(allValuesHasValue({})).toBe(false);
+    });
+
+    it('should return false for empty object with keys', () => {
+      expect(allValuesHasValue({})).toBe(false);
     });
 
     it('should return false for empty object with keys', () => {
       const obj: any = {
         foo: 'foo',
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return false for object with falsey prop', () => {
       const obj: any = {
         foo: false,
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return true for object with truthy prop', () => {
       const obj: any = {
         foo: true,
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
 
     it('should return false for object with missing prop', () => {
       const obj: any = {
         foo: true,
       };
-      expect(allValuesDefined(obj)).toBe(true);
+      expect(allValuesHasValue(obj)).toBe(true);
     });
   });
 
   describe('empty value', () => {
     it('should return false for empty object value', () => {
-      expect(allValuesDefined({})).toBe(false);
+      expect(allValuesHasValue({})).toBe(false);
     });
 
     it('should return false for null value', () => {
-      expect(allValuesDefined(null)).toBe(false);
+      expect(allValuesHasValue(null)).toBe(false);
     });
 
     it('should return false for undefined value', () => {
-      expect(allValuesDefined(undefined)).toBe(false);
+      expect(allValuesHasValue(undefined)).toBe(false);
     });
 
     it('should return false for empty string value', () => {
-      expect(allValuesDefined('')).toBe(false);
+      expect(allValuesHasValue('')).toBe(false);
     });
 
     it('should return false for empty string value', () => {
-      expect(allValuesDefined([])).toBe(false);
+      expect(allValuesHasValue([])).toBe(false);
     });
   });
 });
