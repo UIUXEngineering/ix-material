@@ -7,16 +7,16 @@ describe('deleteIn', () => {
 
     beforeEach(() => {
       obj = clone({
-                    a: 'a',
-                    b: {
-                      b1a: 'b1a',
-                      b1b: {
-                        b2a: 'b2a',
-                        b2b: 'b2b',
-                      },
-                    },
-                    c: 'c',
-                  });
+        a: 'a',
+        b: {
+          b1a: 'b1a',
+          b1b: {
+            b2a: 'b2a',
+            b2b: 'b2b',
+          },
+        },
+        c: 'c',
+      });
     });
 
     afterEach(() => {
@@ -149,22 +149,22 @@ describe('deleteIn', () => {
 
     beforeEach(() => {
       obj = clone([
-                    {
-                      a: 'a',
-                      b: {
-                        b1a: 'b1a',
-                        b1b: {
-                          b2a: 'b2a',
-                          b2b: 'b2b',
-                        },
-                      },
-                      c: 'c',
-                    },
-                    {
-                      a: ['a'],
-                      b: 'b',
-                    },
-                  ]);
+        {
+          a: 'a',
+          b: {
+            b1a: 'b1a',
+            b1b: {
+              b2a: 'b2a',
+              b2b: 'b2b',
+            },
+          },
+          c: 'c',
+        },
+        {
+          a: ['a'],
+          b: 'b',
+        },
+      ]);
     });
 
     afterEach(() => {

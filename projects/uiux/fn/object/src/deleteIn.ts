@@ -1,4 +1,3 @@
-
 import {
   isNumber,
   hasValue,
@@ -7,7 +6,7 @@ import {
   isString,
   isArray,
   isLength,
-  clone
+  clone,
 } from '@uiux/fn/common';
 import { keySplitterIntoImmutablePath } from './keyConverter';
 
@@ -49,17 +48,15 @@ function deleteNode(object: any, path: string): any {
  * @param path must be in dot notation: 'a.b.c' or [ 'a.b.c', 'a.d[0]' ]
  */
 export function deleteIn(object: any, path: string | string[]): any {
-  if ((path === undefined || path === null)) {
+  if (path === undefined || path === null) {
     throw new Error('deleteIn: object path must have a value.');
   }
 
   if (isArray(path)) {
-    return (<string[]>path)
-      .reduce((_obj: any, _path: string) => {
-        return deleteNode(_obj, _path);
-      }, clone(object));
+    return (<string[]>path).reduce((_obj: any, _path: string) => {
+      return deleteNode(_obj, _path);
+    }, clone(object));
   } else {
-    return  deleteNode(clone(object), <string>path);
+    return deleteNode(clone(object), <string>path);
   }
-
 }
