@@ -124,6 +124,7 @@ export * from './src/hasValue';
 export * from './src/hasValueEqual';
 export * from './src/hasValueEqualIn';
 export * from './src/hasValueNotEqual';
+export * from './src/hasValueNotEqualIn';
 export * from './src/isArguments';
 export * from './src/isArray';
 export * from './src/isArrayLike';
