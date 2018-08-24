@@ -6,11 +6,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { valuesHaveValue } from './valuesHaveValue';
-import { findProperties } from './findProperties';
+import { searchObjectByKeys } from './searchObjectByKeys';
 import { allValuesHasValueIn } from './allValuesHasValueIn';
 import { isTruthy } from '@uiux/cdk/value';
 
-describe('findProperties', () => {
+describe('searchObjectByKeys', () => {
   let object: any;
 
   beforeEach(() => {
@@ -84,7 +84,7 @@ describe('findProperties', () => {
 
   describe('array', () => {
     it('should find deep object', () => {
-      const result: any[] = findProperties(object, ['fff']);
+      const result: any[] = searchObjectByKeys(object, ['fff']);
 
       expect(result.length).toEqual(1);
       expect(result[0].key).toEqual('fff');
@@ -93,7 +93,7 @@ describe('findProperties', () => {
     });
 
     it('should find multiple objects object', () => {
-      const result: any[] = findProperties(object, ['eee']);
+      const result: any[] = searchObjectByKeys(object, ['eee']);
 
       expect(result.length).toEqual(2);
 
@@ -107,7 +107,7 @@ describe('findProperties', () => {
     });
 
     it('should find multiple objects', () => {
-      const result: any[] = findProperties(object, ['hhh', 'ooo']);
+      const result: any[] = searchObjectByKeys(object, ['hhh', 'ooo']);
 
       expect(result.length).toEqual(3);
 
@@ -131,7 +131,7 @@ describe('findProperties', () => {
         return valuesHaveValue(item, ['a', 'b']);
       };
 
-      const result: any[] = findProperties(object, testFn);
+      const result: any[] = searchObjectByKeys(object, testFn);
 
       expect(result.length).toEqual(4);
 
@@ -165,7 +165,7 @@ describe('findProperties', () => {
         return valuesHaveValue(item, ['a', 'b']) && isTruthy(item.a);
       };
 
-      const result: any[] = findProperties(object, testFn);
+      const result: any[] = searchObjectByKeys(object, testFn);
 
       expect(result.length).toEqual(3);
 
@@ -193,7 +193,7 @@ describe('findProperties', () => {
         return key === 'ttt' && valuesHaveValue(item, ['a', 'b']) && isTruthy(item.a);
       };
 
-      const result: any[] = findProperties(object, testFn);
+      const result: any[] = searchObjectByKeys(object, testFn);
 
       expect(result.length).toEqual(2);
 
@@ -237,7 +237,7 @@ describe('findProperties', () => {
         return key === 'ttt' && valuesHaveValue(item, ['a', 'b']) && isTruthy(item.a);
       };
 
-      const result: any[] = findProperties(object2, testFn);
+      const result: any[] = searchObjectByKeys(object2, testFn);
 
       expect(result.length).toEqual(2);
 

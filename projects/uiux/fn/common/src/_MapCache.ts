@@ -10,7 +10,7 @@ import { mapCacheSet } from './_mapCacheSet';
  * constructor
  * @param entries The key-value pairs to cache.
  */
-export function MapCache(entries: any[]): void {
+export function MapCache(entries?: any[]): void {
   let index = -1;
   const length = entries == null ? 0 : entries.length;
 

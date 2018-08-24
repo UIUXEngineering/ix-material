@@ -9,7 +9,7 @@ import { listCacheSet } from './_listCacheSet';
  *
  * @param entries The key-value pairs to cache.
  */
-export function ListCache(entries: any[]): void {
+export function ListCache(entries?: any[]): void {
   let index = -1;
   const length = entries == null ? 0 : entries.length;
 
