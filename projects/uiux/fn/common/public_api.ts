@@ -159,6 +159,7 @@ export * from './src/stubArray';
 export * from './src/stubFalse';
 export * from './src/symbol';
 export * from './src/ternaryHasValue';
+export * from './src/ternaryHasValueIn';
 export * from './src/toString';
 export * from './src/trim';
 export * from './src/words';
