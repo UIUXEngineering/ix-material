@@ -8,7 +8,7 @@ import { default as _isMatch } from 'lodash-es/isMatch';
 import { isObject } from './isObject';
 import { isScalar } from './isScalar';
 
-export function ixIsMatch(src, mapCompare): boolean {
+export function ixIsMatch(src: any, mapCompare: any): boolean {
   let _isMatchTest = isObject(src) && isObject(mapCompare);
 
   if (_isMatchTest) {

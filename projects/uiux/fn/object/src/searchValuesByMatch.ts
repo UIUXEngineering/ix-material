@@ -3,8 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { default as isObject } from 'lodash-es/isObject';
-import { isMatch } from './is-match';
+import { isObject, ixIsMatch } from '@uiux/fn/common';
 
 export interface IFindPropsWithValueResult {
   search: any;
@@ -48,7 +47,7 @@ export function searchValuesByMatch(
      * if _searchMap is found in node,
      * add as a result
      */
-    if (isMatch(node, _searchMap)) {
+    if (ixIsMatch(node, _searchMap)) {
       const _result: IFindPropsWithValueResult = _buildResult(node, _searchMap, path);
       result.push(_result);
     } else {

@@ -7,4 +7,3 @@
 export function stackHas(key: string): boolean {
   return this.__data__.has(key);
 }
-

@@ -1,6 +1,6 @@
-import {ListCache} from './_ListCache';
-import {Map} from './_Map';
-import {MapCache} from './_MapCache';
+import { ListCache } from './_ListCache';
+import { Map } from './_Map';
+import { MapCache } from './_MapCache';
 
 /** Used as the size to enable large array optimizations. */
 const LARGE_ARRAY_SIZE = 200;
@@ -16,7 +16,7 @@ export function stackSet(key: string, value: any): any {
   let data = this.__data__;
   if (data instanceof ListCache) {
     const pairs = data.__data__;
-    if (!Map || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
+    if (!Map || pairs.length < LARGE_ARRAY_SIZE - 1) {
       pairs.push([key, value]);
       this.size = ++data.size;
       return this;
@@ -27,4 +27,3 @@ export function stackSet(key: string, value: any): any {
   this.size = data.size;
   return this;
 }
-

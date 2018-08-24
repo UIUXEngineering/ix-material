@@ -8,4 +8,3 @@
 export function cacheHas(cache: any, key: string): boolean {
   return cache.has(key);
 }
-

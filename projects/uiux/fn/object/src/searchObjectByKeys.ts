@@ -3,7 +3,6 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-
 import { isObject, isFunction, isArray, hasValue } from '@uiux/fn/common';
 
 import { ISearchObjectByKeysResult } from './_interfaces';

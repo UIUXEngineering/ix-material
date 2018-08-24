@@ -1,6 +1,6 @@
-import {MapCache} from './_MapCache';
-import {setCacheAdd} from './_setCacheAdd';
-import {setCacheHas} from './_setCacheHas';
+import { MapCache } from './_MapCache';
+import { setCacheAdd } from './_setCacheAdd';
+import { setCacheHas } from './_setCacheHas';
 
 /**
  *
@@ -12,7 +12,7 @@ export function SetCache(values?: any[]): void {
   let index = -1;
   const length = values == null ? 0 : values.length;
 
-  this.__data__ = new MapCache;
+  this.__data__ = new MapCache();
   while (++index < length) {
     this.add(values[index]);
   }
@@ -21,4 +21,3 @@ export function SetCache(values?: any[]): void {
 // Add methods to `SetCache`.
 SetCache.prototype.add = SetCache.prototype.push = setCacheAdd;
 SetCache.prototype.has = setCacheHas;
-

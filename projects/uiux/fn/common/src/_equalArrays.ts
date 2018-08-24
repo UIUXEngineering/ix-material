@@ -1,10 +1,10 @@
-import {SetCache} from './_SetCache';
-import {arraySome} from './_arraySome';
-import {cacheHas} from './_cacheHas';
+import { SetCache } from './_SetCache';
+import { arraySome } from './_arraySome';
+import { cacheHas } from './_cacheHas';
 
 /** Used to compose bitmasks for value comparisons. */
 const COMPARE_PARTIAL_FLAG = 1,
-    COMPARE_UNORDERED_FLAG = 2;
+  COMPARE_UNORDERED_FLAG = 2;
 
 /**
  * A specialized version of `baseIsEqualDeep` for arrays with support for
@@ -18,16 +18,18 @@ const COMPARE_PARTIAL_FLAG = 1,
  * @param stack Tracks traversed `array` and `other` objects.
  * Returns `true` if the arrays are equivalent, else `false`.
  */
-export function equalArrays(array: any[],
-                     other: any[],
-                     bitmask: number,
-                     customizer: Function,
-                     equalFunc: Function,
-                     stack: any): boolean {
+export function equalArrays(
+  array: any[],
+  other: any[],
+  bitmask: number,
+  customizer: Function,
+  equalFunc: Function,
+  stack: any
+): boolean {
   // tslint:disable-next-line
   const isPartial = bitmask & COMPARE_PARTIAL_FLAG,
-      arrLength = array.length,
-      othLength = other.length;
+    arrLength = array.length,
+    othLength = other.length;
 
   if (arrLength !== othLength && !(isPartial && othLength > arrLength)) {
     return false;
@@ -38,9 +40,9 @@ export function equalArrays(array: any[],
     return stacked === other;
   }
   let index = -1,
-      result = true,
+    result = true,
     // tslint:disable-next-line
-      seen = (bitmask & COMPARE_UNORDERED_FLAG) ? new SetCache : undefined;
+    seen = bitmask & COMPARE_UNORDERED_FLAG ? new SetCache() : undefined;
 
   stack.set(array, other);
   stack.set(other, array);
@@ -48,7 +50,7 @@ export function equalArrays(array: any[],
   // Ignore non-index properties.
   while (++index < arrLength) {
     const arrValue = array[index],
-        othValue = other[index];
+      othValue = other[index];
 
     let compared;
     if (customizer) {
@@ -65,19 +67,22 @@ export function equalArrays(array: any[],
     }
     // Recursively compare arrays (susceptible to call stack limits).
     if (seen) {
-      if (!arraySome(other, function(othValue, othIndex) {
-            if (!cacheHas(seen, othIndex) &&
-                (arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))) {
-              return seen.push(othIndex);
-            }
-          })) {
+      if (
+        !arraySome(other, function(_othValue, othIndex) {
+          if (
+            !cacheHas(seen, othIndex) &&
+            (arrValue === _othValue || equalFunc(arrValue, _othValue, bitmask, customizer, stack))
+          ) {
+            return seen.push(othIndex);
+          }
+        })
+      ) {
         result = false;
         break;
       }
-    } else if (!(
-          arrValue === othValue ||
-            equalFunc(arrValue, othValue, bitmask, customizer, stack)
-        )) {
+    } else if (
+      !(arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))
+    ) {
       result = false;
       break;
     }
