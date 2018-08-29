@@ -9,6 +9,8 @@ export * from './src/createObjectWithPaths';
 export * from './src/deleteIn';
 export * from './src/invokeIfElseIn';
 export * from './src/invokeIfElseInConfig';
+export * from './src/invokeIfIn';
+export * from './src/invokeIn';
 export * from './src/keyConverter';
 export * from './src/searchObjectByKeys';
 export * from './src/searchValuesByMatch';
