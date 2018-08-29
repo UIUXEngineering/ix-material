@@ -11,6 +11,7 @@ export * from './src/invokeIfElseIn';
 export * from './src/invokeIfElseInConfig';
 export * from './src/invokeIfIn';
 export * from './src/invokeIn';
+export * from './src/isDefinedIn';
 export * from './src/keyConverter';
 export * from './src/searchObjectByKeys';
 export * from './src/searchValuesByMatch';
