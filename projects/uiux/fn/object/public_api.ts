@@ -7,6 +7,7 @@ export * from './src/allValuesTruthy';
 export * from './src/allValuesTruthyIn';
 export * from './src/createObjectWithPaths';
 export * from './src/deleteIn';
+export * from './src/invokeIfElseIn';
 export * from './src/keyConverter';
 export * from './src/searchObjectByKeys';
 export * from './src/searchValuesByMatch';
