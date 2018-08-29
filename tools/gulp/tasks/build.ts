@@ -24,6 +24,14 @@ task('build.dal', sequenceTask(
   ':clean.dal',
   ':build.dal'));
 
+// services
+// ng build @uiux/svc
+task(':build.services', execTask('ng', [ 'build', '@uiux/services', '--prod' ]));
+
+task('build.svc', sequenceTask(
+  ':clean.services',
+  ':build.services'));
+
 // MATERIAL
 task(':build.mat', execTask('ng', [ 'build', '@uiux/material', '--prod' ], { failOnStderr: true }));
 
@@ -50,6 +58,7 @@ task('build.mat', sequenceTask(
 
 /** build material project */
 task('build.projects', sequenceTask(
+  'build.cdk',
   'build.fn',
   'build.mat',
   'build.dal'

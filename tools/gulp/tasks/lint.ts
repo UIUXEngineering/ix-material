@@ -42,6 +42,18 @@ task('lint.dal', sequenceTask(
   ':lint.dal',
 ));
 
+// ng lint @uiux/services
+task(':prettier.services', execTask('prettier', [
+  '--write',
+  './projects/uiux/services/**/*.ts',
+]));
+
+task(':lint.services', execTask('ng', [ 'lint', '@uiux/services' ]));
+
+task('lint.svc', sequenceTask(
+  ':prettier.services',
+  ':lint.services',
+));
 
 // ng lint @uiux/material
 task(':prettier.mat', execTask('prettier', [

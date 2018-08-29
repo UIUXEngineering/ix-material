@@ -2,6 +2,36 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
+import {
+  isArray,
+  isBoolean,
+  isDate,
+  isDefined,
+  isFunction,
+  isLength,
+  isObject,
+  isObjectLike,
+  isScalar,
+  isSymbol,
+  isTruthy,
+  hasValue,
+  hasValueEqual,
+  hasValueNotEqual,
+} from '@uiux/fn/common';
 
-export * from './src/not-and-value';
-export * from './src/not-and-value-in';
+export {
+  isArray,
+  isBoolean,
+  isDate,
+  isDefined,
+  isFunction,
+  isLength,
+  isObject,
+  isObjectLike,
+  isScalar,
+  isSymbol,
+  isTruthy,
+  hasValue,
+  hasValueEqual,
+  hasValueNotEqual,
+};

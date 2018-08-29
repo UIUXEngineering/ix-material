@@ -2,7 +2,5 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-
-export * from './src/to-string';
-export * from './src/starts-or-ends-with-whitespace';
-export * from './src/to-kebab-case';
+import { trim, toString, startsOrEndsWithWhitespace, kebabCase } from '@uiux/fn/common';
+export { trim, toString, startsOrEndsWithWhitespace, kebabCase };
