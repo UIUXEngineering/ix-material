@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { interfaceHasValueIn } from './interfaceHasValueIn';
+import { interfaceTruthyIn } from './interfaceTruthyIn';
 
 describe('propTruthyInAllPaths', () => {
   it('should return false', () => {
@@ -29,7 +29,7 @@ describe('propTruthyInAllPaths', () => {
     };
 
     // basePath may be a path such as 'a.b.c[0]' etc.
-    expect(interfaceHasValueIn(o, 'controls', 'dirty')).toBe(true);
+    expect(interfaceTruthyIn(o, 'controls', 'dirty')).toBe(false);
   });
 
   it('should return true', () => {
@@ -40,7 +40,7 @@ describe('propTruthyInAllPaths', () => {
           pristine: false,
         },
         email: {
-          dirty: null, // <-- no value
+          dirty: true,
           pristine: false,
         },
         password: {
@@ -55,6 +55,32 @@ describe('propTruthyInAllPaths', () => {
     };
 
     // basePath may be a path such as 'a.b.c[0]' etc.
-    expect(interfaceHasValueIn(o, 'controls', 'dirty')).toBe(false);
+    expect(interfaceTruthyIn(o, 'controls', 'dirty')).toBe(true);
+  });
+
+  it('should return false if one value is false', () => {
+    const o: any = {
+      controls: {
+        name: {
+          dirty: true,
+          pristine: false,
+        },
+        email: {
+          dirty: false,
+          pristine: false,
+        },
+        password: {
+          dirty: true,
+          pristine: false,
+        },
+        verifyPassword: {
+          dirty: true,
+          pristine: false,
+        },
+      },
+    };
+
+    // basePath may be a path such as 'a.b.c[0]' etc.
+    expect(interfaceTruthyIn(o, 'controls', 'dirty')).toBe(false);
   });
 });
