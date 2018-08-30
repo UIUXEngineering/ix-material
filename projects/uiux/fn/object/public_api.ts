@@ -23,3 +23,4 @@ export * from './src/updateIn';
 export * from './src/upSetIn';
 export * from './src/valuesContainString';
 export * from './src/valuesHaveValue';
+export * from './src/valuesWithKey';
