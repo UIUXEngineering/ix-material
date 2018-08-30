@@ -7,6 +7,7 @@ export * from './src/allValuesTruthy';
 export * from './src/allValuesTruthyIn';
 export * from './src/createObjectWithPaths';
 export * from './src/deleteIn';
+export * from './src/interfaceHasValueIn';
 export * from './src/invokeIfElseIn';
 export * from './src/invokeIfElseInConfig';
 export * from './src/invokeIfIn';

@@ -12,8 +12,8 @@ import { createAssigner } from './_createAssigner';
  *
  * **Note:** This method mutates `object`.
  *
- * @param {Object} object The destination object.
- * @param {...Object} [sources] The source objects.
+ * @param object The destination object.
+ * @param source {...Object} [sources] The source objects.
  * Returns `object`.
  *
  * var object = {

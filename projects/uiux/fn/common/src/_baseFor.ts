@@ -8,6 +8,6 @@ import { createBaseFor } from './_createBaseFor';
  * @param object The object to iterate over.
  * @param iteratee The function invoked per iteration.
  * @param keysFunc The function to get the keys of `object`.
- * @returns {Object} Returns `object`.
+ * Returns `object`.
  */
 export let baseFor: any = createBaseFor();

@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { hasValue } from '@uiux/fn/common';
+import { hasValue } from './hasValue';
 
 export function propsWithNoValue(obj: any): any {
   const r: any = {};

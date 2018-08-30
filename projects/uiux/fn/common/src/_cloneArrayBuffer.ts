@@ -3,7 +3,7 @@ import { Uint8Array } from './_Uint8Array';
 /**
  * Creates a clone of `arrayBuffer`.
  *
- * @param {ArrayBuffer} arrayBuffer The array buffer to clone.
+ * @param arrayBuffer The array buffer to clone.
  * Returns the cloned array buffer.
  */
 export function cloneArrayBuffer(arrayBuffer: any): any {

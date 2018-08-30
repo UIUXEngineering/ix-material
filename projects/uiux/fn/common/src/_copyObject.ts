@@ -7,7 +7,7 @@ import { baseAssignValue } from './_baseAssignValue';
  * @param source The object to copy properties from.
  * @param props The property identifiers to copy.
  * @param object to copy properties to.
- * @param {Function} [customizer] The function to customize copied values.
+ * @param customizer The function to customize copied values.
  * Returns `object`.
  */
 export function copyObject(source: any, props: any, object: any = {}, customizer?: Function): any {

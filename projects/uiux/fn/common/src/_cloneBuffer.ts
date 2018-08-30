@@ -31,7 +31,7 @@ const Buffer = moduleExports ? root.Buffer : undefined,
  *
  * @param buffer The buffer to clone.
  * @param isDeep Specify a deep clone.
- * @returns {Buffer} Returns the cloned buffer.
+ * Returns the cloned buffer.
  */
 export function cloneBuffer(buffer, isDeep?: boolean): any {
   if (isDeep) {

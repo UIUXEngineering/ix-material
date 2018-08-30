@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { hasValue } from '@uiux/fn/common';
+import { hasValue } from './hasValue';
 import { clone } from './clone';
 import { propsWithNoValue } from './propsWithNoValue';
 
