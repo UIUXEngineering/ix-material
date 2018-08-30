@@ -17,9 +17,9 @@ import { isObjectLike } from './isObjectLike';
 export function baseIsEqual(
   value: any,
   other: any,
-  bitmask: boolean | number,
-  customizer: Function,
-  stack: any
+  bitmask?: boolean | number,
+  customizer?: Function,
+  stack?: any
 ): boolean {
   if (value === other) {
     return true;

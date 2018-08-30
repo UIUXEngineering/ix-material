@@ -161,6 +161,7 @@ export * from './src/isBuffer';
 export * from './src/isDate';
 export * from './src/isDefined';
 export * from './src/isEmpty';
+export * from './src/isEqual';
 export * from './src/isFunction';
 export * from './src/isLength';
 export * from './src/isMatch';
