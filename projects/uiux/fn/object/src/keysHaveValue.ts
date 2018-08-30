@@ -3,11 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import {
-  isPlainObject,
-  isEmpty,
-  hasValue,
-} from '@uiux/fn/common';
+import { isPlainObject, isEmpty, hasValue } from '@uiux/fn/common';
 
 export function keysHaveValue(value: any, keys?: string[]): boolean {
   if (isPlainObject(value)) {
