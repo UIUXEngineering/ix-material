@@ -191,6 +191,7 @@ export * from './src/propsWithNoValue';
 export * from './src/promise';
 export * from './src/setIn';
 export * from './src/setInIfSrc';
+export * from './src/setInIfSrcWithConfig';
 export * from './src/startsOrEndsWithWhitespace';
 export * from './src/stubArray';
 export * from './src/stubFalse';
