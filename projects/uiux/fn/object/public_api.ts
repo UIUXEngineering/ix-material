@@ -18,4 +18,5 @@ export * from './src/keyConverter';
 export * from './src/keysAreTruthy';
 export * from './src/searchObjectByKeys';
 export * from './src/searchValuesByMatch';
+export * from './src/valuesContainString';
 export * from './src/valuesHaveValue';

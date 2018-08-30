@@ -3,11 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import {
-  isTruthy,
-  isEmpty,
-  isPlainObject,
-} from '@uiux/fn/common';
+import { isTruthy, isEmpty, isPlainObject } from '@uiux/fn/common';
 
 export function keysAreTruthy(value: any, keys?: string[]): boolean {
   if (isPlainObject(value)) {
