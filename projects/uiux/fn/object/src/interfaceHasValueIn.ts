@@ -7,7 +7,8 @@ import { hasIn, getIn, forIn } from '@uiux/fn/common';
 import { allValuesHasValue } from './allValuesHasValue';
 
 /**
- * Return truthy of all common properties in different paths.
+ * In an object that has nested nodes of a common interface,
+ * Return truthy of all common properties hasValue.
  *
  * @param object
  * @param basePath is a path to an object and may be a path such as 'a.b.c[0]' etc.
