@@ -16,6 +16,7 @@ export * from './src/invokeIn';
 export * from './src/isDefinedIn';
 export * from './src/keyConverter';
 export * from './src/keysAreTruthy';
+export * from './src/keysHaveValue';
 export * from './src/searchObjectByKeys';
 export * from './src/searchValuesByMatch';
 export * from './src/valuesContainString';
