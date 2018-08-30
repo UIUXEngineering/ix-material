@@ -19,5 +19,7 @@ export * from './src/keysAreTruthy';
 export * from './src/keysHaveValue';
 export * from './src/searchObjectByKeys';
 export * from './src/searchValuesByMatch';
+export * from './src/updateIn';
+export * from './src/upSetIn';
 export * from './src/valuesContainString';
 export * from './src/valuesHaveValue';
