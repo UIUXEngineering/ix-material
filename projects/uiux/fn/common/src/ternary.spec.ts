@@ -2,19 +2,19 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { ternaryHasValue } from './ternaryHasValue';
+import { ternary } from './ternary';
 
-describe('ternaryHasValue', () => {
+describe('ternary', () => {
   // tenary uses `hasValue` for truthy, so not
   // going to test every case of `hasValue`
   it('should return value if defined', () => {
-    const _value: any = ternaryHasValue('foo', 'bar');
+    const _value: any = ternary('foo', 'bar');
     expect(_value).toEqual('foo');
   });
 
   it('should return conditional value', () => {
     // uses `hasValue` evaluation
-    const _value: any = ternaryHasValue([], 'bar');
+    const _value: any = ternary([], 'bar');
     expect(_value).toEqual('bar');
   });
 });

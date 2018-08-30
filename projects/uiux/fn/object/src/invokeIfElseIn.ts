@@ -3,8 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { hasValue } from '@uiux/fn/common';
-import { ternaryHasValueIn } from '@uiux/fn/common';
+import { hasValue, ternaryIn } from '@uiux/fn/common';
 
 /**
  * Call value into target function if value exists
@@ -27,7 +26,7 @@ export function invokeIfElseIn(
   fn: Function,
   context: any = null
 ) {
-  const valueFromObject: any = ternaryHasValueIn(object, keys, elseValue);
+  const valueFromObject: any = ternaryIn(object, keys, elseValue);
 
   if (hasValue(valueFromObject)) {
     fn.call(context, valueFromObject);

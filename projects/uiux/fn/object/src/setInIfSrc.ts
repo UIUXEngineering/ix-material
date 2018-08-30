@@ -3,9 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { setIn } from './setIn';
-import { hasValue } from './hasValue';
-import { ternaryIn } from './ternaryIn';
+import { setIn, hasValue, ternaryIn } from '@uiux/fn/common';
 
 /**
  * Sets the nested key to the provided value only if the property exists.

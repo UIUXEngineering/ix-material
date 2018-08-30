@@ -4,7 +4,7 @@
  */
 
 import { getIn } from './getIn';
-import { ternaryHasValue } from './ternaryHasValue';
+import { ternary } from './ternary';
 
 /**
  * Return value of nested node if node has a value,
@@ -12,8 +12,8 @@ import { ternaryHasValue } from './ternaryHasValue';
  *
  * ternaryIn(object: 'prop1.prop2[0].prop3', alternateValue);
  */
-export function ternaryHasValueIn(object: any, keys: string | string[], elseValue): any {
+export function ternaryIn(object: any, keys: string | string[], elseValue): any {
   // getIn or get Will return value of any key defined
   // even if value is null or undefined
-  return ternaryHasValue(getIn(object, keys), elseValue);
+  return ternary(getIn(object, keys), elseValue);
 }

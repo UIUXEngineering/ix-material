@@ -4,6 +4,6 @@
  */
 import { hasValue } from './hasValue';
 
-export function ternaryHasValue(ifHasValue: any, elseValue): any {
+export function ternary(ifHasValue: any, elseValue): any {
   return hasValue(ifHasValue) ? ifHasValue : elseValue;
 }
