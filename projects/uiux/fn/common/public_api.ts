@@ -190,6 +190,7 @@ export * from './src/mergeWithoutArray';
 export * from './src/propsWithNoValue';
 export * from './src/promise';
 export * from './src/setIn';
+export * from './src/setInIfSrc';
 export * from './src/startsOrEndsWithWhitespace';
 export * from './src/stubArray';
 export * from './src/stubFalse';
