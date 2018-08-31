@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { hasValue } from '@uiux/cdk/value';
+import { hasValue } from './hasValue';
 import { clone } from './clone';
 import { getIn } from './getIn';
 import { mergeWithoutArray } from './mergeWithoutArray';

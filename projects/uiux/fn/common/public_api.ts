@@ -154,6 +154,7 @@ export * from './src/hasIn';
 export * from './src/hasValue';
 export * from './src/hasValueEqual';
 export * from './src/hasValueEqualIn';
+export * from './src/hasValueIn';
 export * from './src/hasValueNotEqual';
 export * from './src/hasValueNotEqualIn';
 export * from './src/identity';
