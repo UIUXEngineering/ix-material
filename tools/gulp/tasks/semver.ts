@@ -62,7 +62,8 @@ function updateRoot(version: string): any {
 }
 
 function updatePackages(version: string): any {
-  return merge(updateFN(version),
+  return merge(updateCDK(version),
+               updateFN(version),
                updateDAL(version),
                updaterxjs(version),
                updatesvc(version),

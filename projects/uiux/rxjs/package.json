@@ -10,6 +10,7 @@
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@angular/material": "^6.0.1",
+    "@uiux/fn": "^6.0.1",
     "rxjs": "^6.1.0",
     "rxjs-compat": "^6.1.0"
   }
