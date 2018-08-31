@@ -89,11 +89,13 @@ Optionally, you can add dependencies, or peerDependencies to `projects/uiux/fn/p
   },
   
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "rxjs": "^6.1.0",
-    "rxjs-compat": "^6.1.0"
-  }
+      "@angular/cdk": "^6.0.0",
+      "@angular/common": "^6.0.0",
+      "@angular/core": "^6.0.0",
+      "@angular/material": "^6.0.1",
+      "rxjs": "^6.1.0",
+      "rxjs-compat": "^6.1.0"
+    }
   
   ```
   

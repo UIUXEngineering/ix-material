@@ -42,6 +42,19 @@ task('lint.dal', sequenceTask(
   ':lint.dal',
 ));
 
+// ng lint @uiux/rxjs
+task(':prettier.rxjs', execTask('prettier', [
+  '--write',
+  './projects/uiux/rxjs/**/*.ts',
+]));
+
+task(':lint.rxjs', execTask('ng', [ 'lint', '@uiux/rxjs' ]));
+
+task('lint.rxjs', sequenceTask(
+  ':prettier.rxjs',
+  ':lint.rxjs',
+));
+
 // ng lint @uiux/services
 task(':prettier.services', execTask('prettier', [
   '--write',

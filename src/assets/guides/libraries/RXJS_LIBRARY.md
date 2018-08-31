@@ -84,7 +84,6 @@ Optionally, you can add dependencies, or peerDependencies to `projects/uiux/fn/p
 
   "dependencies": {
     "immutable": "3.8.2",
-    "lodash-es": "4.17.10",
     "moment": "2.22.1"
   },
   

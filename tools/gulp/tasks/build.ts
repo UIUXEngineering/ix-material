@@ -24,6 +24,14 @@ task('build.dal', sequenceTask(
   ':clean.dal',
   ':build.dal'));
 
+// rxjs
+// ng build @uiux/rxjs
+task(':build.rxjs', execTask('ng', [ 'build', '@uiux/rxjs', '--prod' ]));
+
+task('build.rxjs', sequenceTask(
+  ':clean.rxjs',
+  ':build.rxjs'));
+
 // services
 // ng build @uiux/svc
 task(':build.services', execTask('ng', [ 'build', '@uiux/services', '--prod' ]));
@@ -61,6 +69,8 @@ task('build.projects', sequenceTask(
   'build.cdk',
   'build.fn',
   'build.mat',
-  'build.dal'
+  'build.dal',
+  'build.rxjs',
+  'build.svc'
 ));
 
