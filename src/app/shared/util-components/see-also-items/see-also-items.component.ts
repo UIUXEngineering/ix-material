@@ -5,7 +5,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { hasValue } from '@uiux/fn/value';
+import { hasValue } from '@uiux/fn/common';
 import { IDataItem } from '../../../../models/routes';
 import { ApiRefService } from '../../../services/api-ref/api-ref.service';
 

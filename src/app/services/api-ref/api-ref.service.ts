@@ -1,9 +1,10 @@
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { Router } from '@angular/router';
-import { clone, propsHaveValue } from '@uiux/fn/object';
-import { StoreSubject } from '@uiux/fn/store';
+import { clone } from '@uiux/fn/common';
+import { valuesHaveValue } from '@uiux/fn/object';
 import { default as _forIn } from 'lodash-es/forIn';
 import { default as _get } from 'lodash-es/get';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
 import { ROUTES } from '../../../configs/nav-items';
 import { IDataItem } from '../../../models/routes';
@@ -112,16 +113,18 @@ export class ApiRefService {
 
   routes: any = ROUTES;
 
-  value: StoreSubject<IRouteStore, IRouteAction> = new StoreSubject<IRouteStore, IRouteAction>({
-    initialStore: initialStore,
-    rootReducer: {
-      currentRoute: currentRouteReducer,
-    },
-  });
+  // value: StoreSubject<IRouteStore, IRouteAction> = new StoreSubject<IRouteStore, IRouteAction>({
+  //   initialStore: initialStore,
+  //   rootReducer: {
+  //     currentRoute: currentRouteReducer,
+  //   },
+  // });
+
+  value: BehaviorSubject<IRouteStore> = new BehaviorSubject<IRouteStore>(initialStore);
 
   constructor(private _routerService: RouteService, private _router: Router) {
     this._routerSub = _routerService.value.subscribe((r: IRouteService) => {
-      if (propsHaveValue(r, ['category', 'base'])) {
+      if (valuesHaveValue(r, ['category', 'base'])) {
         const payload: ICurrentRouteAction = <any>{};
 
         if (r.doc) {
@@ -137,7 +140,10 @@ export class ApiRefService {
 
         payload.route = r;
 
-        this.value.action['currentRoute'](payload);
+        const nextState: IRouteStore = clone(this.value.value);
+        nextState.currentRouteData = payload.currentRouteData;
+        nextState.route = payload.route;
+        this.value.next(nextState);
       }
     });
   }

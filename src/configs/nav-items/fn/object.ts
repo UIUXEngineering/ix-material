@@ -1,4 +1,3 @@
-import { propHasValueInAllPaths } from '../../../../projects/uiux/fn/object/src/prop-has-value-in-all-paths';
 import { IDataItem } from '../../../models/routes';
 import { FN, GIT_REPO_PROJECTS_BASE, ICON } from '../../constants';
 

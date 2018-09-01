@@ -57,8 +57,8 @@ import { ComponentHeaderModule } from './util-components/component-page-header/c
 import { DocViewerModule } from './util-components/doc-viewer/doc-viewer-module';
 import { SeeAlsoComponent } from './util-components/see-also/see-also.component';
 import { TableOfContentsModule } from './util-components/table-of-contents/table-of-contents.module';
-import { ContentLoadedModule } from '@uiux/fn/dom';
-import { SpPipesModule } from '@uiux/fn/pipes';
+import { ContentLoadedModule } from '@uiux/services/dom';
+import { SpPipesModule } from '@uiux/cdk/pipes';
 import { SpSearchAutocompleteModule, IxShowModule } from '@uiux/material';
 import { MarkdownModule } from 'ngx-markdown';
 import { ApiContainerComponent } from './doc-components/api-container/api-container.component';

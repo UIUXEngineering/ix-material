@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FORM_OPTIONS } from '@uiux/fn/forms';
+import { FORM_OPTIONS } from '@uiux/cdk/forms';
 
 export interface PoCShadowDomBarForm {
   bars: string;

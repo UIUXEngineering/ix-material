@@ -8,7 +8,7 @@ import {
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
-import { hasValueIn } from '@uiux/fn/object';
+import { hasValueIn } from '@uiux/fn/common';
 import { PocD3CanvasBarChartRender } from './poc-d3-canvas-bar-chart-render';
 
 @Component({

@@ -1,4 +1,4 @@
-import { hasValueIn } from '@uiux/fn/object';
+import { hasValueIn } from '@uiux/fn/common';
 
 const object = {
   foo: {

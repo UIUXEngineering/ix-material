@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { VERSION } from '@angular/material';
-import { BehaviorValueSubject } from '@uiux/fn/rxjs';
+import { BehaviorValueSubject } from '@uiux/rxjs/subjects';
 
 @Injectable()
 export class VersionService {

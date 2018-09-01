@@ -1,4 +1,4 @@
-import { hasValue } from '@uiux/fn/value';
+import { hasValue } from '@uiux/fn/common';
 
 const _null = null;
 console.log(hasValue(_null)); // false

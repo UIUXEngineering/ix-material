@@ -14,7 +14,7 @@ import {
   MatInputModule,
   MatProgressSpinnerModule,
 } from '@angular/material';
-import { SpPipesModule } from './pipes/pipes.module';
+import { SpPipesModule } from '@uiux/cdk/pipes';
 import { SP_SEARCH_AUTOCOMPLETE_FORMGROUP_PROVIDER } from './search-autocomplete-form-group.service';
 import { SpSearchAutoCompleteComponent } from './search-autocomplete.component';
 import { SpFormBuilderServiceModule } from '@uiux/cdk/forms';
