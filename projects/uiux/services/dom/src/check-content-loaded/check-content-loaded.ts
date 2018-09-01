@@ -1,5 +1,5 @@
-import { IPollForValueConfig, pollForValueWithConfig } from '@uiux/cdk/rxjs';
 import { BehaviorSubject, Observable, Observer } from 'rxjs';
+import { IPollForValueConfig, pollForValueWithConfig } from '@uiux/rxjs/pipes';
 
 export interface Content {
   isLoaded: boolean;

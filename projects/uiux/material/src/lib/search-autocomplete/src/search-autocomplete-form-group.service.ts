@@ -11,8 +11,8 @@ import {
   IFormDefaultValueConfig,
   IFormErrorsConfig,
   IFormValidatorsConfig,
-} from '@uiux/fn/forms';
-import { forbiddenWhitespaceValidator } from '@uiux/fn/validators';
+} from '@uiux/cdk/forms';
+import { forbiddenWhitespaceValidator } from '@uiux/cdk/validators';
 
 export class SpSearchAutoComplateFormGroup extends AbstractFormFactory {
   // tslint:disable

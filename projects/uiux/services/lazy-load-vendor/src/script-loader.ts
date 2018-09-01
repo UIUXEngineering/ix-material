@@ -5,8 +5,8 @@
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { fromPromise } from 'rxjs/observable/fromPromise';
-import { IPollForValueConfig, pollForValueWithConfig } from '@uiux/cdk/rxjs';
-import { getIn, hasValueIn } from '@uiux/cdk/object';
+import { IPollForValueConfig, pollForValueWithConfig } from '@uiux/rxjs/pipes';
+import { getIn, hasValueIn } from '@uiux/fn/common';
 
 export interface IVendorFile {
   path: string;

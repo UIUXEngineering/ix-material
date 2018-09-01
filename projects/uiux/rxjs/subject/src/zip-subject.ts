@@ -1,9 +1,7 @@
-import { clone, hasValue, isScalar } from '@uiux/fn/common';
+import { clone, hasValue, isScalar, isArray, isString } from '@uiux/fn/common';
 import { keySplitterIntoImmutablePath, allValuesHasValue, allValuesDefined } from '@uiux/fn/object';
 import { fromJS } from 'immutable';
 import { default as _filter } from 'lodash-es/filter';
-import { default as _isArray } from 'lodash-es/isArray';
-import { default as _isString } from 'lodash-es/isString';
 import { default as _uniqBy } from 'lodash-es/uniqBy';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
@@ -130,14 +128,14 @@ export class ZipSubject<T> extends Subject<T> {
       _value = _value.toJS();
     }
 
-    if (_isArray(value)) {
+    if (isArray(value)) {
       _value = _value.concat(value);
     } else {
       _value.push(value);
     }
 
     if (uniqBy) {
-      if (_isString(uniqBy)) {
+      if (isString(uniqBy)) {
         // in some cases, uniqBy will drop objects that do not
         // contain the property evaluated for uniq.
         // save those objects.

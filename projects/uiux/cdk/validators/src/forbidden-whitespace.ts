@@ -4,7 +4,7 @@
  */
 
 import { AbstractControl, ValidatorFn } from '@angular/forms';
-import { startsOrEndsWithWhitespace } from '@uiux/cdk/string';
+import { startsOrEndsWithWhitespace } from '@uiux/fn/string';
 
 export function forbiddenWhitespaceValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {

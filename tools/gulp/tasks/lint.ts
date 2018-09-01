@@ -83,8 +83,12 @@ task('lint.mat', sequenceTask(
 
 // projects
 task('lint.projects', sequenceTask(
+  'lint.cdk',
+  'lint.dal',
   'lint.fn',
   'lint.mat',
+  'lint.rxjs',
+  'lint.svc'
 ));
 
 // App

@@ -13,6 +13,8 @@
     "build.mat": "gulp build.mat",
     "build.prod": "ng build --aot --prod",
     "build.projects": "gulp build.projects",
+    "lint.projects": "gulp lint.projects",
+    "test.projects": "gulp test.projects",
     "copy.icons": "gulp copy.icons",
     "copy.menu": "bash ./scripts/copy-from-mat/copy-menu.sh",
     "copy.pkg": "gulp copy.pkg",

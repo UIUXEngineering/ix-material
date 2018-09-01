@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering Corporation All Rights Reserved.
  */
 import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
-import { hasValue } from '@uiux/fn/value';
+import { hasValue } from '@uiux/fn/common';
 
 // tslint:disable-next-line
 @Directive({
@@ -11,7 +11,8 @@ import { hasValue } from '@uiux/fn/value';
 })
 export class IxShowDirective implements OnChanges {
   private _hasShown = false;
-  @Input('ixShow') ixShow: boolean;
+  @Input('ixShow')
+  ixShow: boolean;
 
   constructor(private _renderer: Renderer2, private _el: ElementRef) {
     this._renderer.addClass(this._el.nativeElement, 'ix-hide-initial');

@@ -7,7 +7,8 @@ import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { IFormConfig, IFormGroupConfig, IFormService, IFormValue } from './interfaces';
 import { Subject } from 'rxjs/Subject';
-import { clone, propTruthyInAllPaths } from '@uiux/cdk/object';
+import { clone } from '@uiux/fn/common';
+import { interfaceTruthyIn } from '@uiux/fn/object';
 import {
   buildConfig,
   buildControls,
@@ -74,13 +75,13 @@ export class FormService {
     }
 
     // to iterate once
-    const invalid: boolean = propTruthyInAllPaths(this.form, 'controls', 'invalid');
+    const invalid: boolean = interfaceTruthyIn(this.form, 'controls', 'invalid');
 
     const root: IFormValue = {
-      dirty: propTruthyInAllPaths(this.form, 'controls', 'dirty'),
-      pristine: propTruthyInAllPaths(this.form, 'controls', 'pristine'),
-      touched: propTruthyInAllPaths(this.form, 'controls', 'touched'),
-      valid: propTruthyInAllPaths(this.form, 'controls', 'valid'),
+      dirty: interfaceTruthyIn(this.form, 'controls', 'dirty'),
+      pristine: interfaceTruthyIn(this.form, 'controls', 'pristine'),
+      touched: interfaceTruthyIn(this.form, 'controls', 'touched'),
+      valid: interfaceTruthyIn(this.form, 'controls', 'valid'),
       invalid: invalid,
       hasErrors: invalid,
       controls: controls,

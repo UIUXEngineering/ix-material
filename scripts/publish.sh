@@ -8,7 +8,15 @@ cd "$ROOT_DIR/dist/@uiux/cdk"
 echo $PWD
 npm publish
 
+cd "$ROOT_DIR/dist/@uiux/dal"
+echo $PWD
+npm publish
+
 cd "$ROOT_DIR/dist/@uiux/fn"
+echo $PWD
+npm publish
+
+cd "$ROOT_DIR/projects/uiux/icons"
 echo $PWD
 npm publish
 
@@ -16,13 +24,15 @@ cd "$ROOT_DIR/dist/@uiux/material"
 echo $PWD
 npm publish
 
-cd "$ROOT_DIR/dist/@uiux/dal"
+cd "$ROOT_DIR/dist/@uiux/rxjs"
 echo $PWD
 npm publish
 
-cd "$ROOT_DIR/projects/uiux/icons"
+
+cd "$ROOT_DIR/dist/@uiux/services"
 echo $PWD
 npm publish
+
 
 cd $ROOT_DIR
 echo $PWD
