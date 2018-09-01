@@ -1,4 +1,6 @@
 
+// import * as through2 from 'through2';
+
 import * as through2 from 'through2';
 
 export function logPipe(msg: string): any {
