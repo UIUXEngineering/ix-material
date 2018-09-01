@@ -14,60 +14,84 @@ const chalk = require('chalk');
 import { argv  } from 'yargs';
 
 function updateCDK(version: string): any {
-  console.log(chalk.green('cdk'));
+
   return src('./projects/uiux/cdk/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/cdk/'));
+    .pipe(dest('./projects/uiux/cdk/'))
+    .on('end', () => {
+      console.log(chalk.green('cdk'));
+    });
 }
 
 function updateFN(version: string): any {
-  console.log(chalk.green('fn'));
+
   return src('./projects/uiux/fn/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/fn/'));
+    .pipe(dest('./projects/uiux/fn/'))
+    .on('end', () => {
+      console.log(chalk.green('fn'));
+    });
 }
 
 
 function updateDAL(version: string): any {
-  console.log(chalk.green('dal'));
+
   return src('./projects/uiux/dal/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/dal/'));
+    .pipe(dest('./projects/uiux/dal/'))
+    .on('end', () => {
+      console.log(chalk.green('dal'));
+    });
 }
 
 function updaterxjs(version: string): any {
-  console.log(chalk.green('rxjs'));
+
   return src('./projects/uiux/rxjs/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/rxjs/'));
+    .pipe(dest('./projects/uiux/rxjs/'))
+    .on('end', () => {
+      console.log(chalk.green('rxjs'));
+    });
 }
 
 function updatesvc(version: string): any {
-  console.log(chalk.green('sevices'));
+
   return src('./projects/uiux/services/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/services/'));
+    .pipe(dest('./projects/uiux/services/'))
+    .on('end', () => {
+      console.log(chalk.green('sevices'));
+    });
 }
 
 function updateMaterial(version: string): any {
-  console.log(chalk.green('material'));
+
   return src('./projects/uiux/material/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/material/'));
+    .pipe(dest('./projects/uiux/material/'))
+    .on('end', () => {
+      console.log(chalk.green('material'));
+    });
 }
 
 function updateIcons(version: string): any {
-  console.log(chalk.green('icons'));
+
   return src('projects/uiux/icons/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/icons/'));
+    .pipe(dest('./projects/uiux/icons/'))
+    .on('end', () => {
+      console.log(chalk.green('icons'));
+    });
 }
 
 function updateRoot(version: string): any {
-  console.log(chalk.green('package.json'));
+
   return src('./package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./'));
+    .pipe(dest('./'))
+    .on('end', () => {
+      console.log(chalk.green('package.json'));
+    });
 }
 
 function updatePackages(version: string): any {
