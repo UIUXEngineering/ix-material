@@ -8,16 +8,17 @@ import {
   incSemverMinor,
   incSemverPatch,
 } from '../util/inc_semver';
+import { argv  } from 'yargs';
+
 const merge = require('merge-stream');
 const bump = require('gulp-bump');
-const git = require('gulp-git');
-const chalk = require('chalk');
-import { argv  } from 'yargs';
+const LOG_COLOR = 'green';
+
 
 function updateCDK(version: string): any {
 
   return src('./projects/uiux/cdk/package.json')
-    .pipe(logPipe('cdk'))
+    .pipe(logPipe('cdk', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./projects/uiux/cdk/'));
 }
@@ -25,7 +26,7 @@ function updateCDK(version: string): any {
 function updateFN(version: string): any {
 
   return src('./projects/uiux/fn/package.json')
-    .pipe(logPipe('fn'))
+    .pipe(logPipe('fn', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./projects/uiux/fn/'));
 }
@@ -34,7 +35,7 @@ function updateFN(version: string): any {
 function updateDAL(version: string): any {
 
   return src('./projects/uiux/dal/package.json')
-    .pipe(logPipe('dal'))
+    .pipe(logPipe('dal', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./projects/uiux/dal/'));
 }
@@ -42,7 +43,7 @@ function updateDAL(version: string): any {
 function updaterxjs(version: string): any {
 
   return src('./projects/uiux/rxjs/package.json')
-    .pipe(logPipe('rxjs'))
+    .pipe(logPipe('rxjs', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./projects/uiux/rxjs/'));
 }
@@ -50,7 +51,7 @@ function updaterxjs(version: string): any {
 function updatesvc(version: string): any {
 
   return src('./projects/uiux/services/package.json')
-    .pipe(logPipe('services'))
+    .pipe(logPipe('services', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./projects/uiux/services/'));
 }
@@ -58,7 +59,7 @@ function updatesvc(version: string): any {
 function updateMaterial(version: string): any {
 
   return src('./projects/uiux/material/package.json')
-    .pipe(logPipe('material'))
+    .pipe(logPipe('material', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./projects/uiux/material/'));
 }
@@ -66,7 +67,7 @@ function updateMaterial(version: string): any {
 function updateIcons(version: string): any {
 
   return src('projects/uiux/icons/package.json')
-    .pipe(logPipe('icons'))
+    .pipe(logPipe('icons', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./projects/uiux/icons/'));
 }
@@ -74,7 +75,7 @@ function updateIcons(version: string): any {
 function updateRoot(version: string): any {
 
   return src('./package.json')
-    .pipe(logPipe('package.json'))
+    .pipe(logPipe('package.json', LOG_COLOR))
     .pipe(bump({version: version}))
     .pipe(dest('./'));
 }

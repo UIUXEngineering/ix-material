@@ -1,12 +1,22 @@
-
-// import * as through2 from 'through2';
-
 import * as through2 from 'through2';
 
-export function logPipe(msg: string): any {
+const chalk = require('chalk');
+
+function noop(data: any): any {
+  return data;
+}
+
+export function logPipe(msg: string, color?: string): any {
   // returns stream
-  return through2.obj(function (chunk, enc, cb) {
-    console.log(msg); // this should log now
+  // tslint:disable-next-line
+  return through2.obj(function(chunk, enc, cb) {
+    noop(enc);
+
+    if (color) {
+      console.log(chalk[color](msg));
+    } else {
+      console.log(msg); // this should log now
+    }
     cb(null, chunk);
   });
 }
