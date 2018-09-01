@@ -4,7 +4,7 @@
  */
 import { getIn } from './getIn';
 import { hasValue } from './hasValue';
-import { default as _isMatch } from 'lodash-es/isMatch';
+import { isMatch } from './isMatch';
 import { isObject } from './isObject';
 import { isScalar } from './isScalar';
 
@@ -25,12 +25,7 @@ export function ixIsMatch(src: any, mapCompare: any): boolean {
             break;
           }
         } else if (
-          !(
-            _isMatchTest &&
-            hasValue(srcValue) &&
-            hasValue(cmpValue) &&
-            _isMatch(srcValue, cmpValue)
-          )
+          !(_isMatchTest && hasValue(srcValue) && hasValue(cmpValue) && isMatch(srcValue, cmpValue))
         ) {
           _isMatchTest = false;
           break;

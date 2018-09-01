@@ -7,8 +7,7 @@
 
 import { valuesHaveValue } from './valuesHaveValue';
 import { searchObjectByKeys } from './searchObjectByKeys';
-import { allValuesHasValueIn } from './allValuesHasValueIn';
-import { isTruthy } from '@uiux/cdk/value';
+import { isTruthy } from '@uiux/fn/common';
 
 describe('searchObjectByKeys', () => {
   let object: any;

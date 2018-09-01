@@ -2,8 +2,8 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { default as isPlainObject } from 'lodash-es/isPlainObject';
-import { hasValue } from '@uiux/cdk/value';
+import { isPlainObject } from './isPlainObject';
+import { hasValue } from './hasValue';
 import { fromJS } from 'immutable';
 
 export function clone(obj: any): any {

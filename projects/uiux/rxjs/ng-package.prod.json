@@ -1,0 +1,5 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/@uiux/rxjs",
+  "whitelistedNonPeerDependencies": ["immutable", "moment"]
+}

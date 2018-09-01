@@ -29,6 +29,9 @@
       "@uiux/fn/*": [
         "dist/@uiux/fn/*"
       ],
+      "@uiux/rxjs/*": [
+        "dist/@uiux/rxjs/*"
+      ],
       "@uiux/services/*": [
         "dist/@uiux/services/*"
       ]

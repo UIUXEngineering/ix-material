@@ -15,8 +15,8 @@ import {
 } from '@angular/core';
 import { AbstractControl, FormGroup, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
-import { IFormValue, INITIAL_FORM_VALUE } from '@uiux/fn/forms';
-import { forbiddenWhitespaceValidator } from '@uiux/fn/validators';
+import { IFormValue, INITIAL_FORM_VALUE } from '@uiux/cdk/forms';
+import { forbiddenWhitespaceValidator } from '@uiux/cdk/validators';
 import { default as _isString } from 'lodash-es/isString';
 import { Subscription } from 'rxjs/Subscription';
 import {
@@ -54,7 +54,8 @@ export class SpSearchAutoCompleteComponent implements AfterViewInit {
     this._controller = val;
   }
 
-  @HostBinding('class.search-autocomplete-component') public bindStyle = true;
+  @HostBinding('class.search-autocomplete-component')
+  public bindStyle = true;
 
   get control(): AbstractControl {
     if (!this._controller) {
@@ -74,31 +75,42 @@ export class SpSearchAutoCompleteComponent implements AfterViewInit {
     return this._controller;
   }
 
-  @Input('placeholder') placeholder = '';
+  @Input('placeholder')
+  placeholder = '';
 
-  @Input('autoCompleteData') autoCompleteData: any = [];
+  @Input('autoCompleteData')
+  autoCompleteData: any = [];
 
   /**
    * Options
    * textOnly, iconText
    */
-  @Input('optionTemplate') optionTemplate = 'textOnly';
+  @Input('optionTemplate')
+  optionTemplate = 'textOnly';
 
-  @Input('delay') delay = 300;
+  @Input('delay')
+  delay = 300;
 
-  @Input('minLength') minLength = 3;
+  @Input('minLength')
+  minLength = 3;
 
-  @Input('iconLeft') iconLeft = false;
+  @Input('iconLeft')
+  iconLeft = false;
 
-  @Input('isSearching') isSearching = false;
+  @Input('isSearching')
+  isSearching = false;
 
-  @Input('displayWith') displayWith: Function;
+  @Input('displayWith')
+  displayWith: Function;
 
-  @Input('optionFormatter') optionFormatter: Function;
+  @Input('optionFormatter')
+  optionFormatter: Function;
 
-  @Input('disableSubmit') disableSubmit = false;
+  @Input('disableSubmit')
+  disableSubmit = false;
 
-  @Input('overrideMaterial') overrideMaterial = true;
+  @Input('overrideMaterial')
+  overrideMaterial = true;
 
   @Input('spinnerConfig')
   spinnerConfig: ISpinnerConfig = {
@@ -110,25 +122,29 @@ export class SpSearchAutoCompleteComponent implements AfterViewInit {
    * String emitted from input value changes.
    * Always a string value.
    */
-  @Output() valueChanges: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  valueChanges: EventEmitter<string> = new EventEmitter<string>();
 
   /**
    * Object or String emitted from autocomplete option select.
    * Always a string value.
    */
-  @Output() optionSelected: EventEmitter<string | object> = new EventEmitter<string | object>();
+  @Output()
+  optionSelected: EventEmitter<string | object> = new EventEmitter<string | object>();
 
   /**
    * Object or String emitted from keyboard 'Enter' event
    * or click event on search icon.
    */
-  @Output() submit: EventEmitter<string | object> = new EventEmitter<string | object>();
+  @Output()
+  submit: EventEmitter<string | object> = new EventEmitter<string | object>();
 
   /**
    * Aggregation of optionSelected, onSubmitHandler, and valueChanges events.
    * ( You receive all events )
    */
-  @Output() changes: EventEmitter<string | object> = new EventEmitter<string | object>();
+  @Output()
+  changes: EventEmitter<string | object> = new EventEmitter<string | object>();
 
   constructor(
     private _changeDetector: ChangeDetectorRef,

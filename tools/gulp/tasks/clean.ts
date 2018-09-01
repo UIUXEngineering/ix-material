@@ -11,4 +11,6 @@ task(':clean.mat', cleanTask('dist/@uiux/material'));
 
 task(':clean.dal', cleanTask('dist/@uiux/dal'));
 
+task(':clean.rxjs', cleanTask('dist/@uiux/rxjs'));
+
 task(':clean.services', cleanTask('dist/@uiux/services'));

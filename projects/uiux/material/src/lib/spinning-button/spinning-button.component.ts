@@ -14,7 +14,9 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpSpinningButtonComponent {
-  @Input() text: string;
+  @Input()
+  text: string;
 
-  @Input() backgroundColor: string;
+  @Input()
+  backgroundColor: string;
 }

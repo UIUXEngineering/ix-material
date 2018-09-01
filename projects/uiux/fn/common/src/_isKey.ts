@@ -13,7 +13,7 @@ const reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
  * @param value value The value to check.
  * @param object [object] The object to query keys on.
  */
-export function isKey(value: any, object: any): boolean {
+export function isKey(value: any, object?: any): boolean {
   if (isArray(value)) {
     return false;
   }
