@@ -51,9 +51,13 @@ export const THEME_PICKER_THEMES: any[] = [
 ];
 
 export const ICON: any = {
-  FN: 'build',
+  CDK: 'build',
+  DAL: 'perm_data_setting',
+  FN: 'repeat',
   GUIDE: 'list',
   MATERIAL: 'devices_other',
+  RXJS: 'view_stream',
+  SVC: 'refresh',
 
   // custom drawn icon
   CUSTOM: 'brush',
