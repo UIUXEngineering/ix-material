@@ -1,8 +1,9 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side"
-               opened
+               [opened]="true"
                [fixedTopGap]="fixedTopGap"
-               [fixedInViewport]="true">
+               [fixedBottomGap]="fixedBottomGap"
+               [fixedInViewport]="false">
     <div class="pad-20 sidenav-menu">
       <div *ngIf="guides.length">
         <!--header-->

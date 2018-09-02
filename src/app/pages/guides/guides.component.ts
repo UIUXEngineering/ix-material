@@ -31,6 +31,7 @@ export class GuidesComponent implements OnInit, OnDestroy {
   guides: IDataItem[] = [];
 
   fixedTopGap = 52;
+  fixedBottomGap: 100;
 
   @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('class.app-route-animation') classAnimation = true;
