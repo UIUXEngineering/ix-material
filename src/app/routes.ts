@@ -4,8 +4,8 @@ import { HomepageComponent } from './pages/homepage';
 export const APP_ROUTES: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full', data: {} },
   {
-    path: 'fn',
-    loadChildren: './pages/fn/fn.module#FnModule',
+    path: 'cdk',
+    loadChildren: './pages/cdk/cdk.module#CdkModule',
     data: <any>{
       preload: true,
     },
@@ -13,6 +13,20 @@ export const APP_ROUTES: Routes = [
   {
     path: 'material',
     loadChildren: './pages/components/components.module#ComponentsModule',
+    data: <any>{
+      preload: true,
+    },
+  },
+  {
+    path: 'dal',
+    loadChildren: './pages/dal/dal.module#DalModule',
+    data: <any>{
+      preload: true,
+    },
+  },
+  {
+    path: 'fn',
+    loadChildren: './pages/fn/fn.module#FnModule',
     data: <any>{
       preload: true,
     },
@@ -34,6 +48,13 @@ export const APP_ROUTES: Routes = [
   {
     path: 'poc',
     loadChildren: './pages/poc/poc.module#PocModule',
+    data: <any>{
+      preload: true,
+    },
+  },
+  {
+    path: 'services',
+    loadChildren: './pages/services/services.module#ServicesModule',
     data: <any>{
       preload: true,
     },
