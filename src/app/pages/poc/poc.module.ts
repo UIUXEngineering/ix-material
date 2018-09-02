@@ -8,6 +8,7 @@ import { PocD3CanvasBarChartComponent } from './d3/d3-canvas-shadow-dom-view-enc
 import {
   PocD3SvgShadowDomViewEncapsulationComponent
 } from './d3/d3-svg-shadow-dom-view-encapsulation/poc-d3-svg-shadow-dom-view-encapsulation.component';
+import { HorizBarModule } from './d3/horiz-bar/horiz-bar.module';
 import { SamplePocComponent } from './demos/sample-poc/sample-poc.component';
 import { PocOverviewComponent } from './guide/poc-overview/poc-overview.component';
 
@@ -17,7 +18,12 @@ import { PocD3SvgBarChartComponent } from './d3/d3-svg-shadow-dom-view-encapsula
 import { PocShadowDomBarFormComponent } from './d3/bar-form/poc-shadow-dom-bar-form.component';
 
 @NgModule({
-            imports: [CommonModule, SharedModule, PocRoutingModule],
+            imports: [
+              CommonModule,
+              HorizBarModule,
+              SharedModule,
+              PocRoutingModule,
+            ],
             declarations: [
               PocComponent,
               PocOverviewComponent,

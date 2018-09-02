@@ -474,6 +474,16 @@ export const ROUTES: IRoute = {
         icon: ICON.POC,
         search: `${POC}, object, ShadowDom, svg ViewEncapsulation`,
       },
+      horizBar: <IDataItem>{
+        route: `/${POC}/d3/horizBar`,
+        name: 'Horizontal Bar Chart',
+        base: '',
+        desc: 'Test SVG ShadowDom ViewEncapsulation to speed up render time and reduce memory.',
+        seeAlso: [],
+        version: '6.0',
+        icon: ICON.POC,
+        search: `${POC}, object, ShadowDom, svg ViewEncapsulation`,
+      },
       canvasShadowDomViewEncapsulation: <IDataItem>{
         route: `/${POC}/d3/canvasShadowDomViewEncapsulation`,
         name: 'D3 Canvas In ShadowDom',
