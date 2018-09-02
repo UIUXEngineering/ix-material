@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { getBars } from '../_data';
-import { PoCShadowDomBarForm } from '../bar-form/poc-shadow-dom-bar-form.component';
+import { PoCShadowDomBarForm } from '../forms/bar-form/poc-shadow-dom-bar-form.component';
 
 @Component({
              selector: 'poc-d3-canvas-shadowdom-view-encapsulation',
