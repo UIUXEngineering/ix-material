@@ -10,9 +10,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { FORM_OPTIONS } from '@uiux/cdk/forms';
-import { Subscription } from 'rxjs';
-import { DateValueForm, DateValueFormModelService } from './model/date-value-form-model.service';
+import { FORM_OPTIONS } from '../../../../../../../../dist/@uiux/cdk/forms/uiux-cdk-forms';
+import { Subscription } from 'rxjs/Subscription';
+import { DateValueFormModelService } from '../model/date-value-form-model.service';
+import { DateValueForm } from '../model/interfaces';
 
 
 @Component({
@@ -28,8 +29,6 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
   private modelSub: Subscription = Subscription.EMPTY;
 
   formGroup: FormGroup;
-  appearance = FORM_OPTIONS.APPEARANCE.OUTLINE;
-  floatLabel = FORM_OPTIONS.FLOAT_LABEL.ALWAYS;
 
   @Input() modelID = 'default';
   @Input() init: DateValueForm;

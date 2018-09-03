@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DateValueFormComponent } from './date-value.component';
+import { DateValueTableComponent } from './date-value-table.component';
 
-describe('DateValueComponent', () => {
-  let component: DateValueFormComponent;
-  let fixture: ComponentFixture<DateValueFormComponent>;
+describe('DateValueTableComponent', () => {
+  let component: DateValueTableComponent;
+  let fixture: ComponentFixture<DateValueTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DateValueFormComponent ]
+      declarations: [ DateValueTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DateValueFormComponent);
+    fixture = TestBed.createComponent(DateValueTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

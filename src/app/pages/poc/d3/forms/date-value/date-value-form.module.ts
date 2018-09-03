@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { DateValueFormComponent } from './date-value-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DateValueFormComponent } from './form/date-value-form.component';
 import { DateValueFormModelService } from './model/date-value-form-model.service';
+import { DateValueTableComponent } from './table/date-value-table.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -17,13 +20,16 @@ import { DateValueFormModelService } from './model/date-value-form-model.service
     MatMomentDateModule,
   ],
   declarations: [
-    DateValueFormComponent
+    DateValueFormComponent,
+    DateValueTableComponent,
   ],
   providers: [
     DateValueFormModelService
   ],
   exports: [
-    DateValueFormComponent
+    DateValueFormComponent,
+    DateValueTableComponent,
+    MatFormFieldModule,
   ]
 })
 export class DateValueFormModule { }

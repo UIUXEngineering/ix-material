@@ -1,10 +1,10 @@
-import { DateValueformModule } from './date-value.module';
+import { DateValueFormModule } from './date-value-form.module';
 
 describe('DateValueModule', () => {
-  let dateValueModule: DateValueformModule;
+  let dateValueModule: DateValueFormModule;
 
   beforeEach(() => {
-    dateValueModule = new DateValueformModule();
+    dateValueModule = new DateValueFormModule();
   });
 
   it('should create an instance', () => {

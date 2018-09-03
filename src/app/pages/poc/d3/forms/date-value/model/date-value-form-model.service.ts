@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FORM_OPTIONS } from '@uiux/cdk/forms';
 import { BehaviorSubject } from 'rxjs';
-
-export interface DateValueForm {
-  date: string;
-  value: string;
-}
+import { DateValueForm } from './interfaces';
 
 @Injectable({
               providedIn: 'root',

@@ -15,9 +15,10 @@ import { ProgrammaticPreloadingStrategy } from './services/programmatic-preload/
 import { ROUTE_PROVIDER } from './services/route/route.service';
 import { VersionService } from './services/version/version';
 import { HomepageModule } from './pages/homepage/homepage.module';
+import { DateValueTableComponent } from './pages/poc/d3/forms/date-value/table/date-value-table.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DateValueTableComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
