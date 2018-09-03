@@ -8,6 +8,7 @@ import { PocD3CanvasBarChartComponent } from './d3/d3-canvas-shadow-dom-view-enc
 import {
   PocD3SvgShadowDomViewEncapsulationComponent
 } from './d3/d3-svg-shadow-dom-view-encapsulation/poc-d3-svg-shadow-dom-view-encapsulation.component';
+import { DateValueFormModule } from './d3/forms/date-value/date-value-form.module';
 import { HorizBarModule } from './d3/horiz-bar/horiz-bar.module';
 import { SamplePocComponent } from './demos/sample-poc/sample-poc.component';
 import { PocOverviewComponent } from './guide/poc-overview/poc-overview.component';
@@ -16,7 +17,6 @@ import { PocRoutingModule } from './poc-routing.module';
 import { PocComponent } from './poc.component';
 import { PocD3SvgBarChartComponent } from './d3/d3-svg-shadow-dom-view-encapsulation/poc-d3-svg-bar-chart/poc-d3-svg-bar-chart.component';
 import { PocShadowDomBarFormComponent } from './d3/forms/bar-form/poc-shadow-dom-bar-form.component';
-import { DateValueComponent } from './d3/forms/date-value/date-value.component';
 
 @NgModule({
             imports: [
@@ -34,7 +34,6 @@ import { DateValueComponent } from './d3/forms/date-value/date-value.component';
               PocD3CanvasBarChartComponent,
               PocD3CanvasShadowDomViewEncapsulationComponent,
               PocShadowDomBarFormComponent,
-              DateValueComponent,
             ],
           })
 export class PocModule {
