@@ -1,0 +1,23 @@
+.date-value-form {
+
+  display: flex;
+  flex-direction: column;
+
+  .form-controls {
+    flex-direction: row;
+    margin-bottom: 20px;
+
+    .mat-form-field {
+      margin-right: 20px;
+    }
+  }
+
+  .actions {
+    flex-direction: row;
+
+    button {
+      margin-right: 20px;
+    }
+
+  }
+}

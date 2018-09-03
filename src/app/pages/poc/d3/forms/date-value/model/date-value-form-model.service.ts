@@ -3,16 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FORM_OPTIONS } from '@uiux/cdk/forms';
 import { BehaviorSubject } from 'rxjs';
 
-export interface AddressForm {
-  firstName: string;
-  lastName: string;
-  address: string;
-  address2: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  phone: string;
-  email: string;
+export interface DateValueForm {
+  date: string;
+  value: string;
 }
 
 @Injectable({
@@ -20,27 +13,20 @@ export interface AddressForm {
             })
 export class DateValueFormModelService {
 
-  value: BehaviorSubject<AddressForm> = new BehaviorSubject(null);
+  value: BehaviorSubject<DateValueForm> = new BehaviorSubject(null);
 
   appearance = FORM_OPTIONS.APPEARANCE.OUTLINE;
   floatLabel = FORM_OPTIONS.FLOAT_LABEL.ALWAYS;
 
-  formLabels: AddressForm = {
-    firstName: 'First Name',
-    lastName: 'Last Name',
-    address: 'Address',
-    address2: 'Address 2',
-    city: 'City',
-    state: 'State',
-    postalCode: 'Postal Code',
-    phone: 'Phone',
-    email: 'Email',
+  formLabels: DateValueForm = {
+    date: 'Date',
+    value: 'Value',
   };
 
   constructor(private fb: FormBuilder) {
   }
 
-  onSubmitHandler(r: AddressForm): void {
+  onSubmitHandler(r: DateValueForm): void {
     // stub
     console.log(r);
     this.value.next(r);
@@ -51,31 +37,17 @@ export class DateValueFormModelService {
     // Keep validators in array even if there is only one
     // validator for scalability
     const group: any = {
-      firstName: ['', [Validators.required, Validators.maxLength(100)]],
-      lastName: ['', [Validators.required, Validators.maxLength(100)]],
-      address: ['', [Validators.required]],
-      address2: '',
-      city: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      postalCode: ['', [Validators.required, Validators.maxLength(5)]],
-      phone: ['', [Validators.required]],
-      email: ['', [Validators.email]],
+      date: ['', [Validators.required]],
+      value: ['', [Validators.required]],
     };
 
     return this.fb.group(group);
   }
 
-  getResetValue(): AddressForm {
+  getResetValue(): DateValueForm {
     return {
-      firstName: '',
-      lastName: '',
-      address: '',
-      address2: '',
-      city: '',
-      state: '',
-      postalCode: '',
-      phone: '',
-      email: '',
+      date: '',
+      value: '',
     };
   }
 }
