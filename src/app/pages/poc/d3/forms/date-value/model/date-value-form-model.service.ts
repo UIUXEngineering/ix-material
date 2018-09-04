@@ -9,7 +9,7 @@ import { DateValueForm } from './interfaces';
             })
 export class DateValueFormModelService {
 
-  value: BehaviorSubject<DateValueForm> = new BehaviorSubject(null);
+  data: BehaviorSubject<DateValueForm[]> = new BehaviorSubject([]);
 
   appearance = FORM_OPTIONS.APPEARANCE.OUTLINE;
   floatLabel = FORM_OPTIONS.FLOAT_LABEL.ALWAYS;
@@ -22,10 +22,10 @@ export class DateValueFormModelService {
   constructor(private fb: FormBuilder) {
   }
 
-  onSubmitHandler(r: DateValueForm): void {
-    // stub
-    console.log(r);
-    this.value.next(r);
+  add(payload: DateValueForm): void {
+    const data: DateValueForm[] = this.data.value;
+    data.push(payload);
+    this.data.next(data);
   }
 
   buildFormGroup(): FormGroup {

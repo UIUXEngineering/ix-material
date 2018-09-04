@@ -10,7 +10,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
-import { FORM_OPTIONS } from '../../../../../../../../dist/@uiux/cdk/forms/uiux-cdk-forms';
 import { Subscription } from 'rxjs/Subscription';
 import { DateValueFormModelService } from '../model/date-value-form-model.service';
 import { DateValueForm } from '../model/interfaces';
@@ -65,7 +64,7 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
     };
 
     // or use method
-    this.model.onSubmitHandler(payload);
+    this.model.add(payload);
   }
 
   getErrorMessage(controlName: string) {
