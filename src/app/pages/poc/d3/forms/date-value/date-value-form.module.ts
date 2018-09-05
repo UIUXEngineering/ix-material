@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -17,14 +18,15 @@ import { DateValueTableComponent } from './table/date-value-table.component';
             imports: [
               CommonModule,
               ReactiveFormsModule,
+              MatButtonModule,
+              MatCheckboxModule,
+              MatDatepickerModule,
               MatFormFieldModule,
               MatInputModule,
-              MatButtonModule,
-              MatDatepickerModule,
               MatMomentDateModule,
-              MatTableModule,
               MatPaginatorModule,
               MatSortModule,
+              MatTableModule,
             ],
             declarations: [
               DateValueFormComponent,
@@ -37,15 +39,15 @@ import { DateValueTableComponent } from './table/date-value-table.component';
               DateValueFormComponent,
               DateValueTableComponent,
               ReactiveFormsModule,
-              // BrowserAnimationsModule,
+              MatButtonModule,
+              MatCheckboxModule,
+              MatDatepickerModule,
               MatFormFieldModule,
               MatInputModule,
-              MatButtonModule,
-              MatDatepickerModule,
               MatMomentDateModule,
-              MatTableModule,
               MatPaginatorModule,
               MatSortModule,
+              MatTableModule,
             ],
           })
 export class DateValueFormModule {

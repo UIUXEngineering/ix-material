@@ -2,9 +2,9 @@
 
   <div class="form-controls">
     <!-- date -->
-    <mat-form-field [floatLabel]="model.floatLabel"
-                    [appearance]="model.appearance">
-      <mat-label>{{model.formLabels.date}}</mat-label>
+    <mat-form-field [floatLabel]="floatLabel"
+                    [appearance]="appearance">
+      <mat-label>{{formLabels.date}}</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
@@ -12,10 +12,10 @@
     </mat-form-field>
 
     <!-- value -->
-    <mat-form-field [floatLabel]="model.floatLabel"
-                    [appearance]="model.appearance"
+    <mat-form-field [floatLabel]="floatLabel"
+                    [appearance]="appearance"
                     hintLabel="Max 100 characters">
-      <mat-label>{{model.formLabels.value}}</mat-label>
+      <mat-label>{{formLabels.value}}</mat-label>
       <input matInput #lastNameInput formControlName="value">
       <mat-error *ngIf="getControl('value').invalid">{{getErrorMessage('value')}}</mat-error>
     </mat-form-field>

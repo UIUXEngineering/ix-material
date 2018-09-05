@@ -9,10 +9,11 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { DateValueFormModelService } from '../model/date-value-form-model.service';
-import { DateValueForm } from '../model/interfaces';
+import { DateValueForm, DateValueFormLabels } from '../model/interfaces';
+import { FORM_OPTIONS } from '@uiux/cdk/forms';
 
 
 @Component({
@@ -27,22 +28,31 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private modelSub: Subscription = Subscription.EMPTY;
 
+  appearance = FORM_OPTIONS.APPEARANCE.OUTLINE;
+  floatLabel = FORM_OPTIONS.FLOAT_LABEL.ALWAYS;
+
+  formLabels: DateValueFormLabels = {
+    date: 'Date',
+    value: 'Value',
+  };
+
   formGroup: FormGroup;
 
   @Input() modelID = 'default';
   @Input() init: DateValueForm;
   @Output() onsubmit: EventEmitter<DateValueForm> = new EventEmitter();
 
-  constructor(public model: DateValueFormModelService) {
+  constructor(public model: DateValueFormModelService,
+              private fb: FormBuilder) {
   }
 
   ngOnInit() {
-    this.formGroup = this.model.buildFormGroup();
+    this.formGroup = this.buildFormGroup();
     this.formGroup
       .valueChanges
       .subscribe((r: DateValueForm) => {
         // stub
-        console.log(r);
+        // console.log(r);
       });
   }
 
@@ -59,9 +69,12 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
     // this.model.value.next(this.addressForm.value);
 
     const payload: any = {
-      date: this.formGroup.value.date.toString(),
+      date: this.formGroup.value.date.utc().valueOf(),
       value: this.formGroup.value.value,
     };
+
+    // console.log(this.formGroup.value.date.utc().valueOf());
+    // console.log(moment.utc(payload.date).local().format())
 
     // or use method
     this.model.add(payload);
@@ -89,7 +102,26 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   reset(): void {
-    this.formGroup.reset(<DateValueForm>this.model.getResetValue());
+    this.formGroup.reset(<DateValueForm>this.getResetValue());
+  }
+
+  buildFormGroup(): FormGroup {
+
+    // Keep validators in array even if there is only one
+    // validator for scalability
+    const group: any = {
+      date: ['', [Validators.required]],
+      value: ['', [Validators.required]],
+    };
+
+    return this.fb.group(group);
+  }
+
+  getResetValue(): DateValueForm {
+    return {
+      date: 0,
+      value: '',
+    };
   }
 
 
