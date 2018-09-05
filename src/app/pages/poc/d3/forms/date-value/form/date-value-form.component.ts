@@ -6,14 +6,15 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  Output,
+  Output, ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { DateValueFormModelService } from '../model/date-value-form-model.service';
 import { DateValueForm, DateValueFormLabels } from '../model/interfaces';
 import { FORM_OPTIONS } from '@uiux/cdk/forms';
+import { guid } from '@uiux/fn/guid';
 
 
 @Component({
@@ -37,6 +38,13 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
   };
 
   formGroup: FormGroup;
+
+  /**
+   * User to reset form,
+   * FormGroups have an issue resetting forms in that they only
+   * reset the data, but not the state ( prisitine, untouched, etc ).
+   */
+  @ViewChild(FormGroupDirective) formRef: FormGroupDirective;
 
   @Input() modelID = 'default';
   @Input() init: DateValueForm;
@@ -71,6 +79,7 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
     const payload: any = {
       date: this.formGroup.value.date.utc().valueOf(),
       value: this.formGroup.value.value,
+      guid: guid(),
     };
 
     // console.log(this.formGroup.value.date.utc().valueOf());
@@ -78,6 +87,8 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
     // or use method
     this.model.add(payload);
+
+    this.reset();
   }
 
   getErrorMessage(controlName: string) {
@@ -102,7 +113,8 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   reset(): void {
-    this.formGroup.reset(<DateValueForm>this.getResetValue());
+    // from @ViewChild
+    this.formRef.resetForm();
   }
 
   buildFormGroup(): FormGroup {
@@ -121,6 +133,7 @@ export class DateValueFormComponent implements OnInit, AfterViewInit, OnDestroy 
     return {
       date: 0,
       value: '',
+      guid: '',
     };
   }
 

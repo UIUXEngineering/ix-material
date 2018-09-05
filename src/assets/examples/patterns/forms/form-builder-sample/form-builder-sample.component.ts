@@ -1,5 +1,15 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { FORM_OPTIONS } from '@uiux/cdk/forms';
 
 export interface AddressForm {
@@ -41,6 +51,13 @@ export class FormBuilderSampleComponent implements OnInit, AfterViewInit {
 
   @Input() init: AddressForm;
   @Output() onsubmit: EventEmitter<AddressForm> = new EventEmitter();
+
+  /**
+   * User to reset form,
+   * FormGroups have an issue resetting forms in that they only
+   * reset the data, but not the state ( prisitine, untouched, etc ).
+   */
+  @ViewChild(FormGroupDirective) formRef: FormGroupDirective;
 
   constructor(private fb: FormBuilder) {
   }
@@ -108,17 +125,8 @@ export class FormBuilderSampleComponent implements OnInit, AfterViewInit {
   }
 
   reset(): void {
-    this.addressForm.reset(<AddressForm>{
-      firstName: '',
-      lastName: '',
-      address: '',
-      address2: '',
-      city: '',
-      state: '',
-      postalCode: '',
-      phone: '',
-      email: '',
-    });
+    // from @ViewChild
+    this.formRef.resetForm();
   }
 
 }

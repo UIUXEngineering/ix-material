@@ -41,6 +41,7 @@ export class DateValueTableComponent implements OnInit {
       .subscribe((r: DateValueForm[]) => {
         this.dataSource.data = r;
         this.resultsLength = r.length;
+        this.selection.clear();
         this.cd.markForCheck();
       });
   }

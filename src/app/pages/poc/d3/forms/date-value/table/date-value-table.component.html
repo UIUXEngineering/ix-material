@@ -41,5 +41,6 @@
   <button class="btn-delete"
           mat-raised-button
           color="primary"
+          [disabled]="!selection?.selected?.length"
           (click)="deleteSelected()">Delete Selected</button>
 </div>

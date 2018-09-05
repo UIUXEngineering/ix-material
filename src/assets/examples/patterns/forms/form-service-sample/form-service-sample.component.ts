@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AbstractControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { AddressForm, FormModelService } from './form-model.service';
 
 @Component({
@@ -12,6 +12,13 @@ import { AddressForm, FormModelService } from './form-model.service';
            })
 export class FormServiceSampleComponent implements OnInit {
   addressForm: FormGroup;
+
+  /**
+   * User to reset form,
+   * FormGroups have an issue resetting forms in that they only
+   * reset the data, but not the state ( prisitine, untouched, etc ).
+   */
+  @ViewChild(FormGroupDirective) formRef: FormGroupDirective;
 
   constructor(public model: FormModelService) {
   }
@@ -59,7 +66,8 @@ export class FormServiceSampleComponent implements OnInit {
   }
 
   reset(): void {
-    this.addressForm.reset(<AddressForm>this.model.getResetValue());
+    // from @ViewChild
+    this.formRef.resetForm();
   }
 
 }

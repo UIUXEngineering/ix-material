@@ -199,6 +199,7 @@ export * from './src/mergeWithoutArray';
 export * from './src/propsWithNoValue';
 export * from './src/pullAllBy';
 export * from './src/promise';
+export * from './src/removeAllBy';
 export * from './src/setIn';
 export * from './src/setInIfSrc';
 export * from './src/setInIfSrcWithConfig';
