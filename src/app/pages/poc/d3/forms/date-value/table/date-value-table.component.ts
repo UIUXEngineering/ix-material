@@ -64,7 +64,7 @@ export class DateValueTableComponent implements OnInit {
   }
 
   deleteSelected(): void {
-    console.log(this.selection);
+    this.model.remove(this.selection.selected);
   }
 
 }

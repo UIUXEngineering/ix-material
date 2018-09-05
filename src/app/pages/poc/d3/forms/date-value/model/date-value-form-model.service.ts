@@ -13,15 +13,24 @@ export class DateValueFormModelService {
   }
 
   add(payload: DateValueForm): void {
-    const data: DateValueForm[] = this.data.value;
+    let data: DateValueForm[] = this.data.value;
 
     data.push(payload);
 
-    data.sort((a: DateValueForm, b: DateValueForm) => {
-      return a.date - b.date;
-    });
+    data = this.sortByDate(data);
 
     this.data.next(data);
+  }
+
+  remove(selected: DateValueForm[]): void {
+    const data: DateValueForm[] = this.data.value;
+    console.log(selected);
+  }
+
+  sortByDate(data: DateValueForm[] ): DateValueForm[] {
+    return data.sort((a: DateValueForm, b: DateValueForm) => {
+      return a.date - b.date;
+    });
   }
 
 }
