@@ -34,6 +34,9 @@
       ],
       "@uiux/services/*": [
         "dist/@uiux/services/*"
+      ],
+      "@uiux/d3/*": [
+        "dist/@uiux/d3/*"
       ]
     }
   }

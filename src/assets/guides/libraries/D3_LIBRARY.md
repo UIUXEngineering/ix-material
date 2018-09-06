@@ -3,9 +3,9 @@
 Copy this file to your local drive and do a global search/replace with project and library names. For example, 
 if my project is named "uiux", and my project will be in the npm registry as "@uiux":
 
-replace `uiux/[library]` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
+replace `uiux/d3` with something like your componay's library, for example: `uiux/material`, or `angular/material`.
 
-replace `[library-abbr]` with a short version of `[library]`. For example 'svc' is short for 'services'
+replace `d3` with a short version of `d3`. For example 'svc' is short for 'services'
 
 Note: the '@' symbol is already coded, and you don't need to provide it.
 
@@ -14,7 +14,7 @@ Note: the '@' symbol is already coded, and you don't need to provide it.
 
 ```bash
 
-ng generate library @uiux/[library]
+ng generate library @uiux/d3
 ```
 
 ### Open `tsconfig.json`
@@ -36,15 +36,15 @@ Change:
 ```json
 
 "paths": {
-      "@uiux/[library]/*": [
-        "dist/@uiux/[library]/*"
+      "@uiux/d3/*": [
+        "dist/@uiux/d3/*"
       ]
     }
 ```
 
 ### For a library that ONLY has secondary endpoints
 
-In the path `projects/uiux/[library]`
+In the path `projects/uiux/d3`
 Open files `ng-package.json` and `ng-package.prod.json`
 
 Remove:
@@ -119,7 +119,7 @@ add file in root `.prettierrc` that contains:
 
 To test secondary endpoints that are not in the `src` directory.
 
-in the file `projects/uiux/[library]/src/test.ts`
+in the file `projects/uiux/d3/src/test.ts`
 
 Change:
 
@@ -139,9 +139,9 @@ In the root `package.json` file, add the following to scripts:
 
 ```json
 {
-    "test.[library-abbr]": "gulp test.[library-abbr]",
-    "lint.[library-abbr]": "gulp lint.[library-abbr]",
-    "build.[library-abbr]": "gulp build.[library-abbr]",
+    "test.d3": "gulp test.d3",
+    "lint.d3": "gulp lint.d3",
+    "build.d3": "gulp build.d3",
 }   
 ```
 
@@ -152,36 +152,36 @@ uses secondary end-points and material is one major library.
 #### build
 
 ```
-// [library]
-// ng build @uiux/[library-abbr]
-task(':build.[library]', execTask('ng', [ 'build', '@uiux/[library]', '--prod' ]));
+// d3
+// ng build @uiux/d3
+task(':build.d3', execTask('ng', [ 'build', '@uiux/d3', '--prod' ]));
 
-task('build.[library-abbr]', sequenceTask(
-  ':clean.[library]',
-  ':build.[library]'));
+task('build.d3', sequenceTask(
+  ':clean.d3',
+  ':build.d3'));
 
 ```
 
 #### clean
 
 ```
-task(':clean.[library]', cleanTask('dist/@uiux/[library]'));
+task(':clean.d3', cleanTask('dist/@uiux/d3'));
 ````
 
 #### lint
 
 ```
-// ng lint @uiux/[library]
-task(':prettier.[library]', execTask('prettier', [
+// ng lint @uiux/d3
+task(':prettier.d3', execTask('prettier', [
   '--write',
-  './projects/uiux/[library]/**/*.ts',
+  './projects/uiux/d3/**/*.ts',
 ]));
 
-task(':lint.[library]', execTask('ng', [ 'lint', '@uiux/[library]' ]));
+task(':lint.d3', execTask('ng', [ 'lint', '@uiux/d3' ]));
 
-task('lint.[library-abbr]', sequenceTask(
-  ':prettier.[library]',
-  ':lint.[library]',
+task('lint.d3', sequenceTask(
+  ':prettier.d3',
+  ':lint.d3',
 ));
 
 
@@ -190,17 +190,17 @@ task('lint.[library-abbr]', sequenceTask(
 #### semver
 
 ```
-function update[library-abbr](version: string): any {
-  return src('./projects/uiux/[library]/package.json')
+function updated3(version: string): any {
+  return src('./projects/uiux/d3/package.json')
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/[library]/'));
+    .pipe(dest('./projects/uiux/d3/'));
 }
 ```
 
 #### unit-tests
 
 ```
-// ng test @uiux/[library]
-task('test.[library-abbr]', execTask('ng', [ 'test', '@uiux/[library]', '--code-coverage' ]));
+// ng test @uiux/d3
+task('test.d3', execTask('ng', [ 'test', '@uiux/d3', '--code-coverage' ]));
 ```
 

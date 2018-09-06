@@ -5,6 +5,8 @@ import { cleanTask } from '../util';
 
 task(':clean.cdk', cleanTask('dist/@uiux/cdk'));
 
+task(':clean.d3', cleanTask('dist/@uiux/d3'));
+
 task(':clean.fn', cleanTask('dist/@uiux/fn'));
 
 task(':clean.mat', cleanTask('dist/@uiux/material'));

@@ -23,6 +23,12 @@ function updateCDK(version: string): any {
     .pipe(dest('./projects/uiux/cdk/'));
 }
 
+function updated3(version: string): any {
+  return src('./projects/uiux/d3/package.json')
+    .pipe(bump({version: version}))
+    .pipe(dest('./projects/uiux/d3/'));
+}
+
 function updateFN(version: string): any {
 
   return src('./projects/uiux/fn/package.json')
@@ -82,6 +88,7 @@ function updateRoot(version: string): any {
 
 function updatePackages(version: string): any {
   return merge(updateCDK(version),
+               updated3(version),
                updateFN(version),
                updateDAL(version),
                updaterxjs(version),

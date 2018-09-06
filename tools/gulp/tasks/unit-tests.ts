@@ -5,6 +5,9 @@ import { execTask } from '../util';
 // CDK
 task('test.cdk', execTask('ng', ['test', '@uiux/cdk', '--code-coverage']));
 
+// ng test @uiux/d3
+task('test.d3', execTask('ng', [ 'test', '@uiux/d3', '--code-coverage' ]));
+
 // FN
 task('test.fn', execTask('ng', ['test', '@uiux/fn', '--code-coverage']));
 

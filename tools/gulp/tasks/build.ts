@@ -9,6 +9,14 @@ task('build.cdk', sequenceTask(
   ':clean.cdk',
   ':build.cdk'));
 
+// d3
+// ng build @uiux/d3
+task(':build.d3', execTask('ng', [ 'build', '@uiux/d3', '--prod' ]));
+
+task('build.d3', sequenceTask(
+  ':clean.d3',
+  ':build.d3'));
+
 // FN
 task(':build.fn', execTask('ng', [ 'build', '@uiux/fn', '--prod' ]));
 
@@ -67,6 +75,7 @@ task('build.mat', sequenceTask(
 /** build material project */
 task('build.projects', sequenceTask(
   'build.cdk',
+  'build.d3',
   'build.fn',
   'build.mat',
   'build.dal',
