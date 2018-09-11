@@ -12,6 +12,8 @@ import { HorizBarContainerComponent } from './horiz-bar-container.component';
               DateValueFormModule,
               IxDynamicComponentsModule,
             ],
+            providers: [
+            ],
             declarations: [
               HorizBarContainerComponent,
               D3HorizBarChartComponent,

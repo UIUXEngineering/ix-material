@@ -3,6 +3,10 @@ import { IxBrowserService } from '@uiux/cdk/browser';
 import { IxCmpHostDirective } from './ixCmpHost.directive';
 import { IxComponentItem } from './ixComponentItem';
 
+export function hasShadowRoot(el: ElementRef): boolean {
+  return el.nativeElement.hasOwnProperty('shadowRoot');
+}
+
 @Injectable({
               providedIn: 'root',
             })
@@ -47,14 +51,30 @@ export class IxDynamicComponentService {
   }
 
   getShadowRoot(el: ElementRef): ShadowRoot | HTMLElement {
-    if (this.ixBrowser.supportsShadowDom && this.hasShadowRoot(el)) {
+    if (this.ixBrowser.supportsShadowDom && hasShadowRoot(el)) {
       return el.nativeElement.shadowRoot;
     }
 
     return el.nativeElement;
   }
 
-  hasShadowRoot(el: ElementRef): boolean {
-    return el.nativeElement.hasOwnProperty('shadowRoot');
+  /**
+   * For some reason all of Material's styles are included
+   * in the ShadowDom. Remove all styles except what is included
+   * in the stylesUrl meta-data.
+   */
+  removeExtraStyles(el: ElementRef, selector: string): void {
+    if (this.ixBrowser.supportsShadowDom && hasShadowRoot(el)) {
+      const styles: HTMLElement[] = el.nativeElement.shadowRoot
+        .querySelectorAll('style') as HTMLElement[];
+
+      if (styles && styles.length) {
+        styles.forEach((r: HTMLElement) => {
+          if (r.innerText.indexOf(selector) === -1) {
+            el.nativeElement.shadowRoot.removeChild(r);
+          }
+        });
+      }
+    }
   }
 }

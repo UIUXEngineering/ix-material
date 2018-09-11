@@ -6,3 +6,7 @@ export interface IxD3Margin {
 }
 
 export type IxD3MarginFn = () => IxD3Margin;
+
+// export interface D3Renderer {
+//   ()
+// }
