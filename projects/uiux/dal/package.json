@@ -1,6 +1,6 @@
 {
   "name": "@uiux/dal",
-  "version": "6.16.1-beta.2",
+  "version": "6.16.1-beta.3",
   "dependencies": {
     "immutable": "3.8.2",
     "lodash-es": "4.17.10",
