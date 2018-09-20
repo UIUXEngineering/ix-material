@@ -1,6 +1,6 @@
 {
   "name": "uiux-material",
-  "version": "6.16.0",
+  "version": "6.16.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -38,6 +38,9 @@
     "test.svc": "gulp test.svc",
     "lint.svc": "gulp lint.svc",
     "build.svc": "gulp build.svc",
+    "test.d3": "gulp test.d3",
+    "lint.d3": "gulp lint.d3",
+    "build.d3": "gulp build.d3",
     "bump": "gulp bump",
     "bump.major": "gulp bump.major",
     "bump.minor": "gulp bump.minor",
@@ -55,10 +58,11 @@
     "@angular/common": "^6.0.9",
     "@angular/compiler": "^6.0.9",
     "@angular/core": "^6.0.9",
-    "@angular/flex-layout": "6.0.0-beta.16",
+    "@angular/flex-layout": "^6.0.0-beta.18",
     "@angular/forms": "^6.0.9",
     "@angular/http": "^6.0.9",
     "@angular/material": "^6.4.2",
+    "@angular/material-moment-adapter": "^6.4.7",
     "@angular/platform-browser": "^6.0.9",
     "@angular/platform-browser-dynamic": "^6.0.9",
     "@angular/router": "^6.0.9",
@@ -107,6 +111,7 @@
     "lite-server": "^2.3.0",
     "merge-stream": "^1.0.1",
     "ng-packagr": "^3.0.0-rc.2",
+    "prettier": "1.14.2",
     "protractor": "~5.3.0",
     "resolve-bin": "^0.4.0",
     "run-sequence": "^2.2.1",
@@ -117,7 +122,7 @@
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "~5.9.1",
-    "typescript": "~2.7.2",
+    "typescript": "^2.9.2",
     "yargs": "^11.0.0"
   }
 }

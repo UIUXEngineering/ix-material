@@ -8,6 +8,10 @@ cd "$ROOT_DIR/dist/@uiux/cdk"
 echo $PWD
 npm publish
 
+cd "$ROOT_DIR/dist/@uiux/d3"
+echo $PWD
+npm publish
+
 cd "$ROOT_DIR/dist/@uiux/dal"
 echo $PWD
 npm publish

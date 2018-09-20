@@ -1,6 +1,6 @@
 {
   "name": "@uiux/cdk",
-    "version": "6.16.1",
+    "version": "6.16.1-beta.2",
   "dependencies": {
     "immutable": "3.8.2",
     "lodash-es": "4.17.10",
