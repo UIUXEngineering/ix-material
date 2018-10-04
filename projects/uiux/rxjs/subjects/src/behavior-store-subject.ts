@@ -5,10 +5,8 @@
 
 import { clone, getIn, setIn, mergeIn, mergeWithoutArray } from '@uiux/fn/common';
 import { deleteIn } from '@uiux/fn/object';
-import { ObjectUnsubscribedError } from 'rxjs';
-import { Subject } from 'rxjs/Subject';
-import { Subscriber } from 'rxjs/Subscriber';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
+import { ObjectUnsubscribedError, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
+import { Subject } from 'rxjs';
 
 export class BehaviorStoreSubject<T> extends Subject<T> {
   constructor(private _value: T) {
@@ -22,7 +20,7 @@ export class BehaviorStoreSubject<T> extends Subject<T> {
   _subscribe(subscriber: Subscriber<T>): Subscription {
     // tslint:disable-next-line
     const subscription = super._subscribe(subscriber);
-    if (subscription && !(<ISubscription>subscription).closed) {
+    if (subscription && !(<SubscriptionLike>subscription).closed) {
       subscriber.next(this._value);
     }
     return subscription;

@@ -2,17 +2,8 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-
-import { UnaryFunction } from 'rxjs/interfaces';
-import { Observable } from 'rxjs/Observable';
-import { defer } from 'rxjs/observable/defer';
-import { timer } from 'rxjs/observable/timer';
-import { Observer } from 'rxjs/Observer';
-import { filter } from 'rxjs/operators/filter';
-import { mergeMap } from 'rxjs/operators/mergeMap';
-import { take } from 'rxjs/operators/take';
-import { timeoutWith } from 'rxjs/operators/timeoutWith';
-import { _throw } from 'rxjs/observable/throw';
+import { defer, Observable, Observer, timer, UnaryFunction, throwError } from 'rxjs';
+import { mergeMap, take, timeoutWith, filter } from 'rxjs/operators';
 
 export interface IPollForValueConfig {
   delay: number;
@@ -129,7 +120,7 @@ export function pollForValue(
                 timeoutWith(
                   _timeout,
                   defer(() => {
-                    return _throw(new Error(errorMsg));
+                    return throwError(new Error(errorMsg));
                   }),
                   _schedular
                 )

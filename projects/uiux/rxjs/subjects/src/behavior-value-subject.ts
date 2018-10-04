@@ -13,10 +13,8 @@ import {
   isDefined,
 } from '@uiux/fn/common';
 import { deleteIn } from '@uiux/fn/object';
-import { ObjectUnsubscribedError } from 'rxjs';
-import { Subject } from 'rxjs/Subject';
-import { Subscriber } from 'rxjs/Subscriber';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
+import { ObjectUnsubscribedError, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
+import { Subject } from 'rxjs';
 
 export class BehaviorValueSubject<T> extends Subject<T> {
   private _value: T;
@@ -35,7 +33,7 @@ export class BehaviorValueSubject<T> extends Subject<T> {
   _subscribe(subscriber: Subscriber<T>): Subscription {
     // tslint:disable-next-line
     const subscription = super._subscribe(subscriber);
-    if (subscription && !(<ISubscription>subscription).closed && hasValue(this._value)) {
+    if (subscription && !(<SubscriptionLike>subscription).closed && hasValue(this._value)) {
       subscriber.next(this._value);
     }
     return subscription;

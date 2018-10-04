@@ -1,8 +1,9 @@
+import { Subject } from 'rxjs';
+
 /**
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Subject } from 'rxjs/Subject';
 import { hasValuePipe } from './has-value-pipe';
 
 describe('hasValuePipe', () => {

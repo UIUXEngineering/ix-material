@@ -2,10 +2,8 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Subject } from 'rxjs/Subject';
+import { Subject, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
 import { ObjectUnsubscribedError } from 'rxjs';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
-import { Subscriber } from 'rxjs/Subscriber';
 import { mergeWithoutArray } from '@uiux/fn/common';
 import { allValuesHasValue } from '@uiux/fn/object';
 
@@ -25,7 +23,7 @@ export class ForkJoinSubject<T> extends Subject<T> {
     const subscription = super._subscribe(subscriber);
     if (
       subscription &&
-      !(<ISubscription>subscription).closed &&
+      !(<SubscriptionLike>subscription).closed &&
       allValuesHasValue(this._structure)
     ) {
       subscriber.next(this._structure);

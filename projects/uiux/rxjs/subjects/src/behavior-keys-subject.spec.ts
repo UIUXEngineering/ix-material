@@ -4,7 +4,7 @@
  */
 
 import { BehaviorKeysSubject } from './behavior-keys-subject';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 describe('ZipSubject', () => {
   it('should set keys dynamically', (done) => {

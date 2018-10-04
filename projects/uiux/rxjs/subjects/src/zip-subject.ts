@@ -3,12 +3,10 @@ import { keySplitterIntoImmutablePath, allValuesHasValue, allValuesDefined } fro
 import { fromJS } from 'immutable';
 import { default as _filter } from 'lodash-es/filter';
 import { default as _uniqBy } from 'lodash-es/uniqBy';
-import { ObjectUnsubscribedError } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
-import { take } from 'rxjs/operators/take';
-import { Subject } from 'rxjs/Subject';
-import { Subscriber } from 'rxjs/Subscriber';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
+import { ObjectUnsubscribedError, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 export interface IZipSubjectObservableOptions {
   take: number;
@@ -80,7 +78,7 @@ export class ZipSubject<T> extends Subject<T> {
   _subscribe(subscriber: Subscriber<T>): Subscription {
     // tslint:disable-next-line
     const subscription = super._subscribe(subscriber);
-    if (subscription && !(<ISubscription>subscription).closed) {
+    if (subscription && !(<SubscriptionLike>subscription).closed) {
       const _value = this._value.toJS();
 
       if (this._config.subscribeToRawStore) {

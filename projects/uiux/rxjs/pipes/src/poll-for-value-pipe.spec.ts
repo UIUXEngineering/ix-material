@@ -1,11 +1,11 @@
+import { defer, throwError } from 'rxjs';
+
 /**
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { _throw } from 'rxjs/observable/throw';
 import { marbles } from 'rxjs-marbles';
-import { timeoutWith } from 'rxjs/operators/timeoutWith';
-import { defer } from 'rxjs/observable/defer';
+import { timeoutWith } from 'rxjs/operators';
 
 import { IPollForValueConfig, pollForValueWithConfig } from './poll-for-value-pipe';
 
@@ -20,7 +20,7 @@ describe('poll-for-value', () => {
         timeoutWith(
           m.time('-----|'),
           defer(() => {
-            return _throw(new Error('Custom Error'));
+            return throwError(new Error('Custom Error'));
           }),
           m.scheduler
         )

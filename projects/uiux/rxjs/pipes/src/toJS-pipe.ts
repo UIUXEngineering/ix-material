@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 export function toJSPipe<T>(): any {
   return (source: Observable<T>): Observable<T> => {

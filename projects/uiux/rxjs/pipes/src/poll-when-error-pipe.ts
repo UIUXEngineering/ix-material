@@ -3,14 +3,10 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { concat } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
-import { delay } from 'rxjs/operators/delay';
-import { take } from 'rxjs/operators/take';
-import { retryWhen } from 'rxjs/operators/retryWhen';
-import { UnaryFunction } from 'rxjs/interfaces';
-import { Observer } from 'rxjs/Observer';
+import { concat, Observer, UnaryFunction } from 'rxjs';
+import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
+import { delay, retryWhen, take } from 'rxjs/operators';
 
 export interface IPollWhenErrorConfig {
   delay: number;

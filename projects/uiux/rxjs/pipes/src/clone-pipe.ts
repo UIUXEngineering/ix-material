@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { clone } from '@uiux/fn/common';
 
 export function clonePipe<T>(): any {

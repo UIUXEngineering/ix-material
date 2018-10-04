@@ -3,9 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { Subject } from 'rxjs/Subject';
-import { Subscriber } from 'rxjs/Subscriber';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
+import { Subject, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { getIn, mergeWithoutArray, hasValue, isEqual } from '@uiux/fn/common';
 
@@ -23,7 +21,7 @@ export class DistinctSubject<T> extends Subject<T> {
   _subscribe(subscriber: Subscriber<T>): Subscription {
     // tslint:disable-next-line
     const subscription = super._subscribe(subscriber);
-    if (subscription && !(<ISubscription>subscription).closed) {
+    if (subscription && !(<SubscriptionLike>subscription).closed) {
       subscriber.next(this._previousValue);
     }
     return subscription;
