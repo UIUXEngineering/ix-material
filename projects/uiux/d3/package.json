@@ -1,6 +1,6 @@
 {
   "name": "@uiux/d3",
-  "version": "6.16.1-beta.3",
+  "version": "6.16.1-beta.4",
   "dependencies": {
     "immutable": "3.8.2",
     "moment": "2.22.1"
