@@ -3,12 +3,12 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { ZipSubject } from './zip-subject';
+import { BehaviorKeysSubject } from './behavior-keys-subject';
 import { Subject } from 'rxjs/Subject';
 
 describe('ZipSubject', () => {
   it('should set keys dynamically', (done) => {
-    const s: ZipSubject<any> = new ZipSubject<any>();
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>();
 
     s.setKey('a', null);
     s.setKey('b', null);
@@ -36,7 +36,7 @@ describe('ZipSubject', () => {
       c: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     s.subscribe((r: any) => {
       expect(r).toEqual({
@@ -58,8 +58,8 @@ describe('ZipSubject', () => {
       c: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i, {
-      allPropsAreDefined: true,
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i, {
+      allValuesDefined: true,
     });
 
     s.subscribe((r: any) => {
@@ -86,8 +86,8 @@ describe('ZipSubject', () => {
       todo: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i, {
-      allPropsAreDefined: true,
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i, {
+      allValuesDefined: true,
     });
 
     let r: any;
@@ -107,7 +107,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     s.subscribe((r: any) => {
       expect(r).toEqual({
@@ -136,7 +136,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -183,7 +183,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i, {
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i, {
       reset: true,
     });
 
@@ -235,7 +235,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -285,7 +285,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -331,7 +331,7 @@ describe('ZipSubject', () => {
       b: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -360,7 +360,7 @@ describe('ZipSubject', () => {
       b: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -387,7 +387,7 @@ describe('ZipSubject', () => {
       c: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -415,7 +415,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -446,7 +446,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -480,7 +480,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     let result: any;
 
@@ -517,7 +517,7 @@ describe('ZipSubject', () => {
       d: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i, {
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i, {
       subscribeToRawStore: true,
     });
 
@@ -555,7 +555,7 @@ describe('ZipSubject', () => {
       c: null,
     };
 
-    const s: ZipSubject<any> = new ZipSubject<any>(i);
+    const s: BehaviorKeysSubject<any> = new BehaviorKeysSubject<any>(i);
 
     s.subscribe((r: any) => {
       expect(r.a).toEqual('foo');

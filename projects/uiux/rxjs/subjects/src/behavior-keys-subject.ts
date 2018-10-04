@@ -10,11 +10,11 @@ import { Subject } from 'rxjs/Subject';
 import { Subscriber } from 'rxjs/Subscriber';
 import { ISubscription, Subscription } from 'rxjs/Subscription';
 
-export interface IZipSubjectObservableOptions {
+export interface BehaviorKeysSubjectObservableOptions {
   take: number;
 }
 
-export interface IZipSubjectConfig {
+export interface BehaviorKeysSubjectConfig {
   /**
    * Once all props have value and published,
    * all props are set back to null,
@@ -27,13 +27,13 @@ export interface IZipSubjectConfig {
    * All props must pass a hasValue check
    * to publish
    */
-  allPropsHaveValue?: boolean;
+  allValuesHasValue?: boolean;
 
   /**
    * all props must not be null or undefined,
    * but do NOT have to pass a hasValue check.
    */
-  allPropsAreDefined?: boolean;
+  allValuesDefined?: boolean;
 
   /**
    * will publish store even if any prop does not
@@ -42,28 +42,25 @@ export interface IZipSubjectConfig {
   subscribeToRawStore?: boolean;
 }
 
-export const defaultZipSubjectConfig: IZipSubjectConfig = {
+export const defaultZipSubjectConfig: BehaviorKeysSubjectConfig = {
   reset: false,
-  allPropsHaveValue: true,
-  allPropsAreDefined: false,
+  allValuesHasValue: true,
+  allValuesDefined: false,
   subscribeToRawStore: false,
 };
 
-/**
- * @deprecated use BehaviorKeysSubject
- */
-export class ZipSubject<T> extends Subject<T> {
+export class BehaviorKeysSubject<T> extends Subject<T> {
   private _structureKeys: string[] = [];
   private _keySubscribers: any = {};
   private _value: any;
 
   constructor(
     private _structureMap: T = <T>{},
-    private _config: IZipSubjectConfig = defaultZipSubjectConfig
+    private _config: BehaviorKeysSubjectConfig = defaultZipSubjectConfig
   ) {
     super();
-    _config.allPropsHaveValue = hasValue(_config.allPropsHaveValue)
-      ? _config.allPropsHaveValue
+    _config.allValuesHasValue = hasValue(_config.allValuesHasValue)
+      ? _config.allValuesHasValue
       : true;
     this._value = fromJS(clone(this._structureMap));
     this._structureKeys = Object.keys(_structureMap);
@@ -85,11 +82,11 @@ export class ZipSubject<T> extends Subject<T> {
 
       if (this._config.subscribeToRawStore) {
         subscriber.next(_value);
-      } else if (this._config.allPropsAreDefined) {
+      } else if (this._config.allValuesDefined) {
         if (allValuesDefined(_value)) {
           subscriber.next(_value);
         }
-      } else if (this._config.allPropsHaveValue) {
+      } else if (this._config.allValuesHasValue) {
         if (allValuesHasValue(_value)) {
           subscriber.next(_value);
         }
@@ -174,7 +171,7 @@ export class ZipSubject<T> extends Subject<T> {
   setObservable(
     key: string,
     observable: Observable<any>,
-    options?: IZipSubjectObservableOptions
+    options?: BehaviorKeysSubjectObservableOptions
   ): void {
     if (options && options.take) {
       this._keySubscribers[key] = observable.pipe(take(options.take)).subscribe((r: any) => {
@@ -218,14 +215,14 @@ export class ZipSubject<T> extends Subject<T> {
 
   private _next(): void {
     const _value: any = this._value.toJS();
-    if (this._config.allPropsAreDefined) {
+    if (this._config.allValuesDefined) {
       if (allValuesDefined(_value)) {
         super.next(_value);
         if (this._config.reset) {
           this.reset();
         }
       }
-    } else if (this._config.allPropsHaveValue) {
+    } else if (this._config.allValuesHasValue) {
       if (allValuesHasValue(_value)) {
         super.next(_value);
         if (this._config.reset) {

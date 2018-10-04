@@ -59,7 +59,7 @@ describe('poll-for-value', () => {
       };
 
       const source = m.hot('--a--b--c--|', values);
-      const subs = '^-----------';
+      const subs = '^----------!';
       const expected = m.cold('--------c---', values);
 
       const pollConfig: IPollForValueConfig = {
