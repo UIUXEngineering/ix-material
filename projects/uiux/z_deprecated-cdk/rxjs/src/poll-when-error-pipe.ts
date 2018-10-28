@@ -4,10 +4,10 @@
  */
 
 import { concat } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
-import { delay } from 'rxjs/operators/delay';
-import { take } from 'rxjs/operators/take';
-import { retryWhen } from 'rxjs/operators/retryWhen';
+import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { retryWhen } from 'rxjs/operators';
 import { UnaryFunction } from 'rxjs/interfaces';
 import { Observer } from 'rxjs/Observer';
 import { throwError } from 'rxjs';

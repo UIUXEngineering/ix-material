@@ -4,7 +4,7 @@
  */
 import { StoreSubject } from './store-subject';
 import { IReducerConfig, IStoreConfig } from './interfaces';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 describe('store', () => {
   interface IData {

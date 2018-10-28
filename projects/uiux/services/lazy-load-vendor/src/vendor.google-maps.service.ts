@@ -6,7 +6,7 @@
 import { Injectable } from '@angular/core';
 import { IVendorFile } from './script-loader';
 import { LazyLoadVendorService } from './lazy-load-vendor.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class GoogleMapsService {

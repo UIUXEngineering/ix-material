@@ -3,8 +3,8 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { from } from 'rxjs/observable/from';
-import { Observable } from 'rxjs/Observable';
+import { from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { IStoreConfig } from './interfaces';
 import { default as isEmpty } from 'lodash-es/isEmpty';

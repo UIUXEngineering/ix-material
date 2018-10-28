@@ -4,9 +4,9 @@
  */
 
 import { Injectable, InjectionToken } from '@angular/core';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
+import { fromEvent } from 'rxjs';
+import { Subject } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 export function _window(): any {
   return window;

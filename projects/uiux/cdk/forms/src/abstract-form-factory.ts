@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { FormGroup, ValidatorFn } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { IFormService } from './interfaces';
 import { FormBuilderFactoryService, FormService } from './form-builder-factory.service';
 

@@ -8,7 +8,7 @@ import {
 } from 'angularfire2/firestore';
 import { QueryFn } from 'angularfire2/firestore/interfaces';
 import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 
 export type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;

@@ -4,7 +4,7 @@
  */
 
 import { FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 export interface IFormValue {
   dirty?: boolean;

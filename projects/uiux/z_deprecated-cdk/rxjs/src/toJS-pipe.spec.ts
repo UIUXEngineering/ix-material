@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { fromJS } from 'immutable';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { toJSPipe } from './toJS-pipe';
 
 describe('toJSPipe', () => {

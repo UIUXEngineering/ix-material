@@ -3,8 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { fromPromise } from 'rxjs/observable/fromPromise';
+import { BehaviorSubject, from } from 'rxjs';
 import { IPollForValueConfig, pollForValueWithConfig } from '@uiux/rxjs/pipes';
 import { getIn, hasValueIn } from '@uiux/fn/common';
 
@@ -87,7 +86,7 @@ export class $Script {
         },
       };
 
-      fromPromise(this.getGlobalFromWindow())
+      from(this.getGlobalFromWindow())
         .pipe(
           // Poll until value is present
           this._pollForValueWithConfig(pollConfig)

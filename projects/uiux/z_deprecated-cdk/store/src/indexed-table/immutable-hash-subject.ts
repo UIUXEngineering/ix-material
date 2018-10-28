@@ -3,9 +3,9 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { Subscriber } from 'rxjs/Subscriber';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
+import { ISubscription, Subscription } from 'rxjs';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { keySplitterIntoImmutablePath } from '@uiux/cdk/object';
 

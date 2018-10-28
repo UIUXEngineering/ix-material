@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { notNullOrUndefinedPipe } from './not-null-or-undefined-pipe';
 
 describe('notNullOrUndefinedPipe', () => {

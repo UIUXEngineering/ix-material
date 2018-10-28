@@ -4,15 +4,15 @@
  */
 
 import { UnaryFunction } from 'rxjs/interfaces';
-import { Observable } from 'rxjs/Observable';
-import { defer } from 'rxjs/observable/defer';
-import { timer } from 'rxjs/observable/timer';
+import { Observable } from 'rxjs';
+import { defer } from 'rxjs';
+import { timer } from 'rxjs';
 import { Observer } from 'rxjs/Observer';
-import { filter } from 'rxjs/operators/filter';
-import { mergeMap } from 'rxjs/operators/mergeMap';
-import { take } from 'rxjs/operators/take';
-import { timeoutWith } from 'rxjs/operators/timeoutWith';
-import { _throw } from 'rxjs/observable/throw';
+import { filter } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { timeoutWith } from 'rxjs/operators';
+import { _throw } from 'rxjs';
 
 export interface IPollForValueConfig {
   delay: number;

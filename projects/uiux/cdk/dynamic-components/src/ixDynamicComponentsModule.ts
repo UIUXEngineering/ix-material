@@ -7,6 +7,6 @@ import { IxDynamicComponentService } from './ixDynamicComponentService';
   imports: [IxBrowserModule],
   declarations: [IxCmpHostDirective],
   exports: [IxCmpHostDirective],
-  providers: [IxDynamicComponentService]
+  providers: [IxDynamicComponentService],
 })
 export class IxDynamicComponentsModule {}

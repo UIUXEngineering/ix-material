@@ -1,15 +1,13 @@
-
 import { valuesMatch } from './valuesMatch';
 
 describe('valuesMatch', () => {
-
   it('should match', () => {
     const obj1 = {
       start: 1,
       end: 2,
       offset: 3,
       limit: 4,
-      f: 'foo'
+      f: 'foo',
     };
 
     const obj2 = {
@@ -17,7 +15,7 @@ describe('valuesMatch', () => {
       end: 2,
       offset: 3,
       limit: 4,
-      f: 'bar'
+      f: 'bar',
     };
 
     expect(valuesMatch(obj1, obj2, ['start', 'end'])).toBe(true);
@@ -29,7 +27,7 @@ describe('valuesMatch', () => {
       end: 2,
       offset: 3,
       limit: 4,
-      f: 'foo'
+      f: 'foo',
     };
 
     const obj2 = {
@@ -37,7 +35,7 @@ describe('valuesMatch', () => {
       end: 3,
       offset: 3,
       limit: 4,
-      f: 'bar'
+      f: 'bar',
     };
 
     expect(valuesMatch(obj1, obj2, ['start', 'end'])).toBe(false);
@@ -49,7 +47,7 @@ describe('valuesMatch', () => {
       end: null,
       offset: 3,
       limit: 4,
-      f: 'foo'
+      f: 'foo',
     };
 
     const obj2 = {
@@ -57,7 +55,7 @@ describe('valuesMatch', () => {
       end: null,
       offset: 3,
       limit: 4,
-      f: 'bar'
+      f: 'bar',
     };
 
     expect(valuesMatch(obj1, obj2, ['start', 'end'])).toBe(true);
@@ -69,7 +67,7 @@ describe('valuesMatch', () => {
       // end: null,
       offset: 3,
       limit: 4,
-      f: 'foo'
+      f: 'foo',
     };
 
     const obj2 = {
@@ -77,11 +75,9 @@ describe('valuesMatch', () => {
       // end: null,
       offset: 3,
       limit: 4,
-      f: 'bar'
+      f: 'bar',
     };
 
     expect(valuesMatch(obj1, obj2, ['start', 'end'])).toBe(true);
   });
-
 });
-

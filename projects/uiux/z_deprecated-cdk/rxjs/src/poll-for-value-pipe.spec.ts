@@ -2,10 +2,10 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { _throw } from 'rxjs/observable/throw';
+import { _throw } from 'rxjs';
 import { marbles } from 'rxjs-marbles';
-import { timeoutWith } from 'rxjs/operators/timeoutWith';
-import { defer } from 'rxjs/observable/defer';
+import { timeoutWith } from 'rxjs/operators';
+import { defer } from 'rxjs';
 
 import { IPollForValueConfig, pollForValueWithConfig } from './poll-for-value-pipe';
 

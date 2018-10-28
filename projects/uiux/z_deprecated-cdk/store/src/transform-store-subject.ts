@@ -5,7 +5,7 @@
 
 import { StoreSubject } from './store-subject';
 import { Subscriber } from 'rxjs/Subscriber';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
+import { ISubscription, Subscription } from 'rxjs';
 import { IndexedTableSubject } from './indexed-table/indexed-table-subject';
 import { IndexedTable } from './indexed-table/indexed-table';
 import { ITransformConfig } from './interfaces';

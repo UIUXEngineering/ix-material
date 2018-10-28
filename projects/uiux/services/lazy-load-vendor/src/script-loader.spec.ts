@@ -9,8 +9,8 @@ import {
   lazyloadVendorScriptFactory,
   LOAD_EVENT_KEYS,
 } from './script-loader';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
+import { Observable } from 'rxjs';
+import { Observer } from 'rxjs';
 import { IPollForValueConfig } from '@uiux/rxjs/pipes';
 
 describe('$script', () => {

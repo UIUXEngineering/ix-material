@@ -4,10 +4,10 @@
  */
 
 import { IndexedTable } from './indexed-table';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Subscriber } from 'rxjs/Subscriber';
-import { ISubscription, Subscription } from 'rxjs/Subscription';
+import { ISubscription, Subscription } from 'rxjs';
 import { ObjectUnsubscribedError } from 'rxjs';
 
 export class IndexedTableSubject<T> extends Subject<T> {

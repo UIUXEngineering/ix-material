@@ -2,7 +2,7 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { clonePipe } from './clone-pipe';
 
 describe('clonePipe', () => {

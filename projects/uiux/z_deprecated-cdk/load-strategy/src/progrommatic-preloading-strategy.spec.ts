@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { IRouteWithData, ProgrammaticPreloadingStrategy } from './progrommatic-preloading-strategy';
-import { of } from 'rxjs/observable/of';
+import { of } from 'rxjs';
 
 describe('programmatic-preloading-strategy', () => {
   it('should not preload', () => {

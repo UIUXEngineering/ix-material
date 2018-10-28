@@ -5,7 +5,19 @@ import { freeGlobal } from './_freeGlobal';
 
 const isNode: Function = new Function('try {return this===global;}catch(e){return false;}');
 
-const getExports: Function = new Function('return exports');
+// const getExports: Function = new Function('return exports');
+const getExports: Function = new Function(
+  `try {
+          if (exports) {
+            return exports;
+          } else {
+            return null;
+          }
+        } catch (e) {
+          return null;
+        }`
+);
+
 const getModule: Function = new Function('return module');
 
 /** Detect free variable `exports`. */

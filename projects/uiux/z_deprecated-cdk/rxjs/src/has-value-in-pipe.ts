@@ -3,7 +3,7 @@ import { hasValueIn } from '@uiux/cdk/object';
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 export function hasValueInPipe<T>(keys: string | string[]): any {
   return (source: Observable<T>): Observable<T> => {

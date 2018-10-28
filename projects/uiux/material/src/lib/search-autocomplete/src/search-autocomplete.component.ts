@@ -18,7 +18,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 import { IFormValue, INITIAL_FORM_VALUE } from '@uiux/cdk/forms';
 import { forbiddenWhitespaceValidator } from '@uiux/cdk/validators';
 import { default as _isString } from 'lodash-es/isString';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import {
   SpSearchAutoComplateFormGroup,
   SpSearchAutoComplateFormGroupFactory,

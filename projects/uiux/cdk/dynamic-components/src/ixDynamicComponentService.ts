@@ -1,4 +1,10 @@
-import { ComponentFactoryResolver, ComponentRef, ElementRef, Injectable, Type } from '@angular/core';
+import {
+  ComponentFactoryResolver,
+  ComponentRef,
+  ElementRef,
+  Injectable,
+  Type,
+} from '@angular/core';
 import { IxBrowserService } from '@uiux/cdk/browser';
 import { IxCmpHostDirective } from './ixCmpHost.directive';
 import { IxComponentItem } from './ixComponentItem';
@@ -8,19 +14,20 @@ export function hasShadowRoot(el: ElementRef): boolean {
 }
 
 @Injectable({
-              providedIn: 'root',
-            })
+  providedIn: 'root',
+})
 export class IxDynamicComponentService {
+  constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private ixBrowser: IxBrowserService
+  ) {}
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver,
-              private ixBrowser: IxBrowserService) {
-  }
-
-  loadShadowDomComponent(host: IxCmpHostDirective,
-                         shadowDomCmp: Type<any>,
-                         defaultCmp: Type<any>,
-                         data?: any): ComponentRef<any> {
-
+  loadShadowDomComponent(
+    host: IxCmpHostDirective,
+    shadowDomCmp: Type<any>,
+    defaultCmp: Type<any>,
+    data?: any
+  ): ComponentRef<any> {
     let cmp: IxComponentItem;
 
     if (this.ixBrowser.supportsShadowDom) {
@@ -30,8 +37,7 @@ export class IxDynamicComponentService {
     }
 
     // Create Component FACTORY
-    const componentFactory = this.componentFactoryResolver
-      .resolveComponentFactory(cmp.component);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(cmp.component);
 
     // Get reference to host component container
     const viewContainerRef = host.viewContainerRef;
@@ -65,8 +71,9 @@ export class IxDynamicComponentService {
    */
   removeExtraStyles(el: ElementRef, selector: string): void {
     if (this.ixBrowser.supportsShadowDom && hasShadowRoot(el)) {
-      const styles: HTMLElement[] = el.nativeElement.shadowRoot
-        .querySelectorAll('style') as HTMLElement[];
+      const styles: HTMLElement[] = el.nativeElement.shadowRoot.querySelectorAll(
+        'style'
+      ) as HTMLElement[];
 
       if (styles && styles.length) {
         styles.forEach((r: HTMLElement) => {

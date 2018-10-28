@@ -3,9 +3,9 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { clone } from '@uiux/fn/common';
 import { clonePipe } from '@uiux/rxjs/pipes';
 

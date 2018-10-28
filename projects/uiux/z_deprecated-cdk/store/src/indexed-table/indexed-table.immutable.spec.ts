@@ -4,7 +4,7 @@
  */
 
 import { IndexedTable } from './indexed-table';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { CON } from './constants';
 
 describe('IndexedTable', () => {

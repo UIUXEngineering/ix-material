@@ -5,7 +5,7 @@
 
 import { Injectable } from '@angular/core';
 import { IVendorFile } from './script-loader';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { LazyLoadVendorService } from './lazy-load-vendor.service';
 
 export interface IGsap {

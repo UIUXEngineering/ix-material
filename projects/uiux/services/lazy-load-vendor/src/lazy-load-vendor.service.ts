@@ -6,12 +6,12 @@
 import { Inject, Optional, SkipSelf } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { from } from 'rxjs/observable/from';
-import { filter } from 'rxjs/operators/filter';
-import { mergeMap } from 'rxjs/operators/mergeMap';
-import { scan } from 'rxjs/operators/scan';
+import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { from } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
+import { scan } from 'rxjs/operators';
 import { $Script, IVendorFile, lazyloadVendorScriptFactory } from './script-loader';
 import { keysHaveValue } from '@uiux/fn/object';
 import { hasValue } from '@uiux/fn/common';
