@@ -6,9 +6,13 @@ import { isEqual, isObject, transform } from '@uiux/fn/common';
  * @param  base   Object to compare with
  */
 export function difference(object: any, base: any): any {
-  return transform(object, function(result, value, key) {
-    if (!isEqual(value, base[key])) {
-      result[key] = isObject(value) && isObject(base[key]) ? difference(value, base[key]) : value;
-    }
-  }, {});
+  return transform(
+    object,
+    function(result, value, key) {
+      if (!isEqual(value, base[key])) {
+        result[key] = isObject(value) && isObject(base[key]) ? difference(value, base[key]) : value;
+      }
+    },
+    {}
+  );
 }

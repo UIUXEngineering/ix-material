@@ -11,18 +11,16 @@ function keyIsExcludedIn(key: string, keys: string[]): boolean {
 
 export function allValuesMatch(src: any, tar: any, config?: IAllValuesMatchConfig): boolean {
   const keys: string[] = Object.keys(tar);
-  const includeArrays: boolean = config && hasValue(config.includeArrays) ? config.includeArrays : false;
+  const includeArrays: boolean =
+    config && hasValue(config.includeArrays) ? config.includeArrays : false;
   const exludeKeys: string[] = config && hasValue(config.excludeKeys) ? config.excludeKeys : [];
 
   return keys.reduce(function(acc: boolean, key: string) {
-
     if (acc && !keyIsExcludedIn(key, exludeKeys)) {
       if (isArray(tar[key])) {
         if (includeArrays) {
-
           let isMatch = true;
           for (let i = 0; i < tar[key].length; i++) {
-
             if (isScalar(tar[key][i])) {
               isMatch = src[key][i] === tar[key][i];
             } else {
