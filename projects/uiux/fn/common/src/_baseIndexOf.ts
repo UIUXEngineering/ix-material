@@ -9,8 +9,9 @@ import { strictIndexOf } from './_strictIndexOf';
  * @param array The array to inspect.
  * @param value The value to search for.
  * @param fromIndex The index to search from.
+ * @param rest just to make compiler happy.
  */
-export function baseIndexOf(array: any[], value: any, fromIndex: number): number {
+export function baseIndexOf(array: any[], value: any, fromIndex: number, rest?: any): number {
   return value === value
     ? strictIndexOf(array, value, fromIndex)
     : baseFindIndex(array, baseIsNan, fromIndex);

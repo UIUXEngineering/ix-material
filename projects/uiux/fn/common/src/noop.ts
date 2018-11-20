@@ -1,7 +1,7 @@
 /**
  * This method returns `undefined`.
  *
- * @static
+ *
  * @memberOf _
  * @since 2.3.0
  * @category Util

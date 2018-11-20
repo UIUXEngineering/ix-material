@@ -9,7 +9,7 @@ import { baseIndexOf } from './_baseIndexOf';
  * @param fromIndex
  * Returns `true` if `target` is found, else `false`.
  */
-export function arrayIncludes(array: any[], value: any, fromIndex?: number): boolean {
+export function arrayIncludes(array: any[], value: any, fromIndex?: any): boolean {
   const length = array == null ? 0 : array.length;
   return !!length && baseIndexOf(array, value, 0) > -1;
 }

@@ -22,7 +22,9 @@ const getModule: Function = new Function('return module');
 
 /** Detect free variable `exports`. */
 const freeExports =
-  isNode() && typeof getExports() === 'object' && !getExports().nodeType ? getExports() : null;
+  isNode() && typeof getExports() === 'object' && !(getExports() && getExports().nodeType)
+    ? getExports()
+    : null;
 
 // declare const module;
 /** Detect free variable `module`. */
