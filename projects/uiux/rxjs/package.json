@@ -1,6 +1,6 @@
 {
   "name": "@uiux/rxjs",
-  "version": "7.0.0-beta.5",
+  "version": "7.0.0-beta.6",
   "dependencies": {
     "immutable": "3.8.2",
     "moment": "2.22.1"
