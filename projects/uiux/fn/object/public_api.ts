@@ -3,6 +3,7 @@ export * from './src/allValuesDefined';
 export * from './src/allValuesDefinedIn';
 export * from './src/allValuesHasValue';
 export * from './src/allValuesHasValueIn';
+export * from './src/allValuesMatch';
 export * from './src/allValuesTruthy';
 export * from './src/allValuesTruthyIn';
 export * from './src/createObjectWithPaths';

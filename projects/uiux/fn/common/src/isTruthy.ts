@@ -5,6 +5,7 @@
 
 import { isBoolean } from './isBoolean';
 import { isEmpty } from './isEmpty';
+import { isFunction } from './isFunction';
 import { isString } from './isString';
 import { isNumber } from './isNumber';
 import { trim } from './trim';
@@ -20,6 +21,8 @@ export function isTruthy(value: any): boolean {
     } else if (isBoolean(value)) {
       // Testing for value, not truthy
       return value;
+    } else if (isFunction(value)) {
+      return true;
     } else {
       return !isEmpty(value);
     }

@@ -190,6 +190,7 @@ export * from './src/isScalar';
 export * from './src/isString';
 export * from './src/isSymbol';
 export * from './src/isTruthy';
+export * from './src/isTruthyIn';
 export * from './src/isTypedArray';
 export * from './src/isUndefined';
 export * from './src/ixIsMatch';
