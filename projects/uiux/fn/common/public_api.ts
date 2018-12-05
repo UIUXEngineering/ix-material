@@ -157,6 +157,7 @@ export * from './src/constant';
 export * from './src/deburr';
 export * from './src/difference';
 export * from './src/eq';
+export * from './src/findIndex';
 export * from './src/forIn';
 export * from './src/getIn';
 export * from './src/hasIn';
