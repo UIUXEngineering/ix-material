@@ -74,12 +74,12 @@ task('build.mat', sequenceTask(
 
 /** build material project */
 task('build.projects', sequenceTask(
+  'build.fn',
+  'build.rxjs',
   'build.cdk',
   'build.d3',
-  'build.fn',
   'build.mat',
   'build.dal',
-  'build.rxjs',
   'build.svc'
 ));
 

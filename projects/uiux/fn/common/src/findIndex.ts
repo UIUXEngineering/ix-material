@@ -9,10 +9,6 @@ const nativeMax = Math.max;
  * This method is like `_.find` except that it returns the index of the first
  * element `predicate` returns truthy for instead of the element itself.
  *
- * @static
- * @memberOf _
- * @since 1.1.0
- * @category Array
  * @param array The array to inspect.
  * @param predicate [predicate=_.identity] The function invoked per iteration.
  * @param fromIndex [fromIndex=0] The index to search from.
