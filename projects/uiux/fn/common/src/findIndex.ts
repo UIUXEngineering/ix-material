@@ -35,12 +35,12 @@ const nativeMax = Math.max;
  * _.findIndex(users, 'active');
  * // => 2
  */
-export function findIndex(array: any[], predicate: Function, fromIndex: number): number {
+export function findIndex(array: any[], predicate: Function, fromIndex: number = null): number {
   const length = array == null ? 0 : array.length;
   if (!length) {
     return -1;
   }
-  let index = fromIndex == null ? 0 : toInteger(fromIndex);
+  let index = fromIndex === null ? 0 : toInteger(fromIndex);
   if (index < 0) {
     index = nativeMax(length + index, 0);
   }
