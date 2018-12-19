@@ -75,44 +75,44 @@ export class SpSearchAutoCompleteComponent implements AfterViewInit {
     return this._controller;
   }
 
-  @Input('placeholder')
+  @Input()
   placeholder = '';
 
-  @Input('autoCompleteData')
+  @Input()
   autoCompleteData: any = [];
 
   /**
    * Options
    * textOnly, iconText
    */
-  @Input('optionTemplate')
+  @Input()
   optionTemplate = 'textOnly';
 
-  @Input('delay')
+  @Input()
   delay = 300;
 
-  @Input('minLength')
+  @Input()
   minLength = 3;
 
-  @Input('iconLeft')
+  @Input()
   iconLeft = false;
 
-  @Input('isSearching')
+  @Input()
   isSearching = false;
 
-  @Input('displayWith')
+  @Input()
   displayWith: Function;
 
-  @Input('optionFormatter')
+  @Input()
   optionFormatter: Function;
 
-  @Input('disableSubmit')
+  @Input()
   disableSubmit = false;
 
-  @Input('overrideMaterial')
+  @Input()
   overrideMaterial = true;
 
-  @Input('spinnerConfig')
+  @Input()
   spinnerConfig: ISpinnerConfig = {
     diameter: 14,
     strokeWidth: 1,

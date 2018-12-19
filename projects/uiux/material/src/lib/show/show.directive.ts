@@ -11,7 +11,7 @@ import { hasValue } from '@uiux/fn/common';
 })
 export class IxShowDirective implements OnChanges {
   private _hasShown = false;
-  @Input('ixShow')
+  @Input()
   ixShow: boolean;
 
   constructor(private _renderer: Renderer2, private _el: ElementRef) {

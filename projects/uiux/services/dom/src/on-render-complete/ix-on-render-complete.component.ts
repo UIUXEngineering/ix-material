@@ -17,7 +17,7 @@ import { IxOnRenderCompleteService } from './ix-on-render-complete.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IxOnRenderCompleteComponent implements AfterViewInit {
-  @Input('containerCssClass')
+  @Input()
   containerCssClass: string;
 
   constructor(private _onRenderComplete: IxOnRenderCompleteService) {}

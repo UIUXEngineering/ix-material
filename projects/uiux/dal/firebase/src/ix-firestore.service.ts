@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { FirebaseFirestore } from '@firebase/firestore-types';
-import { hasValue } from '@uiux/fn/common';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
   AngularFirestoreDocument,
-} from 'angularfire2/firestore';
-import { QueryFn } from 'angularfire2/firestore/interfaces';
+  QueryFn,
+} from '@angular/fire/firestore';
+import { FirebaseFirestore } from '@firebase/firestore-types';
+import { hasValue } from '@uiux/fn/common';
+
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';

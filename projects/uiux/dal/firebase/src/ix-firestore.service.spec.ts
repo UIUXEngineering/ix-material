@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { IxFirestoreService } from './ix-firestore.service';
 
 const firebaseConfig: any = {
