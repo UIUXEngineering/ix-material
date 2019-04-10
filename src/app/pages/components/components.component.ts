@@ -13,7 +13,7 @@ import { NAVBAR_MENU_BREAKPOINT } from '../../../configs/constants';
 import { IDataItem } from '../../../models/routes';
 import { fadeAnimation } from '../../animations';
 import { ApiRefService, IRouteStore } from '../../services/api-ref/api-ref.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-components',

@@ -14,8 +14,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { hasValue } from '@uiux/fn/common';
 import { default as _uniqBy } from 'lodash-es/uniqBy';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subscription } from 'rxjs/Subscription';
+import { BehaviorSubject } from 'rxjs';
+import { Subscription } from 'rxjs';
 import {
   APP_NAME,
   FN,

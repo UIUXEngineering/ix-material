@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorValueSubject } from '@uiux/rxjs/subjects';
-import { Observable } from 'rxjs/Observable';
-import { zip } from 'rxjs/Observable/zip';
+import { Observable } from 'rxjs';
+import { zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface ReferenceLink {

@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { getIn } from '@uiux/fn/common';
 import { map } from 'rxjs/operators/index';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { NAVBAR_MENU_BREAKPOINT } from '../../../configs/constants';
 import { IDataItem } from '../../../models/routes';
 import { fadeAnimation } from '../../animations';

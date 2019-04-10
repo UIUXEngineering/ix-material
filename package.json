@@ -1,6 +1,6 @@
 {
   "name": "uiux-material",
-  "version": "7.0.1",
+  "version": "7.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -77,7 +77,7 @@
     "lodash-es": "4.17.10",
     "moment": "2.22.1",
     "ngx-markdown": "^7.0.3",
-    "rxjs": "~6.3.2",
+    "rxjs": "6.4.0",
     "through2": "^2.0.3",
     "zone.js": "^0.8.26"
   },

@@ -3,8 +3,8 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { of } from 'rxjs/observable/of';
-import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IRouteData } from './data.interface';
 import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';

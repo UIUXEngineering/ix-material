@@ -1,5 +1,5 @@
 import { Injectable, Optional, SkipSelf } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { hasValue } from '@uiux/fn/common';
 

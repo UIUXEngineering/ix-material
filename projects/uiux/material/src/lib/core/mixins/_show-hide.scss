@@ -63,6 +63,7 @@
     -moz-animation: show 500ms $swift-ease-out-timing-function;
     -o-animation: show 500ms $swift-ease-out-timing-function;
     animation: show 500ms $swift-ease-out-timing-function;
+    animation-delay: 500ms;
     opacity: 1;
   }
 

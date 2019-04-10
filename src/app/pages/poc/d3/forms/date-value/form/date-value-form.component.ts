@@ -10,7 +10,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { DateValueFormModelService } from '../model/date-value-form-model.service';
 import { DateValueForm, DateValueFormLabels } from '../model/interfaces';
 import { FORM_OPTIONS } from '@uiux/cdk/forms';

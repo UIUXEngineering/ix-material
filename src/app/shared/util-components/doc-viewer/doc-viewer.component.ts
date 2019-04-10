@@ -14,7 +14,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { HighlightService } from '../../services/highlight-js/highlight.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { DomPortalHost } from '@angular/cdk/portal';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';

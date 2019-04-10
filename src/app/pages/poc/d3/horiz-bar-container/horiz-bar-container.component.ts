@@ -1,6 +1,6 @@
 import { Component, ComponentRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IxCmpHostDirective, IxDynamicComponentService } from '@uiux/cdk/dynamic-components';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { DateValueFormModelService } from '../forms/date-value/model/date-value-form-model.service';
 import { DateValueForm } from '../forms/date-value/model/interfaces';
 import { D3HorizBarChartShadowDomComponent } from './components/d3-horiz-bar-chart/d3-horiz-bar-chart-shadowdom.component';
