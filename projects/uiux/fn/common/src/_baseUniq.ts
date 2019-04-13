@@ -14,9 +14,8 @@ const LARGE_ARRAY_SIZE = 200;
  * @param array {Array} array The array to inspect.
  * @param iteratee {Function} [iteratee] The iteratee invoked per element.
  * @param comparator {Function} [comparator] The comparator invoked per element.
- * @returns {Array} Returns the new duplicate free array.
  */
-function baseUniq(array, iteratee, comparator: any): any[] {
+export function baseUniq(array: any[], iteratee?: Function, comparator?: Function): any[] {
   const length = array.length,
     result = [];
   let index = -1,
@@ -63,5 +62,3 @@ function baseUniq(array, iteratee, comparator: any): any[] {
   }
   return result;
 }
-
-export default baseUniq;

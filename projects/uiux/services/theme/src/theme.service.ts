@@ -28,7 +28,7 @@ export class SPThemeService {
   }
 
   matDialogRef(_ref: MatDialogRef<any>) {
-    _ref.beforeClose().subscribe(() => {
+    _ref.beforeClosed().subscribe(() => {
       this.removeOverlayThemeClass(this.cssClass);
     });
   }
