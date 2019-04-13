@@ -20,6 +20,6 @@ import { baseUniq } from './_baseUniq';
  * _.uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
  * // => [{ 'x': 1 }, { 'x': 2 }]
  */
-export function uniqBy(array: any[], iteratee: any[]): any[] {
+export function uniqBy(array: any[], iteratee: any): any[] {
   return array && array.length ? baseUniq(array, baseIteratee(iteratee, 2)) : [];
 }
