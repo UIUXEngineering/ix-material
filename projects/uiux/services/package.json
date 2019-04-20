@@ -1,6 +1,6 @@
 {
   "name": "@uiux/services",
-  "version": "7.2.2",
+  "version": "7.3.0",
   "dependencies": {
     "immutable": "3.8.2",
     "lodash-es": "4.17.10",
