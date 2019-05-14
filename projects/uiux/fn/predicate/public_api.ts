@@ -18,6 +18,7 @@ import {
   hasValueEqual,
   hasValueNotEqual,
 } from '@uiux/fn/common';
+import { isSimpleChange } from './src/isSimpleChange';
 
 export {
   isArray,
@@ -30,6 +31,7 @@ export {
   isObjectLike,
   isScalar,
   isSymbol,
+  isSimpleChange,
   isTruthy,
   hasValue,
   hasValueEqual,
