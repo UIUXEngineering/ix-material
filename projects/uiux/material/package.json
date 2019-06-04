@@ -2,8 +2,8 @@
   "name": "@uiux/material",
   "version": "7.3.1",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "@uiux/fn": "^7.0.0"
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0",
+    "@uiux/fn": "^8.0.0"
   }
 }
