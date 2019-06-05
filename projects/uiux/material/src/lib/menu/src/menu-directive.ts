@@ -173,7 +173,7 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
   }
 
   /** @docs-private */
-  @ViewChild(TemplateRef) templateRef: TemplateRef<any>;
+  @ViewChild(TemplateRef, { static: true }) templateRef: TemplateRef<any>;
 
   /**
    * List of the items inside of a menu.
@@ -186,7 +186,7 @@ export class IxMenu implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit
    * Menu content that will be rendered lazily.
    * @docs-private
    */
-  @ContentChild(IxMenuContent) lazyContent: IxMenuContent;
+  @ContentChild(IxMenuContent, /* TODO: add static flag */ { static: false }) lazyContent: IxMenuContent;
 
   /** Whether the menu should overlap its trigger. */
   @Input()

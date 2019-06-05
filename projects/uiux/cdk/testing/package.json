@@ -1,7 +1,12 @@
 {
+  "$schema": "../../../../node_modules/ng-packagr/package.schema.json",
+  "name": "@uiux/cdk/testing",
+  "version": "8.0.2",
   "ngPackage": {
+    "dest": "../../../../dist/@uiux/cdk/testing",
+    "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
     "lib": {
-      "entryFile": "index.ts"
+      "entryFile": "public_api.ts"
     }
   }
 }

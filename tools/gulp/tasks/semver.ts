@@ -1,136 +1,174 @@
-import { task, src, dest } from 'gulp';
+import { dest, src, task } from 'gulp';
+import { argv } from 'yargs';
 import { copyAppPkg } from '../util/copy-app-pkg';
 import { logPipe } from '../util/gulpLogPipe';
 import {
   incSemverAlpha,
-  incSemverBeta, incSemverBuild, incSemveRC,
+  incSemverBeta,
+  incSemverBuild,
+  incSemveRC,
   incSemverMajor,
   incSemverMinor,
   incSemverPatch,
 } from '../util/inc_semver';
-import { argv  } from 'yargs';
 
 const merge = require('merge-stream');
 const bump = require('gulp-bump');
 const LOG_COLOR = 'green';
 
-/**
- * cdk
- * @param version
- */
-function updateCDK(version: string): any {
-
-  return src('./projects/uiux/cdk/package.json')
-    .pipe(logPipe('cdk', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/cdk/'));
+interface FilePaths {
+  src: string;
+  dest: string;
 }
 
-/**
- * d3
- * @param version
- */
-function updated3(version: string): any {
-  return src('./projects/uiux/d3/package.json')
-    .pipe(logPipe('d3', LOG_COLOR))
+const paths: FilePaths[] = [
+  {
+    src: './projects/uiux/cdk/package.json',
+    dest: './projects/uiux/cdk/'
+  },
+  {
+    src: './projects/uiux/cdk/browser/package.json',
+    dest: './projects/uiux/cdk/browser/'
+  },
+  {
+    src: './projects/uiux/cdk/constants/package.json',
+    dest: './projects/uiux/cdk/constants/'
+  },
+  {
+    src: './projects/uiux/cdk/dynamic-components/package.json',
+    dest: './projects/uiux/cdk/dynamic-components/'
+  },
+  {
+    src: './projects/uiux/cdk/forms/package.json',
+    dest: './projects/uiux/cdk/forms/'
+  },
+  {
+    src: './projects/uiux/cdk/testing/package.json',
+    dest: './projects/uiux/cdk/testing/'
+  },
+  {
+    src: './projects/uiux/cdk/validators/package.json',
+    dest: './projects/uiux/cdk/validators/',
+  },
+
+
+
+  {
+    src: './projects/uiux/d3/package.json',
+    dest: './projects/uiux/d3/'
+  },
+
+
+  {
+    src: './projects/uiux/dal/package.json',
+    dest: './projects/uiux/dal/'
+  },
+  {
+    src: './projects/uiux/dal/firebase/package.json',
+    dest: './projects/uiux/dal/firebase/'
+  },
+
+
+  {
+    src: './projects/uiux/fn/package.json',
+    dest: './projects/uiux/fn/'
+  },
+  {
+    src: './projects/uiux/fn/array/package.json',
+    dest: './projects/uiux/fn/array/'
+  },
+  {
+    src: './projects/uiux/fn/common/package.json',
+    dest: './projects/uiux/fn/common/'
+  },
+  {
+    src: './projects/uiux/fn/date/package.json',
+    dest: './projects/uiux/fn/date/'
+  },
+  {
+    src: './projects/uiux/fn/guid/package.json',
+    dest: './projects/uiux/fn/guid/'
+  },
+  {
+    src: './projects/uiux/fn/number/package.json',
+    dest: './projects/uiux/fn/number/'
+  },
+  {
+    src: './projects/uiux/fn/object/package.json',
+    dest: './projects/uiux/fn/object/'
+  },
+  {
+    src: './projects/uiux/fn/predicate/package.json',
+    dest: './projects/uiux/fn/predicate/'
+  },
+  {
+    src: './projects/uiux/fn/string/package.json',
+    dest: './projects/uiux/fn/string/'
+  },
+  {
+    src: './projects/uiux/icons/package.json',
+    dest: './projects/uiux/icons/'
+  },
+
+
+  {
+    src: './projects/uiux/material/package.json',
+    dest: './projects/uiux/material/'
+  },
+
+
+  {
+    src: './projects/uiux/rxjs/package.json',
+    dest: './projects/uiux/rxjs/'
+  },
+  {
+    src: './projects/uiux/rxjs/pipes/package.json',
+    dest: './projects/uiux/rxjs/pipes/'
+  },
+  {
+    src: './projects/uiux/rxjs/subjects/package.json',
+    dest: './projects/uiux/rxjs/subjects/'
+  },
+
+
+  {
+    src: './projects/uiux/services/package.json',
+    dest: './projects/uiux/services/'
+  },
+  {
+    src: './projects/uiux/services/dom/package.json',
+    dest: './projects/uiux/services/dom/'
+  },
+  {
+    src: './projects/uiux/services/lazy-load-vendor/package.json',
+    dest: './projects/uiux/services/lazy-load-vendor/'
+  },
+  {
+    src: './projects/uiux/services/local-storage/package.json',
+    dest: './projects/uiux/services/local-storage/'
+  },
+  {
+    src: './projects/uiux/services/theme/package.json',
+    dest: './projects/uiux/services/theme/'
+  },
+
+
+  {
+    src: './package.json',
+    dest: './'
+  },
+];
+
+
+function update( version: string, _path: FilePaths ): any {
+  return src(_path.src)
+    .pipe(logPipe(_path.src, LOG_COLOR))
     .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/d3/'));
-}
-
-/**
- * dal
- * @param version
- */
-function updateDAL(version: string): any {
-
-  return src('./projects/uiux/dal/package.json')
-    .pipe(logPipe('dal', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/dal/'));
-}
-
-/**
- * fn
- * @param version
- */
-function updateFN(version: string): any {
-
-  return src('./projects/uiux/fn/package.json')
-    .pipe(logPipe('fn', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/fn/'));
-}
-
-/**
- * icons
- * @param version
- */
-function updateIcons(version: string): any {
-
-  return src('projects/uiux/icons/package.json')
-    .pipe(logPipe('icons', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/icons/'));
-}
-
-/**
- * material
- * @param version
- */
-function updateMaterial(version: string): any {
-
-  return src('./projects/uiux/material/package.json')
-    .pipe(logPipe('material', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/material/'));
-}
-
-/**
- * rxjs
- * @param version
- */
-function updaterxjs(version: string): any {
-
-  return src('./projects/uiux/rxjs/package.json')
-    .pipe(logPipe('rxjs', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/rxjs/'));
-}
-
-/**
- * services
- * @param version
- */
-function updatesvc(version: string): any {
-
-  return src('./projects/uiux/services/package.json')
-    .pipe(logPipe('services', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./projects/uiux/services/'));
-}
-
-/**
- * root
- * @param version
- */
-function updateRoot(version: string): any {
-
-  return src('./package.json')
-    .pipe(logPipe('package.json', LOG_COLOR))
-    .pipe(bump({version: version}))
-    .pipe(dest('./'));
+    .pipe(dest(_path.dest));
 }
 
 function updatePackages(version: string): any {
-  return merge(updateCDK(version),
-               updated3(version),
-               updateDAL(version),
-               updateFN(version),
-               updateIcons(version),
-               updateMaterial(version),
-               updaterxjs(version),
-               updatesvc(version),
-               updateRoot(version),
+  return merge(...paths.map((path: FilePaths) => update(version, path) ),
                copyAppPkg());
 }
 

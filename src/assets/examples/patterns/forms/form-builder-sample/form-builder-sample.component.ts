@@ -57,7 +57,7 @@ export class FormBuilderSampleComponent implements OnInit, AfterViewInit {
    * FormGroups have an issue resetting forms in that they only
    * reset the data, but not the state ( prisitine, untouched, etc ).
    */
-  @ViewChild(FormGroupDirective) formRef: FormGroupDirective;
+  @ViewChild(FormGroupDirective, { static: true }) formRef: FormGroupDirective;
 
   constructor(private fb: FormBuilder) {
   }

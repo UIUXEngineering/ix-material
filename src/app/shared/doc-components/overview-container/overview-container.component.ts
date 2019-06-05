@@ -33,7 +33,7 @@ export class OverviewContainerComponent implements OnInit, OnDestroy {
   @Input('data') public data: IDataItem;
   @Input('containerCssClass') public containerCssClass: string;
 
-  @ViewChild('tocOverviewViewer')
+  @ViewChild('tocOverviewViewer', { static: false })
   set tableOfContents(v: TableOfContents) {
     this._toc = v;
     this._eventAsync.nextKey('toc', true);

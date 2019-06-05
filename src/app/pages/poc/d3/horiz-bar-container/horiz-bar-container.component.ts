@@ -15,7 +15,7 @@ export class HorizBarContainerComponent implements OnInit, OnDestroy {
 
   private modelSub: Subscription = Subscription.EMPTY;
   private cmp: ComponentRef<any>;
-  @ViewChild(IxCmpHostDirective) host: IxCmpHostDirective;
+  @ViewChild(IxCmpHostDirective, { static: true }) host: IxCmpHostDirective;
 
   constructor(private dynCmp: IxDynamicComponentService,
               private model: DateValueFormModelService) {

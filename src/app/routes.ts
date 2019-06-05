@@ -5,63 +5,63 @@ export const APP_ROUTES: Routes = [
   { path: '', component: HomepageComponent, pathMatch: 'full', data: {} },
   {
     path: 'cdk',
-    loadChildren: './pages/cdk/cdk.module#CdkModule',
+    loadChildren: () => import('./pages/cdk/cdk.module').then(m => m.CdkModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'material',
-    loadChildren: './pages/components/components.module#ComponentsModule',
+    loadChildren: () => import('./pages/components/components.module').then(m => m.ComponentsModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'dal',
-    loadChildren: './pages/dal/dal.module#DalModule',
+    loadChildren: () => import('./pages/dal/dal.module').then(m => m.DalModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'fn',
-    loadChildren: './pages/fn/fn.module#FnModule',
+    loadChildren: () => import('./pages/fn/fn.module').then(m => m.FnModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'guides',
-    loadChildren: './pages/guides/guides.module#GuidesModule',
+    loadChildren: () => import('./pages/guides/guides.module').then(m => m.GuidesModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'icons',
-    loadChildren: './pages/icons/icons.module#IconsModule',
+    loadChildren: () => import('./pages/icons/icons.module').then(m => m.IconsModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'poc',
-    loadChildren: './pages/poc/poc.module#PocModule',
+    loadChildren: () => import('./pages/poc/poc.module').then(m => m.PocModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'services',
-    loadChildren: './pages/services/services.module#ServicesModule',
+    loadChildren: () => import('./pages/services/services.module').then(m => m.ServicesModule),
     data: <any>{
       preload: true,
     },
   },
   {
     path: 'themes',
-    loadChildren: './pages/themes/themes.module#ThemesModule',
+    loadChildren: () => import('./pages/themes/themes.module').then(m => m.ThemesModule),
     data: <any>{
       preload: true,
     },

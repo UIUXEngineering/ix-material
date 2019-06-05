@@ -51,9 +51,9 @@ export class TabGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   showTabs = false;
   selectedIndex: number | string = 0;
 
-  @ViewChild(OverviewHostDirective) overviewHost: OverviewHostDirective;
-  @ViewChild(ApiHostDirective) apiHost: ApiHostDirective;
-  @ViewChild(ExampleHostDirective) exampleHost: ExampleHostDirective;
+  @ViewChild(OverviewHostDirective, { static: true }) overviewHost: OverviewHostDirective;
+  @ViewChild(ApiHostDirective, { static: true }) apiHost: ApiHostDirective;
+  @ViewChild(ExampleHostDirective, { static: true }) exampleHost: ExampleHostDirective;
 
   constructor(
     private _apiRef: ApiRefService,
