@@ -1,0 +1,13 @@
+{
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts",
+      "umdModuleIds": {
+        "@uiux/cdk/pipes": "@uiux/cdk/pipes",
+        "@uiux/cdk/forms": "@uiux/cdk/forms",
+        "@uiux/cdk/validators": "@uiux/cdk/validators",
+        "lodash-es/isString": "lodash-es/isString"
+      }
+    }
+  }
+}
