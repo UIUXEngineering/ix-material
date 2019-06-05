@@ -5,7 +5,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ComponentPortal } from '@angular/cdk/portal';
 
 import { CopierService } from '../../services/copier/copier.service';

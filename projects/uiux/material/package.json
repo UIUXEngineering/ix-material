@@ -4,9 +4,25 @@
   "version": "8.1.1",
   "ngPackage": {
     "dest": "../../../dist/@uiux/material",
-    "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
+    "whitelistedNonPeerDependencies": [
+      "immutable",
+      "lodash-es",
+      "lodash-es/isString",
+      "moment",
+      "@uiux/fn",
+      "@uiux/fn/common",
+      "@uiux/cdk",
+      "@uiux/cdk/pipes",
+      "@uiux/cdk/forms"
+    ],
     "lib": {
-      "entryFile": "src/public_api.ts"
+      "entryFile": "src/public_api.ts",
+      "umdModuleIds": {
+        "@uiux/cdk/pipes": "@uiux/cdk/pipes",
+        "@uiux/cdk/forms": "@uiux/cdk/forms",
+        "@uiux/cdk/validators": "@uiux/cdk/validators",
+        "lodash-es/isString": "lodash-es/isString"
+      }
     }
   },
   "peerDependencies": {

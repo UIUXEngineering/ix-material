@@ -8,7 +8,9 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { MatButtonModule, MatIconModule, MatIconRegistry, MatMenuModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';

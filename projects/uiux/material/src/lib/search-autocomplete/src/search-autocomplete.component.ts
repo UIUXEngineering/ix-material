@@ -14,7 +14,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { AbstractControl, FormGroup, Validators } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { IFormValue, INITIAL_FORM_VALUE } from '@uiux/cdk/forms';
 import { forbiddenWhitespaceValidator } from '@uiux/cdk/validators';
 import { default as _isString } from 'lodash-es/isString';

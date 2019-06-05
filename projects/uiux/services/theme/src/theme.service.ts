@@ -5,7 +5,7 @@
 
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Injectable()
 export class SPThemeService {

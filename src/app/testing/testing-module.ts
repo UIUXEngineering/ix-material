@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MATERIAL_SANITY_CHECKS } from '@angular/material';
+import { MATERIAL_SANITY_CHECKS } from '@angular/material/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({

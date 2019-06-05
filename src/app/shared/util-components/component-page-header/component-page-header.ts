@@ -1,5 +1,6 @@
 import { Component, EventEmitter, NgModule, Output } from '@angular/core';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { ComponentPageTitle } from '../../../services/page-title/page-title';
 
 @Component({

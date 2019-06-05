@@ -136,7 +136,7 @@ function updatePackages(version: string): any {
 
 // example: yarn run bump --ver=8.0.1
 task('bump', () => {
-  const newVersion = argv['ver'];
+  const newVersion: string = <string>argv['ver'];
   return updatePackages(newVersion);
 });
 

@@ -4,9 +4,21 @@
   "version": "8.1.1",
   "ngPackage": {
     "dest": "../../../dist/@uiux/services",
-    "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
+    "whitelistedNonPeerDependencies": [
+      "immutable",
+      "lodash-es",
+      "moment",
+      "@uiux/rxjs/pipes",
+      "@uiux/fn/common",
+      "@uiux/fn/object"
+    ],
     "lib": {
-      "entryFile": "src/public_api.ts"
+      "entryFile": "src/public_api.ts",
+      "umdModuleIds": {
+        "@uiux/rxjs/pipes": "pipes",
+        "@uiux/fn/common": "common",
+        "@uiux/fn/object": "object"
+      }
     }
   },
   "dependencies": {

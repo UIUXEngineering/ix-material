@@ -1,12 +1,14 @@
 {
-  "$schema": "../../../../node_modules/ng-packagr/package.schema.json",
-  "name": "@uiux/dal/firebase",
-  "version": "8.1.1",
   "ngPackage": {
-    "dest": "../../../../dist/@uiux/dal/firebase",
-    "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
     "lib": {
-      "entryFile": "public_api.ts"
+      "entryFile": "index.ts",
+      "umdModuleIds": {
+        "moment": "moment",
+        "firebase/app": "firebase/app",
+        "@uiux/rxjs/pipes": "@uiux/rxjs/pipes",
+        "@uiux/fn/common": "@uiux/rxjs/common",
+        "@uiux/fn/object": "@uiux/rxjs/object"
+      }
     }
   }
 }

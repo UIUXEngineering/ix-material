@@ -2,13 +2,11 @@ import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 // import {StackblitzButtonModule} from '../stackblitz/stackblitz-button';
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatSnackBarModule,
-  MatTabsModule,
-  MatTooltipModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { CopierService } from '../../services/copier/copier.service';
 import { ExampleViewerTsComponent } from '../example-viewer-ts/example-viewer-ts.component';
 import { DocViewerComponent } from './doc-viewer.component';

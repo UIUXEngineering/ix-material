@@ -12,7 +12,7 @@ import {
   ViewContainerRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 import { ZipSubject } from '@uiux/rxjs/subjects';
 import { Subscription } from 'rxjs';
 import { hasValueIn } from '@uiux/fn/common';

@@ -1,12 +1,7 @@
 {
-  "$schema": "../../../../node_modules/ng-packagr/package.schema.json",
-  "name": "@uiux/fn/number",
-  "version": "8.1.1",
   "ngPackage": {
-    "dest": "../../../../dist/@uiux/fn/number",
-    "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
     "lib": {
-      "entryFile": "public_api.ts"
+      "entryFile": "index.ts"
     }
   }
 }

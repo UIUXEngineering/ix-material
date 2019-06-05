@@ -1,12 +1,20 @@
 {
-  "$schema": "../../../../node_modules/ng-packagr/package.schema.json",
-  "name": "@uiux/services/lazy-load-vendor",
-  "version": "8.1.1",
   "ngPackage": {
-    "dest": "../../../../dist/@uiux/services/lazy-load-vendor",
-    "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
+    "whitelistedNonPeerDependencies": [
+      "immutable",
+      "lodash-es",
+      "moment",
+      "@uiux/rxjs/pipes",
+      "@uiux/fn/common",
+      "@uiux/fn/object"
+    ],
     "lib": {
-      "entryFile": "public_api.ts"
+      "entryFile": "index.ts",
+      "umdModuleIds": {
+        "@uiux/rxjs/pipes": "@uiux/rxjs/pipes",
+        "@uiux/fn/common": "@uiux/rxjs/common",
+        "@uiux/fn/object": "@uiux/rxjs/object"
+      }
     }
   }
 }

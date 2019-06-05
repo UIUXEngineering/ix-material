@@ -1,12 +1,16 @@
 {
-  "$schema": "../../../../node_modules/ng-packagr/package.schema.json",
-  "name": "@uiux/rxjs/subjects",
-  "version": "8.1.1",
   "ngPackage": {
-    "dest": "../../../../dist/@uiux/rxjs/subjects",
-    "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
     "lib": {
-      "entryFile": "public_api.ts"
+      "entryFile": "index.ts",
+      "umdModuleIds": {
+        "moment": "moment",
+        "immutable": "immutable",
+        "lodash-es/filter": "lodash-es/filter",
+        "lodash-es/uniqBy": "lodash-es/uniqBy",
+        "@uiux/rxjs/pipes": "@uiux/rxjs/pipes",
+        "@uiux/fn/common": "@uiux/rxjs/common",
+        "@uiux/fn/object": "@uiux/rxjs/object"
+      }
     }
   }
 }
