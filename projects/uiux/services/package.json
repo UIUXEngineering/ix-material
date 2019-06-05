@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@uiux/services",
-  "version": "8.0.2",
+  "version": "8.1.0",
   "ngPackage": {
     "dest": "../../../dist/@uiux/services",
     "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
