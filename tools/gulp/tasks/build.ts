@@ -78,8 +78,8 @@ task('build.projects', series(
   'build.rxjs',
   'build.cdk',
   'build.d3',
-  'build.mat',
   'build.dal',
-  'build.svc'
+  'build.svc',
+  'build.mat',
 ));
 

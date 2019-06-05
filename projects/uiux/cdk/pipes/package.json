@@ -1,7 +1,7 @@
 {
   "$schema": "../../../../node_modules/ng-packagr/package.schema.json",
   "name": "@uiux/cdk/pipes",
-  "version": "8.0.0",
+  "version": "8.1.1",
   "ngPackage": {
     "dest": "../../../../dist/@uiux/cdk/pipes",
     "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
