@@ -6,9 +6,9 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-export * from './src/dispatch-events';
-export * from './src/event-objects';
-export * from './src/type-in-element';
-export * from './src/wrapped-error-message';
-export * from './src/mock-ng-zone';
-export * from './src/element-focus';
+export * from './dispatch-events';
+export * from './event-objects';
+export * from './type-in-element';
+export * from './wrapped-error-message';
+export * from './mock-ng-zone';
+export * from './element-focus';

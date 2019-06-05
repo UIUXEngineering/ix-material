@@ -6,9 +6,17 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-export * from './src/menu-module';
-export * from './src/menu';
-export * from './src/menu-animations';
-export * from './src/menu-content';
-export {MAT_MENU_SCROLL_STRATEGY} from './src/menu-trigger';
-export * from './src/_model/menu-model.service';
+export {
+  MatMenu,
+  MatMenuDefaultOptions,
+  MAT_MENU_DEFAULT_OPTIONS,
+  _MatMenu,
+  _MatMenuBase,
+} from './menu';
+export {MatMenuItem} from './menu-item';
+export {MatMenuTrigger, MAT_MENU_SCROLL_STRATEGY} from './menu-trigger';
+export {MatMenuPanel, MAT_MENU_PANEL} from './menu-panel';
+export * from './menu-module';
+export * from './menu-animations';
+export * from './menu-content';
+export * from './menu-positions';

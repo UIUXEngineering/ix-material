@@ -23,7 +23,7 @@ rsync "$SOURCE/src/material/core/typography/"*.* "$DESTINATION/core/typography"
 
 # material2/src/lib/menu
 rsync --exclude=index.ts --exclude=public-api.ts --exclude=BUILD.bazel --exclude=tsconfig-build.json "$SOURCE/src/material/menu/"* "$MENU"
-cp "$SOURCE/src/lib/menu/index.ts" "$DESTINATION/menu/index.ts"
-cp "$SOURCE/src/lib/menu/public-api.ts" "$DESTINATION/menu/public_api.ts"
+cp "$SOURCE/src/material/menu/index.ts" "$DESTINATION/menu/index.ts"
+cp "$SOURCE/src/material/menu/public-api.ts" "$DESTINATION/menu/public_api.ts"
 
 

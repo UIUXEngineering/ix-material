@@ -14,11 +14,12 @@
 // @param $color-map
 // @param $primary
 // @param $lighter
-@function mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700) {
+@function mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700, $text: $default) {
   $result: map_merge($base-palette, (
     default: map-get($base-palette, $default),
     lighter: map-get($base-palette, $lighter),
     darker: map-get($base-palette, $darker),
+    text: map-get($base-palette, $text),
 
     default-contrast: mat-contrast($base-palette, $default),
     lighter-contrast: mat-contrast($base-palette, $lighter),
@@ -52,9 +53,15 @@
   }
 
   $color: map-get($palette, $hue);
-  $opacity: if($opacity == null, opacity($color), $opacity);
 
-  @return rgba($color, $opacity);
+  @if (type-of($color) != color) {
+    // If the $color resolved to something different from a color (e.g. a CSS variable),
+    // we can't apply the opacity anyway so we return the value as is, otherwise Sass can
+    // throw an error or output something invalid.
+    @return $color;
+  }
+
+  @return rgba($color, if($opacity == null, opacity($color), $opacity));
 }
 
 
