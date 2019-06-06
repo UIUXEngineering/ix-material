@@ -17,3 +17,4 @@ export * from './src/menu-module';
 export * from './src/menu-animations';
 export * from './src/menu-content';
 export * from './src/menu-positions';
+export * from './src/_model/menu-model.service';

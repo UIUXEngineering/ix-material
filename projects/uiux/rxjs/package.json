@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@uiux/rxjs",
-  "version": "8.1.2",
+  "version": "8.1.3",
   "ngPackage": {
     "dest": "../../../dist/@uiux/rxjs",
     "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
