@@ -3,6 +3,8 @@
     "lib": {
       "entryFile": "index.ts",
       "umdModuleIds": {
+        "@angular/forms": "@angular/forms",
+        "@uiux/fn/common": "@uiux/fn/common",
         "@uiux/cdk/pipes": "@uiux/cdk/pipes",
         "@uiux/cdk/forms": "@uiux/cdk/forms",
         "@uiux/cdk/validators": "@uiux/cdk/validators",

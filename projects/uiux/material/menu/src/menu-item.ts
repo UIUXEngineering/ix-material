@@ -26,28 +26,28 @@ import {
 } from '@angular/material/core';
 import {Subject} from 'rxjs';
 import {DOCUMENT} from '@angular/common';
-import {MAT_MENU_PANEL, MatMenuPanel} from './menu-panel';
+import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
 
-// Boilerplate for applying mixins to MatMenuItem.
+// Boilerplate for applying mixins to IxMenuItem.
 /** @docs-private */
-class MatMenuItemBase {}
-const _MatMenuItemMixinBase: CanDisableRippleCtor & CanDisableCtor & typeof MatMenuItemBase =
-    mixinDisableRipple(mixinDisabled(MatMenuItemBase));
+class IxMenuItemBase {}
+const _IxMenuItemMixinBase: CanDisableRippleCtor & CanDisableCtor & typeof IxMenuItemBase =
+    mixinDisableRipple(mixinDisabled(IxMenuItemBase));
 
 /**
- * This directive is intended to be used inside an mat-menu tag.
+ * This directive is intended to be used inside an ix-menu tag.
  * It exists mostly to set the role attribute.
  */
 @Component({
-  moduleId: module.id,
-  selector: '[mat-menu-item]',
-  exportAs: 'matMenuItem',
+  // moduleId: module.id,
+  selector: '[ix-menu-item]',
+  exportAs: 'ixMenuItem',
   inputs: ['disabled', 'disableRipple'],
   host: {
     '[attr.role]': 'role',
-    'class': 'mat-menu-item',
-    '[class.mat-menu-item-highlighted]': '_highlighted',
-    '[class.mat-menu-item-submenu-trigger]': '_triggersSubmenu',
+    'class': 'ix-menu-item',
+    '[class.ix-menu-item-highlighted]': '_highlighted',
+    '[class.ix-menu-item-submenu-trigger]': '_triggersSubmenu',
     '[attr.tabindex]': '_getTabIndex()',
     '[attr.aria-disabled]': 'disabled.toString()',
     '[attr.disabled]': 'disabled || null',
@@ -56,7 +56,7 @@ const _MatMenuItemMixinBase: CanDisableRippleCtor & CanDisableCtor & typeof MatM
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'menu-item.html',
 })
-export class MatMenuItem extends _MatMenuItemMixinBase
+export class IxMenuItem extends _IxMenuItemMixinBase
     implements FocusableOption, CanDisable, CanDisableRipple, OnDestroy {
 
   /** ARIA role for the menu item. */
@@ -65,7 +65,7 @@ export class MatMenuItem extends _MatMenuItemMixinBase
   private _document: Document;
 
   /** Stream that emits when the menu item is hovered. */
-  readonly _hovered: Subject<MatMenuItem> = new Subject<MatMenuItem>();
+  readonly _hovered: Subject<IxMenuItem> = new Subject<IxMenuItem>();
 
   /** Whether the menu item is highlighted. */
   _highlighted: boolean = false;
@@ -77,7 +77,7 @@ export class MatMenuItem extends _MatMenuItemMixinBase
     private _elementRef: ElementRef<HTMLElement>,
     @Inject(DOCUMENT) document?: any,
     private _focusMonitor?: FocusMonitor,
-    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: MatMenuPanel<MatMenuItem>) {
+    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: IxMenuPanel<IxMenuItem>) {
 
     // @breaking-change 8.0.0 make `_focusMonitor` and `document` required params.
     super();

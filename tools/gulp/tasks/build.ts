@@ -49,13 +49,13 @@ task('build.svc', series(
 
 // MATERIAL
 task(':build.mat', execTask('ng', [ 'build', '@uiux/material',
-  '--ts-config', 'projects/uiux/material/tsconfig.lib.json', '--prod' ], { failOnStderr: true }));
+  '--ts-config', 'projects/uiux/material/tsconfig.lib.json', '--prod' ]));
 
 /** bundle scss */
 task(':bundle.mat.scss', execTask('scss-bundle', [
   '-c',
   'projects/uiux/material/scss-bundle.config.json',
-], { failOnStderr: true }));
+]));
 
 /** pre-build themes */
 task(':build.prebuilt.themes', execTask('bash', [ './scripts/gulp-task-helpers/build-prebuilt-themes-mat.sh' ], { failOnStderr: true }));

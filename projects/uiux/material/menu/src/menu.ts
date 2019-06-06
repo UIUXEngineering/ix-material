@@ -41,16 +41,17 @@ import {
 } from '@angular/core';
 import {merge, Observable, Subject, Subscription} from 'rxjs';
 import {startWith, switchMap, take} from 'rxjs/operators';
-import {matMenuAnimations} from './menu-animations';
-import {MatMenuContent} from './menu-content';
+import {ixMenuAnimations} from './menu-animations';
+import {IxMenuContent} from './menu-content';
 import {MenuPositionX, MenuPositionY} from './menu-positions';
-import {throwMatMenuInvalidPositionX, throwMatMenuInvalidPositionY} from './menu-errors';
-import {MatMenuItem} from './menu-item';
-import {MAT_MENU_PANEL, MatMenuPanel} from './menu-panel';
+import {throwIxMenuInvalidPositionX, throwIxMenuInvalidPositionY} from './menu-errors';
+import {IxMenuItem} from './menu-item';
+import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
 import {AnimationEvent} from '@angular/animations';
+import {IxMenuModel} from './_model/menu-model.service'; // TODO(uiux): model edit
 
-/** Default `mat-menu` options that can be overridden. */
-export interface MatMenuDefaultOptions {
+/** Default `ix-menu` options that can be overridden. */
+export interface IxMenuDefaultOptions {
   /** The x-axis position of the menu. */
   xPosition: MenuPositionX;
 
@@ -67,15 +68,15 @@ export interface MatMenuDefaultOptions {
   hasBackdrop?: boolean;
 }
 
-/** Injection token to be used to override the default options for `mat-menu`. */
+/** Injection token to be used to override the default options for `ix-menu`. */
 export const MAT_MENU_DEFAULT_OPTIONS =
-    new InjectionToken<MatMenuDefaultOptions>('mat-menu-default-options', {
+    new InjectionToken<IxMenuDefaultOptions>('ix-menu-default-options', {
       providedIn: 'root',
       factory: MAT_MENU_DEFAULT_OPTIONS_FACTORY
     });
 
 /** @docs-private */
-export function MAT_MENU_DEFAULT_OPTIONS_FACTORY(): MatMenuDefaultOptions {
+export function MAT_MENU_DEFAULT_OPTIONS_FACTORY(): IxMenuDefaultOptions {
   return {
     overlapTrigger: false,
     xPosition: 'after',
@@ -89,20 +90,25 @@ export function MAT_MENU_DEFAULT_OPTIONS_FACTORY(): MatMenuDefaultOptions {
  */
 const MAT_MENU_BASE_ELEVATION = 4;
 
-/** Base class with all of the `MatMenu` functionality. */
+/** Base class with all of the `IxMenu` functionality. */
 // tslint:disable-next-line:class-name
-export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>, OnInit,
+export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit,
   OnDestroy {
-  private _keyManager: FocusKeyManager<MatMenuItem>;
+  private _keyManager: FocusKeyManager<IxMenuItem>;
   private _xPosition: MenuPositionX = this._defaultOptions.xPosition;
   private _yPosition: MenuPositionY = this._defaultOptions.yPosition;
   private _previousElevation: string;
 
+  // TODO(uiux): Model edits
+  private _ixDisableClose = false;
+  private _ixMenuModelID: string;
+  private _IxMenuModelSubscription = Subscription.EMPTY;
+
   /** Menu items inside the current menu. */
-  private _items: MatMenuItem[] = [];
+  private _items: IxMenuItem[] = [];
 
   /** Emits whenever the amount of menu items changes. */
-  private _itemChanges = new Subject<MatMenuItem[]>();
+  private _itemChanges = new Subject<IxMenuItem[]>();
 
   /** Subscription to tab events on the menu panel */
   private _tabSubscription = Subscription.EMPTY;
@@ -120,7 +126,7 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
   _isAnimating: boolean;
 
   /** Parent menu of the current menu panel. */
-  parentMenu: MatMenuPanel | undefined;
+  parentMenu: IxMenuPanel | undefined;
 
   /** Layout direction of the menu. */
   direction: Direction;
@@ -133,7 +139,7 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
   get xPosition(): MenuPositionX { return this._xPosition; }
   set xPosition(value: MenuPositionX) {
     if (value !== 'before' && value !== 'after') {
-      throwMatMenuInvalidPositionX();
+      throwIxMenuInvalidPositionX();
     }
     this._xPosition = value;
     this.setPositionClasses();
@@ -144,10 +150,16 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
   get yPosition(): MenuPositionY { return this._yPosition; }
   set yPosition(value: MenuPositionY) {
     if (value !== 'above' && value !== 'below') {
-      throwMatMenuInvalidPositionY();
+      throwIxMenuInvalidPositionY();
     }
     this._yPosition = value;
     this.setPositionClasses();
+  }
+
+  // TODO(uiux): model edit
+  @Input()
+  set ixMenuModelID( val: string) {
+    this._ixMenuModelID = val;
   }
 
   /** @docs-private */
@@ -158,13 +170,13 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
    * @deprecated
    * @breaking-change 8.0.0
    */
-  @ContentChildren(MatMenuItem) items: QueryList<MatMenuItem>;
+  @ContentChildren(IxMenuItem) items: QueryList<IxMenuItem>;
 
   /**
    * Menu content that will be rendered lazily.
    * @docs-private
    */
-  @ContentChild(MatMenuContent, {static: false}) lazyContent: MatMenuContent;
+  @ContentChild(IxMenuContent, {static: false}) lazyContent: IxMenuContent;
 
   /** Whether the menu should overlap its trigger. */
   @Input()
@@ -183,7 +195,7 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
   private _hasBackdrop: boolean | undefined = this._defaultOptions.hasBackdrop;
 
   /**
-   * This method takes classes set on the host mat-menu element and applies them on the
+   * This method takes classes set on the host ix-menu element and applies them on the
    * menu template that displays in the overlay container.  Otherwise, it's difficult
    * to style the containing menu from outside the component.
    * @param classes list of class names
@@ -211,7 +223,7 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
   private _previousPanelClass: string;
 
   /**
-   * This method takes classes set on the host mat-menu element and applies them on the
+   * This method takes classes set on the host ix-menu element and applies them on the
    * menu template that displays in the overlay container.  Otherwise, it's difficult
    * to style the containing menu from outside the component.
    * @deprecated Use `panelClass` instead.
@@ -235,24 +247,40 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
   constructor(
     private _elementRef: ElementRef<HTMLElement>,
     private _ngZone: NgZone,
-    @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: MatMenuDefaultOptions) { }
+    private _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
+    @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: IxMenuDefaultOptions) { }
 
   ngOnInit() {
     this.setPositionClasses();
   }
 
   ngAfterContentInit() {
-    this._keyManager = new FocusKeyManager<MatMenuItem>(this._items).withWrap().withTypeAhead();
+    this._keyManager = new FocusKeyManager<IxMenuItem>(this._items).withWrap().withTypeAhead();
     this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.closed.emit('tab'));
+
+    // TODO(uiux): model edit
+    this._tabSubscription = this._keyManager.tabOut.subscribe(() => this.ixTabHandler());
+    if (this._ixMenuModelID) {
+      this._IxMenuModelSubscription = this._IxMenuModel
+        .getModelByID(this._ixMenuModelID)
+        .subscribe((_event: string) => {
+          if (_event === 'close') {
+            this.closed.emit('click');
+          }
+        });
+    }
   }
 
   ngOnDestroy() {
     this._tabSubscription.unsubscribe();
     this.closed.complete();
+
+    // TODO(uiux): model edit
+    this._IxMenuModelSubscription.unsubscribe();
   }
 
   /** Stream that emits whenever the hovered menu item changes. */
-  _hovered(): Observable<MatMenuItem> {
+  _hovered(): Observable<IxMenuItem> {
     return this._itemChanges.pipe(
       startWith(this._items),
       switchMap(items => merge(...items.map(item => item._hovered)))
@@ -291,6 +319,28 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
         }
 
         manager.onKeydown(event);
+    }
+  }
+
+  // TODO(uiux): model edit
+  /**
+   * Prevent closing menu if _ixDisableClose
+   * flag is set
+   */
+  ixCloseHandler() {
+    if (!this._ixDisableClose) {
+      this.closed.emit('click');
+    }
+  }
+
+  // TODO(uiux): model edit
+  /**
+   * Prevent closing menu if _ixDisableClose
+   * flag is set
+   */
+  ixTabHandler() {
+    if (!this._ixDisableClose) {
+      this.closed.emit('tab');
     }
   }
 
@@ -340,12 +390,12 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
    * Registers a menu item with the menu.
    * @docs-private
    */
-  addItem(item: MatMenuItem) {
+  addItem(item: IxMenuItem) {
     // We register the items through this method, rather than picking them up through
     // `ContentChildren`, because we need the items to be picked up by their closest
-    // `mat-menu` ancestor. If we used `@ContentChildren(MatMenuItem, {descendants: true})`,
+    // `ix-menu` ancestor. If we used `@ContentChildren(IxMenuItem, {descendants: true})`,
     // all descendant items will bleed into the top-level menu in the case where the consumer
-    // has `mat-menu` instances nested inside each other.
+    // has `ix-menu` instances nested inside each other.
     if (this._items.indexOf(item) === -1) {
       this._items.push(item);
       this._itemChanges.next(this._items);
@@ -356,7 +406,7 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
    * Removes an item from the menu.
    * @docs-private
    */
-  removeItem(item: MatMenuItem) {
+  removeItem(item: IxMenuItem) {
     const index = this._items.indexOf(item);
 
     if (this._items.indexOf(item) > -1) {
@@ -374,10 +424,10 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
    */
   setPositionClasses(posX: MenuPositionX = this.xPosition, posY: MenuPositionY = this.yPosition) {
     const classes = this._classList;
-    classes['mat-menu-before'] = posX === 'before';
-    classes['mat-menu-after'] = posX === 'after';
-    classes['mat-menu-above'] = posY === 'above';
-    classes['mat-menu-below'] = posY === 'below';
+    classes['ix-menu-before'] = posX === 'before';
+    classes['ix-menu-after'] = posX === 'after';
+    classes['ix-menu-above'] = posY === 'above';
+    classes['ix-menu-below'] = posY === 'below';
   }
 
   /** Starts the enter animation. */
@@ -413,41 +463,42 @@ export class _MatMenuBase implements AfterContentInit, MatMenuPanel<MatMenuItem>
   }
 }
 
-export class MatMenu extends _MatMenuBase {}
+export class IxMenu extends _IxMenuBase {}
 
 // Note on the weird inheritance setup: we need three classes, because the MDC-based menu has to
-// extend `MatMenu`, however keeping a reference to it will cause the inlined template and styles
-// to be retained as well. The MDC menu also has to provide itself as a `MatMenu` in order for
+// extend `IxMenu`, however keeping a reference to it will cause the inlined template and styles
+// to be retained as well. The MDC menu also has to provide itself as a `IxMenu` in order for
 // queries and DI to work correctly, while still not referencing the actual menu class.
 // Class responsibility is split up as follows:
-// * _MatMenuBase - provides all the functionality without any of the Angular metadata.
-// * MatMenu - keeps the same name symbol name as the current menu and
+// * _IxMenuBase - provides all the functionality without any of the Angular metadata.
+// * IxMenu - keeps the same name symbol name as the current menu and
 // is used as a provider for DI and query purposes.
-// * _MatMenu - the actual menu component implementation with the Angular metadata that should
+// * _IxMenu - the actual menu component implementation with the Angular metadata that should
 // be tree shaken away for MDC.
 
 @Component({
-  moduleId: module.id,
-  selector: 'mat-menu',
+  // moduleId: module.id,
+  selector: 'ix-menu',
   templateUrl: 'menu.html',
-  styleUrls: ['menu.css'],
+  styleUrls: ['menu.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  exportAs: 'matMenu',
+  exportAs: 'ixMenu',
   animations: [
-    matMenuAnimations.transformMenu,
-    matMenuAnimations.fadeInItems
+    ixMenuAnimations.transformMenu,
+    ixMenuAnimations.fadeInItems
   ],
   providers: [
-    {provide: MAT_MENU_PANEL, useExisting: MatMenu},
-    {provide: MatMenu, useExisting: _MatMenu}
+    {provide: MAT_MENU_PANEL, useExisting: IxMenu},
+    {provide: IxMenu, useExisting: _IxMenu}
   ]
 })
 // tslint:disable-next-line:class-name
-export class _MatMenu extends MatMenu {
+export class _IxMenu extends IxMenu {
 
   constructor(elementRef: ElementRef<HTMLElement>, ngZone: NgZone,
-      @Inject(MAT_MENU_DEFAULT_OPTIONS) defaultOptions: MatMenuDefaultOptions) {
-    super(elementRef, ngZone, defaultOptions);
+              _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
+      @Inject(MAT_MENU_DEFAULT_OPTIONS) defaultOptions: IxMenuDefaultOptions) {
+    super(elementRef, ngZone, _IxMenuModel, defaultOptions);
   }
 }

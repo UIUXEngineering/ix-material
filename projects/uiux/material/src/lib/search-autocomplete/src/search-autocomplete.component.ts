@@ -42,7 +42,7 @@ export class SpSearchAutoCompleteComponent implements AfterViewInit {
   private _timer: any;
   private _currentSearchValue = '';
   private _optionIsSelecting = false;
-  private _controller: AbstractControl;
+  private _controller: any;
 
   formGroup: FormGroup;
   formGroupService: SpSearchAutoComplateFormGroup;

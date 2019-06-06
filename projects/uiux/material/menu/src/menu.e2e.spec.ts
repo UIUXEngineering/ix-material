@@ -11,14 +11,14 @@ const presenceOf = ExpectedConditions.presenceOf;
 const not = ExpectedConditions.not;
 
 describe('menu', () => {
-  const menuSelector = '.mat-menu-panel';
+  const menuSelector = '.ix-menu-panel';
   const page = {
     menu: () => element(by.css(menuSelector)),
     start: () => element(by.id('start')),
     trigger: () => element(by.id('trigger')),
     triggerTwo: () => element(by.id('trigger-two')),
     backdrop: () => element(by.css('.cdk-overlay-backdrop')),
-    items: (index: number) => element.all(by.css('[mat-menu-item]')).get(index),
+    items: (index: number) => element.all(by.css('[ix-menu-item]')).get(index),
     textArea: () => element(by.id('text')),
     beforeTrigger: () => element(by.id('before-t')),
     aboveTrigger: () => element(by.id('above-t')),
@@ -84,7 +84,7 @@ describe('menu', () => {
 
   it('should mirror classes on host to menu template in overlay', async () => {
     await page.trigger().click();
-    expect(await page.menu().getAttribute('class')).toContain('mat-menu-panel');
+    expect(await page.menu().getAttribute('class')).toContain('ix-menu-panel');
     expect(await page.menu().getAttribute('class')).toContain('custom');
   });
 

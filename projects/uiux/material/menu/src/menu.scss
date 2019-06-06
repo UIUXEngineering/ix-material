@@ -1,21 +1,23 @@
 // TODO(kara): update vars for desktop when MD team responds
-@import '../core/style/button-common';
-@import '../core/style/menu-common';
-@import '../../cdk/a11y/a11y';
+@import '../../src/lib/core/style/button-common';
+@import '../../src/lib/core/style/layout-common';
+@import '../../src/lib/core/style/menu-common';
+@import '../../src/lib/core/style/layout-common';
+@import '../../src/lib/core/style/a11y';
 
-$mat-menu-vertical-padding: 8px !default;
-$mat-menu-border-radius: 4px !default;
-$mat-menu-submenu-indicator-size: 10px !default;
+$ix-menu-vertical-padding: 8px !default;
+$ix-menu-border-radius: 4px !default;
+$ix-menu-submenu-indicator-size: 10px !default;
 
-.mat-menu-panel {
-  @include mat-menu-base();
-  max-height: calc(100vh - #{$mat-menu-item-height});
-  border-radius: $mat-menu-border-radius;
+.ix-menu-panel {
+  @include ix-menu-base();
+  max-height: calc(100vh - #{$ix-menu-item-height});
+  border-radius: $ix-menu-border-radius;
   outline: 0;
 
   // Give the menu a minimum height so that the user can't
   // collapse it to zero when they scroll away.
-  min-height: $mat-menu-item-height + $mat-menu-vertical-padding * 2;
+  min-height: $ix-menu-item-height + $ix-menu-vertical-padding * 2;
 
   // Prevent users from interacting with the panel while it's animating. Note that
   // people won't be able to click through it, because the overlay pane will catch the click.
@@ -34,14 +36,14 @@ $mat-menu-submenu-indicator-size: 10px !default;
 }
 
 // `:not(:empty)` allows for the menu to collapse to 0x0 when it doesn't have content.
-.mat-menu-content:not(:empty) {
-  padding-top: $mat-menu-vertical-padding;
-  padding-bottom: $mat-menu-vertical-padding;
+.ix-menu-content:not(:empty) {
+  padding-top: $ix-menu-vertical-padding;
+  padding-bottom: $ix-menu-vertical-padding;
 }
 
-.mat-menu-item {
+.ix-menu-item {
   @include mat-button-reset();
-  @include mat-menu-item-base();
+  @include ix-menu-item-base();
   position: relative;
 
   @include cdk-high-contrast {
@@ -53,16 +55,16 @@ $mat-menu-submenu-indicator-size: 10px !default;
   }
 }
 
-.mat-menu-item-submenu-trigger {
-  @include mat-menu-item-submenu-trigger($mat-menu-side-padding);
+.ix-menu-item-submenu-trigger {
+  @include ix-menu-item-submenu-trigger($ix-menu-side-padding);
 }
 
-button.mat-menu-item {
+button.ix-menu-item {
   width: 100%;
 }
 
 // Increase specificity because ripple styles are part of the `mat-core` mixin and can
 // potentially overwrite the absolute position of the container.
-.mat-menu-item .mat-menu-ripple {
-  @include mat-menu-item-ripple;
+.ix-menu-item .ix-menu-ripple {
+  @include ix-menu-item-ripple;
 }

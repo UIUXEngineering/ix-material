@@ -18,12 +18,12 @@ import{
 } from '@angular/animations';
 
 /**
- * Animations used by the mat-menu component.
+ * Animations used by the ix-menu component.
  * Animation duration and timing values are based on:
  * https://material.io/guidelines/components/menus.html#menus-usage
  * @docs-private
  */
-export const matMenuAnimations: {
+export const ixMenuAnimations: {
   readonly transformMenu: AnimationTriggerMetadata;
   readonly fadeInItems: AnimationTriggerMetadata;
 } = {
@@ -41,7 +41,7 @@ export const matMenuAnimations: {
       transform: 'scale(0.8)'
     })),
     transition('void => enter', group([
-      query('.mat-menu-content, .mat-mdc-menu-content', animate('100ms linear', style({
+      query('.ix-menu-content, .mat-mdc-menu-content', animate('100ms linear', style({
         opacity: 1
       }))),
       animate('120ms cubic-bezier(0, 0, 0.2, 1)', style({transform: 'scale(1)'})),
@@ -70,11 +70,11 @@ export const matMenuAnimations: {
  * @breaking-change 8.0.0
  * @docs-private
  */
-export const fadeInItems = matMenuAnimations.fadeInItems;
+export const fadeInItems = ixMenuAnimations.fadeInItems;
 
 /**
  * @deprecated
  * @breaking-change 8.0.0
  * @docs-private
  */
-export const transformMenu = matMenuAnimations.transformMenu;
+export const transformMenu = ixMenuAnimations.transformMenu;

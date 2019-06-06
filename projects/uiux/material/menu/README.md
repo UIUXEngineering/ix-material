@@ -21,7 +21,7 @@ Please see the official documentation at https://material.angular.io/components/
 
 8. Change `./index` to `../index`
    ```
-   projects/uiux/material/src/lib/menu/src/menu.spec.ts(30,8)
+   projects/uiux/material/menu/src/menu.spec.ts(30,8)
    ```
    
 9. Change `@angular/cdk/testing` to  `@uiux/fn/testing`
@@ -41,7 +41,7 @@ in the file `menu-directive.ts`
 
     Add `MENU_MODEL_PROVIDER` to providers.
     
-12. In the file `menu-directive.ts`
+12. In the file `menu.ts` and `menu.html`
 
     Compare with either WebStorm or Git history, and re-apply model edits.
     Look for `TODO(uiux)` in the history to find edits.

@@ -36,15 +36,15 @@ import {
 import {normalizePassiveListenerOptions} from '@angular/cdk/platform';
 import {asapScheduler, merge, of as observableOf, Subscription} from 'rxjs';
 import {delay, filter, take, takeUntil} from 'rxjs/operators';
-import {MatMenu} from './menu';
-import {throwMatMenuMissingError} from './menu-errors';
-import {MatMenuItem} from './menu-item';
-import {MatMenuPanel} from './menu-panel';
+import {IxMenu} from './menu';
+import {throwIxMenuMissingError} from './menu-errors';
+import {IxMenuItem} from './menu-item';
+import {IxMenuPanel} from './menu-panel';
 import {MenuPositionX, MenuPositionY} from './menu-positions';
 
 /** Injection token that determines the scroll handling while the menu is open. */
 export const MAT_MENU_SCROLL_STRATEGY =
-    new InjectionToken<() => ScrollStrategy>('mat-menu-scroll-strategy');
+    new InjectionToken<() => ScrollStrategy>('ix-menu-scroll-strategy');
 
 /** @docs-private */
 export function MAT_MENU_SCROLL_STRATEGY_FACTORY(overlay: Overlay): () => ScrollStrategy {
@@ -67,11 +67,11 @@ const passiveEventListenerOptions = normalizePassiveListenerOptions({passive: tr
 // TODO(andrewseguin): Remove the kebab versions in favor of camelCased attribute selectors
 
 /**
- * This directive is intended to be used in conjunction with an mat-menu tag.  It is
+ * This directive is intended to be used in conjunction with an ix-menu tag.  It is
  * responsible for toggling the display of the provided menu instance.
  */
 @Directive({
-  selector: `[mat-menu-trigger-for], [matMenuTriggerFor]`,
+  selector: `[ix-menu-trigger-for], [ixMenuTriggerFor]`,
   host: {
     'aria-haspopup': 'true',
     '[attr.aria-expanded]': 'menuOpen || null',
@@ -79,9 +79,9 @@ const passiveEventListenerOptions = normalizePassiveListenerOptions({passive: tr
     '(keydown)': '_handleKeydown($event)',
     '(click)': '_handleClick($event)',
   },
-  exportAs: 'matMenuTrigger'
+  exportAs: 'ixMenuTrigger'
 })
-export class MatMenuTrigger implements AfterContentInit, OnDestroy {
+export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   private _portal: TemplatePortal;
   private _overlayRef: OverlayRef | null = null;
   private _menuOpen: boolean = false;
@@ -104,16 +104,16 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
    * @deprecated
    * @breaking-change 8.0.0
    */
-  @Input('mat-menu-trigger-for')
-  get _deprecatedMatMenuTriggerFor(): MatMenuPanel { return this.menu; }
-  set _deprecatedMatMenuTriggerFor(v: MatMenuPanel) {
+  @Input('ix-menu-trigger-for')
+  get _deprecatedIxMenuTriggerFor(): IxMenuPanel { return this.menu; }
+  set _deprecatedIxMenuTriggerFor(v: IxMenuPanel) {
     this.menu = v;
   }
 
   /** References the menu instance that the trigger is associated with. */
-  @Input('matMenuTriggerFor')
+  @Input('ixMenuTriggerFor')
   get menu() { return this._menu; }
-  set menu(menu: MatMenuPanel) {
+  set menu(menu: IxMenuPanel) {
     if (menu === this._menu) {
       return;
     }
@@ -132,17 +132,17 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
       });
     }
   }
-  private _menu: MatMenuPanel;
+  private _menu: IxMenuPanel;
 
   /** Data to be passed along to any lazily-rendered content. */
-  @Input('matMenuTriggerData') menuData: any;
+  @Input('ixMenuTriggerData') menuData: any;
 
   /**
    * Whether focus should be restored when the menu is closed.
    * Note that disabling this option can have accessibility implications
    * and it's up to you to manage focus, if you decide to turn it off.
    */
-  @Input('matMenuTriggerRestoreFocus') restoreFocus: boolean = true;
+  @Input('ixMenuTriggerRestoreFocus') restoreFocus: boolean = true;
 
   /** Event emitted when the associated menu is opened. */
   @Output() readonly menuOpened: EventEmitter<void> = new EventEmitter<void>();
@@ -170,8 +170,8 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
               private _element: ElementRef<HTMLElement>,
               private _viewContainerRef: ViewContainerRef,
               @Inject(MAT_MENU_SCROLL_STRATEGY) scrollStrategy: any,
-              @Optional() private _parentMenu: MatMenu,
-              @Optional() @Self() private _menuItemInstance: MatMenuItem,
+              @Optional() private _parentMenu: IxMenu,
+              @Optional() @Self() private _menuItemInstance: IxMenuItem,
               @Optional() private _dir: Directionality,
               // TODO(crisbeto): make the _focusMonitor required when doing breaking changes.
               // @breaking-change 8.0.0
@@ -249,7 +249,7 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
     this._closingActionsSubscription = this._menuClosingActions().subscribe(() => this.closeMenu());
     this._initMenu();
 
-    if (this.menu instanceof MatMenu) {
+    if (this.menu instanceof IxMenu) {
       this.menu._startAnimation();
     }
   }
@@ -282,7 +282,7 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
     this._closingActionsSubscription.unsubscribe();
     this._overlayRef.detach();
 
-    if (menu instanceof MatMenu) {
+    if (menu instanceof IxMenu) {
       menu._resetAnimation();
 
       if (menu.lazyContent) {
@@ -372,12 +372,12 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
   }
 
   /**
-   * This method checks that a valid instance of MatMenu has been passed into
-   * matMenuTriggerFor. If not, an exception is thrown.
+   * This method checks that a valid instance of IxMenu has been passed into
+   * ixMenuTriggerFor. If not, an exception is thrown.
    */
   private _checkMenu() {
     if (!this.menu) {
-      throwMatMenuMissingError();
+      throwIxMenuMissingError();
     }
   }
 
@@ -393,7 +393,7 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
 
       // Consume the `keydownEvents` in order to prevent them from going to another overlay.
       // Ideally we'd also have our keyboard event logic in here, however doing so will
-      // break anybody that may have implemented the `MatMenuPanel` themselves.
+      // break anybody that may have implemented the `IxMenuPanel` themselves.
       this._overlayRef.keydownEvents().subscribe();
     }
 
@@ -409,7 +409,7 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
       positionStrategy: this._overlay.position()
           .flexibleConnectedTo(this._element)
           .withLockedPosition()
-          .withTransformOriginOn('.mat-menu-panel, .mat-mdc-menu-panel'),
+          .withTransformOriginOn('.ix-menu-panel, .mat-mdc-menu-panel'),
       backdropClass: this.menu.backdropClass || 'cdk-overlay-transparent-backdrop',
       scrollStrategy: this._scrollStrategy(),
       direction: this._dir
@@ -551,7 +551,7 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
         // If the same menu is used between multiple triggers, it might still be animating
         // while the new trigger tries to re-open it. Wait for the animation to finish
         // before doing so. Also interrupt if the user moves to another item.
-        if (this.menu instanceof MatMenu && this.menu._isAnimating) {
+        if (this.menu instanceof IxMenu && this.menu._isAnimating) {
           // We need the `delay(0)` here in order to avoid
           // 'changed after checked' errors in some cases. See #12194.
           this.menu._animationDone
@@ -567,7 +567,7 @@ export class MatMenuTrigger implements AfterContentInit, OnDestroy {
   private _getPortal(): TemplatePortal {
     // Note that we can avoid this check by keeping the portal on the menu panel.
     // While it would be cleaner, we'd have to introduce another required method on
-    // `MatMenuPanel`, making it harder to consume.
+    // `IxMenuPanel`, making it harder to consume.
     if (!this._portal || this._portal.templateRef !== this.menu.templateRef) {
       this._portal = new TemplatePortal(this.menu.templateRef, this._viewContainerRef);
     }

@@ -1,15 +1,15 @@
 <ng-template>
   <div
-    class="mat-menu-panel"
+    class="ix-menu-panel"
     [ngClass]="_classList"
     (keydown)="_handleKeydown($event)"
-    (click)="closed.emit('click')"
+    (click)="ixCloseHandler()"
     [@transformMenu]="_panelAnimationState"
     (@transformMenu.start)="_onAnimationStart($event)"
     (@transformMenu.done)="_onAnimationDone($event)"
     tabindex="-1"
     role="menu">
-    <div class="mat-menu-content">
+    <div class="ix-menu-content">
       <ng-content></ng-content>
     </div>
   </div>

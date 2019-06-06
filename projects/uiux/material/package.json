@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@uiux/material",
-  "version": "8.1.1",
+  "version": "8.0.1",
   "ngPackage": {
     "dest": "../../../dist/@uiux/material",
     "whitelistedNonPeerDependencies": [
@@ -18,6 +18,7 @@
     "lib": {
       "entryFile": "src/public_api.ts",
       "umdModuleIds": {
+        "@uiux/fn/common": "@uiux/fn/common",
         "@uiux/cdk/pipes": "@uiux/cdk/pipes",
         "@uiux/cdk/forms": "@uiux/cdk/forms",
         "@uiux/cdk/validators": "@uiux/cdk/validators",
@@ -26,10 +27,10 @@
     }
   },
   "peerDependencies": {
-    "@angular/common": "^8.1.1",
-    "@angular/core": "^8.1.1",
-    "@uiux/fn": "^8.1.1",
-    "@uiux/cdk": "^8.1.1",
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0",
+    "@uiux/fn": "^8.0.0",
+    "@uiux/cdk": "^8.0.0",
     "lodash-es": "4.17.10"
   }
 }
