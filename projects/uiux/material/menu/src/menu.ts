@@ -158,6 +158,12 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
 
   // TODO(uiux): model edit
   @Input()
+  set ixDisableClose( val: boolean) {
+    this._ixDisableClose = val !== undefined ? val : true;
+  }
+
+  // TODO(uiux): model edit
+  @Input()
   set ixMenuModelID( val: string) {
     this._ixMenuModelID = val;
   }
