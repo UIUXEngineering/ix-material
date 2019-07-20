@@ -9,13 +9,9 @@ import { isIterateeCall } from './_isIterateeCall';
  * performs a stable sort, that is, it preserves the original sort order of
  * equal elements. The iteratees are invoked with one argument: (value).
  *
- * @static
- * @memberOf _
- * @since 0.1.0
  * @category Collection
- * @param {Array|Object} collection The collection to iterate over.
- * @param {...(Function|Function[])} [iteratees=[_.identity]]
- *  The iteratees to sort by.
+ * @param collection The collection to iterate over.
+ * @param iteratees
  * @example
  *
  * var users = [

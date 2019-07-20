@@ -4,11 +4,10 @@ import { isArrayLike } from './isArrayLike';
 /**
  * The base implementation of `_.map` without support for iteratee shorthands.
  *
- * @private
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
+ * @param collection The collection to iterate over.
+ * @param iteratee The function invoked per iteration.
  */
-export function baseMap(collection, iteratee) {
+export function baseMap(collection: any, iteratee: Function) {
   let index = -1;
   const result = isArrayLike(collection) ? Array(collection.length) : [];
 

@@ -1,5 +1,5 @@
 {
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/@uiux/d3",
-  "whitelistedNonPeerDependencies": ["immutable", "moment"]
+  "whitelistedNonPeerDependencies": ["immutable", "moment", "d3", "d3-selection"]
 }

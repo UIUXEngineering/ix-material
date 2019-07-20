@@ -104,9 +104,6 @@ export class IxD3Layout {
 
   /**
    * Creates Wrapper and Bounds nodes
-   *
-   * @param wrapperSelector
-   * @returns {null}
    */
   createWrapperAndBounds(wrapperSelector) {
     this.createWrapper(wrapperSelector);

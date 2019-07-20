@@ -3,9 +3,8 @@
  * sort order of `array` and replaces criteria objects with their corresponding
  * values.
  *
- * @private
- * @param {Array} array The array to sort.
- * @param {Function} comparer The function to define sort order.
+ * @param array The array to sort.
+ * @param comparer The function to define sort order.
  */
 export function baseSortBy(array, comparer) {
   let length = array.length;
