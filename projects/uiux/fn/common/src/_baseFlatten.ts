@@ -14,9 +14,9 @@ import { isFlattenable } from './_isFlattenable';
 export function baseFlatten(
   array: any[],
   depth: number,
-  predicate: any,
-  isStrict: boolean,
-  result?: any[]
+  predicate?: any,
+  isStrict?: boolean,
+  result?: any[],
 ): any[] {
   let index = -1;
   const length = array.length;
