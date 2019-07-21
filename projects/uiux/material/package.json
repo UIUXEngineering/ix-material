@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@uiux/material",
-  "version": "8.1.7",
+  "version": "8.1.8",
   "ngPackage": {
     "dest": "../../../dist/@uiux/material",
     "whitelistedNonPeerDependencies": [
@@ -30,7 +30,6 @@
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0",
     "@uiux/fn": "^8.0.0",
-    "@uiux/cdk": "^8.0.0",
-    "lodash-es": "4.17.10"
+    "@uiux/cdk": "^8.0.0"
   }
 }

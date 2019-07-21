@@ -1,17 +1,15 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@uiux/cdk",
-  "version": "8.1.7",
+  "version": "8.1.8",
   "ngPackage": {
     "dest": "../../../dist/@uiux/cdk",
     "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],
     "lib": {
       "entryFile": "src/public_api.ts"
     }
-  },"dependencies": {
-    "immutable": "3.8.2",
-    "lodash-es": "4.17.10",
-    "moment": "2.22.1"
+  },
+  "dependencies": {
   },
   "peerDependencies": {
     "@angular/cdk": "^8.0.0",
