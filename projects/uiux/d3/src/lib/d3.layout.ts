@@ -1,4 +1,4 @@
-import { select } from 'd3-selection';
+import { select, Selection } from 'd3-selection';
 
 export interface IxD3CanvasMargins {
   top: number;
@@ -119,13 +119,13 @@ export class IxD3Layout {
    * Creates Wrapper and Bounds nodes
    */
   createWrapperAndBounds(wrapperSelector) {
-    this.createWrapper(wrapperSelector);
-    this.createBounds();
+    this.selectWrapper(wrapperSelector);
+    this.appendBounds();
 
     return this.wrapper;
   }
 
-  createWrapper(wrapperSelector) {
+  selectWrapper(wrapperSelector: string) {
     this.wrapper = select(wrapperSelector)
       .append('svg')
       .attr('width', this.width)
@@ -134,7 +134,16 @@ export class IxD3Layout {
     return this.wrapper;
   }
 
-  createBounds() {
+  appendWrapper(selection: Selection<any, any, HTMLElement, any>) {
+    this.wrapper = selection
+      .append('svg')
+      .attr('width', this.width)
+      .attr('height', this.height);
+
+    return this.wrapper;
+  }
+
+  appendBounds() {
     this.bounds = this.wrapper.append('g')
       .style('transform', this.translateBounds);
 
