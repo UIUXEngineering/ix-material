@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@uiux/cdk",
-  "version": "8.1.8",
+  "version": "8.1.9",
   "ngPackage": {
     "dest": "../../../dist/@uiux/cdk",
     "whitelistedNonPeerDependencies": ["immutable", "lodash-es", "moment"],

@@ -10,3 +10,4 @@ export * from './src/on-render-complete/ix-on-render-complete.module';
 export * from './src/window-ref/windowRef.service';
 export * from './src/window-ref/window.module';
 export * from './src/window-ref/windowRef.mock';
+export * from './src/resize';
