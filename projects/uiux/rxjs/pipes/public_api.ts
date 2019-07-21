@@ -6,6 +6,7 @@
 export * from './src/clone-pipe';
 export * from './src/has-value-pipe';
 export * from './src/has-value-in-pipe';
+export * from './src/is-defined-pipe';
 export * from './src/is-truthy-pipe';
 export * from './src/is-truthy-in-pipe';
 export * from './src/not-null-or-undefined-pipe';
