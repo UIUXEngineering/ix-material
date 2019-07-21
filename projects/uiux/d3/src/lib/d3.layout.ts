@@ -1,7 +1,20 @@
 import { select } from 'd3-selection';
 
+export interface IxD3CanvasMargins {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
+
+export interface IxD3CanvasDimension {
+  width: number;
+  height: number;
+  margin: IxD3CanvasMargins;
+}
+
 export class IxD3Layout {
-  _dimensions = {
+  _dimensions: IxD3CanvasDimension = {
     width: 0,
     height: 0,
     margin: {
@@ -15,7 +28,7 @@ export class IxD3Layout {
   wrapper = null;
   bounds = null;
 
-  constructor(dim) {
+  constructor(dim: IxD3CanvasDimension) {
     if (dim) {
       this._dimensions = Object.assign(this._dimensions, dim);
     }

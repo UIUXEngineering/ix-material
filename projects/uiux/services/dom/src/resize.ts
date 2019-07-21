@@ -22,6 +22,6 @@ export const defaultResizeProperties: DOMRectReadOnly = {
   },
 };
 
-function getResizeProperties({ x, y, width, height, top, right, bottom, left }: DOMRectReadOnly): DomRectPosition {
+export function getResizeProperties({ x, y, width, height, top, right, bottom, left }: DOMRectReadOnly): DomRectPosition {
   return { x, y, width, height, top, right, bottom, left };
 }
