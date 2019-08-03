@@ -1,3 +1,4 @@
+import { hasValue, ternary } from '@uiux/fn/common';
 import { select, Selection } from 'd3-selection';
 
 export interface IxD3CanvasMargins {
@@ -30,7 +31,12 @@ export class IxD3Layout {
 
   constructor(dim: IxD3CanvasDimension) {
     if (dim) {
-      this._dimensions = Object.assign(this._dimensions, dim);
+      this._dimensions.width = ternary(dim.width, 0);
+      this._dimensions.height = ternary(dim.height, 0);
+      this._dimensions.margin.top = ternary(dim.margin.top, 0);
+      this._dimensions.margin.right = ternary(dim.margin.right, 0);
+      this._dimensions.margin.bottom = ternary(dim.margin.bottom, 0);
+      this._dimensions.margin.left = ternary(dim.margin.left, 0);
     }
   }
 
