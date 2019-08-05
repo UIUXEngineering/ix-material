@@ -4,3 +4,4 @@
  */
 
 export * from './src/ix-firebase.module';
+export * from './src/firestore/get-docs';
