@@ -156,6 +156,7 @@ export * from './src/_Uint8Array';
 export * from './src/_unicodeToArray';
 export * from './src/_unicodeWords';
 export * from './src/_WeakMap';
+export * from './src/atLeast';
 export * from './src/clone';
 export * from './src/constant';
 export * from './src/deburr';
