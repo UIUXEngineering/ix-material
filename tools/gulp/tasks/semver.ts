@@ -10,8 +10,10 @@ import {
 } from '../util/inc_semver';
 import { argv  } from 'yargs';
 
-const merge = require('merge-stream');
-const bump = require('gulp-bump');
+// const merge = require('merge-stream');
+import * as merge from 'merge-stream';
+import * as gBump from 'gulp-bump';
+// const gBump = require('gulp-bump');
 const LOG_COLOR = 'green';
 
 /**
@@ -22,7 +24,7 @@ function updateCDK(version: string): any {
 
   return src('./libs/cdk/package.json')
     .pipe(logPipe('cdk', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/cdk/'));
 }
 
@@ -33,7 +35,7 @@ function updateCDK(version: string): any {
 function updated3(version: string): any {
   return src('./libs/d3/package.json')
     .pipe(logPipe('d3', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/d3/'));
 }
 
@@ -45,7 +47,7 @@ function updateDAL(version: string): any {
 
   return src('./libs/dal/package.json')
     .pipe(logPipe('dal', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/dal/'));
 }
 
@@ -57,7 +59,7 @@ function updateFirebase(version: string): any {
 
   return src('./libs/firebase/package.json')
     .pipe(logPipe('dal', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/firebase/'));
 }
 
@@ -69,7 +71,7 @@ function updateFN(version: string): any {
 
   return src('./libs/fn/package.json')
     .pipe(logPipe('fn', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/fn/'));
 }
 
@@ -81,7 +83,7 @@ function updateIcons(version: string): any {
 
   return src('libs/icons/package.json')
     .pipe(logPipe('icons', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/icons/'));
 }
 
@@ -93,7 +95,7 @@ function updateMaterial(version: string): any {
 
   return src('./libs/material/package.json')
     .pipe(logPipe('material', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/material/'));
 }
 
@@ -105,7 +107,7 @@ function updaterxjs(version: string): any {
 
   return src('./libs/rxjs/package.json')
     .pipe(logPipe('rxjs', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/rxjs/'));
 }
 
@@ -117,7 +119,7 @@ function updatesvc(version: string): any {
 
   return src('./libs/services/package.json')
     .pipe(logPipe('services', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./libs/services/'));
 }
 
@@ -129,7 +131,7 @@ function updateRoot(version: string): any {
 
   return src('./package.json')
     .pipe(logPipe('package.json', LOG_COLOR))
-    .pipe(bump({version: version}))
+    .pipe(gBump({version: version}))
     .pipe(dest('./'));
 }
 
@@ -152,6 +154,10 @@ task('bump', () => {
   const newVersion: string = <string>argv['ver'];
   return updatePackages(newVersion);
 });
+
+function bump() {
+
+}
 
 task('bump.major', () => {
   const newVersion = incSemverMajor();
