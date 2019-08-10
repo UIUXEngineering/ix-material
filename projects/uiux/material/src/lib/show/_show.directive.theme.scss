@@ -1,5 +1,0 @@
-@import '../core/mixins/show-hide';
-
-@mixin ix-show-directive-theme($theme) {
-    @include animate-show();
-}

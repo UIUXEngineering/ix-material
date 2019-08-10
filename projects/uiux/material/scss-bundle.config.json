@@ -1,7 +1,0 @@
-{
-  "entry": "./projects/uiux/material/_theming.scss",
-  "dest": "dist/@uiux/material/theming.scss",
-  "ignoredImports": [
-    "~@angular.*"
-  ]
-}

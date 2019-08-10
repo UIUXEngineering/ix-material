@@ -1,5 +1,0 @@
-{
-  "port": 3000,
-  "files": ["./coverage/cdk/**/*.{html,htm,css,js}"],
-  "server": { "baseDir": "./coverage/cdk" }
-}
