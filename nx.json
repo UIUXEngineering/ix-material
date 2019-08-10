@@ -1,0 +1,55 @@
+{
+  "npmScope": "@uiux",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "uiux-e2e": {
+      "tags": []
+    },
+    "uiux": {
+      "tags": ["ix"],
+      "implicitDependencies": ["firebase","services","rxjs","d3","material", "cdk", "fn", "icons"]
+    },
+    "fn": {
+      "tags": ["fn"],
+      "implicitDependencies": []
+    },
+    "cdk": {
+      "tags": ["cdk"],
+      "implicitDependencies": ["fn"]
+    },
+    "d3": {
+      "tags": ["d3"],
+      "implicitDependencies": ["services","rxjs","cdk", "fn", "icons"]
+    },
+    "dal": {
+      "tags": ["dal"],
+      "implicitDependencies": ["fn", "cdk"]
+    },
+    "icons": {
+      "tags": ["icons"],
+      "implicitDependencies": []
+    },
+    "material": {
+      "tags": ["material"],
+      "implicitDependencies": ["services","rxjs","d3", "cdk", "fn", "icons"]
+    },
+    "rxjs": {
+      "tags": ["rxjs"],
+      "implicitDependencies": ["fn"]
+    },
+    "services": {
+      "tags": ["services"],
+      "implicitDependencies": ["fn", "rxjs", "cdk"]
+    },
+    "firebase": {
+      "tags": ["firebase"],
+      "implicitDependencies": ["fn", "rxjs", "cdk"]
+    }
+  }
+}

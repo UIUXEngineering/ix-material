@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+//@import '~@angular/material/theming';
+
+// because angular theme file is included here, to not need to included in imported files
+@import 'src/lib/core/theming/all-theme';
+@import 'src/lib/core/theming/functions';
+
+// theme -mixins
+

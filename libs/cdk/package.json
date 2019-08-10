@@ -1,0 +1,11 @@
+{
+  "name": "@uiux/cdk",
+  "version": "8.2.0-beta.6",
+  "peerDependencies": {
+    "@angular/common": "^8.1.1",
+    "@angular/core": "^8.1.1",
+    "@angular/forms": "^8.1.1",
+    "@uiux/fn": "^8.1.15",
+    "rxjs": "^6.5.2"
+  }
+}

@@ -1,0 +1,17 @@
+// need to use relative path and not "~" so script can compile
+@import '../../../../../../../../node_modules/@angular/material/theming';
+@import '../all-theme';
+
+@include mat-core();
+@include ix-core();
+// Include non-theme styles for core.
+
+// Define a theme.
+$primary: mat-palette($mat-deep-purple);
+$accent: mat-palette($mat-amber, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+// Include all theme styles for the components.
+@include ix-material-theme($theme);

@@ -1,0 +1,50 @@
+@import '../core/style/elevation';
+@import '../core/theming/palette';
+@import '../core/theming/theming';
+@import '../core/typography/typography-utils';
+
+
+@mixin ix-menu-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .ix-menu-panel {
+    @include _mat-theme-overridable-elevation(4, $theme);
+    background: mat-color($background, 'card');
+  }
+
+  .ix-menu-item {
+    background: transparent;
+    color: mat-color($foreground, 'text');
+
+    &[disabled] {
+      &, &::after {
+        color: mat-color($foreground, 'disabled');
+      }
+    }
+  }
+
+  .ix-menu-item .mat-icon-no-color,
+  .ix-menu-item-submenu-trigger::after {
+    color: mat-color($foreground, 'icon');
+  }
+
+  .ix-menu-item:hover,
+  .ix-menu-item.cdk-program-focused,
+  .ix-menu-item.cdk-keyboard-focused,
+  .ix-menu-item-highlighted {
+    &:not([disabled]) {
+      background: mat-color($background, 'hover');
+    }
+  }
+}
+
+@mixin ix-menu-typography($config) {
+  .ix-menu-item {
+    font: {
+      family: mat-font-family($config, body-1);
+      size: mat-font-size($config, body-1);
+      weight: mat-font-weight($config, body-1);
+    }
+  }
+}
