@@ -10,10 +10,8 @@ import {
 } from '../util/inc_semver';
 import { argv  } from 'yargs';
 
-// const merge = require('merge-stream');
-import * as merge from 'merge-stream';
-import * as gBump from 'gulp-bump';
-// const gBump = require('gulp-bump');
+const merge = require('merge-stream');
+const gBump = require('gulp-bump');
 const LOG_COLOR = 'green';
 
 /**
