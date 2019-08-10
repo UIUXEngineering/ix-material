@@ -13,7 +13,16 @@
     },
     "uiux": {
       "tags": ["ix"],
-      "implicitDependencies": ["firebase","services","rxjs","d3","material", "cdk", "fn", "icons"]
+      "implicitDependencies": [
+        "firebase",
+        "services",
+        "rxjs",
+        "d3",
+        "material",
+        "cdk",
+        "fn",
+        "icons"
+      ]
     },
     "fn": {
       "tags": ["fn"],
@@ -25,7 +34,7 @@
     },
     "d3": {
       "tags": ["d3"],
-      "implicitDependencies": ["services","rxjs","cdk", "fn", "icons"]
+      "implicitDependencies": ["services", "rxjs", "cdk", "fn", "icons"]
     },
     "dal": {
       "tags": ["dal"],
@@ -37,7 +46,7 @@
     },
     "material": {
       "tags": ["material"],
-      "implicitDependencies": ["services","rxjs","d3", "cdk", "fn", "icons"]
+      "implicitDependencies": ["services", "rxjs", "d3", "cdk", "fn", "icons"]
     },
     "rxjs": {
       "tags": ["rxjs"],
@@ -50,6 +59,9 @@
     "firebase": {
       "tags": ["firebase"],
       "implicitDependencies": ["fn", "rxjs", "cdk"]
+    },
+    "device": {
+      "tags": ["device"]
     }
   }
 }

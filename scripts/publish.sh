@@ -16,6 +16,10 @@ cd "$ROOT_DIR/dist/libs/dal"
 echo $PWD
 npm publish --access public
 
+cd "$ROOT_DIR/dist/libs/device"
+echo $PWD
+npm publish --access public
+
 cd "$ROOT_DIR/dist/libs/firebase"
 echo $PWD
 npm publish --access public

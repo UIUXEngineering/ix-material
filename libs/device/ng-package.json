@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/libs/device",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "@uiux/fn": "uiux-fn",
+      "@uiux/rxjs": "uiux-rxjs"
+    }
+  }
+}

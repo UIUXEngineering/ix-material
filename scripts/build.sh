@@ -3,6 +3,7 @@ rm -rf dist/libs
 ng build fn
 ng build cdk
 ng build rxjs
+ng build device
 ng build firebase
 ng build services
 ng build dal
