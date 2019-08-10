@@ -87,6 +87,7 @@
     "jest-preset-angular": "7.0.0",
     "ng-packagr": "^5.1.0",
     "prettier": "1.16.4",
+    "resolve-bin": "^0.4.0",
     "scss-bundle": "^2.5.1",
     "through2": "^3.0.1",
     "ts-jest": "24.0.0",

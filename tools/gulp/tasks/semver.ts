@@ -1,4 +1,5 @@
-import { task, src, dest } from 'gulp';
+import { task, src, dest, series } from 'gulp';
+import { execTask } from '../util';
 import { copyAppPkg } from '../util/copy-app-pkg';
 import { logPipe } from '../util/gulpLogPipe';
 import {
@@ -13,6 +14,30 @@ import { argv  } from 'yargs';
 const merge = require('merge-stream');
 const gBump = require('gulp-bump');
 const LOG_COLOR = 'green';
+
+function commitVersion(version: string) {
+    return execTask('git', [ 'commit', '-m', `"BUMP VERSION ${version}"` ]);
+}
+
+function pushCommit() {
+  return execTask('git', [ 'push']);
+}
+
+function tagVersion(version: string) {
+  return execTask('git', [ 'tag', `v${version}`]);
+}
+
+function pushTag(version: string) {
+  return execTask('git', [ 'push', 'origin', `v${version}`]);
+}
+
+function buildProjects() {
+  return execTask('bash', [ 'scripts/build.sh']);
+}
+
+function publish() {
+  return execTask('bash', [ 'scripts/publish.sh']);
+}
 
 /**
  * cdk
@@ -154,13 +179,16 @@ task('bump', () => {
 });
 
 function bump() {
-
+  const newVersion: string = <string>argv['ver'];
+  return updatePackages(newVersion);
 }
 
 task('bump.major', () => {
   const newVersion = incSemverMajor();
   return updatePackages(newVersion);
 });
+
+
 
 task('bump.minor', () => {
   const newVersion = incSemverMinor();
@@ -182,9 +210,22 @@ task('bump.alpa', () => {
   return updatePackages(newVersion);
 });
 
-task('bump.beta', () => {
+task('_bump.beta', () => {
   const newVersion = incSemverBeta();
   return updatePackages(newVersion);
+});
+
+task('bump.beta', () => {
+  const newVersion = incSemverBeta();
+  return series(
+    updatePackages(newVersion),
+    commitVersion(newVersion),
+    pushCommit(),
+    tagVersion(newVersion),
+    pushTag(newVersion),
+    buildProjects(),
+    publish(),
+  )
 });
 
 task('bump.build', () => {
