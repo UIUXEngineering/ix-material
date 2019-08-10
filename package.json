@@ -66,6 +66,7 @@
     "@angular/cli": "8.1.1",
     "@angular/compiler-cli": "^8.0.0",
     "@angular/language-service": "^8.0.0",
+    "@compodoc/compodoc": "^1.1.10",
     "@nrwl/cypress": "8.4.4",
     "@nrwl/jest": "8.4.4",
     "@nrwl/workspace": "8.4.4",
