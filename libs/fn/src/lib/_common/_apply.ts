@@ -1,7 +1,7 @@
 /**
  * A faster alternative to `Function#apply`, this function invokes `func`
  * with the `this` binding of `thisArg` and the arguments of `args`.
- *
+ * @ignore
  * @param func The function to invoke.
  * @param thisArg The `this` binding of `func`.
  * @param args The arguments to invoke `func` with.

@@ -90,6 +90,10 @@ export function searchValuesByMatch(
   return result;
 }
 
+/**
+ * @ignore
+ * @private
+ */
 function _resultObject(): IFindPropsWithValueResult {
   return {
     search: null,
@@ -98,6 +102,13 @@ function _resultObject(): IFindPropsWithValueResult {
   };
 }
 
+/**
+ * @ignore
+ * @param data
+ * @param _searchMap
+ * @param _path
+ * @private
+ */
 function _buildResult(data: any, _searchMap: any, _path: string): IFindPropsWithValueResult {
   const _result: IFindPropsWithValueResult = _resultObject();
 

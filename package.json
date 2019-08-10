@@ -36,7 +36,8 @@
     "bump.beta": "gulp bump.beta",
     "bump.build": "gulp bump.build",
     "bump.rc": "gulp bump.rc",
-    "publish": "bash scripts/publish.sh"
+    "publish": "bash scripts/publish.sh",
+    "docs": "bash scripts/docs.sh"
   },
   "private": true,
   "dependencies": {

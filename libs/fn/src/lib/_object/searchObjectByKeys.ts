@@ -73,6 +73,9 @@ export function searchObjectByKeys(node: any, _searchParam: any, path: string = 
   }
 }
 
+/**
+ * @ignore
+ */
 function _findPropertiesResultObject(): ISearchObjectByKeysResult {
   return {
     key: '',
@@ -81,6 +84,11 @@ function _findPropertiesResultObject(): ISearchObjectByKeysResult {
   };
 }
 
+/**
+ * @ignore
+ * @param collection
+ * @param search
+ */
 function _searchContains(collection, search) {
   return collection.indexOf(search) > -1;
 }
