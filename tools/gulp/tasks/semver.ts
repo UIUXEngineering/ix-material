@@ -69,7 +69,7 @@ function updateDAL( version: string ): any {
 function updateFirebase( version: string ): any {
 
   return src('./libs/firebase/package.json')
-    .pipe(logPipe('dal', LOG_COLOR))
+    .pipe(logPipe('firebase', LOG_COLOR))
     .pipe(gBump({ version: version }))
     .pipe(dest('./libs/firebase/'));
 }
