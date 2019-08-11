@@ -1,5 +1,3 @@
-export * from './lib/fn.module';
-
 export * from './lib/_array/getRandomFromArray';
 export * from './lib/_array/getRandomRangeFromArray';
 
