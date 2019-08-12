@@ -91,9 +91,9 @@ export class IxD3Layout {
   }
 
   get boundedWidth() {
-    return this._dimensions.width
+    return this.atLeast(this._dimensions.width
       - this._dimensions.margin.left
-      - this._dimensions.margin.right;
+      - this._dimensions.margin.right);
   }
 
   get centerBoundedWidth() {
@@ -101,14 +101,14 @@ export class IxD3Layout {
   }
 
   get boundedHeight() {
-    return this._dimensions.height
+    return this.atLeast(this._dimensions.height
       - this._dimensions.margin.top
-      - this._dimensions.margin.bottom;
+      - this._dimensions.margin.bottom);
   }
 
   set boundedHeight(boundedHeight) {
     this._dimensions.height =
-      boundedHeight + this._dimensions.margin.top + this._dimensions.margin.bottom;
+      this.atLeast(boundedHeight + this._dimensions.margin.top + this._dimensions.margin.bottom);
   }
 
   get centerBoundedHeight() {
