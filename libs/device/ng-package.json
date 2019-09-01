@@ -4,8 +4,11 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
-      "@uiux/fn": "uiux-fn",
-      "@uiux/rxjs": "uiux-rxjs"
+      "@uiux/fn": "uiuxFn",
+      "@uiux/rxjs": "uiuxRxjs",
+      "@ngrx/store": "store",
+      "@ngrx/effects": "effect",
+      "@nrwl/angular": "nrwlAngular"
     }
   }
 }

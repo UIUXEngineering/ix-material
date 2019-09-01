@@ -36,6 +36,10 @@ cd "$ROOT_DIR/dist/libs/material"
 echo $PWD
 npm publish --access public
 
+cd "$ROOT_DIR/dist/libs/ngrx"
+echo $PWD
+npm publish --access public
+
 cd "$ROOT_DIR/dist/libs/rxjs"
 echo $PWD
 npm publish --access public

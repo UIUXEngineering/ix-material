@@ -25,7 +25,8 @@
       "@uiux/rxjs": ["libs/rxjs/src/index.ts"],
       "@uiux/services": ["libs/services/src/index.ts"],
       "@uiux/firebase": ["libs/firebase/src/index.ts"],
-      "@@uiux/device": ["libs/device/src/index.ts"]
+      "@@uiux/device": ["libs/device/src/index.ts"],
+      "@@uiux/ngrx": ["libs/ngrx/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,5 @@
 {
-  "name": "@@uiux/device",
+  "name": "@@uiux/ngrx",
   "version": "8.2.0-beta.13",
   "peerDependencies": {
     "@angular/common": "^8.1.1",

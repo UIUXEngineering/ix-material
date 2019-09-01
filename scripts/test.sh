@@ -8,4 +8,5 @@ ng test services
 ng test dal
 ng test d3
 ng test material
+ng test ngrx
 

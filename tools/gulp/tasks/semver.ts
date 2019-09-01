@@ -111,6 +111,18 @@ function updateMaterial( version: string ): any {
 }
 
 /**
+ * ngrx
+ * @param version
+ */
+function updatNgrx( version: string ): any {
+
+  return src('./libs/ngrx/package.json')
+    .pipe(logPipe('ngrx', LOG_COLOR))
+    .pipe(gBump({ version: version }))
+    .pipe(dest('./libs/ngrx/'));
+}
+
+/**
  * rxjs
  * @param version
  */
@@ -155,6 +167,7 @@ function updatePackages( version: string ): any {
     updateFN(version),
     updateIcons(version),
     updateMaterial(version),
+    updatNgrx(version),
     updaterxjs(version),
     updatesvc(version),
     updateRoot(version),

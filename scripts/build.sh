@@ -9,6 +9,7 @@ ng build services
 ng build dal
 ng build d3
 ng build material
+ng build ngrx
 
 bash ./scripts/build-prebuilt-themes-mat.sh
 bash ./scripts/build-app-themes.sh
