@@ -1,6 +1,14 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/libs/ngrx",
+  "whitelistedNonPeerDependencies": [
+    "@nrwl/workspace",
+    "@nrwl/cypress",
+    "@nrwl/jest",
+    "@angular-devkit/schematics",
+    "@schematics/angular",
+    "jasmine-marbles"
+  ],
   "lib": {
     "entryFile": "src/index.ts"
   }

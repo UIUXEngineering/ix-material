@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Add @uiux/ngrx to the project.",
+      "factory": "./ng-add/index#ngAdd"
+    },
+    "ngrx-entity": {
+      "description": "Generate a NgRX Entity.",
+      "factory": "./ngrx-entity/index",
+      "schema": "./ngrx-entity/schema.json"
+    }
+  }
+}

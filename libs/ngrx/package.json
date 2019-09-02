@@ -1,8 +1,23 @@
 {
-  "name": "@@uiux/ngrx",
+  "name": "@uiux/ngrx",
   "version": "8.2.0-beta.13",
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "rsync -avm --include='schematics/*/*.json' -f 'hide,! */' . ../../dist/libs/ngrx",
+    "copy:creators": "cp -r schematics/ngrx-entity/creator-files ../../dist/libs/ngrx/schematics/ngrx-entity/creator-files",
+    "copy:files": "cp -r schematics/ngrx-entity/files ../../dist/libs/ngrx/schematics/ngrx-entity/files",
+    "copy:collection": "cp schematics/collection.json ../../dist/libs/ngrx/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:creators && npm run copy:files && npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
-    "@angular/common": "^8.1.1",
-    "@angular/core": "^8.1.1"
+    "@nrwl/workspace": "*"
+  },
+  "dependencies": {
+    "@nrwl/cypress": "*",
+    "@nrwl/jest": "*",
+    "@angular-devkit/schematics": "8.1.1",
+    "@schematics/angular": "8.1.1",
+    "jasmine-marbles": "~0.6.0"
   }
 }
