@@ -2,6 +2,6 @@ import { dest, src } from 'gulp';
 
 export function copyAppPkg(): any {
   return src('./package.json')
-    .pipe(dest('./uiux/src/assets/'));
+    .pipe(dest('./apps/uiux/src/assets/'));
 }
 
