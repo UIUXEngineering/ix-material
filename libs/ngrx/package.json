@@ -7,7 +7,7 @@
     "copy:creators": "cp -r schematics/ngrx-entity/creator-files ../../dist/libs/ngrx/schematics/ngrx-entity/creator-files",
     "copy:files": "cp -r schematics/ngrx-entity/files ../../dist/libs/ngrx/schematics/ngrx-entity/files",
     "copy:collection": "cp schematics/collection.json ../../dist/libs/ngrx/schematics/collection.json",
-    "postbuild": "npm run copy:schemas && npm run copy:creators && npm run copy:files && npm run copy:collection"
+    "postbuild": "npm run copy:schemas && npm run copy:creators && npm run copy:collection"
   },
   "schematics": "./schematics/collection.json",
   "peerDependencies": {

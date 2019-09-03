@@ -91,7 +91,8 @@ function generateNgrxFilesFromTemplates(options: Schema) {
 
 
   const templateSource = apply(
-    url(options.syntax === 'creators' ? './creator-files' : './files'),
+    // url(options.syntax === 'creators' ? './creator-files' : './files'),
+    url('./creator-files'),
     [
       // @ts-ignore
       !options.facade ? filter(excludeFacade) : noop(),

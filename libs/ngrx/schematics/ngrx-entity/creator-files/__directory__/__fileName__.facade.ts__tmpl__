@@ -1,21 +1,82 @@
 import { Injectable } from '@angular/core';
-
+import { UpdateStr } from '@ngrx/entity/src/models';
 import { select, Store } from '@ngrx/store';
-
+import * as <%= className %>Actions from './<%= fileName %>.actions';
+import { <%= className %> } from './<%= fileName %>.models';
 import * as from<%= className %> from './<%= fileName %>.reducer';
 import * as <%= className %>Selectors from './<%= fileName %>.selectors';
-import * as <%= className %>Actions from './<%= fileName %>.actions';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class <%= className %>Facade {
 
-  loaded$ = this.store.pipe(select(<%= className %>Selectors.get<%= className %>Loaded));
-  all<%= className %>$ = this.store.pipe(select(<%= className %>Selectors.getAll<%= className %>));
-  selected<%= className %>$ = this.store.pipe(select(<%= className %>Selectors.getSelected));
+  all<%= className %>$ = this.store.pipe(select(<%= className %>Selectors.selectAll<%= className %>s));
 
-  constructor(private store: Store<from<%= className %>.<%= className %>PartialState>) { }
+  constructor( private store: Store<from<%= className %>.<%= className %>PartialState> ) {
+  }
 
-  loadAll() {
-    this.store.dispatch(<%= className %>Actions.load<%= className %>());
+  add<%= className %>( <%= propertyName %>: <%= className %> ): void {
+    this.store.dispatch(<%= className %>Actions.add<%= className %>( { <%= propertyName %> }));
+  }
+
+  upsert<%= className %>( <%= propertyName %>: <%= className %>): void {
+    this.store.dispatch(<%= className %>Actions.upsert<%= className %>( { <%= propertyName %> }));
+  }
+
+  add<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
+    this.store.dispatch(<%= className %>Actions.add<%= className %>s( { <%= propertyName %>s }));
+  }
+
+  upsert<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
+    this.store.dispatch(<%= className %>Actions.upsert<%= className %>s( { <%= propertyName %>s }));
+  }
+
+  update<%= className %>( <%= propertyName %>: <%= className %> ): void {
+    this.store.dispatch(<%= className %>Actions.update<%= className %>( {
+
+      // Change to UpdateNum if needed
+      <%= propertyName %>: <UpdateStr<<%= className %>>>{
+        id: <%= propertyName %>.id,
+        changes: {...<%= propertyName %>},
+      }
+    }));
+  }
+
+  update<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
+
+    // Change to UpdateNum if needed
+    const <%= propertyName %>Items: UpdateStr<<%= className %>>[] = <%= propertyName %>s
+      .reduce((acc: UpdateStr<<%= className %>>[], <%= propertyName %>: <%= className %> ) => {
+        acc.push({
+          id: <%= propertyName %>.id,
+          changes: { ...<%= propertyName %> },
+        });
+
+        return acc;
+      }, []);
+
+    this.store.dispatch(<%= className %>Actions.update<%= className %>s( {
+      <%= propertyName %>s: <%= propertyName %>Items,
+    }));
+  }
+
+  delete<%= className %>( <%= propertyName %>: <%= className %> ): void {
+    this.store.dispatch(<%= className %>Actions.delete<%= className %>( {
+      id: <%= propertyName %>.id,
+    }));
+  }
+
+  delete<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
+
+    const ids: string[] = <%= propertyName %>s.map((<%= propertyName %>: <%= className %>) => <%= propertyName %>.id );
+
+    this.store.dispatch(<%= className %>Actions.delete<%= className %>s( {
+      ids,
+    }));
+  }
+
+  clear<%= className %>s(): void {
+    this.store.dispatch(<%= className %>Actions.clear<%= className %>s());
   }
 }

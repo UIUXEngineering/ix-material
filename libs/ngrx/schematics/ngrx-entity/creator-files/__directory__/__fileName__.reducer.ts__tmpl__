@@ -1,41 +1,68 @@
-import { createReducer, on, Action } from '@ngrx/store';
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as <%= className %>Actions from './<%= fileName %>.actions';
-import { <%= className %>Entity } from './<%= fileName %>.models';
+import { <%= className %> } from './<%= fileName %>.models';
 
-export const <%= className.toUpperCase() %>_FEATURE_KEY = '<%= propertyName %>';
+export const <%= className.toUpperCase() %>_FEATURE_KEY = '<%= fileName %>';
 
-export interface <%= className %>State extends EntityState<<%= className %>Entity> {
-  selectedId ?: string | number;          // which <%= className %> record has been selected
-  loaded      : boolean;                  // has the <%= className %> list been loaded
-  error      ?: string | null;            // last none error (if any)
+export interface <%= className %>State extends EntityState<<%= className %>> {
+  selectedId?: string | number; // which <%= className %> record has been selected
+  loaded: boolean; // has the <%= className %> list been loaded
+  error?: string | null; // last none error (if any)
 }
 
 export interface <%= className %>PartialState {
-  readonly [<%= className.toUpperCase() %>_FEATURE_KEY]: <%= className %>State;
+  readonly [ <%= className.toUpperCase() %>_FEATURE_KEY ]: <%= className %>State;
 }
 
-export const <%= propertyName %>Adapter: EntityAdapter<<%= className %>Entity> = createEntityAdapter<<%= className %>Entity>();
+export const <%= propertyName %>Adapter: EntityAdapter<<%= className %>> = createEntityAdapter<<%= className %>>();
 
-export const initialState: <%= className %>State = <%= propertyName %>Adapter.getInitialState({
+export const initial<%= className %>State: <%= className %>State = <%= propertyName %>Adapter.getInitialState({
   // set initial required properties
-  loaded : false
+  loaded: false
 });
 
 const <%= propertyName %>Reducer = createReducer(
-  initialState,
-  on(<%= className %>Actions.load<%= className %>,
-    state => ({ ...state, loaded: false, error: null })
+  initial<%= className %>State,
+  on(<%= className %>Actions.add<%= className %>,
+    ( state, action ) => <%= propertyName %>Adapter.addOne(action.<%= propertyName %>, state)
   ),
-  on(<%= className %>Actions.load<%= className %>Success,
-    (state, { <%= propertyName %> }) => <%= propertyName %>Adapter.addAll(<%= propertyName %>, { ...state, loaded: true })
+  on(<%= className %>Actions.upsert<%= className %>,
+    ( state, action ) => <%= propertyName %>Adapter.upsertOne(action.<%= propertyName %>, state)
   ),
-  on(<%= className %>Actions.load<%= className %>Failure,
-    (state, { error }) => ({ ...state, error })
+  on(<%= className %>Actions.add<%= className %>s,
+    ( state, action ) => <%= propertyName %>Adapter.addMany(action.<%= propertyName %>s, state)
   ),
+  on(<%= className %>Actions.upsert<%= className %>s,
+    ( state, action ) => <%= propertyName %>Adapter.upsertMany(action.<%= propertyName %>s, state)
+  ),
+  on(<%= className %>Actions.update<%= className %>,
+    ( state, action ) => <%= propertyName %>Adapter.updateOne(action.<%= propertyName %>, state)
+  ),
+  on(<%= className %>Actions.update<%= className %>s,
+    ( state, action ) => <%= propertyName %>Adapter.updateMany(action.<%= propertyName %>s, state)
+  ),
+  on(<%= className %>Actions.delete<%= className %>,
+    ( state, action ) => <%= propertyName %>Adapter.removeOne(action.id, state)
+  ),
+  on(<%= className %>Actions.delete<%= className %>s,
+    ( state, action ) => <%= propertyName %>Adapter.removeMany(action.ids, state)
+  ),
+  on(<%= className %>Actions.clear<%= className %>s,
+    state => <%= propertyName %>Adapter.removeAll(state)
+  )
 );
 
-export function reducer(state: <%= className %>State | undefined, action: Action) {
+export function reducer( state: <%= className %>State | undefined, action: Action ) {
   return <%= propertyName %>Reducer(state, action);
 }
+
+export const getSelected<%= className %>Id = ( state: <%= className %>State ) => state.selectedId;
+
+export const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal
+} = <%= propertyName %>Adapter.getSelectors();
+

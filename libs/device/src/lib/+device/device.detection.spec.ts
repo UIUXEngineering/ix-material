@@ -1,4 +1,4 @@
-import { isiPhoneX, isiPhoneXR } from './device-detection';
+import { isiPhoneX, isiPhoneXR } from './device.detection';
 
 describe('device-detection', () => {
   describe('iPhone', () => {

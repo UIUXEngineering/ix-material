@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "id": "SchematicsIXNgrxEntity",
-  "title": "My Service Schema",
+  "title": "Ngrx Entity Service Schema",
   "type": "object",
   "properties": {
     "name": {
@@ -54,12 +54,6 @@
       "type": "boolean",
       "default": false,
       "description": "Do not update the package.json with NgRx dependencies."
-    },
-    "syntax": {
-      "type": "string",
-      "enum": ["classes", "creators"],
-      "default": "creators",
-      "description": "Specifies whether to use class-based or creator functions for actions, reducers, and effects."
     }
   },
   "required": ["module"]

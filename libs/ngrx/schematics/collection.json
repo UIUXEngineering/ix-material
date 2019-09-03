@@ -7,7 +7,7 @@
     },
     "ngrx-entity": {
       "description": "Generate a NgRX Entity.",
-      "factory": "./ngrx-entity/index",
+      "factory": "./ngrx-entity/ngrx",
       "schema": "./ngrx-entity/schema.json"
     }
   }

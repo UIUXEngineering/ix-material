@@ -1,8 +1,12 @@
 {
-  "name": "@@uiux/device",
+  "name": "@uiux/device",
   "version": "8.2.0-beta.13",
   "peerDependencies": {
     "@angular/common": "^8.1.1",
-    "@angular/core": "^8.1.1"
+    "@angular/core": "^8.1.1",
+    "@ngrx/effects": "^8.2.0",
+    "@ngrx/entity": "^8.2.0",
+    "@ngrx/schematics": "^8.2.0",
+    "@ngrx/store": "^8.2.0"
   }
 }
