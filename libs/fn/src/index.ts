@@ -256,6 +256,7 @@ export * from './lib/_object/allValuesHasValueIn';
 export * from './lib/_object/allValuesMatch';
 export * from './lib/_object/allValuesTruthy';
 export * from './lib/_object/allValuesTruthyIn';
+export * from './lib/_object/copyExcludeKeys';
 export * from './lib/_object/createObjectWithPaths';
 export * from './lib/_object/deleteIn';
 export * from './lib/_object/differenceObject';
