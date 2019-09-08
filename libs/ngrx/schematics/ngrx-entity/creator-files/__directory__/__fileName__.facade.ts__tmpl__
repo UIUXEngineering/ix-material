@@ -17,63 +17,77 @@ export class <%= className %>Facade {
   }
 
   add<%= className %>( <%= propertyName %>: <%= className %> ): void {
-    this.store.dispatch(<%= className %>Actions.add<%= className %>( { <%= propertyName %> }));
+    if (<%= propertyName %>) {
+      this.store.dispatch(<%= className %>Actions.add<%= className %>( { <%= propertyName %> }));
+    }
   }
 
   upsert<%= className %>( <%= propertyName %>: <%= className %>): void {
-    this.store.dispatch(<%= className %>Actions.upsert<%= className %>( { <%= propertyName %> }));
+    if (<%= propertyName %>) {
+      this.store.dispatch(<%= className %>Actions.upsert<%= className %>( { <%= propertyName %> }));
+    }
   }
 
   add<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
-    this.store.dispatch(<%= className %>Actions.add<%= className %>s( { <%= propertyName %>s }));
+    if (<%= propertyName %>s && <%= propertyName %>s.length) {
+      this.store.dispatch(<%= className %>Actions.add<%= className %>s( { <%= propertyName %>s }));
+    }
   }
 
   upsert<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
-    this.store.dispatch(<%= className %>Actions.upsert<%= className %>s( { <%= propertyName %>s }));
+    if (<%= propertyName %>s && <%= propertyName %>s.length) {
+      this.store.dispatch(<%= className %>Actions.upsert<%= className %>s( { <%= propertyName %>s }));
+    }
   }
 
   update<%= className %>( <%= propertyName %>: <%= className %> ): void {
-    this.store.dispatch(<%= className %>Actions.update<%= className %>( {
+    if (<%= propertyName %>) {
+       this.store.dispatch(<%= className %>Actions.update<%= className %>( {
 
-      // Change to UpdateNum if needed
-      <%= propertyName %>: <UpdateStr<<%= className %>>>{
-        id: <%= propertyName %>.id,
-        changes: {...<%= propertyName %>},
-      }
-    }));
+             // Change to UpdateNum if needed
+             <%= propertyName %>: <UpdateStr<<%= className %>>>{
+               id: <%= propertyName %>.id,
+               changes: {...<%= propertyName %>},
+             }
+           }));
+    }
   }
 
   update<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
+    if (<%= propertyName %>s && <%= propertyName %>s.length) {
+        // Change to UpdateNum if needed
+        const <%= propertyName %>Items: UpdateStr<<%= className %>>[] = <%= propertyName %>s
+          .reduce((acc: UpdateStr<<%= className %>>[], <%= propertyName %>: <%= className %> ) => {
+            acc.push({
+              id: <%= propertyName %>.id,
+              changes: { ...<%= propertyName %> },
+            });
 
-    // Change to UpdateNum if needed
-    const <%= propertyName %>Items: UpdateStr<<%= className %>>[] = <%= propertyName %>s
-      .reduce((acc: UpdateStr<<%= className %>>[], <%= propertyName %>: <%= className %> ) => {
-        acc.push({
-          id: <%= propertyName %>.id,
-          changes: { ...<%= propertyName %> },
-        });
+            return acc;
+          }, []);
 
-        return acc;
-      }, []);
-
-    this.store.dispatch(<%= className %>Actions.update<%= className %>s( {
-      <%= propertyName %>s: <%= propertyName %>Items,
-    }));
+        this.store.dispatch(<%= className %>Actions.update<%= className %>s( {
+          <%= propertyName %>s: <%= propertyName %>Items,
+        }));
+    }
   }
 
   delete<%= className %>( <%= propertyName %>: <%= className %> ): void {
-    this.store.dispatch(<%= className %>Actions.delete<%= className %>( {
-      id: <%= propertyName %>.id,
-    }));
+    if (<%= propertyName %>) {
+      this.store.dispatch(<%= className %>Actions.delete<%= className %>( {
+        id: <%= propertyName %>.id,
+      }));
+    }
   }
 
   delete<%= className %>s( <%= propertyName %>s: <%= className %>[] ): void {
+    if (<%= propertyName %>s && <%= propertyName %>s.length) {
+      const ids: string[] = <%= propertyName %>s.map((<%= propertyName %>: <%= className %>) => <%= propertyName %>.id );
 
-    const ids: string[] = <%= propertyName %>s.map((<%= propertyName %>: <%= className %>) => <%= propertyName %>.id );
-
-    this.store.dispatch(<%= className %>Actions.delete<%= className %>s( {
-      ids,
-    }));
+          this.store.dispatch(<%= className %>Actions.delete<%= className %>s( {
+            ids,
+          }));
+    }
   }
 
   clear<%= className %>s(): void {

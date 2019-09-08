@@ -1,6 +1,6 @@
 {
   "name": "@uiux/ngrx",
-  "version": "8.2.1",
+  "version": "8.2.2",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:schemas": "rsync -avm --include='schematics/*/*.json' -f 'hide,! */' . ../../dist/libs/ngrx",
@@ -11,11 +11,11 @@
   },
   "schematics": "./schematics/collection.json",
   "peerDependencies": {
-    "@nrwl/workspace": "*"
   },
   "dependencies": {
     "@nrwl/cypress": "*",
     "@nrwl/jest": "*",
+    "@nrwl/workspace": "*",
     "@angular-devkit/schematics": "8.1.1",
     "@schematics/angular": "8.1.1",
     "jasmine-marbles": "~0.6.0"

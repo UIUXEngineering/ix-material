@@ -1,35 +1,44 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as from<%= className %> from './<%= fileName %>.reducer';
+import * as fromReducer from './<%= fileName %>.reducer';
 
-export const getSelect<%= className %>State = createFeatureSelector<from<%= className %>.<%= className %>State>('users');
+const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal
+} = fromReducer.<%= propertyName %>Adapter.getSelectors();
+
+export const getSelect<%= className %>State = createFeatureSelector<fromReducer.<%= className %>State>(
+ fromReducer.<%= className.toUpperCase() %>_FEATURE_KEY
+);
 
 // select the array of <%= propertyName %> ids
 export const select<%= className %>Ids = createSelector(
   getSelect<%= className %>State,
-  from<%= className %>.selectIds // shorthand for usersState => from<%= className %>.selectUserIds(usersState)
+  selectIds // shorthand for usersState => fromReducer.selectUserIds(usersState)
 );
 
 // select the dictionary of <%= propertyName %> entities
 export const select<%= className %>Entities = createSelector(
   getSelect<%= className %>State,
-  from<%= className %>.selectEntities
+  selectEntities
 );
 
 // select the array of <%= propertyName %>s
 export const selectAll<%= className %>s = createSelector(
   getSelect<%= className %>State,
-  from<%= className %>.selectAll
+  selectAll
 );
 
 // select the total <%= propertyName %> count
 export const select<%= className %>Total = createSelector(
   getSelect<%= className %>State,
-  from<%= className %>.selectTotal
+  selectTotal
 );
 
 export const selectCurrent<%= className %>Id = createSelector(
   getSelect<%= className %>State,
-  from<%= className %>.getSelected<%= className %>Id
+  (state: fromReducer.ChatState) => state.selectedId
 );
 
 export const selectCurrent<%= className %> = createSelector(

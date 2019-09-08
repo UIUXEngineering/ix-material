@@ -15,7 +15,19 @@ export interface <%= className %>PartialState {
   readonly [ <%= className.toUpperCase() %>_FEATURE_KEY ]: <%= className %>State;
 }
 
-export const <%= propertyName %>Adapter: EntityAdapter<<%= className %>> = createEntityAdapter<<%= className %>>();
+export function select<%= className %>Id(a: <%= className %>): string {
+  //In this case this would be optional since primary key is id
+  return a.id;
+}
+
+export function sortByName(a: <%= className %>, b: <%= className %>): number {
+  return a.name.localeCompare(b.name);
+}
+
+export const <%= propertyName %>Adapter: EntityAdapter<<%= className %>> = createEntityAdapter<<%= className %>>({
+  selectId: select<%= className %>Id,
+  sortComparer: sortByName,
+});
 
 export const initial<%= className %>State: <%= className %>State = <%= propertyName %>Adapter.getInitialState({
   // set initial required properties
@@ -57,12 +69,5 @@ export function reducer( state: <%= className %>State | undefined, action: Actio
   return <%= propertyName %>Reducer(state, action);
 }
 
-export const getSelected<%= className %>Id = ( state: <%= className %>State ) => state.selectedId;
 
-export const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal
-} = <%= propertyName %>Adapter.getSelectors();
 
