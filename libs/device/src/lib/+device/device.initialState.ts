@@ -18,8 +18,8 @@ export const deviceInitialState: DeviceState = {
     callbacks: {
       NetworkStatus848829231: {},
       StatusBar848829232: {
-        fail: null
-      }
+        fail: null,
+      },
     },
     callbackStatus: {
       NO_RESULT: 0,
@@ -31,7 +31,7 @@ export const deviceInitialState: DeviceState = {
       IO_EXCEPTION: 6,
       INVALID_ACTION: 7,
       JSON_EXCEPTION: 8,
-      ERROR: 9
+      ERROR: 9,
     },
     file: {
       applicationDirectory: '',
@@ -45,9 +45,9 @@ export const deviceInitialState: DeviceState = {
       tempDirectory: '',
       syncedDataDirectory: '',
       documentsDirectory: '',
-      sharedDirectory: null
+      sharedDirectory: null,
     },
-    InAppBrowser: {}
+    InAppBrowser: {},
   },
   device: {
     available: false,
@@ -58,7 +58,7 @@ export const deviceInitialState: DeviceState = {
     model: '',
     manufacturer: '',
     isVirtual: false,
-    serial: ''
+    serial: '',
   },
   currentDevice: {
     isCordova: false,
@@ -66,6 +66,6 @@ export const deviceInitialState: DeviceState = {
     isBrowser: false,
     cordovaDeviceData: null,
     browserData: null,
-    cordovaElectronData: null
-  }
+    cordovaElectronData: null,
+  },
 };

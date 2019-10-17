@@ -45,9 +45,7 @@ function createIndexedArray(
         _result.parent.path = path;
 
         result.push(_result);
-        result = result.concat(
-          createIndexedArray(item, path + '[' + index + ']', storeData, includeArray)
-        );
+        result = result.concat(createIndexedArray(item, path + '[' + index + ']', storeData, includeArray));
       });
     }
   } else {
@@ -76,14 +74,10 @@ function createIndexedArray(
 
         if (isArray(node[keys[i]])) {
           if (includeArray) {
-            result = result.concat(
-              createIndexedArray(node[keys[i]], path + tempPath, storeData, includeArray)
-            );
+            result = result.concat(createIndexedArray(node[keys[i]], path + tempPath, storeData, includeArray));
           }
         } else {
-          result = result.concat(
-            createIndexedArray(node[keys[i]], path + tempPath, storeData, includeArray)
-          );
+          result = result.concat(createIndexedArray(node[keys[i]], path + tempPath, storeData, includeArray));
         }
       } else {
         const _result: IIndexedItem = createIndexItem();

@@ -80,9 +80,7 @@ export function equalArrays(
         result = false;
         break;
       }
-    } else if (
-      !(arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))
-    ) {
+    } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))) {
       result = false;
       break;
     }

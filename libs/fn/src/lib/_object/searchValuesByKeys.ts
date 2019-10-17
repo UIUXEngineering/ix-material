@@ -13,11 +13,8 @@ import { ISearchObjectByKeysResult } from './_interfaces';
  * @param path
  */
 export function searchValuesByKeys(node: any, searchParam: any, path: string = ''): any[] {
-  return searchObjectByKeys(node, searchParam, path).reduce(
-    (acc: any, item: ISearchObjectByKeysResult) => {
-      acc.push(item.data);
-      return acc;
-    },
-    []
-  );
+  return searchObjectByKeys(node, searchParam, path).reduce((acc: any, item: ISearchObjectByKeysResult) => {
+    acc.push(item.data);
+    return acc;
+  }, []);
 }

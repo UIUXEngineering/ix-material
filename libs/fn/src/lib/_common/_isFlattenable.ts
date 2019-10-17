@@ -12,7 +12,5 @@ const spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined;
  * @param value The value to check.
  */
 export function isFlattenable(value: any): boolean {
-  return (
-    isArray(value) || isArguments(value) || !!(spreadableSymbol && value && value[spreadableSymbol])
-  );
+  return isArray(value) || isArguments(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
 }

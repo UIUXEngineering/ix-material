@@ -90,9 +90,7 @@ export class TransformStoreSubject<T> extends IndexedTableSubject<T> {
           [key]: config,
         });
       } else {
-        throw new Error(
-          'A config of ITransformConfig interface is' + ' required to create new transform'
-        );
+        throw new Error('A config of ITransformConfig interface is' + ' required to create new transform');
       }
     }
 

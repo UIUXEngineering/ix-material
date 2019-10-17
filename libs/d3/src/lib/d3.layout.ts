@@ -91,9 +91,7 @@ export class IxD3Layout {
   }
 
   get boundedWidth() {
-    return this.atLeast(this._dimensions.width
-      - this._dimensions.margin.left
-      - this._dimensions.margin.right);
+    return this.atLeast(this._dimensions.width - this._dimensions.margin.left - this._dimensions.margin.right);
   }
 
   get centerBoundedWidth() {
@@ -101,14 +99,13 @@ export class IxD3Layout {
   }
 
   get boundedHeight() {
-    return this.atLeast(this._dimensions.height
-      - this._dimensions.margin.top
-      - this._dimensions.margin.bottom);
+    return this.atLeast(this._dimensions.height - this._dimensions.margin.top - this._dimensions.margin.bottom);
   }
 
   set boundedHeight(boundedHeight) {
-    this._dimensions.height =
-      this.atLeast(boundedHeight + this._dimensions.margin.top + this._dimensions.margin.bottom);
+    this._dimensions.height = this.atLeast(
+      boundedHeight + this._dimensions.margin.top + this._dimensions.margin.bottom
+    );
   }
 
   get centerBoundedHeight() {
@@ -152,8 +149,7 @@ export class IxD3Layout {
   }
 
   appendBounds() {
-    this.bounds = this.wrapper.append('g')
-      .style('transform', this.translateBounds);
+    this.bounds = this.wrapper.append('g').style('transform', this.translateBounds);
 
     return this.bounds;
   }

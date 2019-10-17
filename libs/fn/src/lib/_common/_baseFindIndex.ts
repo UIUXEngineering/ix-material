@@ -7,12 +7,7 @@
  * @param fromIndex The index to search from.
  * @param fromRight Specify iterating from right to left.
  */
-export function baseFindIndex(
-  array: any[],
-  predicate: Function,
-  fromIndex: number,
-  fromRight?: boolean
-): number {
+export function baseFindIndex(array: any[], predicate: Function, fromIndex: number, fromRight?: boolean): number {
   const length = array.length;
   let index: number = fromIndex + (fromRight ? 1 : -1);
 

@@ -6,9 +6,9 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {FocusMonitor, FocusOrigin, isFakeMousedownFromScreenReader} from '@angular/cdk/a11y';
-import {Direction, Directionality} from '@angular/cdk/bidi';
-import {LEFT_ARROW, RIGHT_ARROW} from '@angular/cdk/keycodes';
+import { FocusMonitor, FocusOrigin, isFakeMousedownFromScreenReader } from '@angular/cdk/a11y';
+import { Direction, Directionality } from '@angular/cdk/bidi';
+import { LEFT_ARROW, RIGHT_ARROW } from '@angular/cdk/keycodes';
 import {
   FlexibleConnectedPositionStrategy,
   HorizontalConnectionPos,
@@ -18,7 +18,7 @@ import {
   VerticalConnectionPos,
   ScrollStrategy,
 } from '@angular/cdk/overlay';
-import {TemplatePortal} from '@angular/cdk/portal';
+import { TemplatePortal } from '@angular/cdk/portal';
 import {
   AfterContentInit,
   Directive,
@@ -33,18 +33,17 @@ import {
   Self,
   ViewContainerRef,
 } from '@angular/core';
-import {normalizePassiveListenerOptions} from '@angular/cdk/platform';
-import {asapScheduler, merge, of as observableOf, Subscription} from 'rxjs';
-import {delay, filter, take, takeUntil} from 'rxjs/operators';
-import {IxMenu} from './menu';
-import {throwIxMenuMissingError} from './menu-errors';
-import {IxMenuItem} from './menu-item';
-import {IxMenuPanel} from './menu-panel';
-import {MenuPositionX, MenuPositionY} from './menu-positions';
+import { normalizePassiveListenerOptions } from '@angular/cdk/platform';
+import { asapScheduler, merge, of as observableOf, Subscription } from 'rxjs';
+import { delay, filter, take, takeUntil } from 'rxjs/operators';
+import { IxMenu } from './menu';
+import { throwIxMenuMissingError } from './menu-errors';
+import { IxMenuItem } from './menu-item';
+import { IxMenuPanel } from './menu-panel';
+import { MenuPositionX, MenuPositionY } from './menu-positions';
 
 /** Injection token that determines the scroll handling while the menu is open. */
-export const MAT_MENU_SCROLL_STRATEGY =
-    new InjectionToken<() => ScrollStrategy>('ix-menu-scroll-strategy');
+export const MAT_MENU_SCROLL_STRATEGY = new InjectionToken<() => ScrollStrategy>('ix-menu-scroll-strategy');
 
 /** @docs-private */
 export function MAT_MENU_SCROLL_STRATEGY_FACTORY(overlay: Overlay): () => ScrollStrategy {
@@ -62,7 +61,7 @@ export const MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER = {
 export const MENU_PANEL_TOP_PADDING = 8;
 
 /** Options for binding a passive event listener. */
-const passiveEventListenerOptions = normalizePassiveListenerOptions({passive: true});
+const passiveEventListenerOptions = normalizePassiveListenerOptions({ passive: true });
 
 // TODO(andrewseguin): Remove the kebab versions in favor of camelCased attribute selectors
 
@@ -79,7 +78,7 @@ const passiveEventListenerOptions = normalizePassiveListenerOptions({passive: tr
     '(keydown)': '_handleKeydown($event)',
     '(click)': '_handleClick($event)',
   },
-  exportAs: 'ixMenuTrigger'
+  exportAs: 'ixMenuTrigger',
 })
 export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   private _portal: TemplatePortal;
@@ -94,7 +93,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
    * Handles touch start events on the trigger.
    * Needs to be an arrow function so we can easily use addEventListener and removeEventListener.
    */
-  private _handleTouchStart = () => this._openedBy = 'touch';
+  private _handleTouchStart = () => (this._openedBy = 'touch');
 
   // Tracking input type is necessary so it's possible to only auto-focus
   // the first item of the list when the menu is opened via the keyboard
@@ -105,14 +104,18 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
    * @breaking-change 8.0.0
    */
   @Input('ix-menu-trigger-for')
-  get _deprecatedIxMenuTriggerFor(): IxMenuPanel { return this.menu; }
+  get _deprecatedIxMenuTriggerFor(): IxMenuPanel {
+    return this.menu;
+  }
   set _deprecatedIxMenuTriggerFor(v: IxMenuPanel) {
     this.menu = v;
   }
 
   /** References the menu instance that the trigger is associated with. */
   @Input('ixMenuTriggerFor')
-  get menu() { return this._menu; }
+  get menu() {
+    return this._menu;
+  }
   set menu(menu: IxMenuPanel) {
     if (menu === this._menu) {
       return;
@@ -122,7 +125,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
     this._menuCloseSubscription.unsubscribe();
 
     if (menu) {
-      this._menuCloseSubscription = menu.close.asObservable().subscribe(reason => {
+      this._menuCloseSubscription = menu.close.asObservable().subscribe((reason) => {
         this._destroyMenu();
 
         // If a click closed the menu, we should close the entire chain of nested menus.
@@ -166,19 +169,19 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() readonly onMenuClose: EventEmitter<void> = this.menuClosed;
 
-  constructor(private _overlay: Overlay,
-              private _element: ElementRef<HTMLElement>,
-              private _viewContainerRef: ViewContainerRef,
-              @Inject(MAT_MENU_SCROLL_STRATEGY) scrollStrategy: any,
-              @Optional() private _parentMenu: IxMenu,
-              @Optional() @Self() private _menuItemInstance: IxMenuItem,
-              @Optional() private _dir: Directionality,
-              // TODO(crisbeto): make the _focusMonitor required when doing breaking changes.
-              // @breaking-change 8.0.0
-              private _focusMonitor?: FocusMonitor) {
-
-    _element.nativeElement.addEventListener('touchstart', this._handleTouchStart,
-        passiveEventListenerOptions);
+  constructor(
+    private _overlay: Overlay,
+    private _element: ElementRef<HTMLElement>,
+    private _viewContainerRef: ViewContainerRef,
+    @Inject(MAT_MENU_SCROLL_STRATEGY) scrollStrategy: any,
+    @Optional() private _parentMenu: IxMenu,
+    @Optional() @Self() private _menuItemInstance: IxMenuItem,
+    @Optional() private _dir: Directionality,
+    // TODO(crisbeto): make the _focusMonitor required when doing breaking changes.
+    // @breaking-change 8.0.0
+    private _focusMonitor?: FocusMonitor
+  ) {
+    _element.nativeElement.addEventListener('touchstart', this._handleTouchStart, passiveEventListenerOptions);
 
     if (_menuItemInstance) {
       _menuItemInstance._triggersSubmenu = this.triggersSubmenu();
@@ -198,8 +201,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
       this._overlayRef = null;
     }
 
-    this._element.nativeElement.removeEventListener('touchstart', this._handleTouchStart,
-        passiveEventListenerOptions);
+    this._element.nativeElement.removeEventListener('touchstart', this._handleTouchStart, passiveEventListenerOptions);
 
     this._menuCloseSubscription.unsubscribe();
     this._closingActionsSubscription.unsubscribe();
@@ -238,8 +240,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
     const overlayConfig = overlayRef.getConfig();
 
     this._setPosition(overlayConfig.positionStrategy as FlexibleConnectedPositionStrategy);
-    overlayConfig.hasBackdrop = this.menu.hasBackdrop == null ? !this.triggersSubmenu() :
-        this.menu.hasBackdrop;
+    overlayConfig.hasBackdrop = this.menu.hasBackdrop == null ? !this.triggersSubmenu() : this.menu.hasBackdrop;
     overlayRef.attach(this._getPortal());
 
     if (this.menu.lazyContent) {
@@ -289,7 +290,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
         // Wait for the exit animation to finish before detaching the content.
         menu._animationDone
           .pipe(
-            filter(event => event.toState === 'void'),
+            filter((event) => event.toState === 'void'),
             take(1),
             // Interrupt if the content got re-attached.
             takeUntil(menu.lazyContent._attached)
@@ -297,7 +298,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
           .subscribe({
             next: () => menu.lazyContent!.detach(),
             // No matter whether the content got re-attached, reset the menu.
-            complete: () => this._resetMenu()
+            complete: () => this._resetMenu(),
           });
       } else {
         this._resetMenu();
@@ -406,13 +407,14 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
    */
   private _getOverlayConfig(): OverlayConfig {
     return new OverlayConfig({
-      positionStrategy: this._overlay.position()
-          .flexibleConnectedTo(this._element)
-          .withLockedPosition()
-          .withTransformOriginOn('.ix-menu-panel, .mat-mdc-menu-panel'),
+      positionStrategy: this._overlay
+        .position()
+        .flexibleConnectedTo(this._element)
+        .withLockedPosition()
+        .withTransformOriginOn('.ix-menu-panel, .mat-mdc-menu-panel'),
       backdropClass: this.menu.backdropClass || 'cdk-overlay-transparent-backdrop',
       scrollStrategy: this._scrollStrategy(),
-      direction: this._dir
+      direction: this._dir,
     });
   }
 
@@ -423,7 +425,7 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
    */
   private _subscribeToPositions(position: FlexibleConnectedPositionStrategy): void {
     if (this.menu.setPositionClasses) {
-      position.positionChanges.subscribe(change => {
+      position.positionChanges.subscribe((change) => {
         const posX: MenuPositionX = change.connectionPair.overlayX === 'start' ? 'after' : 'before';
         const posY: MenuPositionY = change.connectionPair.overlayY === 'top' ? 'below' : 'above';
 
@@ -439,10 +441,10 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
    */
   private _setPosition(positionStrategy: FlexibleConnectedPositionStrategy) {
     let [originX, originFallbackX]: HorizontalConnectionPos[] =
-        this.menu.xPosition === 'before' ? ['end', 'start'] : ['start', 'end'];
+      this.menu.xPosition === 'before' ? ['end', 'start'] : ['start', 'end'];
 
     let [overlayY, overlayFallbackY]: VerticalConnectionPos[] =
-        this.menu.yPosition === 'above' ? ['bottom', 'top'] : ['top', 'bottom'];
+      this.menu.yPosition === 'above' ? ['bottom', 'top'] : ['top', 'bottom'];
 
     let [originY, originFallbackY] = [overlayY, overlayFallbackY];
     let [overlayX, overlayFallbackX] = [originX, originFallbackX];
@@ -460,22 +462,22 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
     }
 
     positionStrategy.withPositions([
-      {originX, originY, overlayX, overlayY, offsetY},
-      {originX: originFallbackX, originY, overlayX: overlayFallbackX, overlayY, offsetY},
+      { originX, originY, overlayX, overlayY, offsetY },
+      { originX: originFallbackX, originY, overlayX: overlayFallbackX, overlayY, offsetY },
       {
         originX,
         originY: originFallbackY,
         overlayX,
         overlayY: overlayFallbackY,
-        offsetY: -offsetY
+        offsetY: -offsetY,
       },
       {
         originX: originFallbackX,
         originY: originFallbackY,
         overlayX: overlayFallbackX,
         overlayY: overlayFallbackY,
-        offsetY: -offsetY
-      }
+        offsetY: -offsetY,
+      },
     ]);
   }
 
@@ -484,10 +486,12 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
     const backdrop = this._overlayRef!.backdropClick();
     const detachments = this._overlayRef!.detachments();
     const parentClose = this._parentMenu ? this._parentMenu.closed : observableOf();
-    const hover = this._parentMenu ? this._parentMenu._hovered().pipe(
-      filter(active => active !== this._menuItemInstance),
-      filter(() => this._menuOpen)
-    ) : observableOf();
+    const hover = this._parentMenu
+      ? this._parentMenu._hovered().pipe(
+          filter((active) => active !== this._menuItemInstance),
+          filter(() => this._menuOpen)
+        )
+      : observableOf();
 
     return merge(backdrop, parentClose, hover, detachments);
   }
@@ -512,9 +516,10 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
   _handleKeydown(event: KeyboardEvent): void {
     const keyCode = event.keyCode;
 
-    if (this.triggersSubmenu() && (
-            (keyCode === RIGHT_ARROW && this.dir === 'ltr') ||
-            (keyCode === LEFT_ARROW && this.dir === 'rtl'))) {
+    if (
+      this.triggersSubmenu() &&
+      ((keyCode === RIGHT_ARROW && this.dir === 'ltr') || (keyCode === LEFT_ARROW && this.dir === 'rtl'))
+    ) {
       this.openMenu();
     }
   }
@@ -537,12 +542,13 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
       return;
     }
 
-    this._hoverSubscription = this._parentMenu._hovered()
+    this._hoverSubscription = this._parentMenu
+      ._hovered()
       // Since we might have multiple competing triggers for the same menu (e.g. a sub-menu
       // with different data and triggers), we have to delay it by a tick to ensure that
       // it won't be closed immediately after it is opened.
       .pipe(
-        filter(active => active === this._menuItemInstance && !active.disabled),
+        filter((active) => active === this._menuItemInstance && !active.disabled),
         delay(0, asapScheduler)
       )
       .subscribe(() => {
@@ -555,7 +561,11 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
           // We need the `delay(0)` here in order to avoid
           // 'changed after checked' errors in some cases. See #12194.
           this.menu._animationDone
-            .pipe(take(1), delay(0, asapScheduler), takeUntil(this._parentMenu._hovered()))
+            .pipe(
+              take(1),
+              delay(0, asapScheduler),
+              takeUntil(this._parentMenu._hovered())
+            )
             .subscribe(() => this.openMenu());
         } else {
           this.openMenu();
@@ -574,5 +584,4 @@ export class IxMenuTrigger implements AfterContentInit, OnDestroy {
 
     return this._portal;
   }
-
 }

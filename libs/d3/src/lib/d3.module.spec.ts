@@ -4,7 +4,7 @@ import { D3Module } from './d3.module';
 describe('D3Module', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [D3Module]
+      imports: [D3Module],
     }).compileComponents();
   }));
 

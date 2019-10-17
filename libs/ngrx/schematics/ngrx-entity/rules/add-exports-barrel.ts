@@ -12,9 +12,7 @@ import { Schema } from '../schema';
 export function addExportsToBarrel(options: Schema): Rule {
   return (host: Tree) => {
     if (!host.exists(options.module)) {
-      throw new Error(
-        `Specified module path (${options.module}) does not exist`
-      );
+      throw new Error(`Specified module path (${options.module}) does not exist`);
     }
 
     // Only update the public barrel for feature libraries
@@ -29,42 +27,17 @@ export function addExportsToBarrel(options: Schema): Rule {
         // AST to 'index.ts' barrel for the public API
         // tslint:disable-next-line:no-non-null-assertion
         const indexSource = buffer!.toString('utf-8');
-        const indexSourceFile = ts.createSourceFile(
-          indexFilePath,
-          indexSource,
-          ts.ScriptTarget.Latest,
-          true
-        );
+        const indexSourceFile = ts.createSourceFile(indexFilePath, indexSource, ts.ScriptTarget.Latest, true);
 
         // Public API for the feature interfaces, selectors, and facade
         const { fileName } = names(options.name);
         const statePath = `./lib/${options.directory}/${fileName}`;
 
         insert(host, indexFilePath, [
-          ...(hasFacade
-            ? addGlobal(
-                indexSourceFile,
-                indexFilePath,
-                `export * from '${statePath}.facade';`
-              )
-            : []),
-          ...addGlobal(
-            indexSourceFile,
-            indexFilePath,
-            `export * from '${statePath}.reducer';`
-          ),
-          ...(addModels
-            ? addGlobal(
-                indexSourceFile,
-                indexFilePath,
-                `export * from '${statePath}.models';`
-              )
-            : []),
-          ...addGlobal(
-            indexSourceFile,
-            indexFilePath,
-            `export * from '${statePath}.selectors';`
-          )
+          ...(hasFacade ? addGlobal(indexSourceFile, indexFilePath, `export * from '${statePath}.facade';`) : []),
+          ...addGlobal(indexSourceFile, indexFilePath, `export * from '${statePath}.reducer';`),
+          ...(addModels ? addGlobal(indexSourceFile, indexFilePath, `export * from '${statePath}.models';`) : []),
+          ...addGlobal(indexSourceFile, indexFilePath, `export * from '${statePath}.selectors';`),
         ]);
       }
     }

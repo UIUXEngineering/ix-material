@@ -3,11 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import {
-  splitKeysIntoDotNotation,
-  isArraySyntax,
-  keySplitterIntoImmutablePath,
-} from './key-converter';
+import { splitKeysIntoDotNotation, isArraySyntax, keySplitterIntoImmutablePath } from './key-converter';
 
 describe('_internal', () => {
   describe('splitKeysIntoDotNotation', () => {

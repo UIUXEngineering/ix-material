@@ -29,9 +29,5 @@ export const isArguments = baseIsArguments(
 )
   ? baseIsArguments
   : function(value) {
-      return (
-        isObjectLike(value) &&
-        hasOwnProperty.call(value, 'callee') &&
-        !propertyIsEnumerable.call(value, 'callee')
-      );
+      return isObjectLike(value) && hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
     };

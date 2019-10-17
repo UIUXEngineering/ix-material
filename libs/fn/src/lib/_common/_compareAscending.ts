@@ -18,18 +18,22 @@ export function compareAscending(value, other) {
       othIsReflexive = other === other,
       othIsSymbol = isSymbol(other);
 
-    if ((!othIsNull && !othIsSymbol && !valIsSymbol && value > other) ||
+    if (
+      (!othIsNull && !othIsSymbol && !valIsSymbol && value > other) ||
       (valIsSymbol && othIsDefined && othIsReflexive && !othIsNull && !othIsSymbol) ||
       (valIsNull && othIsDefined && othIsReflexive) ||
       (!valIsDefined && othIsReflexive) ||
-      !valIsReflexive) {
+      !valIsReflexive
+    ) {
       return 1;
     }
-    if ((!valIsNull && !valIsSymbol && !othIsSymbol && value < other) ||
+    if (
+      (!valIsNull && !valIsSymbol && !othIsSymbol && value < other) ||
       (othIsSymbol && valIsDefined && valIsReflexive && !valIsNull && !valIsSymbol) ||
       (othIsNull && valIsDefined && valIsReflexive) ||
       (!othIsDefined && valIsReflexive) ||
-      !othIsReflexive) {
+      !othIsReflexive
+    ) {
       return -1;
     }
   }

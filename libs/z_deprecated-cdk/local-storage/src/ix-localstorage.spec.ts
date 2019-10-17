@@ -88,87 +88,75 @@ describe('IxLocalStorageService', () => {
     expect(service.getItem('testSetItem')).toBeNull();
   }));
 
-  it('should setItemWithPrefix', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItemWithPrefix('myPrefix', 'testSetItem', 'prefixValue');
+  it('should setItemWithPrefix', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItemWithPrefix('myPrefix', 'testSetItem', 'prefixValue');
 
-      expect(service.getItem('myPrefix.testSetItem')).toBe('prefixValue');
-    }
-  ));
+    expect(service.getItem('myPrefix.testSetItem')).toBe('prefixValue');
+  }));
 
-  it('should getItemsByPrefix', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItemWithPrefix('foo', 'foo1', 'value1');
-      service.setItemWithPrefix('foo', 'foo2', 'value2');
-      service.setItemWithPrefix('foo', 'foo3', 'value3');
-      service.setItemWithPrefix('bar', 'bar1', 'value4');
-      service.setItemWithPrefix('bar', 'bar2', 'value5');
-      service.setItemWithPrefix('bar', 'bar3', 'value6');
+  it('should getItemsByPrefix', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItemWithPrefix('foo', 'foo1', 'value1');
+    service.setItemWithPrefix('foo', 'foo2', 'value2');
+    service.setItemWithPrefix('foo', 'foo3', 'value3');
+    service.setItemWithPrefix('bar', 'bar1', 'value4');
+    service.setItemWithPrefix('bar', 'bar2', 'value5');
+    service.setItemWithPrefix('bar', 'bar3', 'value6');
 
-      const value: any = service.getItemsByPrefix('foo');
+    const value: any = service.getItemsByPrefix('foo');
 
-      expect(value).toEqual({
-        'foo.foo1': 'value1',
-        'foo.foo2': 'value2',
-        'foo.foo3': 'value3',
-      });
-    }
-  ));
+    expect(value).toEqual({
+      'foo.foo1': 'value1',
+      'foo.foo2': 'value2',
+      'foo.foo3': 'value3',
+    });
+  }));
 
-  it('should removeItemsByPrefix', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItemWithPrefix('foo', 'foo1', 'value1');
-      service.setItemWithPrefix('foo', 'foo2', 'value2');
-      service.setItemWithPrefix('foo', 'foo3', 'value3');
-      service.setItemWithPrefix('bar', 'bar1', 'value4');
-      service.setItemWithPrefix('bar', 'bar2', 'value5');
-      service.setItemWithPrefix('bar', 'bar3', 'value6');
+  it('should removeItemsByPrefix', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItemWithPrefix('foo', 'foo1', 'value1');
+    service.setItemWithPrefix('foo', 'foo2', 'value2');
+    service.setItemWithPrefix('foo', 'foo3', 'value3');
+    service.setItemWithPrefix('bar', 'bar1', 'value4');
+    service.setItemWithPrefix('bar', 'bar2', 'value5');
+    service.setItemWithPrefix('bar', 'bar3', 'value6');
 
-      service.removeItemsByPrefix('foo');
-      const value: any = service.getValue();
+    service.removeItemsByPrefix('foo');
+    const value: any = service.getValue();
 
-      expect(value).toEqual({
-        'bar.bar1': 'value4',
-        'bar.bar2': 'value5',
-        'bar.bar3': 'value6',
-      });
+    expect(value).toEqual({
+      'bar.bar1': 'value4',
+      'bar.bar2': 'value5',
+      'bar.bar3': 'value6',
+    });
 
-      expect(value['foo.foo1']).toBeUndefined();
-    }
-  ));
+    expect(value['foo.foo1']).toBeUndefined();
+  }));
 
-  it('should removeAllItemsByPrefixArray', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItemWithPrefix('foo', 'foo1', 'value1');
-      service.setItemWithPrefix('foo', 'foo2', 'value2');
-      service.setItemWithPrefix('foo', 'foo3', 'value3');
-      service.setItemWithPrefix('bar', 'bar1', 'value4');
-      service.setItemWithPrefix('bar', 'bar2', 'value5');
-      service.setItemWithPrefix('bar', 'bar3', 'value6');
-      service.setItemWithPrefix('baz', 'baz1', 'value7');
-      service.setItemWithPrefix('baz', 'baz2', 'value8');
-      service.setItemWithPrefix('baz', 'baz3', 'value9');
+  it('should removeAllItemsByPrefixArray', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItemWithPrefix('foo', 'foo1', 'value1');
+    service.setItemWithPrefix('foo', 'foo2', 'value2');
+    service.setItemWithPrefix('foo', 'foo3', 'value3');
+    service.setItemWithPrefix('bar', 'bar1', 'value4');
+    service.setItemWithPrefix('bar', 'bar2', 'value5');
+    service.setItemWithPrefix('bar', 'bar3', 'value6');
+    service.setItemWithPrefix('baz', 'baz1', 'value7');
+    service.setItemWithPrefix('baz', 'baz2', 'value8');
+    service.setItemWithPrefix('baz', 'baz3', 'value9');
 
-      service.removeAllItemsByPrefixArray(['foo', 'bar']);
-      const value: any = service.getValue();
+    service.removeAllItemsByPrefixArray(['foo', 'bar']);
+    const value: any = service.getValue();
 
-      expect(value).toEqual({
-        'baz.baz1': 'value7',
-        'baz.baz2': 'value8',
-        'baz.baz3': 'value9',
-      });
+    expect(value).toEqual({
+      'baz.baz1': 'value7',
+      'baz.baz2': 'value8',
+      'baz.baz3': 'value9',
+    });
 
-      expect(value['foo.foo1']).toBeUndefined();
-    }
-  ));
+    expect(value['foo.foo1']).toBeUndefined();
+  }));
 
   it('should getKeysByPrefix', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
     service.reset();
@@ -184,90 +172,78 @@ describe('IxLocalStorageService', () => {
     expect(value).toEqual(jasmine.arrayContaining(['foo.foo1', 'foo.foo2', 'foo.foo3']));
   }));
 
-  it('should getKeysWithSearchString', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItem('foo1', 'prefixValue');
-      service.setItem('foo2', 'prefixValue');
-      service.setItem('foo3', 'prefixValue');
-      service.setItem('bar1', 'prefixValue');
-      service.setItem('bar2', 'prefixValue');
-      service.setItem('bar2', 'prefixValue');
-      service.setItem('bar3', 'prefixValue');
+  it('should getKeysWithSearchString', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItem('foo1', 'prefixValue');
+    service.setItem('foo2', 'prefixValue');
+    service.setItem('foo3', 'prefixValue');
+    service.setItem('bar1', 'prefixValue');
+    service.setItem('bar2', 'prefixValue');
+    service.setItem('bar2', 'prefixValue');
+    service.setItem('bar3', 'prefixValue');
 
-      const keys: string[] = service.getKeysWithSearchString('foo');
+    const keys: string[] = service.getKeysWithSearchString('foo');
 
-      expect(keys).toEqual(jasmine.arrayContaining(['foo1', 'foo2', 'foo3']));
-    }
-  ));
+    expect(keys).toEqual(jasmine.arrayContaining(['foo1', 'foo2', 'foo3']));
+  }));
 
-  it('should removeItemsBySearchString', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItemWithPrefix('foo', 'afoo1', 'value1');
-      service.setItemWithPrefix('foo', 'afoo2', 'value2');
-      service.setItemWithPrefix('foo', 'foo3', 'value3');
-      service.setItemWithPrefix('bar', 'abar1', 'value4');
-      service.setItemWithPrefix('bar', 'abar2', 'value5');
-      service.setItemWithPrefix('bar', 'bar3', 'value6');
+  it('should removeItemsBySearchString', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItemWithPrefix('foo', 'afoo1', 'value1');
+    service.setItemWithPrefix('foo', 'afoo2', 'value2');
+    service.setItemWithPrefix('foo', 'foo3', 'value3');
+    service.setItemWithPrefix('bar', 'abar1', 'value4');
+    service.setItemWithPrefix('bar', 'abar2', 'value5');
+    service.setItemWithPrefix('bar', 'bar3', 'value6');
 
-      service.removeItemsBySearchString('.a');
-      const value: any = service.getValue();
+    service.removeItemsBySearchString('.a');
+    const value: any = service.getValue();
 
-      expect(value).toEqual({
-        'foo.foo3': 'value3',
-        'bar.bar3': 'value6',
-      });
+    expect(value).toEqual({
+      'foo.foo3': 'value3',
+      'bar.bar3': 'value6',
+    });
 
-      expect(value['foo.foo1']).toBeUndefined();
-    }
-  ));
+    expect(value['foo.foo1']).toBeUndefined();
+  }));
 
-  it('should removeAllItemsBySearchArray', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItemWithPrefix('foo', 'afoo1', 'value1');
-      service.setItemWithPrefix('foo', 'afoo2', 'value2');
-      service.setItemWithPrefix('foo', 'foo3', 'value3');
-      service.setItemWithPrefix('bar', 'cbar1', 'value4');
-      service.setItemWithPrefix('bar', 'cbar2', 'value5');
-      service.setItemWithPrefix('bar', 'bar3', 'value6');
+  it('should removeAllItemsBySearchArray', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItemWithPrefix('foo', 'afoo1', 'value1');
+    service.setItemWithPrefix('foo', 'afoo2', 'value2');
+    service.setItemWithPrefix('foo', 'foo3', 'value3');
+    service.setItemWithPrefix('bar', 'cbar1', 'value4');
+    service.setItemWithPrefix('bar', 'cbar2', 'value5');
+    service.setItemWithPrefix('bar', 'bar3', 'value6');
 
-      service.removeAllItemsBySearchArray(['.a', '.c']);
-      const value: any = service.getValue();
+    service.removeAllItemsBySearchArray(['.a', '.c']);
+    const value: any = service.getValue();
 
-      expect(value).toEqual({
-        'foo.foo3': 'value3',
-        'bar.bar3': 'value6',
-      });
+    expect(value).toEqual({
+      'foo.foo3': 'value3',
+      'bar.bar3': 'value6',
+    });
 
-      expect(value['foo.foo1']).toBeUndefined();
-    }
-  ));
+    expect(value['foo.foo1']).toBeUndefined();
+  }));
 
-  it('should getItemsWithPartialKey', inject(
-    [IxLocalStorageService],
-    (service: IxLocalStorageService) => {
-      service.reset();
-      service.setItem('foo1', 'value1');
-      service.setItem('foo2', 'value2');
-      service.setItem('foo3', 'value3');
-      service.setItem('bar1', 'value4');
-      service.setItem('bar2', 'value5');
-      service.setItem('bar3', 'value6');
+  it('should getItemsWithPartialKey', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
+    service.reset();
+    service.setItem('foo1', 'value1');
+    service.setItem('foo2', 'value2');
+    service.setItem('foo3', 'value3');
+    service.setItem('bar1', 'value4');
+    service.setItem('bar2', 'value5');
+    service.setItem('bar3', 'value6');
 
-      const value: any = service.getItemsWithPartialKey('foo');
+    const value: any = service.getItemsWithPartialKey('foo');
 
-      expect(value).toEqual({
-        foo1: 'value1',
-        foo2: 'value2',
-        foo3: 'value3',
-      });
-    }
-  ));
+    expect(value).toEqual({
+      foo1: 'value1',
+      foo2: 'value2',
+      foo3: 'value3',
+    });
+  }));
 
   it('should onstorageKey', inject([IxLocalStorageService], (service: IxLocalStorageService) => {
     service.reset();

@@ -10,10 +10,7 @@ import { eq } from './eq';
  * @param value The value to assign.
  */
 export function assignMergeValue(object: any, key: string, value: any): any {
-  if (
-    (value !== undefined && !eq(object[key], value)) ||
-    (value === undefined && !(key in object))
-  ) {
+  if ((value !== undefined && !eq(object[key], value)) || (value === undefined && !(key in object))) {
     baseAssignValue(object, key, value);
   }
 }

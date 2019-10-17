@@ -6,9 +6,9 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {FocusKeyManager, FocusOrigin} from '@angular/cdk/a11y';
-import {Direction} from '@angular/cdk/bidi';
-import {coerceBooleanProperty} from '@angular/cdk/coercion';
+import { FocusKeyManager, FocusOrigin } from '@angular/cdk/a11y';
+import { Direction } from '@angular/cdk/bidi';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
   ESCAPE,
   LEFT_ARROW,
@@ -39,16 +39,16 @@ import {
   ViewEncapsulation,
   OnInit,
 } from '@angular/core';
-import {merge, Observable, Subject, Subscription} from 'rxjs';
-import {startWith, switchMap, take} from 'rxjs/operators';
-import {ixMenuAnimations} from './menu-animations';
-import {IxMenuContent} from './menu-content';
-import {MenuPositionX, MenuPositionY} from './menu-positions';
-import {throwIxMenuInvalidPositionX, throwIxMenuInvalidPositionY} from './menu-errors';
-import {IxMenuItem} from './menu-item';
-import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
-import {AnimationEvent} from '@angular/animations';
-import {IxMenuModel} from './_model/menu-model.service'; // TODO(uiux): model edit
+import { merge, Observable, Subject, Subscription } from 'rxjs';
+import { startWith, switchMap, take } from 'rxjs/operators';
+import { ixMenuAnimations } from './menu-animations';
+import { IxMenuContent } from './menu-content';
+import { MenuPositionX, MenuPositionY } from './menu-positions';
+import { throwIxMenuInvalidPositionX, throwIxMenuInvalidPositionY } from './menu-errors';
+import { IxMenuItem } from './menu-item';
+import { MAT_MENU_PANEL, IxMenuPanel } from './menu-panel';
+import { AnimationEvent } from '@angular/animations';
+import { IxMenuModel } from './_model/menu-model.service'; // TODO(uiux): model edit
 
 /** Default `ix-menu` options that can be overridden. */
 export interface IxMenuDefaultOptions {
@@ -69,11 +69,10 @@ export interface IxMenuDefaultOptions {
 }
 
 /** Injection token to be used to override the default options for `ix-menu`. */
-export const MAT_MENU_DEFAULT_OPTIONS =
-    new InjectionToken<IxMenuDefaultOptions>('ix-menu-default-options', {
-      providedIn: 'root',
-      factory: MAT_MENU_DEFAULT_OPTIONS_FACTORY
-    });
+export const MAT_MENU_DEFAULT_OPTIONS = new InjectionToken<IxMenuDefaultOptions>('ix-menu-default-options', {
+  providedIn: 'root',
+  factory: MAT_MENU_DEFAULT_OPTIONS_FACTORY,
+});
 
 /** @docs-private */
 export function MAT_MENU_DEFAULT_OPTIONS_FACTORY(): IxMenuDefaultOptions {
@@ -92,8 +91,7 @@ const MAT_MENU_BASE_ELEVATION = 4;
 
 /** Base class with all of the `IxMenu` functionality. */
 // tslint:disable-next-line:class-name
-export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit,
-  OnDestroy {
+export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, OnInit, OnDestroy {
   private _keyManager: FocusKeyManager<IxMenuItem>;
   private _xPosition: MenuPositionX = this._defaultOptions.xPosition;
   private _yPosition: MenuPositionY = this._defaultOptions.yPosition;
@@ -114,7 +112,7 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
   private _tabSubscription = Subscription.EMPTY;
 
   /** Config object to be passed into the menu's ngClass */
-  _classList: {[key: string]: boolean} = {};
+  _classList: { [key: string]: boolean } = {};
 
   /** Current state of the panel animation. */
   _panelAnimationState: 'void' | 'enter' = 'void';
@@ -136,7 +134,9 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
 
   /** Position of the menu in the X axis. */
   @Input()
-  get xPosition(): MenuPositionX { return this._xPosition; }
+  get xPosition(): MenuPositionX {
+    return this._xPosition;
+  }
   set xPosition(value: MenuPositionX) {
     if (value !== 'before' && value !== 'after') {
       throwIxMenuInvalidPositionX();
@@ -147,7 +147,9 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
 
   /** Position of the menu in the Y axis. */
   @Input()
-  get yPosition(): MenuPositionY { return this._yPosition; }
+  get yPosition(): MenuPositionY {
+    return this._yPosition;
+  }
   set yPosition(value: MenuPositionY) {
     if (value !== 'above' && value !== 'below') {
       throwIxMenuInvalidPositionY();
@@ -158,18 +160,18 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
 
   // TODO(uiux): model edit
   @Input()
-  set ixDisableClose( val: boolean) {
+  set ixDisableClose(val: boolean) {
     this._ixDisableClose = val !== undefined ? val : true;
   }
 
   // TODO(uiux): model edit
   @Input()
-  set ixMenuModelID( val: string) {
+  set ixMenuModelID(val: string) {
     this._ixMenuModelID = val;
   }
 
   /** @docs-private */
-  @ViewChild(TemplateRef, {static: false}) templateRef: TemplateRef<any>;
+  @ViewChild(TemplateRef, { static: false }) templateRef: TemplateRef<any>;
 
   /**
    * List of the items inside of a menu.
@@ -182,11 +184,13 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
    * Menu content that will be rendered lazily.
    * @docs-private
    */
-  @ContentChild(IxMenuContent, {static: false}) lazyContent: IxMenuContent;
+  @ContentChild(IxMenuContent, { static: false }) lazyContent: IxMenuContent;
 
   /** Whether the menu should overlap its trigger. */
   @Input()
-  get overlapTrigger(): boolean { return this._overlapTrigger; }
+  get overlapTrigger(): boolean {
+    return this._overlapTrigger;
+  }
   set overlapTrigger(value: boolean) {
     this._overlapTrigger = coerceBooleanProperty(value);
   }
@@ -194,7 +198,9 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
 
   /** Whether the menu has a backdrop. */
   @Input()
-  get hasBackdrop(): boolean | undefined { return this._hasBackdrop; }
+  get hasBackdrop(): boolean | undefined {
+    return this._hasBackdrop;
+  }
   set hasBackdrop(value: boolean | undefined) {
     this._hasBackdrop = coerceBooleanProperty(value);
   }
@@ -236,12 +242,17 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
    * @breaking-change 8.0.0
    */
   @Input()
-  get classList(): string { return this.panelClass; }
-  set classList(classes: string) { this.panelClass = classes; }
+  get classList(): string {
+    return this.panelClass;
+  }
+  set classList(classes: string) {
+    this.panelClass = classes;
+  }
 
   /** Event emitted when the menu is closed. */
-  @Output() readonly closed: EventEmitter<void | 'click' | 'keydown' | 'tab'> =
-      new EventEmitter<void | 'click' | 'keydown' | 'tab'>();
+  @Output() readonly closed: EventEmitter<void | 'click' | 'keydown' | 'tab'> = new EventEmitter<
+    void | 'click' | 'keydown' | 'tab'
+  >();
 
   /**
    * Event emitted when the menu is closed.
@@ -254,7 +265,8 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
     private _elementRef: ElementRef<HTMLElement>,
     private _ngZone: NgZone,
     private _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
-    @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: IxMenuDefaultOptions) { }
+    @Inject(MAT_MENU_DEFAULT_OPTIONS) private _defaultOptions: IxMenuDefaultOptions
+  ) {}
 
   ngOnInit() {
     this.setPositionClasses();
@@ -289,7 +301,7 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
   _hovered(): Observable<IxMenuItem> {
     return this._itemChanges.pipe(
       startWith(this._items),
-      switchMap(items => merge(...items.map(item => item._hovered)))
+      switchMap((items) => merge(...items.map((item) => item._hovered)))
     );
   }
 
@@ -301,24 +313,24 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
     switch (keyCode) {
       case ESCAPE:
         this.closed.emit('keydown');
-      break;
+        break;
       case LEFT_ARROW:
         if (this.parentMenu && this.direction === 'ltr') {
           this.closed.emit('keydown');
         }
-      break;
+        break;
       case RIGHT_ARROW:
         if (this.parentMenu && this.direction === 'rtl') {
           this.closed.emit('keydown');
         }
-      break;
+        break;
       case HOME:
       case END:
         if (!hasModifierKey(event)) {
           keyCode === HOME ? manager.setFirstItemActive() : manager.setLastItemActive();
           event.preventDefault();
         }
-      break;
+        break;
       default:
         if (keyCode === UP_ARROW || keyCode === DOWN_ARROW) {
           manager.setFocusOrigin('keyboard');
@@ -357,7 +369,8 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
   focusFirstItem(origin: FocusOrigin = 'program'): void {
     // When the content is rendered lazily, it takes a bit before the items are inside the DOM.
     if (this.lazyContent) {
-      this._ngZone.onStable.asObservable()
+      this._ngZone.onStable
+        .asObservable()
         .pipe(take(1))
         .subscribe(() => this._keyManager.setFocusOrigin(origin).setFirstItemActive());
     } else {
@@ -380,7 +393,7 @@ export class _IxMenuBase implements AfterContentInit, IxMenuPanel<IxMenuItem>, O
   setElevation(depth: number): void {
     // The elevation starts at the base and increases by one for each level.
     const newElevation = `mat-elevation-z${MAT_MENU_BASE_ELEVATION + depth}`;
-    const customElevation = Object.keys(this._classList).find(c => c.startsWith('mat-elevation-z'));
+    const customElevation = Object.keys(this._classList).find((c) => c.startsWith('mat-elevation-z'));
 
     if (!customElevation || customElevation === this._previousElevation) {
       if (this._previousElevation) {
@@ -490,21 +503,17 @@ export class IxMenu extends _IxMenuBase {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   exportAs: 'ixMenu',
-  animations: [
-    ixMenuAnimations.transformMenu,
-    ixMenuAnimations.fadeInItems
-  ],
-  providers: [
-    {provide: MAT_MENU_PANEL, useExisting: IxMenu},
-    {provide: IxMenu, useExisting: _IxMenu}
-  ]
+  animations: [ixMenuAnimations.transformMenu, ixMenuAnimations.fadeInItems],
+  providers: [{ provide: MAT_MENU_PANEL, useExisting: IxMenu }, { provide: IxMenu, useExisting: _IxMenu }],
 })
 // tslint:disable-next-line:class-name
 export class _IxMenu extends IxMenu {
-
-  constructor(elementRef: ElementRef<HTMLElement>, ngZone: NgZone,
-              _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
-      @Inject(MAT_MENU_DEFAULT_OPTIONS) defaultOptions: IxMenuDefaultOptions) {
+  constructor(
+    elementRef: ElementRef<HTMLElement>,
+    ngZone: NgZone,
+    _IxMenuModel: IxMenuModel, // TODO(uiux): model edit
+    @Inject(MAT_MENU_DEFAULT_OPTIONS) defaultOptions: IxMenuDefaultOptions
+  ) {
     super(elementRef, ngZone, _IxMenuModel, defaultOptions);
   }
 }

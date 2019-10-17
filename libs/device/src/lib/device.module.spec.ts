@@ -4,7 +4,7 @@ import { DeviceModule } from './device.module';
 describe('DeviceModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DeviceModule]
+      imports: [DeviceModule],
     }).compileComponents();
   }));
 

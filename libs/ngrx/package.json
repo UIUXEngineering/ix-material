@@ -1,6 +1,6 @@
 {
   "name": "@uiux/ngrx",
-  "version": "8.2.2",
+  "version": "8.2.3",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:schemas": "rsync -avm --include='schematics/*/*.json' -f 'hide,! */' . ../../dist/libs/ngrx",
@@ -10,8 +10,7 @@
     "postbuild": "npm run copy:schemas && npm run copy:creators && npm run copy:collection"
   },
   "schematics": "./schematics/collection.json",
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@nrwl/cypress": "*",
     "@nrwl/jest": "*",

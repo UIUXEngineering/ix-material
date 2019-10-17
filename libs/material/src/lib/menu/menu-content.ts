@@ -16,15 +16,15 @@ import {
   Inject,
   OnDestroy,
 } from '@angular/core';
-import {TemplatePortal, DomPortalOutlet} from '@angular/cdk/portal';
-import {DOCUMENT} from '@angular/common';
-import {Subject} from 'rxjs';
+import { TemplatePortal, DomPortalOutlet } from '@angular/cdk/portal';
+import { DOCUMENT } from '@angular/common';
+import { Subject } from 'rxjs';
 
 /**
  * Menu content that will be rendered lazily once the menu is opened.
  */
 @Directive({
-  selector: 'ng-template[ixMenuContent]'
+  selector: 'ng-template[ixMenuContent]',
 })
 export class IxMenuContent implements OnDestroy {
   private _portal: TemplatePortal<any>;
@@ -39,7 +39,8 @@ export class IxMenuContent implements OnDestroy {
     private _appRef: ApplicationRef,
     private _injector: Injector,
     private _viewContainerRef: ViewContainerRef,
-    @Inject(DOCUMENT) private _document: any) {}
+    @Inject(DOCUMENT) private _document: any
+  ) {}
 
   /**
    * Attaches the content with a particular context.
@@ -53,8 +54,12 @@ export class IxMenuContent implements OnDestroy {
     this.detach();
 
     if (!this._outlet) {
-      this._outlet = new DomPortalOutlet(this._document.createElement('div'),
-          this._componentFactoryResolver, this._appRef, this._injector);
+      this._outlet = new DomPortalOutlet(
+        this._document.createElement('div'),
+        this._componentFactoryResolver,
+        this._appRef,
+        this._injector
+      );
     }
 
     const element: HTMLElement = this._template.elementRef.nativeElement;

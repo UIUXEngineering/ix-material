@@ -7,7 +7,6 @@ import { isEmpty } from '../_common/isEmpty';
 import { setIn } from '../_common/setIn';
 import { getIn } from '../_common/getIn';
 
-
 export function transform(target: any, map: any): any {
   if (isPlainObject(target) && isPlainObject(map)) {
     if (!isEmpty(target) && !isEmpty(map)) {

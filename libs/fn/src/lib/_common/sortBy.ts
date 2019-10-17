@@ -39,4 +39,3 @@ export const sortBy = baseRest(function(collection, iteratees) {
   }
   return baseOrderBy(collection, baseFlatten(iteratees, 1), []);
 });
-

@@ -20,12 +20,7 @@ const splice = arrayProto.splice;
  * @param comparator [comparator] The comparator invoked per element.
  * Returns `_array`.
  */
-export function basePullAll(
-  array: any[],
-  values: any[],
-  iteratee?: Function,
-  comparator?: Function
-): any[] {
+export function basePullAll(array: any[], values: any[], iteratee?: Function, comparator?: Function): any[] {
   const indexOf = comparator ? baseIndexOfWith : baseIndexOf;
   let index = -1;
   const length = values.length;

@@ -19,9 +19,7 @@ export function copyObject(source: any, props: any, object: any = {}, customizer
   while (++index < length) {
     const key = props[index];
 
-    let newValue = customizer
-      ? customizer(object[key], source[key], key, object, source)
-      : undefined;
+    let newValue = customizer ? customizer(object[key], source[key], key, object, source) : undefined;
 
     if (newValue === undefined) {
       newValue = source[key];

@@ -9,12 +9,7 @@
  * @param accumulator {*} [accumulator] The initial value.
  * @param initAccum {boolean} [initAccum] Specify using the first element of `_array` as
  */
-export function arrayReduce(
-  array: any[],
-  iteratee: Function,
-  accumulator: any,
-  initAccum?: boolean
-): any {
+export function arrayReduce(array: any[], iteratee: Function, accumulator: any, initAccum?: boolean): any {
   let index = -1;
   const length = array == null ? 0 : array.length;
 

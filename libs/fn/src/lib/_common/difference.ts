@@ -25,7 +25,5 @@ import { isArrayLikeObject } from './isArrayLikeObject';
  * // => [1]
  */
 export const difference = baseRest(function(array, values) {
-  return isArrayLikeObject(array)
-    ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true))
-    : [];
+  return isArrayLikeObject(array) ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true)) : [];
 });

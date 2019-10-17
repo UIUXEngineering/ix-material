@@ -15,12 +15,7 @@ export type customizerFn = (objValue: any, key: string, nested: any) => any;
  * @param customizer The function to customize path creation.
  * Returns `_object`.
  */
-export function baseSet<T>(
-  object: T,
-  path: string[] | string,
-  value: any,
-  customizer?: customizerFn
-): T {
+export function baseSet<T>(object: T, path: string[] | string, value: any, customizer?: customizerFn): T {
   if (!isObject(object)) {
     return object;
   }

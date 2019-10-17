@@ -22,16 +22,12 @@ const getModule: Function = new Function('return module');
 
 /** Detect free variable `exports`. */
 const freeExports =
-  isNode() && typeof getExports() === 'object' && !(getExports() && getExports().nodeType)
-    ? getExports()
-    : null;
+  isNode() && typeof getExports() === 'object' && !(getExports() && getExports().nodeType) ? getExports() : null;
 
 // declare const module;
 /** Detect free variable `module`. */
 const freeModule: { exports: any; require: Function } =
-  isNode() && freeExports && typeof getModule() === 'object' && !getModule().nodeType
-    ? getModule()
-    : null;
+  isNode() && freeExports && typeof getModule() === 'object' && !getModule().nodeType ? getModule() : null;
 
 /** Detect the popular CommonJS extension `module.exports`. */
 const moduleExports = freeModule && freeModule.exports === freeExports;

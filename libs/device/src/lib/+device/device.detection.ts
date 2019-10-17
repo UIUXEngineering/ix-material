@@ -24,9 +24,7 @@ export function isBrowser(platform: string): boolean {
 }
 
 export function isCordova(platformID: string): boolean {
-  return platformID && platformID.length
-    ? !isDesktop(platformID) && !isBrowser(platformID)
-    : false;
+  return platformID && platformID.length ? !isDesktop(platformID) && !isBrowser(platformID) : false;
 }
 
 export function isIphoneNotch(model: string): boolean {

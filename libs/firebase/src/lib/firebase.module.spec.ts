@@ -4,7 +4,7 @@ import { FirebaseModule } from './firebase.module';
 describe('FirebaseModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FirebaseModule]
+      imports: [FirebaseModule],
     }).compileComponents();
   }));
 

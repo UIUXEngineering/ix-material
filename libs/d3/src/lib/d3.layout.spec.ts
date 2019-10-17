@@ -1,4 +1,3 @@
-
 import { IxD3Layout } from './d3.layout';
 
 describe('IxD3Layout', () => {
@@ -11,14 +10,12 @@ describe('IxD3Layout', () => {
         right: -20,
         bottom: -20,
         left: -20,
-      }
+      },
     });
 
     expect(layout.width).toEqual(0);
     expect(layout.height).toEqual(0);
     expect(layout.boundedWidth).toEqual(0);
     expect(layout.boundedHeight).toEqual(0);
-
-
   });
 });

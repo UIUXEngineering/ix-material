@@ -33,18 +33,16 @@ const arrayBufferTag = '[object ArrayBuffer]',
 const typedArrayTags = {};
 typedArrayTags[float32Tag] = typedArrayTags[float64Tag] = typedArrayTags[int8Tag] = typedArrayTags[
   int16Tag
-] = typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] = typedArrayTags[
-  uint8ClampedTag
-] = typedArrayTags[uint16Tag] = typedArrayTags[uint32Tag] = true;
-typedArrayTags[argsTag] = typedArrayTags[arrayTag] = typedArrayTags[
-  arrayBufferTag
-] = typedArrayTags[boolTag] = typedArrayTags[dataViewTag] = typedArrayTags[
-  dateTag
-] = typedArrayTags[errorTag] = typedArrayTags[funcTag] = typedArrayTags[mapTag] = typedArrayTags[
-  numberTag
-] = typedArrayTags[objectTag] = typedArrayTags[regexpTag] = typedArrayTags[setTag] = typedArrayTags[
-  stringTag
-] = typedArrayTags[weakMapTag] = false;
+] = typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] = typedArrayTags[uint8ClampedTag] = typedArrayTags[
+  uint16Tag
+] = typedArrayTags[uint32Tag] = true;
+typedArrayTags[argsTag] = typedArrayTags[arrayTag] = typedArrayTags[arrayBufferTag] = typedArrayTags[
+  boolTag
+] = typedArrayTags[dataViewTag] = typedArrayTags[dateTag] = typedArrayTags[errorTag] = typedArrayTags[
+  funcTag
+] = typedArrayTags[mapTag] = typedArrayTags[numberTag] = typedArrayTags[objectTag] = typedArrayTags[
+  regexpTag
+] = typedArrayTags[setTag] = typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
 
 /**
  * The base implementation of `_.isTypedArray` without Node.js optimizations.

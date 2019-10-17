@@ -11,4 +11,3 @@ export function stopEvent(event: MouseEvent): void {
   event.stopPropagation();
   event.preventDefault();
 }
-

@@ -3,8 +3,8 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { isArray} from '../_common/isArray';
-import { map} from '../_common/map';
+import { isArray } from '../_common/isArray';
+import { map } from '../_common/map';
 import { hasValue } from '../_common/hasValue';
 import { isArrayInteger } from '../_number/isArrayInteger';
 

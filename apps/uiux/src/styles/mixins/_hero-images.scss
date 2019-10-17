@@ -1,6 +1,5 @@
-
 $background-image-width: 100%;
-$background-image-height: 656px;;
+$background-image-height: 656px;
 
 @mixin background-image-wrapper() {
   position: absolute;
@@ -27,8 +26,6 @@ $background-image-height: 656px;;
   -o-background-size: cover;
   background-size: cover;
 }
-
-
 
 @mixin background-image-url-full-view($url) {
   @include background-image-url($url);

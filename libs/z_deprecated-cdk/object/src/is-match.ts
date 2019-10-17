@@ -24,14 +24,7 @@ export function isMatch(src, mapCompare): boolean {
             _isMatchTest = false;
             break;
           }
-        } else if (
-          !(
-            _isMatchTest &&
-            hasValue(srcValue) &&
-            hasValue(cmpValue) &&
-            _isMatch(srcValue, cmpValue)
-          )
-        ) {
+        } else if (!(_isMatchTest && hasValue(srcValue) && hasValue(cmpValue) && _isMatch(srcValue, cmpValue))) {
           _isMatchTest = false;
           break;
         }

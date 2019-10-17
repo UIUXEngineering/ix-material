@@ -64,10 +64,7 @@ export function equalByTag(
       other = other.buffer;
 
     case arrayBufferTag:
-      if (
-        object.byteLength !== other.byteLength ||
-        !equalFunc(new Uint8Array(object), new Uint8Array(other))
-      ) {
+      if (object.byteLength !== other.byteLength || !equalFunc(new Uint8Array(object), new Uint8Array(other))) {
         return false;
       }
       return true;
@@ -110,14 +107,7 @@ export function equalByTag(
 
       // Recursively compare objects (susceptible to call stack limits).
       stack.set(object, other);
-      const result = equalArrays(
-        convert(object),
-        convert(other),
-        bitmask,
-        customizer,
-        equalFunc,
-        stack
-      );
+      const result = equalArrays(convert(object), convert(other), bitmask, customizer, equalFunc, stack);
       stack['delete'](object);
       return result;
 

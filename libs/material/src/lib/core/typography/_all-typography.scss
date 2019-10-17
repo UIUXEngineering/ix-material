@@ -35,7 +35,6 @@
 @import '../../form-field/form-field-theme';
 @import '../../tree/tree-theme';
 
-
 // Includes all of the typographic styles.
 @mixin angular-material-typography($config: null) {
   @if $config == null {

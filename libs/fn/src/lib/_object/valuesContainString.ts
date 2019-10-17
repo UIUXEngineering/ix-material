@@ -6,7 +6,6 @@ import { isString } from '../_common/isString';
 import { getIn } from '../_common/getIn';
 import { hasValue } from '../_common/hasValue';
 
-
 export function valuesContainString(data: any, q: string, props: string[]): boolean {
   props = props && props.length ? props : [];
   q = q.toLowerCase();

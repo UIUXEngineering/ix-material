@@ -3,7 +3,6 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-
 import { isEqual } from '../_common/isEqual';
 import { includes } from '../_common/includes';
 import { getRandomFromArray } from './getRandomFromArray';
@@ -15,11 +14,7 @@ import { getRandomFromArray } from './getRandomFromArray';
  * @param numberItemsToChoose
  * @returns any[]
  */
-export function getRandomRangeFromArray(
-  arr: any[],
-  numberItemsToChoose: number,
-  exclude?: any
-): any[] {
+export function getRandomRangeFromArray(arr: any[], numberItemsToChoose: number, exclude?: any): any[] {
   let chosenCount = 0;
   const chosenAccepted: any[] = [];
   while (chosenCount < numberItemsToChoose) {

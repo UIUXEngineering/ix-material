@@ -18,10 +18,18 @@ export const defaultResizeProperties: DOMRectReadOnly = {
   right: 0,
   bottom: 0,
   left: 0,
-  toJSON: () => {
-  },
+  toJSON: () => {},
 };
 
-export function getResizeProperties({ x, y, width, height, top, right, bottom, left }: DOMRectReadOnly): DomRectPosition {
+export function getResizeProperties({
+  x,
+  y,
+  width,
+  height,
+  top,
+  right,
+  bottom,
+  left,
+}: DOMRectReadOnly): DomRectPosition {
   return { x, y, width, height, top, right, bottom, left };
 }

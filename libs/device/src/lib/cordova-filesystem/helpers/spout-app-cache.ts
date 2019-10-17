@@ -11,64 +11,67 @@ import {
   LocalFileSystem,
   ReadFileFunction,
   SpoutAppCacheDictionary,
-  WriteFileFunction
+  WriteFileFunction,
 } from '../cordova.interfaces';
 
 const SPOUT_APP_CACHE_DICTIONARY = 'spoutAppCache.json';
 
 export const initialCacheData: SpoutAppCacheDictionary = {
-  projects: {}
+  projects: {},
 };
 
 export class SpoutAppCache {
-
-  constructor( private window: CordovaWindow ) {}
+  constructor(private window: CordovaWindow) {}
 
   getAppDataCacheJson(): Observable<SpoutAppCacheDictionary> {
-
     const writeFile: WriteFileFunction = this.writeJsonFile.bind(this);
     const readFile: ReadFileFunction = this.readJsonFile.bind(this);
 
-    return new Observable(( observer: Observer<any> ) => {
+    return new Observable((observer: Observer<any>) => {
+      (<CordovaWindow>this.window).requestFileSystem(
+        LocalFileSystem.PERSISTENT,
+        0,
+        (fs: FileSystem) => {
+          // console.log('file system open: ' + fs.name);
+          fs.root.getFile(
+            SPOUT_APP_CACHE_DICTIONARY,
+            {
+              create: true,
+              exclusive: false,
+            },
+            function(fileEntry: FileEntry) {
+              const isFile: boolean = fileEntry.isFile;
 
-      (<CordovaWindow>this.window).requestFileSystem(LocalFileSystem.PERSISTENT, 0, ( fs: FileSystem ) => {
-        // console.log('file system open: ' + fs.name);
-        fs.root.getFile(SPOUT_APP_CACHE_DICTIONARY, {
-          create: true,
-          exclusive: false
-        }, function( fileEntry: FileEntry ) {
+              if (isFile) {
+                readFile(fileEntry)
+                  .pipe(
+                    mergeMap((data: any) => {
+                      if (hasValue(data)) {
+                        return of(data);
+                      } else {
+                        return writeFile(fileEntry, initialCacheData);
+                      }
+                    })
+                  )
+                  .subscribe((data: SpoutAppCacheDictionary) => {
+                    observer.next(data);
+                  });
+              }
 
-          const isFile: boolean = fileEntry.isFile;
-
-          if ( isFile ) {
-            readFile(fileEntry)
-              .pipe(
-                mergeMap(( data: any ) => {
-                  if ( hasValue(data) ) {
-                    return of(data);
-                  } else {
-                    return writeFile(fileEntry, initialCacheData);
-                  }
-                })
-              )
-              .subscribe(( data: SpoutAppCacheDictionary ) => {
-                observer.next(data);
-              });
-          }
-
-          // console.log('fileEntry is file?' + fileEntry.isFile.toString());
-          // // fileEntry.name == 'someFile.txt'
-          // // fileEntry.fullPath == '/someFile.txt'
-          // writeFile(fileEntry, null);
-
-        }, ( error: FileError ) => {
-          observer.error(error);
-        });
-
-      }, ( fileError: FileError ) => {
-        observer.error(fileError);
-      });
-
+              // console.log('fileEntry is file?' + fileEntry.isFile.toString());
+              // // fileEntry.name == 'someFile.txt'
+              // // fileEntry.fullPath == '/someFile.txt'
+              // writeFile(fileEntry, null);
+            },
+            (error: FileError) => {
+              observer.error(error);
+            }
+          );
+        },
+        (fileError: FileError) => {
+          observer.error(fileError);
+        }
+      );
     });
   }
 
@@ -77,89 +80,92 @@ export class SpoutAppCache {
    * @param fileEntry
    * @param dataObj
    */
-  private writeJsonFile( fileEntry: FileEntry, dataObj: any ): Observable<SpoutAppCacheDictionary> {
-    return new Observable(( observer: Observer<any> ) => {
+  private writeJsonFile(fileEntry: FileEntry, dataObj: any): Observable<SpoutAppCacheDictionary> {
+    return new Observable((observer: Observer<any>) => {
       // Create a FileWriter object for our FileEntry (log.txt).
-      fileEntry.createWriter(function( fileWriter: FileWriter ) {
+      fileEntry.createWriter(
+        function(fileWriter: FileWriter) {
+          fileWriter.onwriteend = function() {
+            // console.log('Successful file read...');
+          };
 
-        fileWriter.onwriteend = function() {
-          // console.log('Successful file read...');
-        };
+          fileWriter.onerror = function(e) {
+            // console.log('Failed file read: ' + e.toString());
+          };
 
-        fileWriter.onerror = function( e ) {
-          // console.log('Failed file read: ' + e.toString());
-        };
+          // const payload = JSON.stringify(dataObj);
 
-        // const payload = JSON.stringify(dataObj);
+          fileWriter.write(dataObj);
 
-        fileWriter.write(dataObj);
-
-        observer.next(dataObj);
-      }, ( error: FileError ) => {
-        observer.error(error);
-      });
+          observer.next(dataObj);
+        },
+        (error: FileError) => {
+          observer.error(error);
+        }
+      );
     });
   }
 
-  private readJsonFile( fileEntry: FileEntry ): Observable<SpoutAppCacheDictionary> {
+  private readJsonFile(fileEntry: FileEntry): Observable<SpoutAppCacheDictionary> {
+    return new Observable((observer: Observer<any>) => {
+      fileEntry.file(
+        function(file) {
+          const reader = new FileReader();
 
-    return new Observable(( observer: Observer<any> ) => {
+          reader.onloadend = function() {
+            // console.log('Successful file read: ' + this.result);
+            let result: string;
+            try {
+              result = JSON.parse(<string>reader.result);
+            } catch (e) {
+              /* noop */
+            }
+            observer.next(result);
+          };
 
-      fileEntry.file(function( file ) {
-        const reader = new FileReader();
-
-        reader.onloadend = function() {
-          // console.log('Successful file read: ' + this.result);
-          let result: string;
-          try {
-            result = JSON.parse(<string>reader.result);
-          } catch ( e ) {
-            /* noop */
-          }
-          observer.next(result);
-        };
-
-        reader.readAsText(file);
-
-      }, ( error: FileError ) => {
-        observer.error(error);
-      });
-
+          reader.readAsText(file);
+        },
+        (error: FileError) => {
+          observer.error(error);
+        }
+      );
     });
   }
 
-  save( data: SpoutAppCacheDictionary ): Observable<SpoutAppCacheDictionary> {
+  save(data: SpoutAppCacheDictionary): Observable<SpoutAppCacheDictionary> {
     const writeFile: WriteFileFunction = this.writeJsonFile.bind(this);
 
-    return new Observable(( observer: Observer<any> ) => {
+    return new Observable((observer: Observer<any>) => {
+      (<CordovaWindow>this.window).requestFileSystem(
+        LocalFileSystem.PERSISTENT,
+        0,
+        (fs: FileSystem) => {
+          console.log('file system open: ' + fs.name);
+          fs.root.getFile(
+            SPOUT_APP_CACHE_DICTIONARY,
+            {
+              create: true,
+              exclusive: false,
+            },
+            function(fileEntry: FileEntry) {
+              writeFile(fileEntry, data).subscribe((_data: SpoutAppCacheDictionary) => {
+                observer.next(_data);
+              });
 
-      (<CordovaWindow>this.window).requestFileSystem(LocalFileSystem.PERSISTENT, 0, ( fs: FileSystem ) => {
-        console.log('file system open: ' + fs.name);
-        fs.root.getFile(SPOUT_APP_CACHE_DICTIONARY, {
-          create: true,
-          exclusive: false
-        }, function( fileEntry: FileEntry ) {
-
-          writeFile(fileEntry, data)
-            .subscribe(( _data: SpoutAppCacheDictionary ) => {
-              observer.next(_data);
-            });
-
-          // console.log('fileEntry is file?' + fileEntry.isFile.toString());
-          // // fileEntry.name == 'someFile.txt'
-          // // fileEntry.fullPath == '/someFile.txt'
-          // writeFile(fileEntry, null);
-
-        }, ( error: FileError ) => {
-          observer.error(error);
-        });
-
-      }, ( fileError: FileError ) => {
-        observer.error(fileError);
-      });
-
+              // console.log('fileEntry is file?' + fileEntry.isFile.toString());
+              // // fileEntry.name == 'someFile.txt'
+              // // fileEntry.fullPath == '/someFile.txt'
+              // writeFile(fileEntry, null);
+            },
+            (error: FileError) => {
+              observer.error(error);
+            }
+          );
+        },
+        (fileError: FileError) => {
+          observer.error(fileError);
+        }
+      );
     });
   }
-
-
 }

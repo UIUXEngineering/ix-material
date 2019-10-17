@@ -19,7 +19,5 @@ const boolTag = '[object Boolean]';
  * Returns `true` if `value` is a boolean, else `false`.
  */
 export function isBoolean(value: any): boolean {
-  return (
-    value === true || value === false || (isObjectLike(value) && baseGetTag(value) === boolTag)
-  );
+  return value === true || value === false || (isObjectLike(value) && baseGetTag(value) === boolTag);
 }

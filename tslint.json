@@ -1,8 +1,5 @@
 {
-  "rulesDirectory": [
-    "node_modules/@nrwl/workspace/src/tslint",
-    "node_modules/codelyzer"
-  ],
+  "rulesDirectory": ["node_modules/codelyzer", "node_modules/@nrwl/workspace/src/tslint"],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -17,12 +14,7 @@
     "member-ordering": [
       true,
       {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
+        "order": ["static-field", "instance-field", "static-method", "instance-method"]
       }
     ],
     "no-arg": true,
@@ -43,6 +35,7 @@
     "no-switch-case-fall-through": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
+    "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "prefer-const": true,
@@ -50,55 +43,17 @@
     "triple-equals": [true, "allow-null-check"],
     "unified-signatures": true,
     "variable-name": false,
-    "nx-enforce-module-boundaries": [
-      true,
-      {
-        "allow": [],
-        "depConstraints": [
-          {
-            "sourceTag": "fn",
-            "onlyDependOnLibsWithTags": ["fn"]
-          },
-          {
-            "sourceTag": "cdk",
-            "onlyDependOnLibsWithTags": ["services","rxjs","cdk", "fn"]
-          },
-          {
-            "sourceTag": "material",
-            "onlyDependOnLibsWithTags": ["firebase","services","rxjs","d3","material", "cdk", "fn", "icons"]
-          },
-          {
-            "sourceTag": "d3",
-            "onlyDependOnLibsWithTags": ["services","rxjs","d3", "cdk", "fn", "icons"]
-          },
-          {
-            "sourceTag": "rxjs",
-            "onlyDependOnLibsWithTags": [ "fn"]
-          },
-          {
-            "sourceTag": "services",
-            "onlyDependOnLibsWithTags": [ "services", "fn", "rxjs"]
-          },
-          {
-            "sourceTag": "firebase",
-            "onlyDependOnLibsWithTags": [ "fn", "rxjs"]
-          }
-        ]
-      }
-    ],
     "directive-selector": [true, "attribute", "app", "camelCase"],
     "component-selector": [true, "element", "app", "kebab-case"],
-    "no-conflicting-lifecycle": true,
+    "no-output-on-prefix": true,
+    "no-inputs-metadata-property": true,
+    "no-outputs-metadata-property": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
-    "no-inputs-metadata-property": true,
-    "no-output-native": true,
-    "no-output-on-prefix": true,
     "no-output-rename": true,
-    "no-outputs-metadata-property": true,
-    "template-banana-in-box": true,
-    "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-pipe-transform-interface": true,
+    "component-class-suffix": true,
+    "directive-class-suffix": true
   }
 }

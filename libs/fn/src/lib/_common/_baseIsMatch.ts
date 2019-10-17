@@ -14,12 +14,7 @@ const COMPARE_PARTIAL_FLAG = 1,
  * @param customizer The function to customize comparisons.
  * Returns `true` if `_object` is a match, else `false`.
  */
-export function baseIsMatch(
-  object: any,
-  source: any,
-  matchData: any[],
-  customizer?: Function
-): boolean {
+export function baseIsMatch(object: any, source: any, matchData: any[], customizer?: Function): boolean {
   let index = matchData.length;
   const length = index,
     noCustomizer = !customizer;

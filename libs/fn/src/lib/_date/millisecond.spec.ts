@@ -3,16 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import {
-  dayToMs,
-  hourToMs,
-  minToMs,
-  msToDays,
-  msToHours,
-  msToMins,
-  msToSec,
-  secToMs,
-} from './millisecond';
+import { dayToMs, hourToMs, minToMs, msToDays, msToHours, msToMins, msToSec, secToMs } from './millisecond';
 
 describe('Time', () => {
   beforeEach(() => {

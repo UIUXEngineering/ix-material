@@ -2,7 +2,7 @@ export function calcTopTap(
   isSmallScreen: boolean,
   isIphoneNotch: boolean,
   isPortrait: boolean,
-  isDesktop: boolean,
+  isDesktop: boolean
 ): number {
   if (isIphoneNotch && isPortrait) {
     return 92;

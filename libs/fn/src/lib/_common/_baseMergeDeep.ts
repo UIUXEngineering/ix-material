@@ -45,9 +45,7 @@ export function baseMergeDeep(
     assignMergeValue(object, key, stacked);
     return;
   }
-  let newValue = customizer
-    ? customizer(objValue, srcValue, key + '', object, source, stack)
-    : undefined;
+  let newValue = customizer ? customizer(objValue, srcValue, key + '', object, source, stack) : undefined;
 
   let isCommon = newValue === undefined;
 

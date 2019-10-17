@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {FocusableOption, FocusMonitor, FocusOrigin} from '@angular/cdk/a11y';
+import { FocusableOption, FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -19,20 +19,23 @@ import {
   HostListener,
 } from '@angular/core';
 import {
-  CanDisable, CanDisableCtor,
-  CanDisableRipple, CanDisableRippleCtor,
+  CanDisable,
+  CanDisableCtor,
+  CanDisableRipple,
+  CanDisableRippleCtor,
   mixinDisabled,
   mixinDisableRipple,
 } from '@angular/material/core';
-import {Subject} from 'rxjs';
-import {DOCUMENT} from '@angular/common';
-import {MAT_MENU_PANEL, IxMenuPanel} from './menu-panel';
+import { Subject } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { MAT_MENU_PANEL, IxMenuPanel } from './menu-panel';
 
 // Boilerplate for applying mixins to IxMenuItem.
 /** @docs-private */
 class IxMenuItemBase {}
-const _IxMenuItemMixinBase: CanDisableRippleCtor & CanDisableCtor & typeof IxMenuItemBase =
-    mixinDisableRipple(mixinDisabled(IxMenuItemBase));
+const _IxMenuItemMixinBase: CanDisableRippleCtor & CanDisableCtor & typeof IxMenuItemBase = mixinDisableRipple(
+  mixinDisabled(IxMenuItemBase)
+);
 
 /**
  * This directive is intended to be used inside an ix-menu tag.
@@ -45,7 +48,7 @@ const _IxMenuItemMixinBase: CanDisableRippleCtor & CanDisableCtor & typeof IxMen
   inputs: ['disabled', 'disableRipple'],
   host: {
     '[attr.role]': 'role',
-    'class': 'ix-menu-item',
+    class: 'ix-menu-item',
     '[class.ix-menu-item-highlighted]': '_highlighted',
     '[class.ix-menu-item-submenu-trigger]': '_triggersSubmenu',
     '[attr.tabindex]': '_getTabIndex()',
@@ -57,8 +60,7 @@ const _IxMenuItemMixinBase: CanDisableRippleCtor & CanDisableCtor & typeof IxMen
   templateUrl: 'menu-item.html',
 })
 export class IxMenuItem extends _IxMenuItemMixinBase
-    implements FocusableOption, CanDisable, CanDisableRipple, OnDestroy {
-
+  implements FocusableOption, CanDisable, CanDisableRipple, OnDestroy {
   /** ARIA role for the menu item. */
   @Input() role: 'menuitem' | 'menuitemradio' | 'menuitemcheckbox' = 'menuitem';
 
@@ -77,8 +79,8 @@ export class IxMenuItem extends _IxMenuItemMixinBase
     private _elementRef: ElementRef<HTMLElement>,
     @Inject(DOCUMENT) document?: any,
     private _focusMonitor?: FocusMonitor,
-    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: IxMenuPanel<IxMenuItem>) {
-
+    @Inject(MAT_MENU_PANEL) @Optional() private _parentMenu?: IxMenuPanel<IxMenuItem>
+  ) {
     // @breaking-change 8.0.0 make `_focusMonitor` and `document` required params.
     super();
 
@@ -173,5 +175,4 @@ export class IxMenuItem extends _IxMenuItemMixinBase
 
     return output.trim();
   }
-
 }

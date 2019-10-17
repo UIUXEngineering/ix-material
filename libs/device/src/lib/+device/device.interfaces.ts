@@ -75,5 +75,5 @@ export interface DeviceState {
   device: Device;
   currentDevice: CurrentDevice;
   cacheDirectoryError?: boolean;
-  cacheDirectoryResponse?: any,
+  cacheDirectoryResponse?: any;
 }

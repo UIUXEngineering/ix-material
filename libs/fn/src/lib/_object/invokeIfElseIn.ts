@@ -3,7 +3,6 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-
 import { hasValue } from '../_common/hasValue';
 import { ternaryIn } from '../_common/ternaryIn';
 

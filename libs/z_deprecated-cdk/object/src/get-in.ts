@@ -13,11 +13,7 @@ import { ternary } from './ternary';
  * an array, or a dot-delimited string of properties. If the value does not
  * exist, the function returns undefined, or the defaultValue if supplied.
  */
-export function getIn(
-  object: any,
-  keys: string | string[] | null,
-  defaultValue?: any
-): any | any[] {
+export function getIn(object: any, keys: string | string[] | null, defaultValue?: any): any | any[] {
   let result: any | any[];
 
   if (keys && hasValue(keys)) {

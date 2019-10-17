@@ -18,10 +18,7 @@ const hasOwnProperty = objectProto.hasOwnProperty;
  */
 export function assignValue(object: any, key: string, value: any): void {
   const objValue = object[key];
-  if (
-    !(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
-    (value === undefined && !(key in object))
-  ) {
+  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) || (value === undefined && !(key in object))) {
     baseAssignValue(object, key, value);
   }
 }

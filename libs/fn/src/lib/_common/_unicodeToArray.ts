@@ -20,19 +20,9 @@ const rsAstral = '[' + rsAstralRange + ']',
 const reOptMod = rsModifier + '?',
   rsOptVar = '[' + rsVarRange + ']?',
   rsOptJoin =
-    '(?:' +
-    rsZWJ +
-    '(?:' +
-    [rsNonAstral, rsRegional, rsSurrPair].join('|') +
-    ')' +
-    rsOptVar +
-    reOptMod +
-    ')*',
+    '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
   rsSeq = rsOptVar + reOptMod + rsOptJoin,
-  rsSymbol =
-    '(?:' +
-    [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') +
-    ')';
+  rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
 
 /** Used to match [_string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
 const reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');

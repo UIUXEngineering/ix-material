@@ -4,5 +4,4 @@
  */
 import { setIn } from '../_common/setIn';
 
-
 export const upSetIn: Function = setIn;

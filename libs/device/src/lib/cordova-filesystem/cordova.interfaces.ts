@@ -6,15 +6,15 @@ export interface CordovaProjectWorkspace {
 }
 
 export interface CordovaProjectWorkspaceEntities {
-  [ uuid: string ]: CordovaProjectWorkspace;
+  [uuid: string]: CordovaProjectWorkspace;
 }
 
 export interface SpoutAppCacheDictionary {
   projects: CordovaProjectWorkspaceEntities;
 }
 
-export type ReadFileFunction = ( file: FileEntry ) => Observable<any>;
-export type WriteFileFunction = ( fileEntry: FileEntry, dataObj: any ) => Observable<any>;
+export type ReadFileFunction = (file: FileEntry) => Observable<any>;
+export type WriteFileFunction = (fileEntry: FileEntry, dataObj: any) => Observable<any>;
 
 // THE FOLLOWING COPIED FROM node_modules/cordova-plugin-file/types/index.d.ts
 
@@ -40,8 +40,9 @@ export interface CordovaWindow extends Window {
   requestFileSystem(
     type: LocalFileSystem,
     size: number,
-    successCallback: ( fileSystem: FileSystem ) => void,
-    errorCallback?: ( fileError: FileError ) => void ): void;
+    successCallback: (fileSystem: FileSystem) => void,
+    errorCallback?: (fileError: FileError) => void
+  ): void;
 
   /**
    * Look up file system Entry referred to by local URL.
@@ -49,9 +50,11 @@ export interface CordovaWindow extends Window {
    * @param successCallback  invoked with Entry object corresponding to URL
    * @param errorCallback    invoked if error occurs retrieving file system entry
    */
-  resolveLocalFileSystemURL( url: string,
-    successCallback: ( entry: Entry ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  resolveLocalFileSystemURL(
+    url: string,
+    successCallback: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void
+  ): void;
 
   /**
    * Look up file system Entry referred to by local URI.
@@ -59,9 +62,11 @@ export interface CordovaWindow extends Window {
    * @param successCallback  invoked with Entry object corresponding to URI
    * @param errorCallback    invoked if error occurs retrieving file system entry
    */
-  resolveLocalFileSystemURI( uri: string,
-    successCallback: ( entry: Entry ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  resolveLocalFileSystemURI(
+    uri: string,
+    successCallback: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void
+  ): void;
 }
 
 /** This interface represents a file system. */
@@ -94,9 +99,7 @@ export interface Entry {
    * @param successCallback A callback that is called with the time of the last modification.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  getMetadata(
-    successCallback: ( metadata: Metadata ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  getMetadata(successCallback: (metadata: Metadata) => void, errorCallback?: (error: FileError) => void): void;
 
   /**
    * Move an entry to a different location on the file system. It is an error to try to:
@@ -111,10 +114,12 @@ export interface Entry {
    * @param successCallback A callback that is called with the Entry for the new location.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  moveTo( parent: DirectoryEntry,
+  moveTo(
+    parent: DirectoryEntry,
     newName?: string,
-    successCallback?: ( entry: Entry ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+    successCallback?: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void
+  ): void;
 
   /**
    * Copy an entry to a different location on the file system. It is an error to try to:
@@ -131,10 +136,12 @@ export interface Entry {
    * @param successCallback A callback that is called with the Entry for the new object.
    * @param errorCallback A callback that is called when errors happen.
    */
-  copyTo( parent: DirectoryEntry,
+  copyTo(
+    parent: DirectoryEntry,
     newName?: string,
-    successCallback?: ( entry: Entry ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+    successCallback?: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void
+  ): void;
 
   /**
    * Returns a URL that can be used as the src attribute of a <video> or <audio> tag.
@@ -154,16 +161,14 @@ export interface Entry {
    * @param successCallback A callback that is called on success.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  remove( successCallback: () => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  remove(successCallback: () => void, errorCallback?: (error: FileError) => void): void;
 
   /**
    * Look up the parent DirectoryEntry containing this Entry. If this Entry is the root of its filesystem, its parent is itself.
    * @param successCallback A callback that is called with the time of the last modification.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  getParent( successCallback: ( entry: Entry ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  getParent(successCallback: (entry: Entry) => void, errorCallback?: (error: FileError) => void): void;
 }
 
 /** This interface supplies information about the state of a file or directory. */
@@ -194,9 +199,12 @@ export interface DirectoryEntry extends Entry {
    * @param successCallback A callback that is called to return the File selected or created.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  getFile( path: string, options?: Flags,
-    successCallback?: ( entry: FileEntry ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  getFile(
+    path: string,
+    options?: Flags,
+    successCallback?: (entry: FileEntry) => void,
+    errorCallback?: (error: FileError) => void
+  ): void;
 
   /**
    * Creates or looks up a directory.
@@ -211,9 +219,12 @@ export interface DirectoryEntry extends Entry {
    * @param successCallback A callback that is called to return the Directory selected or created.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  getDirectory( path: string, options?: Flags,
-    successCallback?: ( entry: DirectoryEntry ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  getDirectory(
+    path: string,
+    options?: Flags,
+    successCallback?: (entry: DirectoryEntry) => void,
+    errorCallback?: (error: FileError) => void
+  ): void;
 
   /**
    * Deletes a directory and all of its contents, if any. In the event of an error (e.g. trying
@@ -222,8 +233,7 @@ export interface DirectoryEntry extends Entry {
    * @param successCallback A callback that is called on success.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  removeRecursively( successCallback: () => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  removeRecursively(successCallback: () => void, errorCallback?: (error: FileError) => void): void;
 }
 
 /**
@@ -255,9 +265,7 @@ export interface DirectoryReader {
    *                        of readEntries, successCallback must be called with a zero-length array as an argument.
    * @param errorCallback   A callback indicating that there was an error reading from the Directory.
    */
-  readEntries(
-    successCallback: ( entries: Entry[] ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  readEntries(successCallback: (entries: Entry[]) => void, errorCallback?: (error: FileError) => void): void;
 }
 
 /** This interface represents a file on a file system. */
@@ -267,17 +275,14 @@ export interface FileEntry extends Entry {
    * @param successCallback A callback that is called with the new FileWriter.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  createWriter( successCallback: (
-    writer: FileWriter ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  createWriter(successCallback: (writer: FileWriter) => void, errorCallback?: (error: FileError) => void): void;
 
   /**
    * Returns a File that represents the current state of the file that this FileEntry represents.
    * @param successCallback A callback that is called with the File.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  file( successCallback: ( file: File ) => void,
-    errorCallback?: ( error: FileError ) => void ): void;
+  file(successCallback: (file: File) => void, errorCallback?: (error: FileError) => void): void;
 }
 
 /**
@@ -285,7 +290,6 @@ export interface FileEntry extends Entry {
  * to disk using progress events and event handler attributes.
  */
 export interface FileSaver extends EventTarget {
-
   /**
    * The FileSaver object can be in one of 3 states. The readyState attribute, on getting,
    * must return the current state, which must be one of the following values:
@@ -295,17 +299,17 @@ export interface FileSaver extends EventTarget {
    */
   readyState: number;
   /** Handler for writestart events. */
-  onwritestart: ( event: ProgressEvent ) => void;
+  onwritestart: (event: ProgressEvent) => void;
   /** Handler for progress events. */
-  onprogress: ( event: ProgressEvent ) => void;
+  onprogress: (event: ProgressEvent) => void;
   /** Handler for write events. */
-  onwrite: ( event: ProgressEvent ) => void;
+  onwrite: (event: ProgressEvent) => void;
   /** Handler for abort events. */
-  onabort: ( event: ProgressEvent ) => void;
+  onabort: (event: ProgressEvent) => void;
   /** Handler for error events. */
-  onerror: ( event: ProgressEvent ) => void;
+  onerror: (event: ProgressEvent) => void;
   /** Handler for writeend events. */
-  onwriteend: ( event: ProgressEvent ) => void;
+  onwriteend: (event: ProgressEvent) => void;
   /** The last error that occurred on the FileSaver. */
   error: Error;
 
@@ -333,28 +337,28 @@ export interface FileWriter extends FileSaver {
    * Write the supplied data to the file at position.
    * @param {Blob} data The blob to write.
    */
-  write( data: Blob ): void;
+  write(data: Blob): void;
 
   /**
    * The file position at which the next write will occur.
    * @param offset If nonnegative, an absolute byte offset into the file.
    *               If negative, an offset back from the end of the file.
    */
-  seek( offset: number ): void;
+  seek(offset: number): void;
 
   /**
    * Changes the length of the file to that specified. If shortening the file, data beyond the new length
    * will be discarded. If extending the file, the existing data will be zero-padded up to the new length.
    * @param size The size to which the length of the file is to be adjusted, measured in bytes.
    */
-  truncate( size: number ): void;
+  truncate(size: number): void;
 }
 
 /* FileWriter states */
 declare var FileWriter: {
   INIT: number;
   WRITING: number;
-  DONE: number
+  DONE: number;
 };
 
 export interface FileError {
@@ -363,7 +367,7 @@ export interface FileError {
 }
 
 export declare var FileError: {
-  new( code: number ): FileError;
+  new (code: number): FileError;
   NOT_FOUND_ERR: number;
   SECURITY_ERR: number;
   ABORT_ERR: number;
@@ -406,11 +410,11 @@ export interface Cordova {
     /* iOS: Files private to the app, but that are meaningful to other applciations (e.g. Office files) */
     documentsDirectory: string;
     /* BlackBerry10: Files globally available to all apps */
-    sharedDirectory: string
-  }
+    sharedDirectory: string;
+  };
 }
 
 export enum LocalFileSystem {
   PERSISTENT = 0,
-  TEMPORARY = 1
+  TEMPORARY = 1,
 }

@@ -12,7 +12,5 @@ import { strictIndexOf } from './_strictIndexOf';
  * @param rest just to make compiler happy.
  */
 export function baseIndexOf(array: any[], value: any, fromIndex: number, rest?: any): number {
-  return value === value
-    ? strictIndexOf(array, value, fromIndex)
-    : baseFindIndex(array, baseIsNan, fromIndex);
+  return value === value ? strictIndexOf(array, value, fromIndex) : baseFindIndex(array, baseIsNan, fromIndex);
 }

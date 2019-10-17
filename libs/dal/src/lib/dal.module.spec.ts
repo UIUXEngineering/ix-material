@@ -4,7 +4,7 @@ import { DalModule } from './dal.module';
 describe('DalModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DalModule]
+      imports: [DalModule],
     }).compileComponents();
   }));
 

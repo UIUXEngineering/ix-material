@@ -44,9 +44,7 @@ export class IxOnRenderCompleteService {
   }
 }
 
-export function _spOnRenderCompleteFactory(
-  parentDispatcher: IxOnRenderCompleteService
-): IxOnRenderCompleteService {
+export function _spOnRenderCompleteFactory(parentDispatcher: IxOnRenderCompleteService): IxOnRenderCompleteService {
   return parentDispatcher || new IxOnRenderCompleteService();
 }
 

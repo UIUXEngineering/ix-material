@@ -7,14 +7,8 @@ import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { IFormConfig, IFormGroupConfig, IFormService, IFormValue } from './interfaces';
 import { Subject } from 'rxjs';
-import { clone, interfaceTruthyIn} from '@uiux/fn';
-import {
-  buildConfig,
-  buildControls,
-  buildDefaultResponse,
-  buildResponseTree,
-  buildFormGroupConfig,
-} from './helpers';
+import { clone, interfaceTruthyIn } from '@uiux/fn';
+import { buildConfig, buildControls, buildDefaultResponse, buildResponseTree, buildFormGroupConfig } from './helpers';
 
 /**
  * @deprecated
@@ -60,17 +54,9 @@ export class FormService {
       return;
     }
 
-    const controls: { [key: string]: IFormValue } = buildControls(
-      this._controlKeys,
-      this.form.controls
-    );
+    const controls: { [key: string]: IFormValue } = buildControls(this._controlKeys, this.form.controls);
 
-    const errorTree = buildResponseTree(
-      this._controlKeys,
-      this._errorMessages,
-      this.defaultValue,
-      controls
-    );
+    const errorTree = buildResponseTree(this._controlKeys, this._errorMessages, this.defaultValue, controls);
 
     if (!data) {
       data = clone(this._defaultValue);

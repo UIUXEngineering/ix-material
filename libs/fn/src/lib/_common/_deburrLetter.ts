@@ -205,6 +205,4 @@ const deburredLetters = {
  *
  * @param string letter The matched letter to deburr.
  */
-export const deburrLetter: (substring: string, args: any[]) => string = basePropertyOf(
-  deburredLetters
-);
+export const deburrLetter: (substring: string, args: any[]) => string = basePropertyOf(deburredLetters);

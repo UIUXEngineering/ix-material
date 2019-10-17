@@ -13,42 +13,21 @@ export enum DeviceActionTypes {
   DeviceLoadError = '[Device] Device Load Error',
 }
 
-export const getDeviceCache = createAction(
-  '[Device] Get Device Cache',
-  props<{payload: DeviceState}>());
+export const getDeviceCache = createAction('[Device] Get Device Cache', props<{ payload: DeviceState }>());
 
-export const createDeviceCache = createAction(
-  '[Device] Create Device Cache',
-  props<{payload: DeviceState}>());
+export const createDeviceCache = createAction('[Device] Create Device Cache', props<{ payload: DeviceState }>());
 
 export const createDeviceCacheError = createAction(
   '[Device] Create Device Cache Error',
-  props<{payload: DeviceState}>()
+  props<{ payload: DeviceState }>()
 );
 
-export const isPortrait = createAction(
-  '[Device] Is Portrait',
-  props<{payload: DeviceState}>()
-);
+export const isPortrait = createAction('[Device] Is Portrait', props<{ payload: DeviceState }>());
 
-export const isLandscape = createAction(
-  '[Device] Is Landscape',
-  props<{payload: DeviceState}>()
-);
+export const isLandscape = createAction('[Device] Is Landscape', props<{ payload: DeviceState }>());
 
-export const loadDevice = createAction(
-  '[Device] Load Device',
-   props<{payload: DeviceState}>(),
-);
+export const loadDevice = createAction('[Device] Load Device', props<{ payload: DeviceState }>());
 
-export const deviceLoadError = createAction(
-  '[Device] Device Load Error',
-  props<{payload: DeviceState}>(),
-);
+export const deviceLoadError = createAction('[Device] Device Load Error', props<{ payload: DeviceState }>());
 
-export const deviceLoaded = createAction(
-  '[Device] Device Loaded',
-  props<{payload: DeviceState}>()
-);
-
-
+export const deviceLoaded = createAction('[Device] Device Loaded', props<{ payload: DeviceState }>());

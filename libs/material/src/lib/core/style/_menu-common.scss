@@ -6,19 +6,18 @@
 /** The mixins below are shared between ix-menu and mat-select */
 
 // menu width must be a multiple of 56px
-$ix-menu-overlay-min-width: 112px !default;   // 56 * 2
-$ix-menu-overlay-max-width: 280px !default;   // 56 * 5
+$ix-menu-overlay-min-width: 112px !default; // 56 * 2
+$ix-menu-overlay-max-width: 280px !default; // 56 * 5
 
 $ix-menu-item-height: 48px !default;
 $ix-menu-side-padding: 16px !default;
 $ix-menu-icon-margin: 16px !default;
 
-
 @mixin ix-menu-base() {
   min-width: $ix-menu-overlay-min-width;
   max-width: $ix-menu-overlay-max-width;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;   // for momentum scroll on mobile
+  -webkit-overflow-scrolling: touch; // for momentum scroll on mobile
 }
 
 @mixin ix-menu-item-base() {
@@ -31,7 +30,7 @@ $ix-menu-icon-margin: 16px !default;
   padding: 0 $ix-menu-side-padding;
 
   text-align: left;
-  text-decoration: none;   // necessary to reset anchor tags
+  text-decoration: none; // necessary to reset anchor tags
 
   // Required for Edge not to show scrollbars when setting the width manually. See #12112.
   max-width: 100%;

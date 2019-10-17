@@ -18,18 +18,8 @@ export function isKey(value: any, object?: any): boolean {
     return false;
   }
   const type = typeof value;
-  if (
-    type === 'number' ||
-    type === 'symbol' ||
-    type === 'boolean' ||
-    value == null ||
-    isSymbol(value)
-  ) {
+  if (type === 'number' || type === 'symbol' || type === 'boolean' || value == null || isSymbol(value)) {
     return true;
   }
-  return (
-    reIsPlainProp.test(value) ||
-    !reIsDeepProp.test(value) ||
-    (object != null && value in Object(object))
-  );
+  return reIsPlainProp.test(value) || !reIsDeepProp.test(value) || (object != null && value in Object(object));
 }

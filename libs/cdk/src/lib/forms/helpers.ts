@@ -73,11 +73,7 @@ export function buildFormGroupConfig(_c: IFormConfig): any {
   return config;
 }
 
-export function getErrorMessageByControlKey(
-  errors: any,
-  controlKey: string,
-  errorMessages: any
-): any {
+export function getErrorMessageByControlKey(errors: any, controlKey: string, errorMessages: any): any {
   const validationErrors: any = {};
   const validatorKeys: string[] = Object.keys(errorMessages[controlKey]);
   validatorKeys.forEach((_validatorKey: string) => {
@@ -101,10 +97,7 @@ export function getControlValidation(control: AbstractControl): IFormValue {
   };
 }
 
-export function buildControls(
-  _controlKeys: string[],
-  formControls: any
-): { [key: string]: IFormValue } {
+export function buildControls(_controlKeys: string[], formControls: any): { [key: string]: IFormValue } {
   const controls: { [key: string]: IFormValue } = {};
   _controlKeys.forEach((controlKey: string) => {
     controls[controlKey] = getControlValidation(formControls[controlKey]);

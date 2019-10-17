@@ -5,14 +5,12 @@
 @import './utilities/text';
 
 @mixin ix-core($config: null) {
-
   @if $config == null {
     $config: mat-typography-config();
   }
 
   @include ix-menu-typography($config);
 }
-
 
 // Create a theme.
 @mixin ix-material-theme($theme) {

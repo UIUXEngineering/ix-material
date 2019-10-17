@@ -4,7 +4,6 @@
  */
 import { isString } from '../_common/isString';
 
-
 export function convertToNumber(value: string | number): number {
   let _value: number;
 

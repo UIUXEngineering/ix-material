@@ -19,8 +19,5 @@ const stringTag = '[object String]';
  * // => false
  */
 export function isString(value) {
-  return (
-    typeof value === 'string' ||
-    (!isArray(value) && isObjectLike(value) && baseGetTag(value) === stringTag)
-  );
+  return typeof value === 'string' || (!isArray(value) && isObjectLike(value) && baseGetTag(value) === stringTag);
 }

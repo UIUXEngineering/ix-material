@@ -6,7 +6,6 @@ import { isPlainObject } from '../_common/isPlainObject';
 import { isEmpty } from '../_common/isEmpty';
 import { isTruthy } from '../_common/isTruthy';
 
-
 export function keysAreTruthy(value: any, keys?: string[]): boolean {
   if (isPlainObject(value)) {
     if (!isEmpty(value)) {

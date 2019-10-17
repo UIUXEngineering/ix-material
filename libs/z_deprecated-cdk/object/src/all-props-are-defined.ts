@@ -10,12 +10,7 @@ import { default as isString } from 'lodash-es/isString';
 import { default as get } from 'lodash-es/get';
 import { isDefined } from '@uiux/cdk/value';
 
-export function allPropsAreDefined(
-  object: any,
-  keyOrFn?: string | Function,
-  fn?: Function,
-  context?: any
-): boolean {
+export function allPropsAreDefined(object: any, keyOrFn?: string | Function, fn?: Function, context?: any): boolean {
   if (isPlainObject(object)) {
     if (!isEmpty(object)) {
       const keys: string[] = Object.keys(object);

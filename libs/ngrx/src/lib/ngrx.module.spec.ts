@@ -4,7 +4,7 @@ import { NgrxModule } from './ngrx.module';
 describe('NgrxModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgrxModule]
+      imports: [NgrxModule],
     }).compileComponents();
   }));
 

@@ -13,7 +13,7 @@ export const getDevice = createSelector(
 
 export const getCordova = createSelector(
   getDeviceState,
-  (state: DeviceState) => state.cordova,
+  (state: DeviceState) => state.cordova
 );
 
 export const isCordova = createSelector(
@@ -25,7 +25,6 @@ export const notCordova = createSelector(
   getDeviceState,
   (state: DeviceState) => !state.isCordova
 );
-
 
 export const isPortrait = createSelector(
   getDeviceState,
@@ -43,12 +42,10 @@ export const isLandscape = createSelector(
   (state: DeviceState) => state.isLandscape
 );
 
-
 export const isDesktop = createSelector(
   getDeviceState,
   (state: DeviceState) => state.isElectron
 );
-
 
 export const isBrowser = createSelector(
   getDeviceState,

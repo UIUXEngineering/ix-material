@@ -1,13 +1,15 @@
 body {
-  font-family: "Roboto","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   margin: 0;
 }
 
-.docs-button[md-button], .docs-button[md-raised-button] {
+.docs-button[md-button],
+.docs-button[md-raised-button] {
   text-transform: uppercase;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 400;
 }
 
@@ -52,4 +54,3 @@ code {
   margin: 0 7px 2px 0;
   vertical-align: middle;
 }
-

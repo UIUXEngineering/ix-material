@@ -9,10 +9,7 @@ describe('IxOnRenderCompleteService', () => {
     });
   });
 
-  it('should be created', inject(
-    [IxOnRenderCompleteService],
-    (service: IxOnRenderCompleteService) => {
-      expect(service).toBeTruthy();
-    }
-  ));
+  it('should be created', inject([IxOnRenderCompleteService], (service: IxOnRenderCompleteService) => {
+    expect(service).toBeTruthy();
+  }));
 });

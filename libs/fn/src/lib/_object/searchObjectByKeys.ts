@@ -3,7 +3,6 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-
 import { isFunction } from '../_common/isFunction';
 import { hasValue } from '../_common/hasValue';
 import { isObject } from '../_common/isObject';

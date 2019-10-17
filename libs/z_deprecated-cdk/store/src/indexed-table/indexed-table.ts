@@ -143,10 +143,7 @@ export class IndexedTable {
     const _extendObject: any = {};
 
     forEach(items, (item: IIndexedTableItem) => {
-      const $objectValue: any = this._object.getIn(
-        this.table[item.hashKey].subject.getPath(),
-        CON.NO_VALUE
-      );
+      const $objectValue: any = this._object.getIn(this.table[item.hashKey].subject.getPath(), CON.NO_VALUE);
       if (isScalar(_newTable[item.hashKey].value)) {
         set(_extendObject, item.path, _newTable[item.hashKey].value);
         delete this.table[item.hashKey].value;
@@ -230,10 +227,7 @@ export class IndexedTable {
     const _extendObject: any = {};
 
     forEach(items, (item: IIndexedTableItem) => {
-      const $objectValue: any = this._object.getIn(
-        this.table[item.hashKey].subject.getPath(),
-        CON.NO_VALUE
-      );
+      const $objectValue: any = this._object.getIn(this.table[item.hashKey].subject.getPath(), CON.NO_VALUE);
       if (_newTable[item.hashKey] && isScalar(_newTable[item.hashKey].value)) {
         set(_extendObject, item.path, _newTable[item.hashKey].value);
         delete this.table[item.hashKey].value;
@@ -467,8 +461,7 @@ export class IndexedTable {
 
       this.addItemToTable(_tableItem);
 
-      const sub: ImmutableHashSubject<any> = (<IIndexedTableItemSubject>this.table[hashKey])
-        .subject;
+      const sub: ImmutableHashSubject<any> = (<IIndexedTableItemSubject>this.table[hashKey]).subject;
 
       this._object = this._object.setIn(sub.getPath(), null);
     }

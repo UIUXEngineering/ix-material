@@ -6,10 +6,19 @@
 
   @each $key, $value in $palette {
     @if (type-of($value) == 'map') {
-      $output: map-merge(($key: replace-all-values($value, $replacement)), $output);
-    }
-    @else {
-      $output: map-merge(($key: $replacement), $output);
+      $output: map-merge(
+        (
+          $key: replace-all-values($value, $replacement),
+        ),
+        $output
+      );
+    } @else {
+      $output: map-merge(
+        (
+          $key: $replacement,
+        ),
+        $output
+      );
     }
   }
 

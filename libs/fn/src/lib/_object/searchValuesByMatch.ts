@@ -5,7 +5,6 @@
 import { isObject } from '../_common/isObject';
 import { ixIsMatch } from '../_common/ixIsMatch';
 
-
 export interface IFindPropsWithValueResult {
   search: any;
   path: string;

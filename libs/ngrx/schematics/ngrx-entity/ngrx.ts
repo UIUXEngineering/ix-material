@@ -9,19 +9,14 @@ import {
   filter,
   Rule,
   Tree,
-  SchematicContext
+  SchematicContext,
 } from '@angular-devkit/schematics';
 import { formatFiles, names, toFileName } from '@nrwl/workspace';
 
 import { Schema } from './schema';
 import * as path from 'path';
 
-import {
-  addImportsToModule,
-  addNgRxToPackageJson,
-  addExportsToBarrel,
-  RequestContext
-} from './rules';
+import { addImportsToModule, addNgRxToPackageJson, addExportsToBarrel, RequestContext } from './rules';
 
 /**
  * Rule to generate the Nx 'ngrx' Collection
@@ -41,7 +36,7 @@ export default function generateNgrxCollection(_options: Schema): Rule {
       featureName: options.name,
       moduleDir: path.dirname(options.module),
       options,
-      host
+      host,
     };
 
     if (options.minimal) {
@@ -52,27 +47,18 @@ export default function generateNgrxCollection(_options: Schema): Rule {
       options.onlyAddFiles = true;
     }
 
-    const fileGeneration = !options.onlyEmptyRoot
-      ? [generateNgrxFilesFromTemplates(options)]
-      : [];
+    const fileGeneration = !options.onlyEmptyRoot ? [generateNgrxFilesFromTemplates(options)] : [];
 
     const moduleModification = !options.onlyAddFiles
-      ? [
-        addImportsToModule(requestContext),
-        addExportsToBarrel(requestContext.options)
-      ]
+      ? [addImportsToModule(requestContext), addExportsToBarrel(requestContext.options)]
       : [];
 
-    const packageJsonModification = !options.skipPackageJson
-      ? [addNgRxToPackageJson()]
-      : [];
+    const packageJsonModification = !options.skipPackageJson ? [addNgRxToPackageJson()] : [];
 
-    return chain([
-      ...fileGeneration,
-      ...moduleModification,
-      ...packageJsonModification,
-      formatFiles(options)
-    ])(host, context);
+    return chain([...fileGeneration, ...moduleModification, ...packageJsonModification, formatFiles(options)])(
+      host,
+      context
+    );
   };
 }
 
@@ -89,7 +75,6 @@ function generateNgrxFilesFromTemplates(options: Schema) {
   // tslint:disable-next-line:no-shadowed-variable
   const excludeFacade = (path: string) => path.match(/^((?!facade).)*$/);
 
-
   const templateSource = apply(
     // url(options.syntax === 'creators' ? './creator-files' : './files'),
     url('./creator-files'),
@@ -97,7 +82,7 @@ function generateNgrxFilesFromTemplates(options: Schema) {
       // @ts-ignore
       !options.facade ? filter(excludeFacade) : noop(),
       template({ ...options, tmpl: '', ...names(name) }),
-      move(moduleDir)
+      move(moduleDir),
     ]
   );
 
@@ -110,6 +95,6 @@ function generateNgrxFilesFromTemplates(options: Schema) {
 function normalizeOptions(options: Schema): Schema {
   return {
     ...options,
-    directory: toFileName(options.directory)
+    directory: toFileName(options.directory),
   };
 }

@@ -1,10 +1,4 @@
-import {
-  ComponentFactoryResolver,
-  ComponentRef,
-  ElementRef,
-  Injectable,
-  Type,
-} from '@angular/core';
+import { ComponentFactoryResolver, ComponentRef, ElementRef, Injectable, Type } from '@angular/core';
 import { IxBrowserService } from '../browser/ixBrowserService';
 import { IxCmpHostDirective } from './ixCmpHost.directive';
 import { IxComponentItem } from './ixComponentItem';
@@ -17,10 +11,7 @@ export function hasShadowRoot(el: ElementRef): boolean {
   providedIn: 'root',
 })
 export class IxDynamicComponentService {
-  constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private ixBrowser: IxBrowserService
-  ) {}
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private ixBrowser: IxBrowserService) {}
 
   loadShadowDomComponent(
     host: IxCmpHostDirective,
@@ -71,9 +62,7 @@ export class IxDynamicComponentService {
    */
   removeExtraStyles(el: ElementRef, selector: string): void {
     if (this.ixBrowser.supportsShadowDom && hasShadowRoot(el)) {
-      const styles: HTMLElement[] = el.nativeElement.shadowRoot.querySelectorAll(
-        'style'
-      ) as HTMLElement[];
+      const styles: HTMLElement[] = el.nativeElement.shadowRoot.querySelectorAll('style') as HTMLElement[];
 
       if (styles && styles.length) {
         styles.forEach((r: HTMLElement) => {

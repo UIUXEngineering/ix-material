@@ -21,11 +21,7 @@ export class ForkJoinSubject<T> extends Subject<T> {
   _subscribe(subscriber: Subscriber<T>): Subscription {
     // tslint:disable-next-line
     const subscription = super._subscribe(subscriber);
-    if (
-      subscription &&
-      !(<SubscriptionLike>subscription).closed &&
-      allValuesHasValue(this._structure)
-    ) {
+    if (subscription && !(<SubscriptionLike>subscription).closed && allValuesHasValue(this._structure)) {
       subscriber.next(this._structure);
     }
     return subscription;

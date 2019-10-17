@@ -108,9 +108,7 @@ export class StoreSubject<S, A = any, T = any> extends HashStore<S> {
           [key]: config,
         });
       } else {
-        throw new Error(
-          'A config of ITransformConfig interface is' + ' required to create new transform'
-        );
+        throw new Error('A config of ITransformConfig interface is' + ' required to create new transform');
       }
     }
 

@@ -73,10 +73,7 @@ describe('store', () => {
       },
     };
 
-    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(
-      transformMap,
-      store
-    );
+    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(transformMap, store);
 
     let _transformedStructure: any;
     transformStore.subscribe((_r: any) => {
@@ -106,10 +103,7 @@ describe('store', () => {
       },
     };
 
-    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(
-      transformMap,
-      store
-    );
+    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(transformMap, store);
 
     const transform1Map: any = {
       key1: '',
@@ -148,10 +142,7 @@ describe('store', () => {
       },
     };
 
-    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(
-      transformMap,
-      store
-    );
+    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(transformMap, store);
 
     const transform1Map: any = {
       key1: '',
@@ -161,11 +152,9 @@ describe('store', () => {
     };
 
     let _transformedStructure2: any;
-    const s2: Subscription = transformStore
-      .transform('transform1', transform1Map)
-      .subscribe((_r: any) => {
-        _transformedStructure2 = _r;
-      });
+    const s2: Subscription = transformStore.transform('transform1', transform1Map).subscribe((_r: any) => {
+      _transformedStructure2 = _r;
+    });
 
     let _transformedStructure: any;
     const s1: Subscription = transformStore.transforms.transform1.subscribe((_r: any) => {
@@ -198,10 +187,7 @@ describe('store', () => {
       },
     };
 
-    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(
-      transformMap,
-      store
-    );
+    const transformStore: TransformStoreSubject<any> = new TransformStoreSubject<any>(transformMap, store);
 
     const transform1Map: any = {
       key1: '',
@@ -211,11 +197,9 @@ describe('store', () => {
     };
 
     let _transformedStructure2: any;
-    const s2: Subscription = transformStore
-      .transform('transform1', transform1Map)
-      .subscribe((_r: any) => {
-        _transformedStructure2 = _r;
-      });
+    const s2: Subscription = transformStore.transform('transform1', transform1Map).subscribe((_r: any) => {
+      _transformedStructure2 = _r;
+    });
 
     let _transformedStructure: any;
     const s1: Subscription = transformStore.transforms.transform1.subscribe((_r: any) => {

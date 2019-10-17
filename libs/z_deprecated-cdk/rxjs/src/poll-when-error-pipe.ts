@@ -19,9 +19,7 @@ export interface IPollWhenErrorConfig {
 }
 
 // tslint:disable-next-line
-export function pollWhenErrorWithConfig(
-  config: IPollWhenErrorConfig
-): UnaryFunction<Observable<any>, Observable<any>> {
+export function pollWhenErrorWithConfig(config: IPollWhenErrorConfig): UnaryFunction<Observable<any>, Observable<any>> {
   return pollWhenError(config.delay, config.take, config.errorMsg);
 }
 

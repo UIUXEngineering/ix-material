@@ -29,7 +29,6 @@ describe('copyExcludeKeys', () => {
       baz: 'baz',
     };
 
-
     const result = copyExcludeKeys(obj1, []);
 
     expect(result).toEqual(obj1);

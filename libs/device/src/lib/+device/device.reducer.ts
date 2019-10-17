@@ -20,23 +20,23 @@ export interface DevicePartialState {
 const deviceReducer = createReducer(
   deviceInitialState,
 
-  on(DeviceActions.deviceLoaded, (state, {payload}) => Object.assign({}, state, payload)),
+  on(DeviceActions.deviceLoaded, (state, { payload }) => Object.assign({}, state, payload)),
 
-  on(DeviceActions.isPortrait, (state, {payload}) => {
+  on(DeviceActions.isPortrait, (state, { payload }) => {
     const update = <DeviceState>{
       isPortrait: true,
       isLandscape: false,
-      isSmallScreen: payload.isSmallScreen
+      isSmallScreen: payload.isSmallScreen,
     };
 
     return Object.assign({}, state, update);
   }),
 
-  on(DeviceActions.isLandscape, (state, {payload}) => {
+  on(DeviceActions.isLandscape, (state, { payload }) => {
     const update = <DeviceState>{
       isPortrait: false,
       isLandscape: true,
-      isSmallScreen: payload.isSmallScreen
+      isSmallScreen: payload.isSmallScreen,
     };
 
     return Object.assign({}, state, update);

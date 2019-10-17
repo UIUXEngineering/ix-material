@@ -28,9 +28,7 @@ function userAgent(): string {
 }
 
 function _platformID(): string {
-  return hasValueIn(_window(), 'cordova.platformId')
-    ? _window().cordova.platformId
-    : '';
+  return hasValueIn(_window(), 'cordova.platformId') ? _window().cordova.platformId : '';
 }
 
 function _model(): string {
@@ -38,13 +36,10 @@ function _model(): string {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DeviceEffects implements OnInitEffects {
   resume: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
-
-
-
 
   @Effect()
   detectDevices$ = this.actions$.pipe(
@@ -61,13 +56,11 @@ export class DeviceEffects implements OnInitEffects {
         isElectron: isElectron(),
         isBrowser: !isElectron() && !isCordova(_platformID()),
         // isBrowser: _isBrowser(),
-        isLandscape: this.mediaMatcher.matchMedia('(orientation: portrait)')
-          .matches,
-        isPortrait: this.mediaMatcher.matchMedia('(orientation: landscape)')
-          .matches,
+        isLandscape: this.mediaMatcher.matchMedia('(orientation: portrait)').matches,
+        isPortrait: this.mediaMatcher.matchMedia('(orientation: landscape)').matches,
         isSmallScreen: this.mediaMatcher.matchMedia(BREAKPOINTS.SMALL).matches,
         cordova: _window().cordova,
-        device: _window().device
+        device: _window().device,
       };
 
       if (payload.isElectron) {
@@ -78,36 +71,33 @@ export class DeviceEffects implements OnInitEffects {
     })
   );
 
-
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<DevicePartialState>,
     private deviceFacade: DeviceFacade,
     private zone: NgZone,
     private breakpointObserver: BreakpointObserver,
-    private mediaMatcher: MediaMatcher,
+    private mediaMatcher: MediaMatcher
   ) {
     if (isCordova(_platformID())) {
-      fromEvent(document, 'resume').subscribe(event => {
+      fromEvent(document, 'resume').subscribe((event) => {
         this.zone.run(() => {
           this.onResume();
         });
       });
     }
 
-    this.breakpointObserver
-      .observe(['(orientation: portrait)'])
-      .subscribe(result => {
-        const payload: any = <DeviceState>{
-          isSmallScreen: this.mediaMatcher.matchMedia(BREAKPOINTS.SMALL).matches
-        };
+    this.breakpointObserver.observe(['(orientation: portrait)']).subscribe((result) => {
+      const payload: any = <DeviceState>{
+        isSmallScreen: this.mediaMatcher.matchMedia(BREAKPOINTS.SMALL).matches,
+      };
 
-        if (result.breakpoints['(orientation: portrait)']) {
-          this.deviceFacade.setPortrait(payload);
-        } else {
-          this.deviceFacade.setLandscape(payload);
-        }
-      });
+      if (result.breakpoints['(orientation: portrait)']) {
+        this.deviceFacade.setPortrait(payload);
+      } else {
+        this.deviceFacade.setLandscape(payload);
+      }
+    });
   }
 
   public onResume(): void {

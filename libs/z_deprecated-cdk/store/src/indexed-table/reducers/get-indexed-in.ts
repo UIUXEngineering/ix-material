@@ -6,10 +6,6 @@
 import { IIndexedItemDict } from './interfaces';
 import { ternary } from '@uiux/cdk/object';
 
-export function getIndexedIn(
-  table: IIndexedItemDict,
-  hashKey: string,
-  defaultValue: any = null
-): any {
+export function getIndexedIn(table: IIndexedItemDict, hashKey: string, defaultValue: any = null): any {
   return ternary(table[hashKey], defaultValue);
 }

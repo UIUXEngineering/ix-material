@@ -3,15 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import {
-  clone,
-  getIn,
-  mergeWithoutArray,
-  setIn,
-  mergeIn,
-  hasValue,
-  isDefined,
-} from '@uiux/fn';
+import { clone, getIn, mergeWithoutArray, setIn, mergeIn, hasValue, isDefined } from '@uiux/fn';
 import { deleteIn } from '@uiux/fn';
 import { ObjectUnsubscribedError, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
 import { Subject } from 'rxjs';

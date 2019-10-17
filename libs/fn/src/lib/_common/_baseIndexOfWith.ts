@@ -7,12 +7,7 @@
  * @param comparator The comparator invoked per element.
  * Returns the index of the matched value, else `-1`.
  */
-export function baseIndexOfWith(
-  array: any[],
-  value: any,
-  fromIndex: number,
-  comparator?: Function
-): number {
+export function baseIndexOfWith(array: any[], value: any, fromIndex: number, comparator?: Function): number {
   let index = fromIndex - 1;
   const length = array.length;
 

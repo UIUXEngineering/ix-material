@@ -51,9 +51,5 @@ export function isPlainObject(value: any): boolean {
     return true;
   }
   const Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-  return (
-    typeof Ctor === 'function' &&
-    Ctor instanceof Ctor &&
-    funcToString.call(Ctor) === objectCtorString
-  );
+  return typeof Ctor === 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) === objectCtorString;
 }

@@ -4,7 +4,7 @@ import { RxjsModule } from './rxjs.module';
 describe('RxjsModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RxjsModule]
+      imports: [RxjsModule],
     }).compileComponents();
   }));
 

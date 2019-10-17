@@ -8,9 +8,9 @@ import * as deviceQuery from './device.selectors';
 import * as DeviceActions from './device.actions';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class  DeviceFacade {
+export class DeviceFacade {
   state$ = this.store.pipe(select(deviceQuery.getDeviceState));
   device$ = this.store.pipe(select(deviceQuery.getDevice));
 
@@ -57,9 +57,7 @@ export class  DeviceFacade {
     take(1)
   );
 
-  isBrowserOrElectron$ = this.store.pipe(
-    select(deviceQuery.isBrowserOrElectron)
-  );
+  isBrowserOrElectron$ = this.store.pipe(select(deviceQuery.isBrowserOrElectron));
   isLandscape = this.store.pipe(select(deviceQuery.isLandscape));
   isSmallScreen$ = this.store.pipe(select(deviceQuery.isSmallScreen));
 
@@ -67,26 +65,20 @@ export class  DeviceFacade {
   isIphoneNotchSmall$ = this.store.pipe(select(deviceQuery.isIphoneNotchSmall));
   isIphoneNotchLarge$ = this.store.pipe(select(deviceQuery.isIphoneNotchLarge));
 
-  isIphoneNotchPortrait$ = this.store.pipe(
-    select(deviceQuery.isIphoneNotchPortrait)
-  );
-  isIphoneNotchLandscape$ = this.store.pipe(
-    select(deviceQuery.isIphoneNotchLandscape)
-  );
+  isIphoneNotchPortrait$ = this.store.pipe(select(deviceQuery.isIphoneNotchPortrait));
+  isIphoneNotchLandscape$ = this.store.pipe(select(deviceQuery.isIphoneNotchLandscape));
   isSmallToolbar$ = this.store.pipe(select(deviceQuery.isSmallToolbar));
   isLargeToolbar$ = this.store.pipe(select(deviceQuery.isLargeToolbar));
   fixedTopGap$ = this.store.pipe(select(deviceQuery.fixedTopGap));
 
-  constructor(
-    private store: Store<DevicePartialState>,
-  ) {
-    this.isElectron$.subscribe(isElectron => {
+  constructor(private store: Store<DevicePartialState>) {
+    this.isElectron$.subscribe((isElectron) => {
       console.log('IS ELECTRON', isElectron);
     });
-    this.isCordova$.subscribe(isCordova => {
+    this.isCordova$.subscribe((isCordova) => {
       console.log('IS CORDOVA', isCordova);
     });
-    this.isBrowser$.subscribe(isBrowser => {
+    this.isBrowser$.subscribe((isBrowser) => {
       console.log('IS BROWSER', isBrowser);
     });
   }
@@ -98,5 +90,4 @@ export class  DeviceFacade {
   setLandscape(payload: any) {
     this.store.dispatch(DeviceActions.isLandscape(payload));
   }
-
 }

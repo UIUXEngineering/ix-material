@@ -19,16 +19,8 @@ describe('DeviceEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        NxModule.forRoot(),
-        StoreModule.forRoot({}),
-        EffectsModule.forRoot([])
-      ],
-      providers: [
-        DeviceEffects,
-        DataPersistence,
-        provideMockActions(() => actions)
-      ]
+      imports: [NxModule.forRoot(), StoreModule.forRoot({}), EffectsModule.forRoot([])],
+      providers: [DeviceEffects, DataPersistence, provideMockActions(() => actions)],
     });
 
     effects = TestBed.get(DeviceEffects);
@@ -37,9 +29,7 @@ describe('DeviceEffects', () => {
   describe('loadDevice$', () => {
     it('should work', () => {
       actions = hot('-a-|', { a: new LoadDevice() });
-      expect(effects.loadDevice$).toBeObservable(
-        hot('-a-|', { a: new DeviceLoaded([]) })
-      );
+      expect(effects.loadDevice$).toBeObservable(hot('-a-|', { a: new DeviceLoaded([]) }));
     });
   });
 });

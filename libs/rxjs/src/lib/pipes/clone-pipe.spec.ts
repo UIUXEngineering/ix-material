@@ -1,5 +1,5 @@
-  import { fakeAsync, tick } from '@angular/core/testing';
-  import { Subject } from 'rxjs';
+import { fakeAsync, tick } from '@angular/core/testing';
+import { Subject } from 'rxjs';
 
 /**
  * @license

@@ -17,8 +17,7 @@ function keyIsExcludedIn(key: string, keys: string[]): boolean {
 export function allValuesMatch(src: any, tar: any, config?: IAllValuesMatchConfig): boolean {
   if (isDefined(src) && isDefined(tar)) {
     const keys: string[] = Object.keys(tar);
-    const includeArrays: boolean =
-      config && hasValue(config.includeArrays) ? config.includeArrays : false;
+    const includeArrays: boolean = config && hasValue(config.includeArrays) ? config.includeArrays : false;
     const exludeKeys: string[] = config && hasValue(config.excludeKeys) ? config.excludeKeys : [];
 
     return keys.reduce(function(acc: boolean, key: string) {

@@ -25,15 +25,7 @@ const rsApos = "['\u2019]",
   rsDigits = '\\d+',
   rsDingbat = '[' + rsDingbatRange + ']',
   rsLower = '[' + rsLowerRange + ']',
-  rsMisc =
-    '[^' +
-    rsAstralRange +
-    rsBreakRange +
-    rsDigits +
-    rsDingbatRange +
-    rsLowerRange +
-    rsUpperRange +
-    ']',
+  rsMisc = '[^' + rsAstralRange + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + ']',
   rsFitz = '\\ud83c[\\udffb-\\udfff]',
   rsModifier = '(?:' + rsCombo + '|' + rsFitz + ')',
   rsNonAstral = '[^' + rsAstralRange + ']',
@@ -50,14 +42,7 @@ const rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
   reOptMod = rsModifier + '?',
   rsOptVar = '[' + rsVarRange + ']?',
   rsOptJoin =
-    '(?:' +
-    rsZWJ +
-    '(?:' +
-    [rsNonAstral, rsRegional, rsSurrPair].join('|') +
-    ')' +
-    rsOptVar +
-    reOptMod +
-    ')*',
+    '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
   rsOrdLower = '\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])',
   rsOrdUpper = '\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])',
   rsSeq = rsOptVar + reOptMod + rsOptJoin,
@@ -66,20 +51,8 @@ const rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
 /** Used to match complex or compound words. */
 const reUnicodeWord = RegExp(
   [
-    rsUpper +
-      '?' +
-      rsLower +
-      '+' +
-      rsOptContrLower +
-      '(?=' +
-      [rsBreak, rsUpper, '$'].join('|') +
-      ')',
-    rsMiscUpper +
-      '+' +
-      rsOptContrUpper +
-      '(?=' +
-      [rsBreak, rsUpper + rsMiscLower, '$'].join('|') +
-      ')',
+    rsUpper + '?' + rsLower + '+' + rsOptContrLower + '(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',
+    rsMiscUpper + '+' + rsOptContrUpper + '(?=' + [rsBreak, rsUpper + rsMiscLower, '$'].join('|') + ')',
     rsUpper + '?' + rsMiscLower + '+' + rsOptContrLower,
     rsUpper + '+' + rsOptContrUpper,
     rsOrdUpper,

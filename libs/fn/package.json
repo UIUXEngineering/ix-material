@@ -1,6 +1,5 @@
 {
   "name": "@uiux/fn",
-  "version": "8.2.2",
-  "peerDependencies": {
-  }
+  "version": "8.2.3",
+  "peerDependencies": {}
 }

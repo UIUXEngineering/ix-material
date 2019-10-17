@@ -56,6 +56,6 @@ export function toNumber(value: any): number {
   return isBinary || reIsOctal.test(value)
     ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
     : reIsBadHex.test(value)
-      ? NAN
-      : +value;
+    ? NAN
+    : +value;
 }

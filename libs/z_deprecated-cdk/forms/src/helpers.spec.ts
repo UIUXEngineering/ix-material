@@ -95,11 +95,7 @@ describe('helpers', () => {
       };
 
       const controlKey = 'email';
-      const r: any = getErrorMessageByControlKey(
-        emailErrors,
-        controlKey,
-        formConfig._errorMessages
-      );
+      const r: any = getErrorMessageByControlKey(emailErrors, controlKey, formConfig._errorMessages);
 
       expect(r.required.hasError).toBe(false);
       expect(r.required.message).toBe('Email is required.');
@@ -208,12 +204,7 @@ describe('helpers', () => {
 
       const defaultValue = buildDefaultResponse(formConfig);
 
-      const r: any = buildResponseTree(
-        controlKeys,
-        formConfig._errorMessages,
-        defaultValue,
-        formControls
-      );
+      const r: any = buildResponseTree(controlKeys, formConfig._errorMessages, defaultValue, formControls);
 
       const result = {
         hasError: true,
@@ -320,12 +311,7 @@ describe('helpers', () => {
 
       const defaultValue = buildDefaultResponse(formConfig);
 
-      const r: any = buildResponseTree(
-        controlKeys,
-        formConfig._errorMessages,
-        defaultValue,
-        formControls
-      );
+      const r: any = buildResponseTree(controlKeys, formConfig._errorMessages, defaultValue, formControls);
 
       const result = {
         hasError: false,

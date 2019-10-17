@@ -10,25 +10,27 @@
 export function createMouseEvent(type: string, x = 0, y = 0, button = 0) {
   const event = document.createEvent('MouseEvent');
 
-  event.initMouseEvent(type,
-    true, /* canBubble */
-    false, /* cancelable */
-    window, /* view */
-    0, /* detail */
-    x, /* screenX */
-    y, /* screenY */
-    x, /* clientX */
-    y, /* clientY */
-    false, /* ctrlKey */
-    false, /* altKey */
-    false, /* shiftKey */
-    false, /* metaKey */
-    button, /* button */
-    null /* relatedTarget */);
+  event.initMouseEvent(
+    type,
+    true /* canBubble */,
+    false /* cancelable */,
+    window /* view */,
+    0 /* detail */,
+    x /* screenX */,
+    y /* screenY */,
+    x /* clientX */,
+    y /* clientY */,
+    false /* ctrlKey */,
+    false /* altKey */,
+    false /* shiftKey */,
+    false /* metaKey */,
+    button /* button */,
+    null /* relatedTarget */
+  );
 
   // `initMouseEvent` doesn't allow us to pass the `buttons` and
   // defaults it to 0 which looks like a fake event.
-  Object.defineProperty(event, 'buttons', {get: () => 1});
+  Object.defineProperty(event, 'buttons', { get: () => 1 });
 
   return event;
 }
@@ -38,16 +40,16 @@ export function createTouchEvent(type: string, pageX = 0, pageY = 0) {
   // In favor of creating events that work for most of the browsers, the event is created
   // as a basic UI Event. The necessary details for the event will be set manually.
   const event = document.createEvent('UIEvent');
-  const touchDetails = {pageX, pageY};
+  const touchDetails = { pageX, pageY };
 
   event.initUIEvent(type, true, true, window, 0);
 
   // Most of the browsers don't have a "initTouchEvent" method that can be used to define
   // the touch details.
   Object.defineProperties(event, {
-    touches: {value: [touchDetails]},
-    targetTouches: {value: [touchDetails]},
-    changedTouches: {value: [touchDetails]}
+    touches: { value: [touchDetails] },
+    targetTouches: { value: [touchDetails] },
+    changedTouches: { value: [touchDetails] },
   });
 
   return event;
@@ -70,7 +72,7 @@ export function createKeyboardEvent(type: string, keyCode: number, target?: Elem
   Object.defineProperties(event, {
     keyCode: { get: () => keyCode },
     key: { get: () => key },
-    target: { get: () => target }
+    target: { get: () => target },
   });
 
   // IE won't set `defaultPrevented` on synthetic events so we need to do it manually.

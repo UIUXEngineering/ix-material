@@ -3,12 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import {
-  IHashTable,
-  IIndexedItem,
-  IIndexedTableItem,
-  IIndexedTableItemSubject,
-} from './interfaces';
+import { IHashTable, IIndexedItem, IIndexedTableItem, IIndexedTableItemSubject } from './interfaces';
 import { default as uniq } from 'lodash-es/uniq';
 import { default as concat } from 'lodash-es/concat';
 import { getDataType } from './data-type';

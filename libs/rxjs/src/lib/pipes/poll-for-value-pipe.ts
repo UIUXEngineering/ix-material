@@ -15,9 +15,7 @@ export interface IPollForValueConfig {
   schedular?: any;
 }
 
-export function pollForValueWithConfig(
-  config: IPollForValueConfig
-): UnaryFunction<Observable<any>, Observable<any>> {
+export function pollForValueWithConfig(config: IPollForValueConfig): UnaryFunction<Observable<any>, Observable<any>> {
   return pollForValue(
     config.delay,
     config.interval,

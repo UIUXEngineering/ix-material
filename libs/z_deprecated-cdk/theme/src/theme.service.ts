@@ -34,10 +34,7 @@ export class SPThemeService {
   }
 }
 
-export function _themeProviderFactory(
-  parentDispatcher: SPThemeService,
-  _overlayContainer: OverlayContainer
-) {
+export function _themeProviderFactory(parentDispatcher: SPThemeService, _overlayContainer: OverlayContainer) {
   // if SampleModelService is not found, create a new one
   return parentDispatcher || new SPThemeService(_overlayContainer);
 }

@@ -17,7 +17,5 @@ export function baseGetTag(value: any): string {
   if (value == null) {
     return value === undefined ? undefinedTag : nullTag;
   }
-  return symToStringTag && symToStringTag in Object(value)
-    ? getRawTag(value)
-    : objectToString(value);
+  return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
 }

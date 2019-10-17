@@ -118,7 +118,6 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
   }
 
   @if $is-dark {
-
     $dark-palette: $deep-mat-blue;
 
     $app-303030: mat-color($dark-palette, 900);
@@ -137,27 +136,35 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
     }
 
     .mat-drawer-backdrop.mat-drawer-shown {
-      background-color: rgba(mat-color($dark-palette, 100), 0.6)
+      background-color: rgba(mat-color($dark-palette, 100), 0.6);
     }
 
     .action-primary-btn {
-      &.mat-button, &.mat-raised-button, &.mat-mini-fab {
+      &.mat-button,
+      &.mat-raised-button,
+      &.mat-mini-fab {
         //color: mat-color($primary, default);
         color: white !important;
         background-color: mat-color($primary, default) !important;
       }
-      &.mat-button[disabled], &.mat-raised-button[disabled], &.mat-mini-fab[disabled] {
+      &.mat-button[disabled],
+      &.mat-raised-button[disabled],
+      &.mat-mini-fab[disabled] {
         color: mat-color($dark-palette, 100) !important;
         background-color: mat-color($dark-palette, 400) !important;
       }
     }
 
     .action-accent-btn {
-      &.mat-button, &.mat-raised-button, &.mat-mini-fab {
+      &.mat-button,
+      &.mat-raised-button,
+      &.mat-mini-fab {
         color: white;
         background-color: mat-color($accent, 700);
       }
-      &.mat-button[disabled], &.mat-raised-button[disabled], &.mat-mini-fab[disabled] {
+      &.mat-button[disabled],
+      &.mat-raised-button[disabled],
+      &.mat-mini-fab[disabled] {
         color: mat-color($dark-palette, 100);
         background-color: mat-color($dark-palette, 400);
       }
@@ -182,7 +189,8 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
       }
     }
 
-    .mat-card, .mat-dialog-container {
+    .mat-card,
+    .mat-dialog-container {
       background: $app-424242 !important;
       .mat-card-title {
         color: mat-color($primary, default);
@@ -211,7 +219,7 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
     }
 
     .mat-expansion-panel-header {
-      background:  $app-616161;
+      background: $app-616161;
     }
 
     .mat-chip.mat-standard-chip {
@@ -223,7 +231,8 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
       background: $app-424242-lighter;
     }
 
-    .mat-stepper-horizontal, .mat-stepper-vertical {
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical {
       background: $app-424242;
     }
 
@@ -241,10 +250,9 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
       border-right-color: mat-color($background, background);
 
       ul {
-
         li {
           border-color: rgba(mat-color($foreground, secondary-text), 1);
-          border-bottom: 1px solid rgba(mat-color($foreground, secondary-text), .3);
+          border-bottom: 1px solid rgba(mat-color($foreground, secondary-text), 0.3);
           color: mat-color($foreground, secondary-text);
 
           //&.mixer-sidenav-item-selected {
@@ -272,7 +280,7 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
       }
 
       .mixer-sidenav-action {
-        border-top-color: rgba(mat-color($foreground, secondary-text), .06);
+        border-top-color: rgba(mat-color($foreground, secondary-text), 0.06);
       }
     }
 
@@ -291,7 +299,6 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
       //background-color: if($is-dark, mat-color($mat-blue-gray, 900), mat-color($mat-blue-gray, 100));
     }
   }
-
 }
 
 @mixin transition-all-swift-ease-in-out() {
@@ -305,8 +312,7 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
     opacity: 0;
     top: -20px;
 
-    transition: opacity 100ms $swift-ease-out-timing-function,
-    top 300ms $swift-ease-out-timing-function;
+    transition: opacity 100ms $swift-ease-out-timing-function, top 300ms $swift-ease-out-timing-function;
 
     &.app-error {
       top: 0;
@@ -363,7 +369,6 @@ $swift-linear: all $swift-linear-duration $swift-linear-timing-function !default
 }
 
 @mixin menu-theme($theme) {
-
   background: $background-color-2;
 
   .mat-card {

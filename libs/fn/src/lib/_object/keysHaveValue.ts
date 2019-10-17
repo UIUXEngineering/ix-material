@@ -6,7 +6,6 @@ import { isPlainObject } from '../_common/isPlainObject';
 import { isEmpty } from '../_common/isEmpty';
 import { hasValue } from '../_common/hasValue';
 
-
 export function keysHaveValue(value: any, keys?: string[]): boolean {
   if (isPlainObject(value)) {
     if (!isEmpty(value)) {

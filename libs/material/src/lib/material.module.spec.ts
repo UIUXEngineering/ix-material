@@ -4,7 +4,7 @@ import { MaterialModule } from './material.module';
 describe('MaterialModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule]
+      imports: [MaterialModule],
     }).compileComponents();
   }));
 

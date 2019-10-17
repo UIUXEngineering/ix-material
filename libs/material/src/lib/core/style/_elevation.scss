@@ -1,6 +1,5 @@
 @import 'variables';
 
-
 // A collection of mixins and CSS classes that can be used to apply elevation to a material
 // element.
 // See: https://material.io/design/environment/elevation.html
@@ -153,8 +152,7 @@ $_mat-elevation-prefix: 'mat-elevation-z';
   }
 
   box-shadow: #{map-get(_get-umbra-map($color, $opacity), $zValue)},
-              #{map-get(_get-penumbra-map($color, $opacity), $zValue)},
-              #{map-get(_get-ambient-map($color, $opacity), $zValue)};
+    #{map-get(_get-penumbra-map($color, $opacity), $zValue)}, #{map-get(_get-ambient-map($color, $opacity), $zValue)};
 }
 
 @mixin _mat-theme-elevation($zValue, $theme, $opacity: $mat-elevation-opacity) {
@@ -167,10 +165,7 @@ $_mat-elevation-prefix: 'mat-elevation-z';
 
 // Applies the elevation to an element in a manner that allows
 // consumers to override it via the Material elevation classes.
-@mixin mat-overridable-elevation(
-    $zValue,
-    $color: $mat-elevation-color,
-    $opacity: $mat-elevation-opacity) {
+@mixin mat-overridable-elevation($zValue, $color: $mat-elevation-color, $opacity: $mat-elevation-opacity) {
   &:not([class*='#{$_mat-elevation-prefix}']) {
     @include mat-elevation($zValue, $color, $opacity);
   }
@@ -192,8 +187,9 @@ $_mat-elevation-prefix: 'mat-elevation-z';
 //   transition: mat-elevation-transition-property-value(), opacity 100ms ease;
 // }
 @function mat-elevation-transition-property-value(
-    $duration: $mat-elevation-transition-duration,
-    $easing: $mat-elevation-transition-timing-function) {
+  $duration: $mat-elevation-transition-duration,
+  $easing: $mat-elevation-transition-timing-function
+) {
   @return box-shadow #{$duration} #{$easing};
 }
 
@@ -204,7 +200,8 @@ $_mat-elevation-prefix: 'mat-elevation-z';
 // NOTE(traviskaufman): Both this mixin and the above function use default parameters so they can
 // be used in the same way by clients.
 @mixin mat-elevation-transition(
-    $duration: $mat-elevation-transition-duration,
-    $easing: $mat-elevation-transition-timing-function) {
+  $duration: $mat-elevation-transition-duration,
+  $easing: $mat-elevation-transition-timing-function
+) {
   transition: mat-elevation-transition-property-value($duration, $easing);
 }

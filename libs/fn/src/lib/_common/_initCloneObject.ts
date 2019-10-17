@@ -9,7 +9,5 @@ import { isPrototype } from './_isPrototype';
  * Returns the initialized clone.
  */
 export function initCloneObject(object) {
-  return typeof object.constructor === 'function' && !isPrototype(object)
-    ? baseCreate(getPrototype(object))
-    : {};
+  return typeof object.constructor === 'function' && !isPrototype(object) ? baseCreate(getPrototype(object)) : {};
 }

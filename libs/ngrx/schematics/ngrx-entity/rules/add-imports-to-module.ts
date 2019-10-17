@@ -12,17 +12,8 @@ export function addImportsToModule(context: RequestContext): Rule {
     const modulePath = context.options.module;
     // tslint:disable-next-line:no-non-null-assertion
     const sourceText = host.read(modulePath)!.toString('utf-8');
-    const source = ts.createSourceFile(
-      modulePath,
-      sourceText,
-      ts.ScriptTarget.Latest,
-      true
-    );
-    const addImport = (
-      symbolName: string,
-      fileName: string,
-      isDefault = false
-    ): Change => {
+    const source = ts.createSourceFile(modulePath, sourceText, ts.ScriptTarget.Latest, true);
+    const addImport = (symbolName: string, fileName: string, isDefault = false): Change => {
       return insertImport(source, modulePath, symbolName, fileName, isDefault);
     };
 
@@ -79,22 +70,20 @@ export function addImportsToModule(context: RequestContext): Rule {
         ...addImportToModule(source, modulePath, storeForRoot),
         ...addImportToModule(source, modulePath, effectsForEmptyRoot),
         ...addImportToModule(source, modulePath, devTools),
-        ...(hasRouter
-          ? addImportToModule(source, modulePath, storeRouterModule)
-          : [])
+        ...(hasRouter ? addImportToModule(source, modulePath, storeRouterModule) : []),
       ]);
     } else {
       let common = [
         addImport.apply(this, storeModule),
         addImport.apply(this, effectsModule),
         addImport(reducerImports, reducerPath, true),
-        addImport(effectsName, effectsPath)
+        addImport(effectsName, effectsPath),
       ];
       if (context.options.facade) {
         common = [
           ...common,
           addImport(facadeName, facadePath),
-          ...addProviderToModule(source, modulePath, `${facadeName}`)
+          ...addProviderToModule(source, modulePath, `${facadeName}`),
         ];
       }
 
@@ -105,22 +94,18 @@ export function addImportsToModule(context: RequestContext): Rule {
           addImport.apply(this, storeDevTools),
           addImport.apply(this, environment),
           ...(hasRouter ? [addImport.apply(this, storeRouter)] : []),
-          ...(!hasNxModule
-            ? addImportToModule(source, modulePath, nxModule)
-            : []),
+          ...(!hasNxModule ? addImportToModule(source, modulePath, nxModule) : []),
           ...addImportToModule(source, modulePath, storeForRoot),
           ...addImportToModule(source, modulePath, effectsForRoot),
           ...addImportToModule(source, modulePath, devTools),
-          ...(hasRouter
-            ? addImportToModule(source, modulePath, storeRouterModule)
-            : []),
-          ...addImportToModule(source, modulePath, storeForFeature)
+          ...(hasRouter ? addImportToModule(source, modulePath, storeRouterModule) : []),
+          ...addImportToModule(source, modulePath, storeForFeature),
         ]);
       } else {
         insert(host, modulePath, [
           ...common,
           ...addImportToModule(source, modulePath, storeForFeature),
-          ...addImportToModule(source, modulePath, effectsForFeature)
+          ...addImportToModule(source, modulePath, effectsForFeature),
         ]);
       }
     }

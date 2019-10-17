@@ -11,13 +11,7 @@ import { isFlattenable } from './_isFlattenable';
  * @param [isStrict] Restrict to values that pass `_predicate` checks.
  * @param [result=[]] The initial result value.
  */
-export function baseFlatten(
-  array: any[],
-  depth: number,
-  predicate?: any,
-  isStrict?: boolean,
-  result?: any[],
-): any[] {
+export function baseFlatten(array: any[], depth: number, predicate?: any, isStrict?: boolean, result?: any[]): any[] {
   let index = -1;
   const length = array.length;
 

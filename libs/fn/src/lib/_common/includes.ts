@@ -32,12 +32,7 @@ const nativeMax = Math.max;
  * _.includes('abcd', 'bc');
  * // => true
  */
-export function includes(
-  collection: any[] | any | string,
-  value: any,
-  fromIndex?: number,
-  guard?: any
-): boolean {
+export function includes(collection: any[] | any | string, value: any, fromIndex?: number, guard?: any): boolean {
   collection = isArrayLike(collection) ? collection : values(collection);
   fromIndex = fromIndex && !guard ? toInteger(fromIndex) : 0;
 
