@@ -38,7 +38,7 @@ export const select<%= className %>Total = createSelector(
 
 export const selectCurrent<%= className %>Id = createSelector(
   getSelect<%= className %>State,
-  (state: fromReducer.ChatState) => state.selectedId
+  (state: fromReducer.<%= className %>State) => state.selectedId
 );
 
 export const selectCurrent<%= className %> = createSelector(
