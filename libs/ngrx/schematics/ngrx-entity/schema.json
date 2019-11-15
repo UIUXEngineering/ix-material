@@ -15,7 +15,7 @@
     },
     "module": {
       "type": "string",
-      "description": "The path to NgModule where the feature state will be registered. The host directory will create/use the new state directory.",
+      "description": "The path relative from root to NgModule where the feature state will be registered. The host directory will create/use the new state directory.",
       "x-prompt": "What is the path to the module where this NgRx state should be registered?"
     },
     "directory": {
