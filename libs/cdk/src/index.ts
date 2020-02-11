@@ -3,6 +3,7 @@ export * from './lib/constants/constants';
 export * from './lib/browser/ixBrowserModule';
 export * from './lib/browser/ixBrowserService';
 export * from './lib/browser/supportsShadowDom';
+export * from './lib/browser/stopEvent';
 
 export * from './lib/dynamic-components/ixCmpHost.directive';
 export * from './lib/dynamic-components/ixComponentItem';

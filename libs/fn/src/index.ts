@@ -239,8 +239,6 @@ export * from './lib/_common/words';
 
 export * from './lib/_date/millisecond';
 
-export * from './lib/_event/stopEvent';
-
 // export * from './lib/_guid/guid';
 export * from './lib/_guid/uuid';
 
