@@ -9,20 +9,12 @@
   },
   "projects": {
     "uiux-e2e": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["uiux"]
     },
     "uiux": {
       "tags": ["ix"],
-      "implicitDependencies": [
-        "firebase",
-        "services",
-        "rxjs",
-        "d3",
-        "material",
-        "cdk",
-        "fn",
-        "icons"
-      ]
+      "implicitDependencies": ["firebase", "services", "rxjs", "d3", "material", "cdk", "fn", "icons"]
     },
     "fn": {
       "tags": ["fn"],
