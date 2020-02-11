@@ -1,9 +1,9 @@
 {
   "name": "@uiux/device",
-  "version": "8.2.4",
+  "version": "9.0.0",
   "peerDependencies": {
-    "@angular/common": "^8.1.1",
-    "@angular/core": "^8.1.1",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
     "@ngrx/effects": "^8.2.0",
     "@ngrx/entity": "^8.2.0",
     "@ngrx/schematics": "^8.2.0",
