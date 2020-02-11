@@ -2,7 +2,6 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { Injectable, NgZone } from '@angular/core';
 import { Actions, Effect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { DataPersistence } from '@nrwl/angular';
 import { hasValueIn } from '@uiux/fn';
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -73,7 +72,7 @@ export class DeviceEffects implements OnInitEffects {
 
   constructor(
     private actions$: Actions,
-    private dataPersistence: DataPersistence<DevicePartialState>,
+    // private dataPersistence: DataPersistence<DevicePartialState>,
     private deviceFacade: DeviceFacade,
     private zone: NgZone,
     private breakpointObserver: BreakpointObserver,
