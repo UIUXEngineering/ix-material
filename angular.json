@@ -81,7 +81,8 @@
           "options": {
             "jestConfig": "apps/uiux/jest.config.js",
             "tsConfig": "apps/uiux/tsconfig.spec.json",
-            "setupFile": "apps/uiux/src/test-setup.ts"
+            "setupFile": "apps/uiux/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       }
@@ -139,7 +140,8 @@
           "options": {
             "jestConfig": "libs/fn/jest.config.js",
             "tsConfig": "libs/fn/tsconfig.spec.json",
-            "setupFile": "libs/fn/src/test-setup.ts"
+            "setupFile": "libs/fn/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -174,7 +176,8 @@
           "options": {
             "jestConfig": "libs/cdk/jest.config.js",
             "tsConfig": "libs/cdk/tsconfig.spec.json",
-            "setupFile": "libs/cdk/src/test-setup.ts"
+            "setupFile": "libs/cdk/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -209,7 +212,8 @@
           "options": {
             "jestConfig": "libs/d3/jest.config.js",
             "tsConfig": "libs/d3/tsconfig.spec.json",
-            "setupFile": "libs/d3/src/test-setup.ts"
+            "setupFile": "libs/d3/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -244,7 +248,8 @@
           "options": {
             "jestConfig": "libs/dal/jest.config.js",
             "tsConfig": "libs/dal/tsconfig.spec.json",
-            "setupFile": "libs/dal/src/test-setup.ts"
+            "setupFile": "libs/dal/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -279,7 +284,8 @@
           "options": {
             "jestConfig": "libs/icons/jest.config.js",
             "tsConfig": "libs/icons/tsconfig.spec.json",
-            "setupFile": "libs/icons/src/test-setup.ts"
+            "setupFile": "libs/icons/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -314,7 +320,8 @@
           "options": {
             "jestConfig": "libs/material/jest.config.js",
             "tsConfig": "libs/material/tsconfig.spec.json",
-            "setupFile": "libs/material/src/test-setup.ts"
+            "setupFile": "libs/material/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -349,7 +356,8 @@
           "options": {
             "jestConfig": "libs/rxjs/jest.config.js",
             "tsConfig": "libs/rxjs/tsconfig.spec.json",
-            "setupFile": "libs/rxjs/src/test-setup.ts"
+            "setupFile": "libs/rxjs/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -384,7 +392,8 @@
           "options": {
             "jestConfig": "libs/services/jest.config.js",
             "tsConfig": "libs/services/tsconfig.spec.json",
-            "setupFile": "libs/services/src/test-setup.ts"
+            "setupFile": "libs/services/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -419,7 +428,8 @@
           "options": {
             "jestConfig": "libs/firebase/jest.config.js",
             "tsConfig": "libs/firebase/tsconfig.spec.json",
-            "setupFile": "libs/firebase/src/test-setup.ts"
+            "setupFile": "libs/firebase/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -454,7 +464,8 @@
           "options": {
             "jestConfig": "libs/device/jest.config.js",
             "tsConfig": "libs/device/tsconfig.spec.json",
-            "setupFile": "libs/device/src/test-setup.ts"
+            "setupFile": "libs/device/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -489,7 +500,8 @@
           "options": {
             "jestConfig": "libs/ngrx/jest.config.js",
             "tsConfig": "libs/ngrx/tsconfig.spec.json",
-            "setupFile": "libs/ngrx/src/test-setup.ts"
+            "setupFile": "libs/ngrx/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
