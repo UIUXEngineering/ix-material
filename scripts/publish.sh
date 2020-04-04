@@ -32,9 +32,9 @@ cd "$ROOT_DIR/libs/icons"
 echo $PWD
 npm publish --access public
 
-cd "$ROOT_DIR/dist/libs/material"
-echo $PWD
-npm publish --access public
+#cd "$ROOT_DIR/dist/libs/material"
+#echo $PWD
+#npm publish --access public
 
 cd "$ROOT_DIR/dist/libs/ngrx"
 echo $PWD
