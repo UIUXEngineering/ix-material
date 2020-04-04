@@ -1,5 +1,6 @@
-export * from './lib/_array/getRandomFromArray';
-export * from './lib/_array/getRandomRangeFromArray';
+export * from './lib/_collection/getRandomFromArray';
+export * from './lib/_collection/getRandomRangeFromArray';
+export * from './lib/_collection/keysAreTruthyInCollection';
 
 // export * from './lib/_common/_apply';
 // export * from './lib/_common/_arrayEach';
