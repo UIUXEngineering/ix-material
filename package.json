@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "nx": "nx",
+    "ci": "rm -rf node_modules; yarn install --frozen-lockfile",
     "start": "ng serve",
     "build": "ng build",
     "build.projects": "bash scripts/build.sh",

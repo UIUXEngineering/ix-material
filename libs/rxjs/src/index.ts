@@ -1,5 +1,3 @@
-export * from './lib/rxjs.module';
-
 export * from './lib/subjects/behavior-defined-subject';
 export * from './lib/subjects/behavior-store-subject';
 export * from './lib/subjects/behavior-value-subject';
