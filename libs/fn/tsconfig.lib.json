@@ -10,10 +10,10 @@
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
     "enableResourceInlining": true,
     "enableIvy": false
   },
