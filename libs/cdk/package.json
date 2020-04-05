@@ -1,6 +1,6 @@
 {
   "name": "@uiux/cdk",
-  "version": "9.0.3",
+  "version": "9.0.6",
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",
