@@ -1,11 +1,11 @@
 {
   "name": "@uiux/cdk",
-  "version": "9.0.6",
+  "version": "9.0.7",
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",
     "@angular/forms": "^9.0.0",
-    "@uiux/fn": "^8.1.15",
+    "@uiux/fn": "^9.0.0",
     "rxjs": "^6.5.2"
   }
 }
