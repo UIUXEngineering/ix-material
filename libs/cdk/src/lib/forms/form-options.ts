@@ -1,6 +1,7 @@
 export interface LabelOptions {
   ALWAYS: string;
   NEVER: string;
+  AUTO: string;
 }
 
 export interface AppearanceOptions {
@@ -19,6 +20,7 @@ export const FORM_OPTIONS: FormOptions = {
   FLOAT_LABEL: {
     ALWAYS: 'always',
     NEVER: 'never',
+    AUTO: 'auto',
   },
   APPEARANCE: {
     LEGACY: 'legacy',

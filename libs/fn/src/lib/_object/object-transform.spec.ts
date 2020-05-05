@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { transform } from './transform';
+import { objectTransform } from './object-transform';
 
 describe('transform', () => {
   it('should return _object with mapped values', () => {
@@ -33,7 +33,7 @@ describe('transform', () => {
       d3: 'd[0].d1[0].d3',
     };
 
-    const r: any = transform(source, map);
+    const r: any = objectTransform(source, map);
 
     expect(r.a).toBe('a');
     expect(r.b1).toBe('b1');
@@ -65,7 +65,7 @@ describe('transform', () => {
       d3: 'd[0].d1[0].d3',
     };
 
-    const r: any = transform(source, map);
+    const r: any = objectTransform(source, map);
 
     expect(r.a).toBe('a');
     expect(r.b1).toBe('b1');
@@ -97,7 +97,7 @@ describe('transform', () => {
       'z.z1[0]': 'd[0].d1[0].d3',
     };
 
-    const r: any = transform(source, map);
+    const r: any = objectTransform(source, map);
 
     expect(r.w).toBe('a');
     expect(r.x.x1).toBe('b1');

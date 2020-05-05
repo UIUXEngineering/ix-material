@@ -5,10 +5,10 @@
  */
 import { isObject } from '../_common/isObject';
 import { isEqual } from '../_common/isEqual';
-import { transform } from './transform';
+import { objectTransform } from './object-transform';
 
 export function differenceObject(object: any, base: any): any {
-  return transform(object, function(result, value, key) {
+  return objectTransform(object, function(result, value, key) {
     if (!isEqual(value, base[key])) {
       result[key] = isObject(value) && isObject(base[key]) ? differenceObject(value, base[key]) : value;
     }
