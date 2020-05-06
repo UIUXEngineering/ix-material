@@ -208,6 +208,7 @@ export * from './lib/_common/memoize';
 export * from './lib/_common/merge';
 export * from './lib/_common/mergeIn';
 export * from './lib/_common/mergePropsIfNoValue';
+export * from './lib/_common/mergePropsIfSourceHasValue';
 export * from './lib/_common/mergeWith';
 export * from './lib/_common/mergeWithoutArray';
 export * from './lib/_common/propsWithNoValue';
