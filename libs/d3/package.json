@@ -1,6 +1,6 @@
 {
   "name": "@uiux/d3",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "peerDependencies": {
     "d3-selection": "^1.4.0",
     "rxjs": "^6.5.2"

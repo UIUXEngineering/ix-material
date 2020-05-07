@@ -5,6 +5,7 @@
 
 import { isPlainObject } from './isPlainObject';
 import { hasValue } from './hasValue';
+import { keys } from './keys';
 
 /**
  * Only merge a value from a source object to the target object if it has value
@@ -16,7 +17,7 @@ export function mergePropsIfSourceHasValue(target: any, source: any): any {
     return target;
   }
 
-  const sourceKeys: string[] = Object.keys(source);
+  const sourceKeys: string[] = keys(source);
 
   // Walk over keys of source object
   for (let i = 0; i < sourceKeys.length; i++) {

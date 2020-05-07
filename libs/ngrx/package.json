@@ -1,6 +1,6 @@
 {
   "name": "@uiux/ngrx",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:schemas": "rsync -avm --include='schematics/*/*.json' -f 'hide,! */' . ../../dist/libs/ngrx",
