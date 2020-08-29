@@ -9,7 +9,7 @@ import { isArray } from '../_common/isArray';
 import { isEmpty } from '../_common/isEmpty';
 import { hasValue } from '../_common/hasValue';
 import { isPlainObject } from '../_common/isPlainObject';
-import { objectTransform } from './object-transform';
+import { objectTransform } from './objectTransform';
 
 export function valuesEqualHash(target: any, source: any, paths: string[] | any): boolean {
   if (isPlainObject(target) && isPlainObject(source) && hasValue(paths)) {

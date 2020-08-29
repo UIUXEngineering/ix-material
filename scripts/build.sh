@@ -3,16 +3,13 @@
 ROOT_DIR=$PWD;
 
 rm -rf dist/libs
-ng build fn
-ng build cdk
-ng build rxjs
-ng build device
-ng build firebase
-ng build services
-ng build dal
+
 ng build d3
-#ng build material
+ng build dal
+ng build firebase
+ng build fn
 ng build ngrx
+ng build rxjs
 
 #bash ./scripts/build-prebuilt-themes-mat.sh
 #bash ./scripts/build-app-themes.sh

@@ -1,7 +1,0 @@
-{
-  "entry": "./libs/material/_theming.scss",
-  "dest": "dist/libs/material/theming.scss",
-  "ignoredImports": [
-    "~@angular.*"
-  ]
-}

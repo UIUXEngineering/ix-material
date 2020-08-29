@@ -273,6 +273,7 @@ export * from './lib/_object/isDefinedIn';
 export * from './lib/_object/keyConverter';
 export * from './lib/_object/keysAreTruthy';
 export * from './lib/_object/keysHaveValue';
+export * from './lib/_object/objectTransform';
 export * from './lib/_object/searchObjectByKeys';
 export * from './lib/_object/searchValuesByMatch';
 export * from './lib/_object/updateIn';

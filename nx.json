@@ -16,14 +16,6 @@
       "tags": ["ix"],
       "implicitDependencies": ["firebase", "services", "rxjs", "d3", "material", "cdk", "fn", "icons"]
     },
-    "fn": {
-      "tags": ["fn"],
-      "implicitDependencies": []
-    },
-    "cdk": {
-      "tags": ["cdk"],
-      "implicitDependencies": ["fn"]
-    },
     "d3": {
       "tags": ["d3"],
       "implicitDependencies": ["services", "rxjs", "cdk", "fn", "icons"]
@@ -32,31 +24,24 @@
       "tags": ["dal"],
       "implicitDependencies": ["fn", "cdk"]
     },
-    "icons": {
-      "tags": ["icons"],
-      "implicitDependencies": []
-    },
-    "material": {
-      "tags": ["material"],
-      "implicitDependencies": ["services", "rxjs", "d3", "cdk", "fn", "icons"]
-    },
-    "rxjs": {
-      "tags": ["rxjs"],
-      "implicitDependencies": ["fn"]
-    },
-    "services": {
-      "tags": ["services"],
-      "implicitDependencies": ["fn", "rxjs", "cdk"]
-    },
     "firebase": {
       "tags": ["firebase"],
       "implicitDependencies": ["fn", "rxjs", "cdk"]
     },
-    "device": {
-      "tags": ["device"]
+    "fn": {
+      "tags": ["fn"],
+      "implicitDependencies": []
+    },
+    "icons": {
+      "tags": ["icons"],
+      "implicitDependencies": []
     },
     "ngrx": {
       "tags": ["ngrx"]
+    },
+    "rxjs": {
+      "tags": ["rxjs"],
+      "implicitDependencies": ["fn"]
     }
   },
   "tasksRunnerOptions": {

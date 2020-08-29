@@ -3,7 +3,7 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 
-import { objectTransform } from './object-transform';
+import { objectTransform } from './objectTransform';
 
 describe('transform', () => {
   it('should return _object with mapped values', () => {
