@@ -1,6 +1,6 @@
 {
   "name": "ix-utilities",
-  "version": "10.0.0",
+  "version": "10.1.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -10,7 +10,7 @@
     "unlink.libs": "bash scripts/unlink.sh",
     "start": "ng serve",
     "build": "ng build",
-    "build.projects": "bash scripts/build.sh",
+    "build.projects": "bash build.sh",
     "test": "ng test",
     "test.projects": "bash scripts/test.sh",
     "lint": "nx workspace-lint && ng lint",
@@ -75,6 +75,7 @@
     "husky": "^3.0.9",
     "rxjs": "~6.6.2",
     "strip-json-comments": "2.0.1",
+    "tsickle": "^0.39.1",
     "tslib": "^1.9.0",
     "zone.js": "^0.10.2"
   },

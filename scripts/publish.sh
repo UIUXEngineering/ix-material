@@ -4,19 +4,12 @@ ROOT_DIR=$PWD;
 
 #rsync -r "$ROOT_DIR/libs/material/schematics" "$ROOT_DIR/dist/@uiux/material"
 
-cd "$ROOT_DIR/dist/libs/cdk"
-echo $PWD
-npm publish --access public
 
 cd "$ROOT_DIR/dist/libs/d3"
 echo $PWD
 npm publish --access public
 
 cd "$ROOT_DIR/dist/libs/dal"
-echo $PWD
-npm publish --access public
-
-cd "$ROOT_DIR/dist/libs/device"
 echo $PWD
 npm publish --access public
 
@@ -36,16 +29,7 @@ npm publish --access public
 #echo $PWD
 #npm publish --access public
 
-cd "$ROOT_DIR/dist/libs/ngrx"
-echo $PWD
-npm publish --access public
-
 cd "$ROOT_DIR/dist/libs/rxjs"
-echo $PWD
-npm publish --access public
-
-
-cd "$ROOT_DIR/dist/libs/services"
 echo $PWD
 npm publish --access public
 
