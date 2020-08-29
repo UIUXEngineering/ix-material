@@ -9,7 +9,7 @@ import {
   incSemveRC,
   incSemverMajor,
   incSemverMinor,
-  incSemverPatch
+  incSemverPatch,
 } from '../util/inc_semver';
 
 const merge = require('merge-stream');
@@ -17,22 +17,10 @@ const gBump = require('gulp-bump');
 const LOG_COLOR = 'green';
 
 /**
- * cdk
- * @param version
- */
-function updateCDK( version: string ): any {
-
-  return src('./libs/cdk/package.json')
-    .pipe(logPipe('cdk', LOG_COLOR))
-    .pipe(gBump({ version: version }))
-    .pipe(dest('./libs/cdk/'));
-}
-
-/**
  * d3
  * @param version
  */
-function updated3( version: string ): any {
+function updated3(version: string): any {
   return src('./libs/d3/package.json')
     .pipe(logPipe('d3', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -40,22 +28,10 @@ function updated3( version: string ): any {
 }
 
 /**
- * device
- * @param version
- */
-function updateDevice( version: string ): any {
-  return src('./libs/device/package.json')
-    .pipe(logPipe('device', LOG_COLOR))
-    .pipe(gBump({ version: version }))
-    .pipe(dest('./libs/device/'));
-}
-
-/**
  * dal
  * @param version
  */
-function updateDAL( version: string ): any {
-
+function updateDAL(version: string): any {
   return src('./libs/dal/package.json')
     .pipe(logPipe('dal', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -66,8 +42,7 @@ function updateDAL( version: string ): any {
  * dal
  * @param version
  */
-function updateFirebase( version: string ): any {
-
+function updateFirebase(version: string): any {
   return src('./libs/firebase/package.json')
     .pipe(logPipe('firebase', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -78,8 +53,7 @@ function updateFirebase( version: string ): any {
  * fn
  * @param version
  */
-function updateFN( version: string ): any {
-
+function updateFN(version: string): any {
   return src('./libs/fn/package.json')
     .pipe(logPipe('fn', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -90,8 +64,7 @@ function updateFN( version: string ): any {
  * icons
  * @param version
  */
-function updateIcons( version: string ): any {
-
+function updateIcons(version: string): any {
   return src('libs/icons/package.json')
     .pipe(logPipe('icons', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -99,23 +72,10 @@ function updateIcons( version: string ): any {
 }
 
 /**
- * material
- * @param version
- */
-function updateMaterial( version: string ): any {
-
-  return src('./libs/material/package.json')
-    .pipe(logPipe('material', LOG_COLOR))
-    .pipe(gBump({ version: version }))
-    .pipe(dest('./libs/material/'));
-}
-
-/**
  * ngrx
  * @param version
  */
-function updatNgrx( version: string ): any {
-
+function updatNgrx(version: string): any {
   return src('./libs/ngrx/package.json')
     .pipe(logPipe('ngrx', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -126,8 +86,7 @@ function updatNgrx( version: string ): any {
  * rxjs
  * @param version
  */
-function updaterxjs( version: string ): any {
-
+function updaterxjs(version: string): any {
   return src('./libs/rxjs/package.json')
     .pipe(logPipe('rxjs', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -138,8 +97,7 @@ function updaterxjs( version: string ): any {
  * services
  * @param version
  */
-function updatesvc( version: string ): any {
-
+function updatesvc(version: string): any {
   return src('./libs/services/package.json')
     .pipe(logPipe('services', LOG_COLOR))
     .pipe(gBump({ version: version }))
@@ -150,39 +108,34 @@ function updatesvc( version: string ): any {
  * root
  * @param version
  */
-function updateRoot( version: string ): any {
-
+function updateRoot(version: string): any {
   return src('./package.json')
     .pipe(logPipe('package.json', LOG_COLOR))
     .pipe(gBump({ version: version }))
     .pipe(dest('./'));
 }
 
-function updatePackages( version: string ): any {
-  return merge(updateCDK(version),
+function updatePackages(version: string): any {
+  return merge(
     updated3(version),
     updateDAL(version),
-    updateDevice(version),
     updateFirebase(version),
     updateFN(version),
     updateIcons(version),
-    updateMaterial(version),
     updatNgrx(version),
     updaterxjs(version),
-    updatesvc(version),
     updateRoot(version),
-    copyAppPkg());
+    copyAppPkg()
+  );
 }
 
 // example: yarn run bump --ver=8.0.1
 task('bump', () => {
-  const newVersion: string = <string>argv[ 'ver' ];
+  const newVersion: string = <string>argv['ver'];
   return updatePackages(newVersion);
 });
 
-function bump() {
-
-}
+function bump() {}
 
 task('bump.major', () => {
   const newVersion = incSemverMajor();
@@ -223,4 +176,3 @@ task('bump.rc', () => {
   const newVersion = incSemveRC();
   return updatePackages(newVersion);
 });
-
