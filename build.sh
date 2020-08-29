@@ -4,12 +4,11 @@ ROOT_DIR=$PWD;
 
 rm -rf dist/libs
 
-ng build d3
-ng build dal
-ng build firebase
-ng build fn
-ng build ngrx
-ng build rxjs
+nx build fn
+nx build rxjs
+nx build d3
+nx build dal
+nx build firebase
 
 #bash ./scripts/build-prebuilt-themes-mat.sh
 #bash ./scripts/build-app-themes.sh

@@ -14,19 +14,19 @@
     },
     "uiux": {
       "tags": ["ix"],
-      "implicitDependencies": ["firebase", "services", "rxjs", "d3", "material", "cdk", "fn", "icons"]
+      "implicitDependencies": ["firebase", "rxjs", "d3", "fn", "icons"]
     },
     "d3": {
       "tags": ["d3"],
-      "implicitDependencies": ["services", "rxjs", "cdk", "fn", "icons"]
+      "implicitDependencies": ["rxjs", "fn", "icons"]
     },
     "dal": {
       "tags": ["dal"],
-      "implicitDependencies": ["fn", "cdk"]
+      "implicitDependencies": ["fn"]
     },
     "firebase": {
       "tags": ["firebase"],
-      "implicitDependencies": ["fn", "rxjs", "cdk"]
+      "implicitDependencies": ["fn", "rxjs"]
     },
     "fn": {
       "tags": ["fn"],
@@ -35,9 +35,6 @@
     "icons": {
       "tags": ["icons"],
       "implicitDependencies": []
-    },
-    "ngrx": {
-      "tags": ["ngrx"]
     },
     "rxjs": {
       "tags": ["rxjs"],

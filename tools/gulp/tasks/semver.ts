@@ -72,17 +72,6 @@ function updateIcons(version: string): any {
 }
 
 /**
- * ngrx
- * @param version
- */
-function updatNgrx(version: string): any {
-  return src('./libs/ngrx/package.json')
-    .pipe(logPipe('ngrx', LOG_COLOR))
-    .pipe(gBump({ version: version }))
-    .pipe(dest('./libs/ngrx/'));
-}
-
-/**
  * rxjs
  * @param version
  */
@@ -122,7 +111,6 @@ function updatePackages(version: string): any {
     updateFirebase(version),
     updateFN(version),
     updateIcons(version),
-    updatNgrx(version),
     updaterxjs(version),
     updateRoot(version),
     copyAppPkg()
