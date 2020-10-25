@@ -5,6 +5,6 @@
  * @param key The key to check.
  * Returns `true` if `key` exists, else `false`.
  */
-export function baseHasIn(object: any, key: string | string[]): boolean {
+export function baseHasIn(object: any, key: string): boolean {
   return object != null && key in Object(object);
 }
