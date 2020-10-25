@@ -86,9 +86,9 @@
     "@angular/compiler-cli": "^10.0.0",
     "@angular/language-service": "^10.0.0",
     "@compodoc/compodoc": "^1.1.10",
-    "@nrwl/cypress": "10.1.0",
-    "@nrwl/jest": "10.1.0",
-    "@nrwl/workspace": "10.1.0",
+    "@nrwl/cypress": "10.3.1",
+    "@nrwl/jest": "10.3.1",
+    "@nrwl/workspace": "10.3.1",
     "@types/gulp": "^4.0.6",
     "@types/jest": "26.0.8",
     "@types/merge-stream": "^1.1.2",
@@ -107,10 +107,11 @@
     "pretty-quick": "^2.0.0",
     "scss-bundle": "^2.5.1",
     "through2": "^3.0.1",
-    "ts-jest": "26.1.4",
+    "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~3.9.3"
+    "typescript": "~4.0.3",
+    "@nrwl/cli": "10.1.0"
   },
   "husky": {
     "hooks": {
