@@ -288,3 +288,4 @@ export * from './lib/_predicate/isSimpleChange';
 export * from './lib/_string/starts-or-ends-with-whitespace';
 
 export * from './lib/_util/getFileExtension';
+export * from './lib/_util/getFileName';

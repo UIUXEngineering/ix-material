@@ -275,4 +275,30 @@ describe('mergePropsIfSourceHasValue', () => {
       updatedAt: 2,
     });
   });
+
+  it('should pass target if source is null', () => {
+    const nested1: any = {
+      a: null,
+      b: null,
+      c: null,
+      d: null,
+      e: {
+        nestedE: {
+          nestedEValue1: null,
+          nestedEValue2: null,
+          nestedEValue3: null,
+        },
+        eValue: null,
+      },
+      g: null, // no value
+      createdAt: null,
+      updatedAt: null,
+    };
+
+    const nested2: any = null;
+
+    const r: any = mergePropsIfSourceHasValue(nested1, nested2);
+
+    expect(r).toEqual(nested1);
+  });
 });
