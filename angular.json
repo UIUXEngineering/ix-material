@@ -36,7 +36,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -120,7 +119,7 @@
       "prefix": "ix",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "libs/d3/tsconfig.lib.json",
             "project": "libs/d3/ng-package.json"
@@ -154,7 +153,7 @@
       "prefix": "ix",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "libs/dal/tsconfig.lib.json",
             "project": "libs/dal/ng-package.json"
@@ -188,7 +187,7 @@
       "prefix": "ix",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "libs/firebase/tsconfig.lib.json",
             "project": "libs/firebase/ng-package.json"
@@ -222,7 +221,7 @@
       "prefix": "ix",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "libs/fn/tsconfig.lib.json",
             "project": "libs/fn/ng-package.json"
@@ -256,7 +255,7 @@
       "prefix": "ix",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "libs/icons/tsconfig.lib.json",
             "project": "libs/icons/ng-package.json"
@@ -290,7 +289,7 @@
       "prefix": "ix",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "libs/rxjs/tsconfig.lib.json",
             "project": "libs/rxjs/ng-package.json"
