@@ -1,6 +1,6 @@
 {
   "name": "@uiux/rxjs",
-  "version": "11.0.1",
+  "version": "11.0.2",
   "peerDependencies": {
     "@uiux/fn": "^11.0.0"
   }

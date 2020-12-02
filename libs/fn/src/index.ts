@@ -1,3 +1,4 @@
+export * from './lib/_collection/collectionItemsHaveValue';
 export * from './lib/_collection/getRandomFromArray';
 export * from './lib/_collection/getRandomRangeFromArray';
 export * from './lib/_collection/keysAreTruthyInCollection';
