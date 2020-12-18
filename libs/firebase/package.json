@@ -1,5 +1,4 @@
 {
   "name": "@uiux/firebase",
-  "version": "11.0.2",
-  "peerDependencies": {}
+  "version": "11.0.3"
 }
