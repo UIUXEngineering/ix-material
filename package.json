@@ -76,7 +76,7 @@
     "rxjs": "~6.6.3",
     "strip-json-comments": "2.0.1",
     "tsickle": "^0.39.1",
-    "tslib": "^2.0.0",
+    "tslib": "^2.0.3",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
