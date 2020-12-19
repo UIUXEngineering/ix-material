@@ -1,4 +1,4 @@
-import { pipeAssignObject } from './pipeAssignObject';
+import { objectMethodAssign, assignMethod } from './objectMethodAssign';
 
 describe('pipeAssignObject', () => {
   it('should mutate object one level', () => {
@@ -18,7 +18,7 @@ describe('pipeAssignObject', () => {
       };
     };
 
-    const result = pipeAssignObject(target, [[setB, { b: 'foo' }]]);
+    const result = objectMethodAssign(target).pipe(assignMethod(setB, { b: 'foo' }));
 
     expect(result.b).toBe('foo');
   });
@@ -50,10 +50,7 @@ describe('pipeAssignObject', () => {
       };
     };
 
-    const result = pipeAssignObject(target, [
-      [setB, { b: 'foo' }],
-      [setD, { e: 'bar' }],
-    ]);
+    const result = objectMethodAssign(target).pipe(assignMethod(setB, { b: 'foo' }), assignMethod(setD, { e: 'bar' }));
 
     expect(result.b).toBe('foo');
     expect(result.c.e).toBe('bar');
