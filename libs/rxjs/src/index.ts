@@ -5,6 +5,7 @@ export * from './lib/subjects/distinct-subject';
 export * from './lib/subjects/fork-join-subject';
 
 export * from './lib/pipes/clone-pipe';
+export * from './lib/pipes/distinct-until-json-changed';
 export * from './lib/pipes/has-value-pipe';
 export * from './lib/pipes/has-value-in-pipe';
 export * from './lib/pipes/is-defined-pipe';

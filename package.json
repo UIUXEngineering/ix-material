@@ -1,6 +1,6 @@
 {
   "name": "ix-utilities",
-  "version": "11.0.5",
+  "version": "11.0.7",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
