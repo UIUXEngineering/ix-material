@@ -2,10 +2,10 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Observable } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 import { hasValue } from '@uiux/fn';
 
-export function hasValuePipe<T>(): (source: Observable<T>) => Observable<T> {
+export function hasValuePipe<T>(): OperatorFunction<T, T> {
   return (source: Observable<T>): Observable<T> => {
     return new Observable((observer) => {
       return source.subscribe({

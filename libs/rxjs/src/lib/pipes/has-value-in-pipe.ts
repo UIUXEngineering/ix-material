@@ -3,9 +3,9 @@ import { hasValueIn } from '@uiux/fn';
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Observable } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 
-export function hasValueInPipe<T>(keys: string | string[]): (source: Observable<T>) => Observable<T> {
+export function hasValueInPipe<T>(keys: string | string[]): OperatorFunction<T, T> {
   return (source: Observable<T>): Observable<T> => {
     return new Observable((observer) => {
       return source.subscribe({

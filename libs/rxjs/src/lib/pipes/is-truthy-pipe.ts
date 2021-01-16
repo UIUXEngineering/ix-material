@@ -2,10 +2,10 @@
  * @license
  * Copyright UIUX Engineering All Rights Reserved.
  */
-import { Observable } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 import { isTruthy } from '@uiux/fn';
 
-export function isTruthyPipe<T>(): (source: Observable<T>) => Observable<T> {
+export function isTruthyPipe<T>(): OperatorFunction<T, T> {
   return (source: Observable<T>): Observable<T> => {
     return new Observable((observer) => {
       return source.subscribe({

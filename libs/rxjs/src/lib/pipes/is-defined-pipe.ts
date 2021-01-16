@@ -3,9 +3,9 @@
  * Copyright UIUX Engineering All Rights Reserved.
  */
 import { isDefined } from '@uiux/fn';
-import { Observable } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 
-export function isDefinedPipe<T>(): (source: Observable<T>) => Observable<T> {
+export function isDefinedPipe<T>(): OperatorFunction<T, T> {
   return (source: Observable<T>): Observable<T> => {
     return new Observable((observer) => {
       return source.subscribe({
