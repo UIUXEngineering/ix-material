@@ -5,7 +5,7 @@
 import { isDefined } from '@uiux/fn';
 import { Observable } from 'rxjs';
 
-export function isDefinedPipe<T>(): any {
+export function isDefinedPipe<T>(): (source: Observable<T>) => Observable<T> {
   return (source: Observable<T>): Observable<T> => {
     return new Observable((observer) => {
       return source.subscribe({

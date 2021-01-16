@@ -5,7 +5,7 @@ import { isTruthyIn } from '@uiux/fn';
  */
 import { Observable } from 'rxjs';
 
-export function isTruthyInPipe<T>(keys: string | string[]): any {
+export function isTruthyInPipe<T>(keys: string | string[]): (source: Observable<T>) => Observable<T> {
   return (source: Observable<T>): Observable<T> => {
     return new Observable((observer) => {
       return source.subscribe({
